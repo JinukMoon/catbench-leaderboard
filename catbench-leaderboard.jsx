@@ -37,12 +37,25 @@ const CatBenchLeaderboard = ({ data }) => {
   const [showAdsorbateDetails, setShowAdsorbateDetails] = useState(false); // 흡착물 상세 표시 여부
   const [showDatasetDetails, setShowDatasetDetails] = useState(false); // 데이터셋 상세 표시 여부
   const [selectedMlipTab, setSelectedMlipTab] = useState(null); // MLIP별 탭 선택
+  const [tabTransition, setTabTransition] = useState(false); // 탭 전환 애니메이션
+  const [hoveredModel, setHoveredModel] = useState(null); // 호버된 모델
+  const [searchQuery, setSearchQuery] = useState(''); // 모델 검색 쿼리
+  const [datasetSearchQuery, setDatasetSearchQuery] = useState(''); // 데이터셋 검색 쿼리
 
   // 사용 가능한 데이터셋 목록 가져오기
-  const availableDatasets = useMemo(() => {
+  const allAvailableDatasets = useMemo(() => {
     if (!data) return [];
     return getAvailableDatasets(data);
   }, [data]);
+
+  // 검색 필터링된 데이터셋 목록
+  const availableDatasets = useMemo(() => {
+    if (!datasetSearchQuery.trim()) return allAvailableDatasets;
+    const query = datasetSearchQuery.toLowerCase();
+    return allAvailableDatasets.filter(dataset => 
+      dataset.toLowerCase().includes(query)
+    );
+  }, [allAvailableDatasets, datasetSearchQuery]);
 
   // 초기 데이터셋 설정 (datasets 탭이 활성화될 때만)
   React.useEffect(() => {
@@ -65,9 +78,18 @@ const CatBenchLeaderboard = ({ data }) => {
     return getDatasetInfo(data, selectedDataset);
   }, [data, selectedDataset]);
 
+  // 검색 필터링된 데이터
+  const filteredData = useMemo(() => {
+    if (!searchQuery.trim()) return currentData;
+    const query = searchQuery.toLowerCase();
+    return currentData.filter(model => 
+      model.model.toLowerCase().includes(query)
+    );
+  }, [currentData, searchQuery]);
+
   // 정렬된 데이터
   const sortedData = useMemo(() => {
-    return [...currentData].sort((a, b) => {
+    return [...filteredData].sort((a, b) => {
       const aVal = a[sortColumn];
       const bVal = b[sortColumn];
       
@@ -76,7 +98,7 @@ const CatBenchLeaderboard = ({ data }) => {
       
       return sortDirection === 'asc' ? aVal - bVal : bVal - aVal;
     });
-  }, [currentData, sortColumn, sortDirection]);
+  }, [filteredData, sortColumn, sortDirection]);
 
   const handleSort = (column) => {
     if (sortColumn === column) {
@@ -364,7 +386,18 @@ const CatBenchLeaderboard = ({ data }) => {
             {['overview', 'datasets', 'documentation'].map((tab) => (
               <button
                 key={tab}
-                onClick={() => setActiveTab(tab)}
+                onClick={() => {
+                  if (activeTab === tab) return; // 같은 탭 클릭 시 무시
+                  setTabTransition(true);
+                  setSearchQuery(''); // 탭 전환 시 검색 초기화
+                  setDatasetSearchQuery(''); // 탭 전환 시 데이터셋 검색 초기화
+                  setTimeout(() => {
+                    setActiveTab(tab);
+                    setTimeout(() => {
+                      setTabTransition(false);
+                    }, 100);
+                  }, 200);
+                }}
                 style={{
                   padding: '12px 24px',
                   backgroundColor: 'transparent',
@@ -374,21 +407,35 @@ const CatBenchLeaderboard = ({ data }) => {
                   fontSize: '16px',
                   fontWeight: activeTab === tab ? '700' : '500',
                   cursor: 'pointer',
-                  transition: 'all 0.3s',
+                  transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
                   textTransform: 'capitalize',
                   fontFamily: 'inherit',
-                  marginBottom: '-2px'
+                  marginBottom: '-2px',
+                  position: 'relative'
                 }}
                 onMouseEnter={(e) => {
                   if (activeTab !== tab) {
                     e.currentTarget.style.opacity = '0.8';
+                    e.currentTarget.style.transform = 'translateY(-2px)';
                   }
                 }}
                 onMouseLeave={(e) => {
                   e.currentTarget.style.opacity = '1';
+                  e.currentTarget.style.transform = 'translateY(0)';
                 }}
               >
                 {tab === 'overview' ? 'Overview' : tab === 'datasets' ? 'Datasets' : 'Documentation'}
+                {activeTab === tab && (
+                  <div style={{
+                    position: 'absolute',
+                    bottom: '-3px',
+                    left: '0',
+                    right: '0',
+                    height: '3px',
+                    background: 'linear-gradient(90deg, transparent, white, transparent)',
+                    animation: 'slideIn 0.3s ease-out'
+                  }} />
+                )}
               </button>
             ))}
           </div>
@@ -396,25 +443,130 @@ const CatBenchLeaderboard = ({ data }) => {
       </div>
 
       {/* Tab Content */}
-      {activeTab === 'overview' && (
-        <div>
-          {/* Logo Section */}
+      {activeTab === 'overview' && !tabTransition && (
           <div style={{
-            display: 'flex',
-            justifyContent: 'center',
+          animation: 'fadeIn 0.3s ease-in',
+          opacity: 1
+        }}>
+          {/* Logo and Podcast Section */}
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: '1fr 1fr',
+            gap: '48px',
             alignItems: 'center',
             marginBottom: '48px',
             padding: '40px'
           }}>
+            {/* Logo */}
+            <div style={{
+              display: 'flex',
+              justifyContent: 'flex-end',
+              alignItems: 'center'
+          }}>
             <img 
-              src="/CatBench_logo.png" 
+                src={`${import.meta.env.BASE_URL}CatBench_logo.png`}
               alt="CatBench Logo" 
               style={{ 
                 height: '400px',
+                  width: 'auto',
                 maxWidth: '100%',
+                  objectFit: 'contain',
                 filter: 'drop-shadow(0 8px 16px rgba(0, 0, 0, 0.15))'
               }} 
             />
+            </div>
+            
+            {/* Podcasts */}
+            <div style={{
+              backgroundColor: 'white',
+              padding: '32px',
+              borderRadius: '16px',
+              boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)',
+              border: '1px solid #e4e4e7'
+            }}>
+              <h3 style={{ 
+                marginTop: 0, 
+                marginBottom: '24px', 
+                color: '#18181b', 
+                fontWeight: '700', 
+                fontSize: '1.5em',
+                textAlign: 'center'
+              }}>
+                Overview
+              </h3>
+              
+              {/* Short Podcast */}
+              <div style={{
+                marginBottom: '24px',
+                paddingBottom: '24px',
+                borderBottom: '1px solid #e4e4e7'
+              }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '8px' }}>
+                  <span style={{ fontSize: '20px' }}>🎙️</span>
+                  <h4 style={{ 
+                    margin: 0, 
+                    color: '#18181b', 
+                    fontWeight: '600', 
+                    fontSize: '1.1em' 
+                  }}>
+                    Short Version
+                  </h4>
+                </div>
+                <p style={{ 
+                  margin: '0 0 12px 32px', 
+                  color: '#52525b', 
+                  fontSize: '14px',
+                  lineHeight: '1.6'
+                }}>
+                  A concise introduction to CatBench framework, covering key features and applications.
+                </p>
+                <audio 
+                  controls 
+                  style={{ 
+                    width: '100%',
+                    height: '40px',
+                    borderRadius: '8px'
+                  }}
+                >
+                  <source src={`${import.meta.env.BASE_URL}podcasts/Podcast_Short.m4a`} type="audio/mp4" />
+                  Your browser does not support the audio element.
+                </audio>
+              </div>
+              
+              {/* Long Podcast */}
+              <div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '8px' }}>
+                  <span style={{ fontSize: '20px' }}>🎧</span>
+                  <h4 style={{ 
+                    margin: 0, 
+                    color: '#18181b', 
+                    fontWeight: '600', 
+                    fontSize: '1.1em' 
+                  }}>
+                    Long Version
+                  </h4>
+                </div>
+                <p style={{ 
+                  margin: '0 0 12px 32px', 
+                  color: '#52525b', 
+                  fontSize: '14px',
+                  lineHeight: '1.6'
+                }}>
+                  An in-depth exploration of CatBench, including detailed methodologies and comprehensive analysis capabilities.
+                </p>
+                <audio 
+                  controls 
+                  style={{ 
+                    width: '100%',
+                    height: '40px',
+                    borderRadius: '8px'
+                  }}
+                >
+                  <source src={`${import.meta.env.BASE_URL}podcasts/Podcast_Long.m4a`} type="audio/mp4" />
+                  Your browser does not support the audio element.
+                </audio>
+              </div>
+            </div>
           </div>
 
           {/* Overview Content */}
@@ -509,140 +661,145 @@ const CatBenchLeaderboard = ({ data }) => {
         </div>
       )}
 
-      {activeTab === 'datasets' && (
-        <div>
-      {/* Dataset Selector */}
-      {availableDatasets.length > 0 && (
-        <div style={{ 
-          backgroundColor: 'white',
-          padding: '24px',
-          borderRadius: '16px',
-          marginBottom: '24px',
-          boxShadow: '0 1px 3px rgba(0, 0, 0, 0.1)',
-          border: '1px solid #f4f4f5'
+      {activeTab === 'datasets' && !tabTransition && (
+        <div style={{
+          animation: 'fadeIn 0.3s ease-in',
+          opacity: 1
         }}>
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px' }}>
-            <h3 style={{ margin: 0, color: '#18181b', fontWeight: '700', fontSize: '1.3em' }}>Select Dataset</h3>
-            {selectedDataset && (
-              <button
-                onClick={() => {
-                  setShowDatasetDetails(!showDatasetDetails);
-                  if (!showDatasetDetails) {
-                    setSelectedMlipTab(null);
-                  }
-                }}
-                style={{
-                  padding: '10px 20px',
-                  fontSize: '14px',
-                  border: 'none',
-                  borderRadius: '8px',
-                  cursor: 'pointer',
-                  backgroundColor: showDatasetDetails ? '#0891b2' : '#0d9488',
-                  color: 'white',
-                  fontWeight: '600',
-                  transition: 'all 0.3s',
-                  boxShadow: '0 2px 4px rgba(13, 148, 136, 0.2)',
-                  fontFamily: 'inherit'
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.backgroundColor = '#0891b2';
-                  e.currentTarget.style.transform = 'translateY(-1px)';
-                  e.currentTarget.style.boxShadow = '0 4px 8px rgba(8, 145, 178, 0.3)';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.backgroundColor = showDatasetDetails ? '#0891b2' : '#0d9488';
-                  e.currentTarget.style.transform = 'translateY(0)';
-                  e.currentTarget.style.boxShadow = '0 2px 4px rgba(13, 148, 136, 0.2)';
-                }}
-              >
-                {showDatasetDetails ? 'Hide Details' : 'View Details'}
-              </button>
-            )}
-          </div>
-          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px' }}>
-            {availableDatasets.map((datasetName) => {
-              const info = getDatasetInfo(data, datasetName);
-              const isSelected = selectedDataset === datasetName;
-              return (
-                <button
-                  key={datasetName}
-                  onClick={() => {
-                    setSelectedDataset(datasetName);
-                    setShowDatasetDetails(false);
-                    setSelectedMlipTab(null);
-                  }}
-                  style={{
-                    padding: '16px 28px',
-                    fontSize: '16px',
-                    border: isSelected ? '2px solid #0d9488' : '2px solid transparent',
-                    borderRadius: '12px',
-                    cursor: 'pointer',
-                    backgroundColor: isSelected ? '#0d9488' : 'white',
-                    color: isSelected ? 'white' : '#52525b',
-                    fontWeight: '600',
-                    transition: 'all 0.3s',
-                    boxShadow: isSelected 
-                      ? '0 8px 16px rgba(13, 148, 136, 0.25)' 
-                      : '0 1px 3px rgba(0, 0, 0, 0.1)',
-                    fontFamily: 'inherit',
-                    textAlign: 'left'
-                  }}
-                  onMouseEnter={(e) => {
-                    if (!isSelected) {
-                      e.currentTarget.style.borderColor = '#e4e4e7';
-                      e.currentTarget.style.backgroundColor = '#fafafa';
-                    }
-                  }}
-                  onMouseLeave={(e) => {
-                    if (!isSelected) {
-                      e.currentTarget.style.borderColor = 'transparent';
-                      e.currentTarget.style.backgroundColor = 'white';
-                    }
-                  }}
-                >
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                    <span style={{ fontWeight: '700' }}>{datasetName}</span>
-                    <a
-                      href={`https://www.catalysis-hub.org/publications/${datasetName}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      onClick={(e) => e.stopPropagation()}
+          {/* Dataset Selector */}
+          {availableDatasets.length > 0 && (
+            <div style={{ 
+              backgroundColor: 'white',
+              padding: '24px',
+              borderRadius: '16px',
+              marginBottom: '24px',
+              boxShadow: '0 1px 3px rgba(0, 0, 0, 0.1)',
+              border: '1px solid #f4f4f5'
+            }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px', flexWrap: 'wrap', gap: '16px' }}>
+                <h3 style={{ margin: 0, color: '#18181b', fontWeight: '700', fontSize: '1.3em' }}>
+                  Select Dataset
+                </h3>
+                {selectedDataset && (
+                  <button
+                    onClick={() => {
+                      setShowDatasetDetails(!showDatasetDetails);
+                      if (!showDatasetDetails) {
+                        setSelectedMlipTab(null);
+                      }
+                    }}
+                    style={{
+                      padding: '10px 20px',
+                      fontSize: '14px',
+                      border: 'none',
+                      borderRadius: '8px',
+                      cursor: 'pointer',
+                      backgroundColor: showDatasetDetails ? '#0891b2' : '#0d9488',
+                      color: 'white',
+                      fontWeight: '600',
+                      transition: 'all 0.3s',
+                      boxShadow: '0 2px 4px rgba(13, 148, 136, 0.2)',
+                      fontFamily: 'inherit'
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.backgroundColor = '#0891b2';
+                      e.currentTarget.style.transform = 'translateY(-1px)';
+                      e.currentTarget.style.boxShadow = '0 4px 8px rgba(8, 145, 178, 0.3)';
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.backgroundColor = showDatasetDetails ? '#0891b2' : '#0d9488';
+                      e.currentTarget.style.transform = 'translateY(0)';
+                      e.currentTarget.style.boxShadow = '0 2px 4px rgba(13, 148, 136, 0.2)';
+                    }}
+                  >
+                    {showDatasetDetails ? 'Hide Details' : 'View Details'}
+                  </button>
+                )}
+              </div>
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px' }}>
+                {availableDatasets.map((datasetName) => {
+                  const info = getDatasetInfo(data, datasetName);
+                  const isSelected = selectedDataset === datasetName;
+                  return (
+                    <button
+                      key={datasetName}
+                      onClick={() => {
+                        setSelectedDataset(datasetName);
+                        setShowDatasetDetails(false);
+                        setSelectedMlipTab(null);
+                      }}
                       style={{
-                        display: 'inline-flex',
-                        alignItems: 'center',
-                        textDecoration: 'none',
-                        opacity: 0.7,
-                        transition: 'opacity 0.2s'
+                        padding: '16px 28px',
+                        fontSize: '16px',
+                        border: isSelected ? '2px solid #0d9488' : '2px solid transparent',
+                        borderRadius: '12px',
+                        cursor: 'pointer',
+                        backgroundColor: isSelected ? '#0d9488' : 'white',
+                        color: isSelected ? 'white' : '#52525b',
+                        fontWeight: '600',
+                        transition: 'all 0.3s',
+                        boxShadow: isSelected 
+                          ? '0 8px 16px rgba(13, 148, 136, 0.25)' 
+                          : '0 1px 3px rgba(0, 0, 0, 0.1)',
+                        fontFamily: 'inherit',
+                        textAlign: 'left'
                       }}
                       onMouseEnter={(e) => {
-                        e.currentTarget.style.opacity = '1';
+                        if (!isSelected) {
+                          e.currentTarget.style.borderColor = '#e4e4e7';
+                          e.currentTarget.style.backgroundColor = '#fafafa';
+                        }
                       }}
                       onMouseLeave={(e) => {
-                        e.currentTarget.style.opacity = '0.7';
+                        if (!isSelected) {
+                          e.currentTarget.style.borderColor = 'transparent';
+                          e.currentTarget.style.backgroundColor = 'white';
+                        }
                       }}
-                      title="View on Catalysis Hub"
                     >
-                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ display: 'block' }}>
-                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-                        <polyline points="15 3 21 3 21 9"></polyline>
-                        <line x1="10" y1="14" x2="21" y2="3"></line>
-                      </svg>
-                    </a>
-                  </div>
-                  {info && info.num_structures && (
-                    <div style={{ fontSize: '13px', marginTop: '6px', opacity: 0.8, fontWeight: '500' }}>
-                      {info.num_structures.toLocaleString()} structures
-                    </div>
-                  )}
-                </button>
-              );
-            })}
-          </div>
-        </div>
-      )}
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                        <span style={{ fontWeight: '700' }}>{datasetName}</span>
+                        <a
+                          href={`https://www.catalysis-hub.org/publications/${datasetName}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          onClick={(e) => e.stopPropagation()}
+                          style={{
+                            display: 'inline-flex',
+                            alignItems: 'center',
+                            textDecoration: 'none',
+                            opacity: 0.7,
+                            transition: 'opacity 0.2s'
+                          }}
+                          onMouseEnter={(e) => {
+                            e.currentTarget.style.opacity = '1';
+                          }}
+                          onMouseLeave={(e) => {
+                            e.currentTarget.style.opacity = '0.7';
+                          }}
+                          title="View on Catalysis Hub"
+                        >
+                          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ display: 'block' }}>
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                            <polyline points="15 3 21 3 21 9"></polyline>
+                            <line x1="10" y1="14" x2="21" y2="3"></line>
+                          </svg>
+                        </a>
+                      </div>
+                      {info && info.num_structures && (
+                        <div style={{ fontSize: '13px', marginTop: '6px', opacity: 0.8, fontWeight: '500' }}>
+                          {info.num_structures.toLocaleString()} structures
+                        </div>
+                      )}
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+          )}
 
-      {/* Dataset Details Section - 전체 비교용 (간단한 요약 테이블만) */}
-      {showDatasetDetails && selectedDataset && currentData.length > 0 && (
+          {/* Dataset Details Section - 전체 비교용 (간단한 요약 테이블만) */}
+          {showDatasetDetails && selectedDataset && currentData.length > 0 && (
         <div style={{ 
           backgroundColor: 'white',
           padding: '24px',
@@ -753,12 +910,226 @@ const CatBenchLeaderboard = ({ data }) => {
               </tbody>
             </table>
           </div>
+
+      {/* Detailed Metrics */}
+      {selectedModel && (() => {
+            const modelData = currentData.find(m => m.model === selectedModel);
+            if (!modelData) return null;
+            
+            // 흡착물별 성능 데이터 가져오기 (현재 선택된 데이터셋의 데이터 사용)
+            const adsorbateData = selectedDataset 
+              ? getDatasetMlipAdsorbateBreakdown(data, selectedDataset, selectedModel)
+              : getAdsorbateBreakdown(data, selectedModel);
+            
+            return (
+              <div id={`model-detail-${selectedModel}`} style={{ scrollMarginTop: '80px' }}>
+              <div style={{ 
+                backgroundColor: 'white',
+                padding: '24px',
+                borderRadius: '16px',
+                marginBottom: '24px',
+                boxShadow: '0 1px 3px rgba(0, 0, 0, 0.1)',
+                border: '1px solid #f4f4f5'
+              }}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
+                    <h3 style={{ margin: 0, color: '#18181b', fontWeight: '700', fontSize: '1.3em' }}>
+                  Detailed Metrics: {selectedModel}
+                      {selectedDataset && <span style={{ fontSize: '0.8em', fontWeight: '500', color: '#71717a', marginLeft: '8px' }}>({selectedDataset})</span>}
+                </h3>
+                    <button
+                      onClick={() => setSelectedModel(null)}
+                      style={{
+                        padding: '6px 12px',
+                        border: 'none',
+                        borderRadius: '6px',
+                        backgroundColor: '#f4f4f5',
+                        color: '#52525b',
+                        cursor: 'pointer',
+                        fontSize: '12px',
+                        fontWeight: '600',
+                        fontFamily: 'inherit'
+                      }}
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.backgroundColor = '#e4e4e7';
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.backgroundColor = '#f4f4f5';
+                      }}
+                    >
+                      ✕ Close
+                    </button>
+                  </div>
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '16px' }}>
+                  <div style={{ 
+                    padding: '20px', 
+                    background: 'linear-gradient(135deg, #ede9fe 0%, #f3e8ff 100%)', 
+                    borderRadius: '12px', 
+                    border: '1px solid #e9d5ff',
+                    boxShadow: '0 2px 4px rgba(139, 92, 246, 0.1)'
+                  }}>
+                    <h4 style={{ margin: '0 0 12px 0', color: '#6b21a8', fontWeight: '700', fontSize: '0.9em', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Energy Metrics</h4>
+                    <p style={{ margin: '8px 0', color: '#18181b', fontSize: '14px' }}>
+                      <strong>Total MAE:</strong> {modelData.maeTotal !== null && modelData.maeTotal !== undefined ? modelData.maeTotal.toFixed(3) + ' eV' : 'N/A'}
+                    </p>
+                    <p style={{ margin: '8px 0', color: '#18181b', fontSize: '14px' }}>
+                      <strong>Normal MAE:</strong> {modelData.maeNormal !== null && modelData.maeNormal !== undefined ? modelData.maeNormal.toFixed(3) + ' eV' : 'N/A'}
+                    </p>
+                  </div>
+                  <div style={{ 
+                    padding: '20px', 
+                    background: 'linear-gradient(135deg, #fef3c7 0%, #fef08a 100%)', 
+                    borderRadius: '12px', 
+                    border: '1px solid #fde68a',
+                    boxShadow: '0 2px 4px rgba(251, 191, 36, 0.1)'
+                  }}>
+                    <h4 style={{ margin: '0 0 12px 0', color: '#92400e', fontWeight: '700', fontSize: '0.9em', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Classification Rates</h4>
+                    <p style={{ margin: '8px 0', color: '#18181b', fontSize: '14px' }}>
+                      <strong>Normal:</strong> {modelData.normalRate !== null && modelData.normalRate !== undefined ? modelData.normalRate.toFixed(2) + '%' : 'N/A'}
+                    </p>
+                  </div>
+                  <div style={{ 
+                    padding: '20px', 
+                    background: 'linear-gradient(135deg, #ccfbf1 0%, #99f6e4 100%)', 
+                    borderRadius: '12px', 
+                    border: '1px solid #5eead4',
+                    boxShadow: '0 2px 4px rgba(20, 184, 166, 0.1)'
+                  }}>
+                    <h4 style={{ margin: '0 0 12px 0', color: '#115e59', fontWeight: '700', fontSize: '0.9em', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Structural Accuracy</h4>
+                    <p style={{ margin: '8px 0', color: '#18181b', fontSize: '14px' }}>
+                      <strong>ADwT:</strong> {modelData.adwt !== null && modelData.adwt !== undefined ? modelData.adwt.toFixed(2) + '%' : 'N/A'}
+                    </p>
+                    <p style={{ margin: '8px 0', color: '#18181b', fontSize: '14px' }}>
+                      <strong>Time/Step:</strong> {modelData.timePerStep !== null && modelData.timePerStep !== undefined ? modelData.timePerStep.toFixed(3) + ' s' : 'N/A'}
+                    </p>
+                  </div>
+                </div>
+                </div>
+
+                {/* Adsorbate Breakdown Table */}
+                {adsorbateData && adsorbateData.length > 0 && (() => {
+                  // 빈 행 필터링: Adsorbate_name이 없거나 "-"이고 모든 주요 값이 N/A인 행 제거
+                  const filteredData = adsorbateData.filter(row => {
+                    const adsorbateName = row['Adsorbate_name'] || row['Adsorbate_name - Adsorbate_name'] || '';
+                    if (!adsorbateName || adsorbateName === '-' || adsorbateName.trim() === '') {
+                      // 주요 메트릭이 모두 N/A인지 확인
+                      const hasValidData = 
+                        (row['MAE_total (eV)'] !== null && row['MAE_total (eV)'] !== undefined && row['MAE_total (eV)'] !== '') ||
+                        (row['MAE_normal (eV)'] !== null && row['MAE_normal (eV)'] !== undefined && row['MAE_normal (eV)'] !== '') ||
+                        (row['Num_total'] !== null && row['Num_total'] !== undefined && row['Num_total'] !== '');
+                      return hasValidData;
+                    }
+                    return true;
+                  });
+                  
+                  if (filteredData.length === 0) {
+                    return null;
+                  }
+                  
+                  // Anomaly detection scheme 컬럼 찾기
+                  const anomalyColumns = Object.keys(filteredData[0] || {}).filter(key => 
+                    key.includes('Anomaly count') && key !== 'Anomaly count - total'
+                  ).sort();
+                  
+                  return (
+                  <div style={{ 
+                    backgroundColor: 'white',
+                    padding: '24px',
+                    borderRadius: '16px',
+                    marginBottom: '24px',
+                    boxShadow: '0 1px 3px rgba(0, 0, 0, 0.1)',
+                    border: '1px solid #f4f4f5',
+                    overflowX: 'auto'
+                  }}>
+                    <h3 style={{ color: '#18181b', fontWeight: '700', fontSize: '1.3em', marginBottom: '20px' }}>
+                      Adsorbate-Specific Performance: {selectedModel}
+                      {selectedDataset && ` (${selectedDataset})`}
+                    </h3>
+                    <table style={{ 
+                      width: '100%', 
+                      borderCollapse: 'collapse',
+                      fontSize: '13px'
+                    }}>
+                      <thead>
+                        <tr style={{ backgroundColor: '#fafafa', borderBottom: '2px solid #e4e4e7' }}>
+                          <th style={{ padding: '12px', textAlign: 'left', fontWeight: '700', color: '#18181b' }}>Adsorbate</th>
+                          <th style={{ padding: '12px', textAlign: 'center', fontWeight: '700', color: '#18181b' }}>MAE_total (eV)</th>
+                          <th style={{ padding: '12px', textAlign: 'center', fontWeight: '700', color: '#18181b', backgroundColor: '#faf5ff' }}>MAE_normal (eV)</th>
+                          <th style={{ padding: '12px', textAlign: 'center', fontWeight: '700', color: '#18181b' }}>MAE_single (eV)</th>
+                          <th style={{ padding: '12px', textAlign: 'center', fontWeight: '700', color: '#18181b' }}>ADwT (%)</th>
+                          <th style={{ padding: '12px', textAlign: 'center', fontWeight: '700', color: '#18181b' }}>AMDwT (%)</th>
+                          <th style={{ padding: '12px', textAlign: 'center', fontWeight: '700', color: '#18181b' }}>Num_total</th>
+                          <th style={{ padding: '12px', textAlign: 'center', fontWeight: '700', color: '#18181b' }}>Num_normal</th>
+                          <th style={{ padding: '12px', textAlign: 'center', fontWeight: '700', color: '#18181b' }}>Migration</th>
+                          <th style={{ padding: '12px', textAlign: 'center', fontWeight: '700', color: '#18181b' }}>Anomaly (total)</th>
+                          {anomalyColumns.map(col => (
+                            <th key={col} style={{ padding: '12px', textAlign: 'center', fontWeight: '700', color: '#18181b', fontSize: '12px' }}>
+                              {col.replace('Anomaly count - ', '')}
+                            </th>
+                          ))}
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {filteredData.map((row, idx) => {
+                          const adsorbateName = row['Adsorbate_name'] || row['Adsorbate_name - Adsorbate_name'] || '-';
+                          return (
+                          <tr 
+                            key={idx}
+                            style={{ 
+                              borderBottom: '1px solid #f4f4f5',
+                              backgroundColor: idx % 2 === 0 ? 'white' : '#fafafa'
+                            }}
+                          >
+                            <td style={{ padding: '12px', fontWeight: '600', color: '#18181b' }}>
+                              {adsorbateName}
+                            </td>
+                            <td style={{ padding: '12px', textAlign: 'center' }}>
+                              {row['MAE_total (eV)'] !== null && row['MAE_total (eV)'] !== undefined && row['MAE_total (eV)'] !== '' ? Number(row['MAE_total (eV)']).toFixed(3) : 'N/A'}
+                            </td>
+                            <td style={{ padding: '12px', textAlign: 'center', backgroundColor: '#faf5ff', fontWeight: '600', color: '#6b21a8' }}>
+                              {row['MAE_normal (eV)'] !== null && row['MAE_normal (eV)'] !== undefined && row['MAE_normal (eV)'] !== '' ? Number(row['MAE_normal (eV)']).toFixed(3) : 'N/A'}
+                            </td>
+                            <td style={{ padding: '12px', textAlign: 'center' }}>
+                              {row['MAE_single (eV)'] !== null && row['MAE_single (eV)'] !== undefined && row['MAE_single (eV)'] !== '' ? Number(row['MAE_single (eV)']).toFixed(3) : 'N/A'}
+                            </td>
+                            <td style={{ padding: '12px', textAlign: 'center' }}>
+                              {row['ADwT (%)'] !== null && row['ADwT (%)'] !== undefined && row['ADwT (%)'] !== '' ? Number(row['ADwT (%)']).toFixed(2) : 'N/A'}
+                            </td>
+                            <td style={{ padding: '12px', textAlign: 'center' }}>
+                              {row['AMDwT (%)'] !== null && row['AMDwT (%)'] !== undefined && row['AMDwT (%)'] !== '' ? Number(row['AMDwT (%)']).toFixed(2) : 'N/A'}
+                            </td>
+                            <td style={{ padding: '12px', textAlign: 'center' }}>
+                              {row['Num_total'] !== null && row['Num_total'] !== undefined && row['Num_total'] !== '' ? Number(row['Num_total']).toLocaleString() : 'N/A'}
+                            </td>
+                            <td style={{ padding: '12px', textAlign: 'center' }}>
+                              {row['Num_normal'] !== null && row['Num_normal'] !== undefined && row['Num_normal'] !== '' ? Number(row['Num_normal']).toLocaleString() : 'N/A'}
+                            </td>
+                            <td style={{ padding: '12px', textAlign: 'center' }}>
+                              {row['Num_adsorbate_migration'] !== null && row['Num_adsorbate_migration'] !== undefined && row['Num_adsorbate_migration'] !== '' ? Number(row['Num_adsorbate_migration']).toLocaleString() : 'N/A'}
+                            </td>
+                            <td style={{ padding: '12px', textAlign: 'center' }}>
+                              {row['Anomaly count - total'] !== null && row['Anomaly count - total'] !== undefined && row['Anomaly count - total'] !== '' ? Number(row['Anomaly count - total']).toLocaleString() : 'N/A'}
+                            </td>
+                            {anomalyColumns.map(col => (
+                              <td key={col} style={{ padding: '12px', textAlign: 'center' }}>
+                                {row[col] !== null && row[col] !== undefined && row[col] !== '' ? Number(row[col]).toLocaleString() : 'N/A'}
+                              </td>
+                            ))}
+                          </tr>
+                          );
+                        })}
+                      </tbody>
+                    </table>
+                  </div>
+                  );
+                })()}
+              </div>
+            );
+          })()}
         </div>
       )}
 
-      {/* Main Leaderboard Table */}
-      {currentData.length > 0 && (
-        <>
+          {/* Main Leaderboard Table */}
+          {currentData.length > 0 && (
           <div style={{ 
             backgroundColor: 'white',
             padding: '24px',
@@ -768,39 +1139,105 @@ const CatBenchLeaderboard = ({ data }) => {
             border: '1px solid #f4f4f5',
             overflowX: 'auto'
           }}>
-            <h2 style={{ marginTop: 0, color: '#18181b', fontWeight: '700', fontSize: '1.5em', marginBottom: '20px', display: 'flex', alignItems: 'center', gap: '8px' }}>
-              Model Rankings {selectedDataset && (
-                <>
-                  - {selectedDataset}
-                  <a
-                    href={`https://www.catalysis-hub.org/publications/${selectedDataset}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    style={{
-                      display: 'inline-flex',
-                      alignItems: 'center',
-                      textDecoration: 'none',
-                      opacity: 0.6,
-                      transition: 'opacity 0.2s',
-                      marginLeft: '4px'
-                    }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.opacity = '1';
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.opacity = '0.6';
-                    }}
-                    title="View on Catalysis Hub"
-                  >
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-                      <polyline points="15 3 21 3 21 9"></polyline>
-                      <line x1="10" y1="14" x2="21" y2="3"></line>
-                    </svg>
-                  </a>
-                </>
-              )}
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px', flexWrap: 'wrap', gap: '16px' }}>
+              <h2 style={{ margin: 0, color: '#18181b', fontWeight: '700', fontSize: '1.5em', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                Model Rankings {selectedDataset && (
+                  <>
+                    - {selectedDataset}
+                    <a
+                      href={`https://www.catalysis-hub.org/publications/${selectedDataset}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        textDecoration: 'none',
+                        opacity: 0.6,
+                        transition: 'opacity 0.2s',
+                        marginLeft: '4px'
+                      }}
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.opacity = '1';
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.opacity = '0.6';
+                      }}
+                      title="View on Catalysis Hub"
+                    >
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                      </svg>
+                    </a>
+                  </>
+                )}
             </h2>
+              {selectedDataset && (
+                <div style={{ position: 'relative' }}>
+                  <input
+                    type="text"
+                    placeholder="Search models..."
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                    style={{
+                      padding: '10px 16px 10px 40px',
+                      border: '2px solid #e4e4e7',
+                      borderRadius: '8px',
+                      fontSize: '14px',
+                      width: '250px',
+                      transition: 'all 0.2s',
+                      outline: 'none'
+                    }}
+                    onFocus={(e) => {
+                      e.currentTarget.style.borderColor = '#0d9488';
+                      e.currentTarget.style.boxShadow = '0 0 0 3px rgba(13, 148, 136, 0.1)';
+                    }}
+                    onBlur={(e) => {
+                      e.currentTarget.style.borderColor = '#e4e4e7';
+                      e.currentTarget.style.boxShadow = 'none';
+                    }}
+                  />
+                  <span style={{
+                    position: 'absolute',
+                    left: '12px',
+                    top: '50%',
+                    transform: 'translateY(-50%)',
+                    color: '#71717a',
+                    fontSize: '16px'
+                  }}>🔍</span>
+                  {searchQuery && (
+                    <button
+                      onClick={() => setSearchQuery('')}
+                      style={{
+                        position: 'absolute',
+                        right: '8px',
+                        top: '50%',
+                        transform: 'translateY(-50%)',
+                        background: 'none',
+                        border: 'none',
+                        cursor: 'pointer',
+                        fontSize: '18px',
+                        color: '#71717a',
+                        padding: '4px',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center'
+                      }}
+                      onMouseEnter={(e) => e.currentTarget.style.color = '#18181b'}
+                      onMouseLeave={(e) => e.currentTarget.style.color = '#71717a'}
+                    >
+                      ×
+                    </button>
+                  )}
+                </div>
+              )}
+              {searchQuery && (
+                <span style={{ fontSize: '14px', color: '#71717a' }}>
+                  {sortedData.length} model{sortedData.length !== 1 ? 's' : ''} found
+                </span>
+              )}
+            </div>
             <table style={{ 
               width: '100%', 
               borderCollapse: 'collapse',
@@ -817,21 +1254,94 @@ const CatBenchLeaderboard = ({ data }) => {
                   </th>
                   <th 
                     onClick={() => handleSort('maeNormal')} 
-                    style={{ padding: '14px', textAlign: 'center', cursor: 'pointer', fontWeight: '700', backgroundColor: '#ede9fe', color: '#5b21b6', fontSize: '13px', textTransform: 'uppercase', letterSpacing: '0.05em' }}
+                    style={{ 
+                      padding: '14px', 
+                      textAlign: 'center', 
+                      cursor: 'pointer', 
+                      fontWeight: '700', 
+                      backgroundColor: sortColumn === 'maeNormal' ? '#ddd6fe' : '#ede9fe',
+                      color: '#5b21b6', 
+                      fontSize: '13px', 
+                      textTransform: 'uppercase', 
+                      letterSpacing: '0.05em',
+                      transition: 'background-color 0.2s',
+                      position: 'relative'
+                    }}
+                    onMouseEnter={(e) => {
+                      if (sortColumn !== 'maeNormal') {
+                        e.currentTarget.style.backgroundColor = '#e9d5ff';
+                      }
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.backgroundColor = sortColumn === 'maeNormal' ? '#ddd6fe' : '#ede9fe';
+                    }}
                   >
-                    Normal MAE {sortColumn === 'maeNormal' && (sortDirection === 'asc' ? '↑' : '↓')}
+                    Normal MAE 
+                    {sortColumn === 'maeNormal' && (
+                      <span style={{ marginLeft: '6px', fontSize: '16px' }}>
+                        {sortDirection === 'asc' ? '↑' : '↓'}
+                      </span>
+                    )}
                   </th>
                   <th 
                     onClick={() => handleSort('normalRate')} 
-                    style={{ padding: '14px', textAlign: 'center', cursor: 'pointer', fontWeight: '700', backgroundColor: '#fef3c7', color: '#92400e', fontSize: '13px', textTransform: 'uppercase', letterSpacing: '0.05em' }}
+                    style={{ 
+                      padding: '14px', 
+                      textAlign: 'center', 
+                      cursor: 'pointer', 
+                      fontWeight: '700', 
+                      backgroundColor: sortColumn === 'normalRate' ? '#fde68a' : '#fef3c7',
+                      color: '#92400e', 
+                      fontSize: '13px', 
+                      textTransform: 'uppercase', 
+                      letterSpacing: '0.05em',
+                      transition: 'background-color 0.2s'
+                    }}
+                    onMouseEnter={(e) => {
+                      if (sortColumn !== 'normalRate') {
+                        e.currentTarget.style.backgroundColor = '#fcd34d';
+                      }
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.backgroundColor = sortColumn === 'normalRate' ? '#fde68a' : '#fef3c7';
+                    }}
                   >
-                    Normal Rate {sortColumn === 'normalRate' && (sortDirection === 'asc' ? '↑' : '↓')}
+                    Normal Rate 
+                    {sortColumn === 'normalRate' && (
+                      <span style={{ marginLeft: '6px', fontSize: '16px' }}>
+                        {sortDirection === 'asc' ? '↑' : '↓'}
+                      </span>
+                    )}
                   </th>
                   <th 
                     onClick={() => handleSort('timePerStep')} 
-                    style={{ padding: '14px', textAlign: 'center', cursor: 'pointer', fontWeight: '700', backgroundColor: '#ccfbf1', color: '#115e59', fontSize: '13px', textTransform: 'uppercase', letterSpacing: '0.05em' }}
+                    style={{ 
+                      padding: '14px', 
+                      textAlign: 'center', 
+                      cursor: 'pointer', 
+                      fontWeight: '700', 
+                      backgroundColor: sortColumn === 'timePerStep' ? '#99f6e4' : '#ccfbf1',
+                      color: '#115e59', 
+                      fontSize: '13px', 
+                      textTransform: 'uppercase', 
+                      letterSpacing: '0.05em',
+                      transition: 'background-color 0.2s'
+                    }}
+                    onMouseEnter={(e) => {
+                      if (sortColumn !== 'timePerStep') {
+                        e.currentTarget.style.backgroundColor = '#5eead4';
+                      }
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.backgroundColor = sortColumn === 'timePerStep' ? '#99f6e4' : '#ccfbf1';
+                    }}
                   >
-                    Time/Step {sortColumn === 'timePerStep' && (sortDirection === 'asc' ? '↑' : '↓')}
+                    Time/Step 
+                    {sortColumn === 'timePerStep' && (
+                      <span style={{ marginLeft: '6px', fontSize: '16px' }}>
+                        {sortDirection === 'asc' ? '↑' : '↓'}
+                      </span>
+                    )}
                   </th>
                   <th style={{ padding: '14px', textAlign: 'center', fontWeight: '700', color: '#18181b', fontSize: '13px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Details</th>
                 </tr>
@@ -843,10 +1353,18 @@ const CatBenchLeaderboard = ({ data }) => {
                     style={{ 
                       borderBottom: '1px solid #f4f4f5',
                       backgroundColor: selectedModel === model.model ? '#faf5ff' : 'white',
-                      transition: 'background-color 0.2s'
+                      transition: 'all 0.2s cubic-bezier(0.4, 0, 0.2, 1)',
+                      transform: hoveredModel === model.model ? 'scale(1.01)' : 'scale(1)',
+                      boxShadow: hoveredModel === model.model ? '0 4px 12px rgba(0, 0, 0, 0.08)' : 'none'
                     }}
-                    onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#fafafa'}
-                    onMouseLeave={(e) => e.currentTarget.style.backgroundColor = selectedModel === model.model ? '#faf5ff' : 'white'}
+                    onMouseEnter={(e) => {
+                      setHoveredModel(model.model);
+                      e.currentTarget.style.backgroundColor = '#f0fdfa';
+                    }}
+                    onMouseLeave={(e) => {
+                      setHoveredModel(null);
+                      e.currentTarget.style.backgroundColor = selectedModel === model.model ? '#faf5ff' : 'white';
+                    }}
                   >
                     <td style={{ padding: '14px' }}>
                       {index < 3 ? (
@@ -928,9 +1446,10 @@ const CatBenchLeaderboard = ({ data }) => {
               </tbody>
             </table>
           </div>
+      )}
 
           {/* Detailed Metrics */}
-          {selectedModel && (() => {
+          {currentData.length > 0 && selectedModel && (() => {
             const modelData = currentData.find(m => m.model === selectedModel);
             if (!modelData) return null;
             
@@ -1318,7 +1837,7 @@ const CatBenchLeaderboard = ({ data }) => {
                 const rateMax = Math.max(...rateValues);
                 const xMargin = (timeMax - timeMin) * 0.15;
                 const rateSpan = rateMax - rateMin;
-                const yMargin = Math.max(rateSpan * 0.1, rateSpan > 0 ? rateSpan * 0.1 : 1);
+                const yMargin = rateSpan * 0.1;
                 
                 return (
                 <div style={{ 
@@ -1462,15 +1981,16 @@ const CatBenchLeaderboard = ({ data }) => {
                 </div>
                 );
               })()}
-            </div>
-          )}
-        </>
+        </div>
       )}
         </div>
       )}
 
-      {activeTab === 'documentation' && (
-        <div>
+      {activeTab === 'documentation' && !tabTransition && (
+        <div style={{
+          animation: 'fadeIn 0.3s ease-in',
+          opacity: 1
+        }}>
           <div style={{
             backgroundColor: 'white',
             padding: '48px',
@@ -1481,72 +2001,8 @@ const CatBenchLeaderboard = ({ data }) => {
             maxHeight: '80vh',
             overflowY: 'auto'
           }}>
-            <h1 style={{ 
-              color: '#18181b', 
-              fontWeight: '800', 
-              fontSize: '2.5em',
-              marginTop: 0,
-              marginBottom: '16px'
-            }}>
-              CatBench
-            </h1>
-            
-            <div style={{ 
-              display: 'flex', 
-              gap: '12px', 
-              marginBottom: '32px',
-              flexWrap: 'wrap'
-            }}>
-              <span style={{
-                padding: '6px 12px',
-                backgroundColor: '#e0f2fe',
-                color: '#0369a1',
-                borderRadius: '6px',
-                fontSize: '14px',
-                fontWeight: '600'
-              }}>
-                Python 3.8+
-              </span>
-              <span style={{
-                padding: '6px 12px',
-                backgroundColor: '#fef3c7',
-                color: '#92400e',
-                borderRadius: '6px',
-                fontSize: '14px',
-                fontWeight: '600'
-              }}>
-                MIT License
-              </span>
-              <span style={{
-                padding: '6px 12px',
-                backgroundColor: '#d1fae5',
-                color: '#065f46',
-                borderRadius: '6px',
-                fontSize: '14px',
-                fontWeight: '600'
-              }}>
-                Version 1.0.0
-              </span>
-            </div>
-
-            <div style={{ color: '#52525b', fontSize: '16px', lineHeight: '1.8', marginBottom: '32px' }}>
-              <p style={{ marginBottom: '20px', fontSize: '18px' }}>
-                <strong style={{ color: '#18181b' }}>CatBench Framework for Benchmarking Machine Learning Interatomic Potentials 
-                in Adsorption Energy Predictions for Heterogeneous Catalysis</strong>
-              </p>
-              <p style={{ marginBottom: '20px' }}>
-                CatBench provides a unified framework for evaluating MLIP performance across diverse catalytic systems, 
-                offering automated data processing, calculation workflows, and comprehensive analysis tools for adsorption 
-                energies, surface energies, bulk formation energies, and equation of state properties.
-              </p>
-              <p style={{ marginBottom: '20px' }}>
-                If you want to use MLIPs in your catalysis research, CatBench enables you to establish quantitative 
-                reliability through systematic benchmarking against DFT references.
-              </p>
-            </div>
-
             {/* Quick Navigation */}
-            <div style={{
+            <div style={{ 
               backgroundColor: '#fafafa',
               padding: '24px',
               borderRadius: '12px',
@@ -1559,7 +2015,6 @@ const CatBenchLeaderboard = ({ data }) => {
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px' }}>
                 {[
                   { id: 'installation', label: 'Installation' },
-                  { id: 'overview', label: 'Overview' },
                   { id: 'adsorption-energy', label: 'Adsorption Energy Benchmarking' },
                   { id: 'relative-energy', label: 'Relative Energy Benchmarking' },
                   { id: 'eos', label: 'Equation of State (EOS)' },
@@ -1582,7 +2037,7 @@ const CatBenchLeaderboard = ({ data }) => {
                       color: 'white',
                       borderRadius: '8px',
                       textDecoration: 'none',
-                      fontSize: '14px',
+                fontSize: '14px',
                       fontWeight: '600',
                       transition: 'all 0.2s'
                     }}
@@ -1598,7 +2053,7 @@ const CatBenchLeaderboard = ({ data }) => {
                     {item.label}
                   </a>
                 ))}
-              </div>
+            </div>
             </div>
 
             <h2 id="installation" style={{ color: '#18181b', fontWeight: '700', fontSize: '1.8em', marginTop: '48px', marginBottom: '16px', paddingTop: '24px', borderTop: '2px solid #e4e4e7', scrollMarginTop: '80px' }}>
@@ -1640,36 +2095,6 @@ const CatBenchLeaderboard = ({ data }) => {
                 <strong>Note:</strong> D3 dispersion correction requires CUDA toolkit for GPU acceleration. CPU-only mode is not currently supported.
               </p>
             </div>
-
-            <h2 id="overview" style={{ color: '#18181b', fontWeight: '700', fontSize: '1.8em', marginTop: '48px', marginBottom: '16px', paddingTop: '24px', borderTop: '2px solid #e4e4e7', scrollMarginTop: '80px' }}>
-              Overview
-            </h2>
-            <div style={{ marginBottom: '24px', textAlign: 'center' }}>
-              <img 
-                src="/CatBench_Schematic.png" 
-                alt="CatBench Schematic" 
-                style={{ 
-                  maxWidth: '100%', 
-                  height: 'auto',
-                  borderRadius: '12px',
-                  boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)'
-                }} 
-              />
-            </div>
-            <p style={{ marginBottom: '20px' }}>
-              CatBench follows a three-step workflow for comprehensive MLIP evaluation:
-            </p>
-            <ol style={{ paddingLeft: '24px', marginBottom: '20px' }}>
-              <li style={{ marginBottom: '12px' }}>
-                <strong style={{ color: '#18181b' }}>Data Processing:</strong> Automated download from CatHub or processing of user VASP calculations
-              </li>
-              <li style={{ marginBottom: '12px' }}>
-                <strong style={{ color: '#18181b' }}>Calculation:</strong> MLIP-based adsorption and reaction energy calculations
-              </li>
-              <li style={{ marginBottom: '12px' }}>
-                <strong style={{ color: '#18181b' }}>Analysis:</strong> Statistical evaluation, anomaly detection, and visualization
-              </li>
-            </ol>
 
             <h2 id="adsorption-energy" style={{ color: '#18181b', fontWeight: '700', fontSize: '1.8em', marginTop: '48px', marginBottom: '16px', paddingTop: '24px', borderTop: '2px solid #e4e4e7', scrollMarginTop: '80px' }}>
               Adsorption Energy Benchmarking
@@ -1993,7 +2418,7 @@ analysis.analysis()`}
             }}>
               <div style={{ textAlign: 'center' }}>
                 <img 
-                  src="/mono_plot.png" 
+                  src={`${import.meta.env.BASE_URL}mono_plot.png`}
                   alt="Mono Plot" 
                   style={{ 
                     width: '100%', 
@@ -2009,7 +2434,7 @@ analysis.analysis()`}
               </div>
               <div style={{ textAlign: 'center' }}>
                 <img 
-                  src="/multi_plot.png" 
+                  src={`${import.meta.env.BASE_URL}multi_plot.png`}
                   alt="Multi Plot" 
                   style={{ 
                     width: '100%', 
@@ -2063,7 +2488,7 @@ analysis.threshold_sensitivity_analysis(mode="bond_length_change_threshold")  # 
             }}>
               <div style={{ textAlign: 'center' }}>
                 <img 
-                  src="/disp_thrs_sensitivity.png" 
+                  src={`${import.meta.env.BASE_URL}disp_thrs_sensitivity.png`}
                   alt="Displacement Threshold Sensitivity" 
                   style={{ 
                     width: '100%', 
@@ -2079,7 +2504,7 @@ analysis.threshold_sensitivity_analysis(mode="bond_length_change_threshold")  # 
               </div>
               <div style={{ textAlign: 'center' }}>
                 <img 
-                  src="/bond_threshold_sensitivity.png" 
+                  src={`${import.meta.env.BASE_URL}bond_threshold_sensitivity.png`}
                   alt="Bond Length Threshold Sensitivity" 
                   style={{ 
                     width: '100%', 
@@ -2208,7 +2633,7 @@ analysis.analysis()`}
               marginBottom: '24px'
             }}>
               <img 
-                src="/surface_parity.png" 
+                src={`${import.meta.env.BASE_URL}surface_parity.png`}
                 alt="Surface Energy Parity Plot" 
                 style={{ 
                   width: '100%', 
@@ -2339,7 +2764,7 @@ eos_analysis.analysis()`}
               marginBottom: '24px'
             }}>
               <img 
-                src="/EOS_example.png" 
+                src={`${import.meta.env.BASE_URL}EOS_example.png`}
                 alt="EOS Analysis Example" 
                 style={{ 
                   width: '100%', 
@@ -3087,6 +3512,38 @@ eos_analysis.analysis()`}
           </div>
         </div>
       )}
+
+      {/* Global Styles for Animations */}
+      <style>{`
+        @keyframes fadeIn {
+          from {
+            opacity: 0;
+            transform: translateY(10px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        @keyframes fadeOut {
+          from {
+            opacity: 1;
+            transform: translateY(0);
+          }
+          to {
+            opacity: 0;
+            transform: translateY(-10px);
+          }
+        }
+        @keyframes slideIn {
+          from {
+            transform: scaleX(0);
+          }
+          to {
+            transform: scaleX(1);
+          }
+        }
+      `}</style>
 
       {/* Footer */}
       <div style={{ 
