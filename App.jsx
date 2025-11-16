@@ -7,8 +7,8 @@ function App() {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    // leaderboard_data.json 로드
-    fetch('/leaderboard_data.json')
+    // leaderboard_data.json 로드 (base 경로 고려)
+    fetch(`${import.meta.env.BASE_URL}leaderboard_data.json`)
       .then(response => {
         if (!response.ok) {
           throw new Error('데이터를 불러올 수 없습니다.');
