@@ -1,0 +1,63 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main  # 또는 master, 기본 브랜치 이름에 맞게 수정
+  workflow_dispatch:  # 수동 실행 가능
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Generate leaderboard data
+        run: npm run generate-data
+
+      - name: Build
+        env:
+          # 저장소 이름에 맞게 base 경로 설정
+          # 저장소 이름이 'catbench-leaderboard'인 경우: '/catbench-leaderboard/'
+          # 커스텀 도메인을 사용하는 경우: '/'
+          VITE_BASE_PATH: ${{ github.event.repository.name == github.event.repository.owner.login + '.github.io' && '/' || '/' + github.event.repository.name + '/' }}
+        run: npm run build
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: './dist'
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+
