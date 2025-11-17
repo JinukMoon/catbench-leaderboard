@@ -7,11 +7,11 @@ function App() {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    // leaderboard_data.json 로드 (base 경로 고려)
+    // load leaderboard_data.json while respecting the configured base path
     fetch(`${import.meta.env.BASE_URL}leaderboard_data.json`)
       .then(response => {
         if (!response.ok) {
-          throw new Error('데이터를 불러올 수 없습니다.');
+          throw new Error('Unable to fetch leaderboard data.');
         }
         return response.json();
       })
@@ -20,7 +20,7 @@ function App() {
         setLoading(false);
       })
       .catch(err => {
-        console.error('데이터 로드 오류:', err);
+        console.error('Data load error:', err);
         setError(err.message);
         setLoading(false);
       });
@@ -46,7 +46,7 @@ function App() {
             animation: 'spin 1s linear infinite',
             margin: '0 auto 20px'
           }}></div>
-          <p>벤치마크 데이터를 불러오는 중...</p>
+          <p>Loading benchmark data...</p>
         </div>
         <style>{`
           @keyframes spin {
@@ -69,10 +69,10 @@ function App() {
         color: '#ef4444'
       }}>
         <div style={{ textAlign: 'center', padding: '20px' }}>
-          <h2>오류 발생</h2>
+          <h2>An error occurred</h2>
           <p>{error}</p>
           <p style={{ marginTop: '10px', fontSize: '14px', color: '#71717a' }}>
-            leaderboard_data.json 파일이 올바른 위치에 있는지 확인해주세요.
+            Please verify that leaderboard_data.json is available at the expected path.
           </p>
         </div>
       </div>

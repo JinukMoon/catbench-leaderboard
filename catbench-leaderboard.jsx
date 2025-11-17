@@ -33,22 +33,22 @@ const CatBenchLeaderboard = ({ data }) => {
   const [sortColumn, setSortColumn] = useState('maeNormal');
   const [sortDirection, setSortDirection] = useState('asc');
   const [selectedModel, setSelectedModel] = useState(null);
-  const [colorScheme, setColorScheme] = useState(colorSchemeTeal); // 색상 스킴 상태
-  const [showAdsorbateDetails, setShowAdsorbateDetails] = useState(false); // 흡착물 상세 표시 여부
-  const [showDatasetDetails, setShowDatasetDetails] = useState(false); // 데이터셋 상세 표시 여부
-  const [selectedMlipTab, setSelectedMlipTab] = useState(null); // MLIP별 탭 선택
-  const [tabTransition, setTabTransition] = useState(false); // 탭 전환 애니메이션
-  const [hoveredModel, setHoveredModel] = useState(null); // 호버된 모델
-  const [searchQuery, setSearchQuery] = useState(''); // 모델 검색 쿼리
-  const [datasetSearchQuery, setDatasetSearchQuery] = useState(''); // 데이터셋 검색 쿼리
+  const [colorScheme, setColorScheme] = useState(colorSchemeTeal); // color palette state
+  const [showAdsorbateDetails, setShowAdsorbateDetails] = useState(false); // whether to show adsorbate details
+  const [showDatasetDetails, setShowDatasetDetails] = useState(false); // whether to show dataset details
+  const [selectedMlipTab, setSelectedMlipTab] = useState(null); // selected MLIP tab
+  const [tabTransition, setTabTransition] = useState(false); // tab transition animation state
+  const [hoveredModel, setHoveredModel] = useState(null); // hovered model
+  const [searchQuery, setSearchQuery] = useState(''); // model search query
+  const [datasetSearchQuery, setDatasetSearchQuery] = useState(''); // dataset search query
 
-  // 사용 가능한 데이터셋 목록 가져오기
+  // derive list of available datasets
   const allAvailableDatasets = useMemo(() => {
     if (!data) return [];
     return getAvailableDatasets(data);
   }, [data]);
 
-  // 검색 필터링된 데이터셋 목록
+  // dataset list filtered by search
   const availableDatasets = useMemo(() => {
     if (!datasetSearchQuery.trim()) return allAvailableDatasets;
     const query = datasetSearchQuery.toLowerCase();
@@ -57,28 +57,28 @@ const CatBenchLeaderboard = ({ data }) => {
     );
   }, [allAvailableDatasets, datasetSearchQuery]);
 
-  // 초기 데이터셋 설정 (datasets 탭이 활성화될 때만)
+  // initialize default dataset when the datasets tab becomes active
   React.useEffect(() => {
     if (activeTab === 'datasets' && availableDatasets.length > 0 && !selectedDataset) {
-      // MamunHigh2019 또는 FG2023을 우선 선택, 없으면 첫 번째
+      // prefer MamunHigh2019 or FG2023, otherwise use the first entry
       const preferred = availableDatasets.find(d => d === 'MamunHigh2019' || d === 'FG2023');
       setSelectedDataset(preferred || availableDatasets[0]);
     }
   }, [activeTab, availableDatasets, selectedDataset]);
 
-  // 현재 선택된 데이터셋의 데이터 변환
+  // transform data for the currently selected dataset
   const currentData = useMemo(() => {
     if (!data || !selectedDataset) return [];
     return transformDataForDataset(data, selectedDataset);
   }, [data, selectedDataset]);
 
-  // 데이터셋 정보 가져오기
+  // fetch metadata for the selected dataset
   const datasetInfo = useMemo(() => {
     if (!data || !selectedDataset) return null;
     return getDatasetInfo(data, selectedDataset);
   }, [data, selectedDataset]);
 
-  // 검색 필터링된 데이터
+  // filter current dataset by search query
   const filteredData = useMemo(() => {
     if (!searchQuery.trim()) return currentData;
     const query = searchQuery.toLowerCase();
@@ -87,7 +87,7 @@ const CatBenchLeaderboard = ({ data }) => {
     );
   }, [currentData, searchQuery]);
 
-  // 정렬된 데이터
+  // apply sorting to the filtered data
   const sortedData = useMemo(() => {
     return [...filteredData].sort((a, b) => {
       const aVal = a[sortColumn];
@@ -114,7 +114,7 @@ const CatBenchLeaderboard = ({ data }) => {
       .filter(d => d[xKey] !== null && d[xKey] !== undefined && d[yKey] !== null && d[yKey] !== undefined)
       .map(d => ({ ...d, x: d[xKey], y: d[yKey] }));
     
-    // generate_bc.py 방식: 모든 점을 비교하여 Pareto optimal 점 찾기
+    // same approach as generate_bc.py: compare every point to find Pareto-optimal ones
     const paretoIndices = [];
     
     for (let i = 0; i < points.length; i++) {
@@ -122,14 +122,14 @@ const CatBenchLeaderboard = ({ data }) => {
       for (let j = 0; j < points.length; j++) {
         if (i !== j) {
           if (minimize[0] && minimize[1]) {
-            // 둘 다 minimize: x도 작고 y도 작은 점이 더 좋음
+            // both axes minimized: smaller x and y are preferred
             if (points[j].x <= points[i].x && points[j].y <= points[i].y &&
                 (points[j].x < points[i].x || points[j].y < points[i].y)) {
               isPareto = false;
               break;
             }
           } else if (minimize[0] && !minimize[1]) {
-            // x는 minimize, y는 maximize: x는 작고 y는 큰 점이 더 좋음
+            // minimize x while maximizing y: prefer smaller x and larger y
             if (points[j].x <= points[i].x && points[j].y >= points[i].y &&
                 (points[j].x < points[i].x || points[j].y > points[i].y)) {
               isPareto = false;
@@ -143,28 +143,28 @@ const CatBenchLeaderboard = ({ data }) => {
       }
     }
     
-    // x축 기준으로 정렬
+    // sort by x-axis values
     return paretoIndices
       .map(i => points[i])
       .sort((a, b) => a.x - b.x);
   };
 
-  // Pareto frontier를 선으로 연결하기 위한 데이터 생성 (step 형태)
+  // build a step-wise line that connects the Pareto frontier
   const getParetoLineData = (paretoData, xKey, yKey) => {
     if (paretoData.length < 2) return [];
     
     const sorted = [...paretoData].sort((a, b) => a[xKey] - b[xKey]);
     const lineData = [];
     
-    // 첫 번째 점 추가
+    // seed with the first point
     lineData.push({ [xKey]: sorted[0][xKey], [yKey]: sorted[0][yKey] });
     
-    // 각 연속된 점들 사이를 step 형태로 연결 (generate_bc.py 방식)
+    // connect each consecutive pair using the generate_bc.py step pattern
     for (let i = 0; i < sorted.length - 1; i++) {
-      // 수평선: (x1, y1) -> (x2, y1)
+      // horizontal segment: (x1, y1) -> (x2, y1)
       lineData.push({ [xKey]: sorted[i][xKey], [yKey]: sorted[i][yKey] });
       lineData.push({ [xKey]: sorted[i + 1][xKey], [yKey]: sorted[i][yKey] });
-      // 수직선: (x2, y1) -> (x2, y2)
+      // vertical segment: (x2, y1) -> (x2, y2)
       lineData.push({ [xKey]: sorted[i + 1][xKey], [yKey]: sorted[i][yKey] });
       lineData.push({ [xKey]: sorted[i + 1][xKey], [yKey]: sorted[i + 1][yKey] });
     }
@@ -172,7 +172,7 @@ const CatBenchLeaderboard = ({ data }) => {
     return lineData;
   };
 
-  // Pareto frontier 영역 shading을 위한 데이터 생성 (generate_bc.py의 fill_between 방식)
+  // generate area polygons for shading the Pareto frontier (mirrors generate_bc.py)
   const getParetoAreaData = (paretoData, xKey, yKey, allData, maxX, maxY, isMinimizeY = true) => {
     if (paretoData.length < 1) return [];
     
@@ -183,33 +183,33 @@ const CatBenchLeaderboard = ({ data }) => {
     const maxXExtended = maxX * 1.15;
     
     if (isMinimizeY) {
-      // Accuracy vs Efficiency: pareto frontier 위쪽을 색칠
+      // accuracy vs efficiency: shade the region above the frontier
       // fill_between([min_time] + pareto_x + [max*1.15], [pareto_y[0]] + pareto_y + [pareto_y[-1]], max*1.1)
       const topY = maxY * 1.1;
       
-      // 아래 경계: minX -> pareto points -> maxX*1.15
+      // lower boundary: minX -> Pareto points -> maxX * 1.15
       areaData.push({ [xKey]: minX, [yKey]: sorted[0][yKey] });
       sorted.forEach(point => {
         areaData.push({ [xKey]: point[xKey], [yKey]: point[yKey] });
       });
       areaData.push({ [xKey]: maxXExtended, [yKey]: sorted[sorted.length - 1][yKey] });
       
-      // 위 경계: maxX*1.15 -> minX (상단 경계)
+      // upper boundary: maxX * 1.15 -> minX
       areaData.push({ [xKey]: maxXExtended, [yKey]: topY });
       areaData.push({ [xKey]: minX, [yKey]: topY });
     } else {
-      // Robustness vs Efficiency: pareto frontier 아래쪽을 색칠 (y=0부터)
+      // robustness vs efficiency: shade the region beneath the frontier (starting at y=0)
       // fill_between([min_time] + pareto_x + [max*1.15], 0, [pareto_y[0]] + pareto_y + [pareto_y[-1]])
       const bottomY = 0;
       
-      // 위 경계: minX -> pareto points -> maxX*1.15
+      // upper boundary: minX -> Pareto points -> maxX * 1.15
       areaData.push({ [xKey]: minX, [yKey]: sorted[0][yKey] });
       sorted.forEach(point => {
         areaData.push({ [xKey]: point[xKey], [yKey]: point[yKey] });
       });
       areaData.push({ [xKey]: maxXExtended, [yKey]: sorted[sorted.length - 1][yKey] });
       
-      // 아래 경계: maxX*1.15 -> minX (y=0)
+      // lower boundary: maxX * 1.15 -> minX at y=0
       areaData.push({ [xKey]: maxXExtended, [yKey]: bottomY });
       areaData.push({ [xKey]: minX, [yKey]: bottomY });
     }
@@ -226,7 +226,7 @@ const CatBenchLeaderboard = ({ data }) => {
     [currentData]
   );
   
-  // Pareto frontier 선 데이터
+  // derived line data for each Pareto frontier
   const paretoAccuracyLineData = useMemo(() => 
     getParetoLineData(paretoAccuracyEfficiency, 'timePerStep', 'maeNormal'),
     [paretoAccuracyEfficiency]
@@ -236,7 +236,7 @@ const CatBenchLeaderboard = ({ data }) => {
     [paretoRobustnessEfficiency]
   );
   
-  // Pareto frontier 영역 데이터 (shading용)
+  // derived area data for shading the frontier
   const paretoAccuracyAreaData = useMemo(() => {
     if (paretoAccuracyEfficiency.length === 0) return [];
     const accuracyData = currentData.filter(d => d.maeNormal !== null && d.maeNormal !== undefined && d.timePerStep !== null && d.timePerStep !== undefined);
@@ -267,7 +267,7 @@ const CatBenchLeaderboard = ({ data }) => {
         fontFamily: "'Inter', sans-serif",
         color: '#52525b'
       }}>
-        데이터를 불러올 수 없습니다.
+        Unable to load data.
       </div>
     );
   }
@@ -387,10 +387,10 @@ const CatBenchLeaderboard = ({ data }) => {
               <button
                 key={tab}
                 onClick={() => {
-                  if (activeTab === tab) return; // 같은 탭 클릭 시 무시
+                  if (activeTab === tab) return; // ignore clicks on the already active tab
                   setTabTransition(true);
-                  setSearchQuery(''); // 탭 전환 시 검색 초기화
-                  setDatasetSearchQuery(''); // 탭 전환 시 데이터셋 검색 초기화
+                  setSearchQuery(''); // reset search when switching tabs
+                  setDatasetSearchQuery(''); // reset dataset search when switching tabs
                   setTimeout(() => {
                     setActiveTab(tab);
                     setTimeout(() => {
@@ -798,7 +798,7 @@ const CatBenchLeaderboard = ({ data }) => {
             </div>
           )}
 
-          {/* Dataset Details Section - 전체 비교용 (간단한 요약 테이블만) */}
+      {/* Dataset Details Section - compact comparison summary */}
           {showDatasetDetails && selectedDataset && currentData.length > 0 && (
         <div style={{ 
           backgroundColor: 'white',
@@ -870,9 +870,9 @@ const CatBenchLeaderboard = ({ data }) => {
                       cursor: 'pointer'
                     }}
                     onClick={() => {
-                      // 해당 모델의 View 버튼 클릭 효과
+                      // mimic clicking the model's view button
                       setSelectedModel(selectedModel === model.model ? null : model.model);
-                      // 스크롤하여 해당 모델의 상세 정보로 이동
+                      // scroll the page to the selected model details
                       setTimeout(() => {
                         const element = document.getElementById(`model-detail-${model.model}`);
                         if (element) {
@@ -916,7 +916,7 @@ const CatBenchLeaderboard = ({ data }) => {
             const modelData = currentData.find(m => m.model === selectedModel);
             if (!modelData) return null;
             
-            // 흡착물별 성능 데이터 가져오기 (현재 선택된 데이터셋의 데이터 사용)
+            // fetch adsorbate-level metrics using the currently selected dataset
             const adsorbateData = selectedDataset 
               ? getDatasetMlipAdsorbateBreakdown(data, selectedDataset, selectedModel)
               : getAdsorbateBreakdown(data, selectedModel);
@@ -1007,11 +1007,11 @@ const CatBenchLeaderboard = ({ data }) => {
 
                 {/* Adsorbate Breakdown Table */}
                 {adsorbateData && adsorbateData.length > 0 && (() => {
-                  // 빈 행 필터링: Adsorbate_name이 없거나 "-"이고 모든 주요 값이 N/A인 행 제거
+                  // filter out empty rows when adsorbate name is missing and no metrics are provided
                   const filteredData = adsorbateData.filter(row => {
                     const adsorbateName = row['Adsorbate_name'] || row['Adsorbate_name - Adsorbate_name'] || '';
                     if (!adsorbateName || adsorbateName === '-' || adsorbateName.trim() === '') {
-                      // 주요 메트릭이 모두 N/A인지 확인
+                      // check whether all critical metrics are N/A
                       const hasValidData = 
                         (row['MAE_total (eV)'] !== null && row['MAE_total (eV)'] !== undefined && row['MAE_total (eV)'] !== '') ||
                         (row['MAE_normal (eV)'] !== null && row['MAE_normal (eV)'] !== undefined && row['MAE_normal (eV)'] !== '') ||
@@ -1025,7 +1025,7 @@ const CatBenchLeaderboard = ({ data }) => {
                     return null;
                   }
                   
-                  // Anomaly detection scheme 컬럼 찾기
+                  // find anomaly-detection related columns
                   const anomalyColumns = Object.keys(filteredData[0] || {}).filter(key => 
                     key.includes('Anomaly count') && key !== 'Anomaly count - total'
                   ).sort();
@@ -1453,7 +1453,7 @@ const CatBenchLeaderboard = ({ data }) => {
             const modelData = currentData.find(m => m.model === selectedModel);
             if (!modelData) return null;
             
-            // 흡착물별 성능 데이터 가져오기 (현재 선택된 데이터셋의 데이터 사용)
+            // fetch adsorbate-level metrics using the currently selected dataset
             const adsorbateData = selectedDataset 
               ? getDatasetMlipAdsorbateBreakdown(data, selectedDataset, selectedModel)
               : getAdsorbateBreakdown(data, selectedModel);
@@ -1544,11 +1544,11 @@ const CatBenchLeaderboard = ({ data }) => {
 
                 {/* Adsorbate Breakdown Table */}
                 {adsorbateData && adsorbateData.length > 0 && (() => {
-                  // 빈 행 필터링: Adsorbate_name이 없거나 "-"이고 모든 주요 값이 N/A인 행 제거
+                  // filter out empty rows when the adsorbate name is missing and no metrics exist
                   const filteredData = adsorbateData.filter(row => {
                     const adsorbateName = row['Adsorbate_name'] || row['Adsorbate_name - Adsorbate_name'] || '';
                     if (!adsorbateName || adsorbateName === '-' || adsorbateName.trim() === '') {
-                      // 주요 메트릭이 모두 N/A인지 확인
+                      // check whether every major metric is N/A
                       const hasValidData = 
                         (row['MAE_total (eV)'] !== null && row['MAE_total (eV)'] !== undefined && row['MAE_total (eV)'] !== '') ||
                         (row['MAE_normal (eV)'] !== null && row['MAE_normal (eV)'] !== undefined && row['MAE_normal (eV)'] !== '') ||
@@ -1562,7 +1562,7 @@ const CatBenchLeaderboard = ({ data }) => {
                     return null;
                   }
                   
-                  // Anomaly detection scheme 컬럼 찾기
+                  // find anomaly-detection columns
                   const anomalyColumns = Object.keys(filteredData[0] || {}).filter(key => 
                     key.includes('Anomaly count') && key !== 'Anomaly count - total'
                   ).sort();
@@ -1717,11 +1717,11 @@ const CatBenchLeaderboard = ({ data }) => {
                         cursor={{ strokeDasharray: '3 3' }}
                         content={({ active, payload, coordinate }) => {
                           if (active && payload && payload.length && coordinate) {
-                            // Pareto Frontier는 제외
+                            // exclude the Pareto frontier points
                             const filteredPayload = payload.filter(p => p.name !== 'Pareto Frontier' && p.payload && p.payload.model);
                             if (filteredPayload.length === 0) return null;
                             
-                            // 마우스 위치에서 가장 가까운 포인트 찾기
+                            // determine which point is closest to the cursor
                             let closestPoint = filteredPayload[0];
                             let minDistance = Infinity;
                             
@@ -1873,11 +1873,11 @@ const CatBenchLeaderboard = ({ data }) => {
                         cursor={{ strokeDasharray: '3 3' }}
                         content={({ active, payload, coordinate }) => {
                           if (active && payload && payload.length && coordinate) {
-                            // Pareto Frontier는 제외
+                            // exclude the Pareto frontier points
                             const filteredPayload = payload.filter(p => p.name !== 'Pareto Frontier' && p.payload && p.payload.model);
                             if (filteredPayload.length === 0) return null;
                             
-                            // 마우스 위치에서 가장 가까운 포인트 찾기
+                            // determine which point is closest to the cursor
                             let closestPoint = filteredPayload[0];
                             let minDistance = Infinity;
                             

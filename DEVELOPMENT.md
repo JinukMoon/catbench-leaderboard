@@ -1,18 +1,18 @@
-# 개발 서버 사용 가이드
+# Development Server Guide
 
-## 로컬 개발 (같은 컴퓨터에서)
+## Local development (same machine)
 
-### 1. 개발 서버 실행
+### 1. Start the dev server
 
 ```bash
 cd 01_react
-npm install  # 처음 한 번만
+npm install  # run once
 npm run dev
 ```
 
-### 2. 브라우저에서 접근
+### 2. Open the browser
 
-터미널에 다음과 같은 메시지가 표시됩니다:
+Your terminal should show something similar to:
 
 ```
   VITE v5.x.x  ready in xxx ms
@@ -21,69 +21,69 @@ npm run dev
   ➜  Network: use --host to expose
 ```
 
-**로컬 브라우저에서 `http://localhost:5173`을 열면 됩니다!**
+Open `http://localhost:5173` in your browser to see the app.
 
-## 원격 서버에서 개발하는 경우
+## Developing on a remote server
 
-### 방법 1: SSH 포트 포워딩 (권장)
+### Option 1: SSH port forwarding (recommended)
 
-SSH로 서버에 접속할 때 포트 포워딩:
+Forward the dev-server port when connecting:
 
 ```bash
-# SSH 접속 시 포트 포워딩 추가
+# forward port 5173 during SSH login
 ssh -L 5173:localhost:5173 user@your-server
 
-# 그 다음 서버에서
+# then on the server
 cd 01_react
 npm run dev
 ```
 
-이렇게 하면 로컬 브라우저에서 `http://localhost:5173`으로 접근 가능합니다.
+You can now visit `http://localhost:5173` from your local machine.
 
-### 방법 2: 네트워크 접근 허용
+### Option 2: Expose the dev server on the network
 
-Vite 설정을 변경하여 네트워크에서 접근 가능하게:
+Allow Vite to listen on all interfaces:
 
 ```bash
-# vite.config.js에 host 추가하거나
+# temporary flag
 npm run dev -- --host
 ```
 
-또는 `vite.config.js` 수정:
+Or update `vite.config.js`:
 
 ```js
 export default defineConfig({
   plugins: [react()],
   server: {
-    host: '0.0.0.0',  // 모든 네트워크 인터페이스에서 접근 허용
+    host: '0.0.0.0',  // listen on every interface
     port: 5173
   },
   // ...
 })
 ```
 
-그러면 터미널에 표시된 Network 주소로 접근할 수 있습니다.
+After that, use the **Network** URL shown in the terminal.
 
-## 핫 리로드 (Hot Module Replacement)
+## Hot Module Replacement
 
-개발 서버 실행 중:
-- ✅ 코드 수정 시 자동으로 브라우저 새로고침
-- ✅ 상태 유지 (React 컴포넌트 상태 보존)
-- ✅ 빠른 반영 속도
+While `npm run dev` is running you get:
+- ✅ Automatic reload when code changes
+- ✅ Component state preserved across edits
+- ✅ Fast feedback loop
 
-## 개발 서버 중지
+## Stop the dev server
 
-터미널에서 `Ctrl + C`를 누르면 서버가 중지됩니다.
+Press `Ctrl + C` in the terminal.
 
-## 포트 변경
+## Change the port
 
-다른 포트를 사용하고 싶다면:
+Use a different port on demand:
 
 ```bash
 npm run dev -- --port 3000
 ```
 
-또는 `vite.config.js`에 추가:
+Or configure it permanently in `vite.config.js`:
 
 ```js
 server: {

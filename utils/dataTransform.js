@@ -1,13 +1,13 @@
 /**
- * 데이터 변환 유틸리티 함수
- * leaderboard_data.json의 구조를 컴포넌트에서 사용하기 쉬운 형태로 변환
+ * Data transformation helpers
+ * Convert the leaderboard_data.json structure into shapes that are easier to consume in React components.
  */
 
 /**
- * JSON 데이터를 컴포넌트에서 사용할 수 있는 형태로 변환
- * @param {Object} jsonData - leaderboard_data.json의 데이터
- * @param {string} datasetName - 선택된 데이터셋 이름 (예: 'MamunHigh2019', 'FG2023')
- * @returns {Array} 변환된 모델 데이터 배열
+ * Transform metrics for a specific dataset into a normalized array.
+ * @param {Object} jsonData - leaderboard_data.json payload
+ * @param {string} datasetName - selected dataset name (for example 'MamunHigh2019' or 'FG2023')
+ * @returns {Array} normalized model data
  */
 export function transformDataForDataset(jsonData, datasetName) {
   if (!jsonData || !jsonData.mlips) {
@@ -17,25 +17,25 @@ export function transformDataForDataset(jsonData, datasetName) {
   const models = [];
 
   for (const [mlipName, mlipData] of Object.entries(jsonData.mlips)) {
-    // 특정 데이터셋의 메트릭 가져오기
+    // retrieve metrics for the requested dataset
     const datasetMetrics = mlipData.datasets?.[datasetName];
     
     if (!datasetMetrics) {
       continue;
     }
 
-    // 메트릭 키 매핑 (JSON 키 -> 컴포넌트에서 사용하는 키)
+    // map JSON keys to the property names the UI expects
     const model = {
       model: mlipName,
       maeTotal: datasetMetrics['MAE_total (eV)'] ?? null,
       maeNormal: datasetMetrics['MAE_normal (eV)'] ?? null,
       normalRate: datasetMetrics['Normal rate (%)'] ?? null,
-      adsorbateMigration: null, // JSON에 없으면 null
+      adsorbateMigration: null, // fall back to null when the key is absent
       reproductionFailure: null,
       unphysicalRelaxation: null,
       energyAnomaly: null,
       adwt: datasetMetrics['ADwT (%)'] ?? null,
-      amdwt: null, // JSON에 없으면 null
+      amdwt: null, // fall back to null when the key is absent
       timePerStep: datasetMetrics['Time_per_step (s)'] ?? null,
     };
 
@@ -46,9 +46,9 @@ export function transformDataForDataset(jsonData, datasetName) {
 }
 
 /**
- * 모든 데이터셋에서 평균 메트릭을 계산하여 변환
- * @param {Object} jsonData - leaderboard_data.json의 데이터
- * @returns {Array} 평균 메트릭을 가진 모델 데이터 배열
+ * Transform average metrics computed across every dataset.
+ * @param {Object} jsonData - leaderboard_data.json payload
+ * @returns {Array} normalized model data containing averaged metrics
  */
 export function transformDataForAverage(jsonData) {
   if (!jsonData || !jsonData.mlips) {
@@ -61,7 +61,7 @@ export function transformDataForAverage(jsonData) {
     const datasets = mlipData.datasets || {};
     const averageMetrics = mlipData.average_metrics || {};
 
-    // 평균 메트릭 사용
+    // rely on the pre-computed average metrics block
     const model = {
       model: mlipName,
       maeTotal: averageMetrics['MAE_total (eV)']?.mean ?? null,
@@ -83,9 +83,9 @@ export function transformDataForAverage(jsonData) {
 }
 
 /**
- * 사용 가능한 데이터셋 목록 가져오기
- * @param {Object} jsonData - leaderboard_data.json의 데이터
- * @returns {Array} 데이터셋 이름 배열
+ * Get the list of available dataset names.
+ * @param {Object} jsonData - leaderboard_data.json payload
+ * @returns {Array} sorted array of dataset names
  */
 export function getAvailableDatasets(jsonData) {
   if (!jsonData || !jsonData.datasets) {
@@ -96,10 +96,10 @@ export function getAvailableDatasets(jsonData) {
 }
 
 /**
- * 특정 데이터셋의 정보 가져오기
- * @param {Object} jsonData - leaderboard_data.json의 데이터
- * @param {string} datasetName - 데이터셋 이름
- * @returns {Object} 데이터셋 정보
+ * Fetch metadata for a specific dataset.
+ * @param {Object} jsonData - leaderboard_data.json payload
+ * @param {string} datasetName - dataset name
+ * @returns {Object} dataset metadata or null
  */
 export function getDatasetInfo(jsonData, datasetName) {
   if (!jsonData || !jsonData.datasets || !jsonData.datasets[datasetName]) {
@@ -110,10 +110,10 @@ export function getDatasetInfo(jsonData, datasetName) {
 }
 
 /**
- * 랭킹 데이터 가져오기
- * @param {Object} jsonData - leaderboard_data.json의 데이터
- * @param {string} rankingType - 'overall', 'accuracy', 'success_rate', 'speed', 'coverage'
- * @returns {Array} 랭킹 배열
+ * Retrieve leaderboard rankings.
+ * @param {Object} jsonData - leaderboard_data.json payload
+ * @param {string} rankingType - one of 'overall', 'accuracy', 'success_rate', 'speed', 'coverage'
+ * @returns {Array} ranking entries
  */
 export function getRankings(jsonData, rankingType = 'overall') {
   if (!jsonData || !jsonData.rankings || !jsonData.rankings[rankingType]) {
@@ -124,10 +124,10 @@ export function getRankings(jsonData, rankingType = 'overall') {
 }
 
 /**
- * 특정 MLIP의 흡착물별 성능 데이터 가져오기 (전체 데이터셋 통합)
- * @param {Object} jsonData - leaderboard_data.json의 데이터
- * @param {string} mlipName - MLIP 이름
- * @returns {Array} 흡착물별 성능 데이터 배열
+ * Retrieve adsorbate-level performance for a given MLIP aggregated across datasets.
+ * @param {Object} jsonData - leaderboard_data.json payload
+ * @param {string} mlipName - MLIP identifier
+ * @returns {Array} adsorbate rows
  */
 export function getAdsorbateBreakdown(jsonData, mlipName) {
   if (!jsonData || !jsonData.adsorbate_breakdown || !jsonData.adsorbate_breakdown[mlipName]) {
@@ -138,7 +138,7 @@ export function getAdsorbateBreakdown(jsonData, mlipName) {
   const columns = mlipData.columns || [];
   const dataRows = mlipData.data || [];
 
-  // 데이터를 객체 배열로 변환
+  // convert the tabular data into an array of objects
   return dataRows.map(row => {
     const rowObj = {};
     columns.forEach((col, idx) => {
@@ -149,11 +149,11 @@ export function getAdsorbateBreakdown(jsonData, mlipName) {
 }
 
 /**
- * 특정 데이터셋의 특정 MLIP의 흡착물별 성능 데이터 가져오기
- * @param {Object} jsonData - leaderboard_data.json의 데이터
- * @param {string} datasetName - 데이터셋 이름
- * @param {string} mlipName - MLIP 이름
- * @returns {Array} 흡착물별 성능 데이터 배열
+ * Retrieve adsorbate-level metrics for a specific MLIP within a specific dataset.
+ * @param {Object} jsonData - leaderboard_data.json payload
+ * @param {string} datasetName - dataset name
+ * @param {string} mlipName - MLIP identifier
+ * @returns {Array} adsorbate rows
  */
 export function getDatasetMlipAdsorbateBreakdown(jsonData, datasetName, mlipName) {
   if (!jsonData || !jsonData.excel_data || !jsonData.excel_data[datasetName]) {
@@ -169,7 +169,7 @@ export function getDatasetMlipAdsorbateBreakdown(jsonData, datasetName, mlipName
   const columns = mlipData.columns || [];
   const dataRows = mlipData.data || [];
 
-  // 데이터를 객체 배열로 변환
+  // convert the tabular data into an array of objects
   return dataRows.map(row => {
     const rowObj = {};
     columns.forEach((col, idx) => {
@@ -188,9 +188,9 @@ export function getDatasetMlipAdsorbateBreakdown(jsonData, datasetName, mlipName
 }
 
 /**
- * 모든 MLIP의 흡착물별 성능 데이터 가져오기
- * @param {Object} jsonData - leaderboard_data.json의 데이터
- * @returns {Object} MLIP별 흡착물 데이터 객체
+ * Retrieve adsorbate breakdowns for every MLIP.
+ * @param {Object} jsonData - leaderboard_data.json payload
+ * @returns {Object} map of MLIP -> adsorbate rows
  */
 export function getAllAdsorbateBreakdowns(jsonData) {
   if (!jsonData || !jsonData.adsorbate_breakdown) {
