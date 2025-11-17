@@ -46,9 +46,8 @@ jobs:
 
       - name: Build
         env:
-          # 저장소 이름에 맞게 base 경로 설정
-          # 저장소 이름이 'catbench-leaderboard'인 경우: '/catbench-leaderboard/'
-          VITE_BASE_PATH: '/catbench-leaderboard/'
+          # 커스텀 도메인(catbench.org)을 사용하므로 루트 경로로 빌드
+          VITE_BASE_PATH: '/'
         run: npm run build
 
       - name: Setup Pages
