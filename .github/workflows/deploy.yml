@@ -3,8 +3,8 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - main  # 또는 master, 기본 브랜치 이름에 맞게 수정
-  workflow_dispatch:  # 수동 실행 가능
+      - main
+  workflow_dispatch:
 
 permissions:
   contents: read
@@ -28,26 +28,10 @@ jobs:
           node-version: '20'
           cache: 'npm'
 
-      - name: Setup Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.12'
-          cache: 'pip'
-
-      - name: Install Python dependencies
-        run: |
-          pip install -r requirements.txt
-
-      - name: Install Node dependencies
+      - name: Install dependencies
         run: npm ci
 
-      - name: Generate leaderboard data
-        run: npm run generate-data
-
       - name: Build
-        env:
-          # 커스텀 도메인(catbench.org)을 사용하므로 루트 경로로 빌드
-          VITE_BASE_PATH: '/'
         run: npm run build
 
       - name: Setup Pages
@@ -68,4 +52,3 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-
