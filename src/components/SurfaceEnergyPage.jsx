@@ -289,7 +289,7 @@ function SurfaceEnergyPage({ isDark }) {
             <p className="font-medium mb-1">About Surface Energy Benchmark</p>
             <p>
               Surface energy (J/m²) is calculated for 1,915 binary alloy slabs from the MamunHighT2019 dataset.
-              Lower MAE indicates better agreement with DFT reference values (RPBE functional).
+              Lower MAE indicates better agreement with DFT reference values.
             </p>
           </div>
         </div>
