@@ -18,7 +18,7 @@ function Footer({ meta, isDark = true }) {
         {/* About CatBench Section */}
         <div className={`mb-8 pb-8 border-b ${isDark ? 'border-slate-800' : 'border-slate-200'}`}>
           <h3 className={`text-2xl font-bold mb-6 ${isDark ? 'text-white' : 'text-slate-900'}`}>
-            CatBench: Framework for Benchmarking Machine Learning Interatomic Potentials in Adsorption Energy Predictions for Heterogeneous Catalysis
+            CatBench: Benchmarking Framework for Machine Learning Interatomic Potentials in Adsorption Energy Predictions for Heterogeneous Catalysis
           </h3>
 
           <div className={`space-y-6 ${isDark ? 'text-slate-300' : 'text-slate-700'}`}>
