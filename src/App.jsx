@@ -8,7 +8,7 @@ import ParetoPlots from './components/ParetoPlots'
 import AllDatasetsPage from './components/AllDatasetsPage'
 import SurfaceEnergyPage from './components/SurfaceEnergyPage'
 import DocumentationPage from './components/DocumentationPage'
-import { Loader2, Headphones } from 'lucide-react'
+import { Loader2, Headphones, Info } from 'lucide-react'
 
 // Main leaderboard page component
 function MainPage({ meta, mlipMetadata, isDark, currentDataset, setCurrentDataset, datasetData, loading }) {
@@ -39,41 +39,47 @@ function MainPage({ meta, mlipMetadata, isDark, currentDataset, setCurrentDatase
             Benchmarking framework of MLIPs for Adsorption Energy Predictions
           </p>
         </div>
-        {/* Podcast - right side, symmetrical to logo */}
-        <div className="absolute right-0 top-full -translate-y-[55%] z-[9999]">
-          <div className={`rounded-xl p-4 ${isDark ? 'bg-slate-800/90' : 'bg-white shadow-md'}`}>
+        {/* Overview & Surface Energy - right side */}
+        <div className="absolute right-0 top-full -translate-y-[57%] z-[9999] flex flex-col gap-2">
+          {/* CatBench Overview */}
+          <div className={`rounded-xl p-4 ${isDark ? 'bg-slate-800/90' : 'bg-white shadow-md'}`} style={{ width: '280px' }}>
             <div className="flex items-center gap-2 mb-3">
               <Headphones className={`w-5 h-5 ${isDark ? 'text-accent-400' : 'text-accent-600'}`} />
               <span className={`text-sm font-semibold ${isDark ? 'text-white' : 'text-slate-900'}`}>
                 CatBench Overview
               </span>
             </div>
-            <div className="flex flex-col gap-3">
-              {/* Short Summary */}
-              <div>
-                <div className={`text-xs mb-1 ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
-                  Short Summary
-                </div>
-                <audio
-                  controls
-                  src="/audio/CatBench_Summarize.m4a"
-                  className="h-8"
-                  style={{ width: '280px' }}
-                />
-              </div>
-              {/* Podcast */}
-              <div>
-                <div className={`text-xs mb-1 ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
-                  Podcast
-                </div>
-                <audio
-                  controls
-                  preload="auto"
-                  src="/audio/CatBench_Podcast.m4a"
-                  className="h-8"
-                  style={{ width: '280px' }}
-                />
-              </div>
+            <audio
+              controls
+              src="/audio/CatBench_summary.mp3"
+              className="h-8 w-full"
+            />
+          </div>
+          {/* Surface Energy */}
+          <div className="relative group">
+            <a
+              href="/surface-energy"
+              className={`
+                px-4 py-2 rounded-lg text-sm font-medium transition-all flex items-center gap-2
+                ${isDark
+                  ? 'bg-slate-800/60 text-slate-300 hover:bg-slate-700/60 hover:text-white border border-slate-700/50'
+                  : 'bg-white text-slate-600 hover:bg-slate-100 hover:text-slate-900 border border-slate-300 shadow-sm'
+                }
+              `}
+            >
+              <span>Surface Energy Benchmark</span>
+              <Info className={`w-3.5 h-3.5 ${isDark ? 'text-slate-500' : 'text-slate-400'}`} />
+            </a>
+            {/* Tooltip */}
+            <div
+              className="absolute z-50 top-full left-1/2 -translate-x-1/2 mt-2 w-64 px-3 py-2 text-xs font-normal leading-relaxed text-left whitespace-normal text-slate-200 rounded-lg shadow-xl border border-slate-600 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity"
+              style={{ backgroundColor: '#0f172a' }}
+            >
+              <span
+                className="absolute bottom-full left-1/2 -translate-x-1/2 border-4 border-transparent"
+                style={{ borderBottomColor: '#0f172a' }}
+              />
+              Surface energy predictions on 1,915 binary alloy slabs from MamunHighT2019 dataset
             </div>
           </div>
         </div>

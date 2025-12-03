@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { Github, Mail, Sun, Moon, FileText, Database, Layers, BookOpen, Home } from 'lucide-react'
+import { Github, Sun, Moon, FileText, Database, BookOpen } from 'lucide-react'
 
 function Header({ isDark, onToggleTheme }) {
   return (
@@ -35,24 +35,6 @@ function Header({ isDark, onToggleTheme }) {
               <span className="hidden sm:inline">Browse All</span>
             </Link>
             <Link
-              to="/"
-              className={`transition-colors text-base font-medium flex items-center gap-2 ${
-                isDark ? 'text-slate-400 hover:text-white' : 'text-slate-600 hover:text-slate-900'
-              }`}
-            >
-              <Home className="w-5 h-5" />
-              <span className="hidden sm:inline">Home</span>
-            </Link>
-            <Link
-              to="/surface-energy"
-              className={`transition-colors text-base font-medium flex items-center gap-2 ${
-                isDark ? 'text-slate-400 hover:text-white' : 'text-slate-600 hover:text-slate-900'
-              }`}
-            >
-              <Layers className="w-5 h-5" />
-              <span className="hidden sm:inline">Surface Energy</span>
-            </Link>
-            <Link
               to="/docs"
               className={`transition-colors text-base font-medium flex items-center gap-2 ${
                 isDark ? 'text-slate-400 hover:text-white' : 'text-slate-600 hover:text-slate-900'
@@ -62,7 +44,7 @@ function Header({ isDark, onToggleTheme }) {
               <span className="hidden sm:inline">Docs</span>
             </Link>
             <a
-              href="https://doi.org/10.1016/j.xcrp.2025.102968"
+              href="https://www.cell.com/cell-reports-physical-science/fulltext/S2666-3864(25)00567-3"
               target="_blank"
               rel="noopener noreferrer"
               className={`transition-colors text-base font-medium flex items-center gap-2 ${
@@ -82,15 +64,6 @@ function Header({ isDark, onToggleTheme }) {
             >
               <Github className="w-5 h-5" />
               <span className="hidden sm:inline">GitHub</span>
-            </a>
-            <a
-              href="mailto:jumoon@snu.ac.kr"
-              className={`transition-colors text-base font-medium flex items-center gap-2 ${
-                isDark ? 'text-slate-400 hover:text-white' : 'text-slate-600 hover:text-slate-900'
-              }`}
-            >
-              <Mail className="w-5 h-5" />
-              <span className="hidden sm:inline">Contact</span>
             </a>
 
             {/* Theme toggle */}

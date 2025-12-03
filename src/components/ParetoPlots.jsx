@@ -197,48 +197,137 @@ function ParetoPlots({ data, isDark = true }) {
     }
   }, [data])
 
-  // Compute label offsets based on data proximity
+  // Compute label offsets using repulsion-based algorithm (like ggrepel/adjustText)
   function computeLabelOffsets(dataPoints) {
-    const offsets = {}
-    const baseOffset = -18
+    if (dataPoints.length === 0) return {}
 
-    // Group nearby points
-    for (let i = 0; i < dataPoints.length; i++) {
-      let dy = baseOffset
-      let dx = 0
-      let conflicts = 0
+    // Get data ranges for normalization
+    const xMin = Math.min(...dataPoints.map(d => d.x))
+    const xMax = Math.max(...dataPoints.map(d => d.x))
+    const yMin = Math.min(...dataPoints.map(d => d.y))
+    const yMax = Math.max(...dataPoints.map(d => d.y))
+    const xRange = xMax - xMin || 1
+    const yRange = yMax - yMin || 1
 
-      for (let j = 0; j < dataPoints.length; j++) {
-        if (i === j) continue
+    // Initialize label positions (normalized coordinates)
+    const labels = dataPoints.map((d, i) => ({
+      index: i,
+      x: (d.x - xMin) / xRange,  // normalized point x
+      y: (d.y - yMin) / yRange,  // normalized point y
+      lx: (d.x - xMin) / xRange, // label x (will be adjusted)
+      ly: (d.y - yMin) / yRange + 0.05, // label y (start above point)
+      name: d.name
+    }))
 
-        const xDiff = Math.abs(dataPoints[i].x - dataPoints[j].x)
-        const yDiff = Math.abs(dataPoints[i].y - dataPoints[j].y)
+    // Candidate positions around each point (dx, dy in normalized units)
+    const candidates = [
+      { dx: 0, dy: 0.08 },    // top
+      { dx: 0, dy: -0.08 },   // bottom
+      { dx: 0.06, dy: 0.05 }, // top-right
+      { dx: -0.06, dy: 0.05 },// top-left
+      { dx: 0.06, dy: -0.05 },// bottom-right
+      { dx: -0.06, dy: -0.05 },// bottom-left
+      { dx: 0.08, dy: 0 },    // right
+      { dx: -0.08, dy: 0 },   // left
+      { dx: 0, dy: 0.12 },    // far top
+      { dx: 0, dy: -0.12 },   // far bottom
+      { dx: 0.10, dy: 0.08 }, // far top-right
+      { dx: -0.10, dy: 0.08 },// far top-left
+    ]
 
-        // Normalize by data range
-        const xRange = Math.max(...dataPoints.map(d => d.x)) - Math.min(...dataPoints.map(d => d.x))
-        const yRange = Math.max(...dataPoints.map(d => d.y)) - Math.min(...dataPoints.map(d => d.y))
+    // Estimate label size in normalized coordinates
+    const labelWidth = 0.12
+    const labelHeight = 0.04
 
-        const relX = xDiff / (xRange || 1)
-        const relY = yDiff / (yRange || 1)
+    // Check if two label bounding boxes overlap
+    function labelsOverlap(l1, l2) {
+      const hw = labelWidth / 2
+      const hh = labelHeight / 2
+      return Math.abs(l1.lx - l2.lx) < labelWidth && Math.abs(l1.ly - l2.ly) < labelHeight
+    }
 
-        // If points are close, adjust labels
-        if (relX < 0.08 && relY < 0.08) {
-          conflicts++
-          // Alternate directions based on relative position
-          if (dataPoints[i].y > dataPoints[j].y) {
-            dy = -25 - (conflicts * 12)
-          } else {
-            dy = 25 + (conflicts * 12)
-          }
-          if (dataPoints[i].x > dataPoints[j].x) {
-            dx = 20
-          } else {
-            dx = -20
-          }
+    // Check if label overlaps with any point
+    function overlapsPoint(label, points) {
+      for (const p of points) {
+        if (Math.abs(label.lx - p.x) < labelWidth / 2 && Math.abs(label.ly - p.y) < labelHeight / 2) {
+          return true
+        }
+      }
+      return false
+    }
+
+    // Score a label position (lower is better)
+    function scorePosition(labelIdx, lx, ly) {
+      let score = 0
+      const testLabel = { lx, ly }
+
+      // Penalty for overlapping other labels
+      for (let i = 0; i < labels.length; i++) {
+        if (i === labelIdx) continue
+        if (labelsOverlap(testLabel, labels[i])) {
+          score += 100
+        }
+        // Soft penalty for being close
+        const dist = Math.sqrt((lx - labels[i].lx) ** 2 + (ly - labels[i].ly) ** 2)
+        if (dist < labelWidth) {
+          score += (labelWidth - dist) * 50
         }
       }
 
-      offsets[i] = { dx, dy }
+      // Penalty for overlapping points
+      for (const p of dataPoints) {
+        const px = (p.x - xMin) / xRange
+        const py = (p.y - yMin) / yRange
+        if (Math.abs(lx - px) < labelWidth / 2 && Math.abs(ly - py) < labelHeight / 2) {
+          score += 80
+        }
+      }
+
+      // Small penalty for distance from own point
+      const ownDist = Math.sqrt((lx - labels[labelIdx].x) ** 2 + (ly - labels[labelIdx].y) ** 2)
+      score += ownDist * 10
+
+      return score
+    }
+
+    // Greedy placement: place labels one by one, choosing best position
+    const sortedIndices = [...Array(labels.length).keys()].sort((a, b) => {
+      // Prioritize Pareto optimal points
+      if (dataPoints[a].isPareto !== dataPoints[b].isPareto) {
+        return dataPoints[a].isPareto ? -1 : 1
+      }
+      return 0
+    })
+
+    for (const idx of sortedIndices) {
+      let bestScore = Infinity
+      let bestPos = { dx: 0, dy: 0.08 }
+
+      for (const cand of candidates) {
+        const lx = labels[idx].x + cand.dx
+        const ly = labels[idx].y + cand.dy
+        const score = scorePosition(idx, lx, ly)
+
+        if (score < bestScore) {
+          bestScore = score
+          bestPos = cand
+        }
+      }
+
+      labels[idx].lx = labels[idx].x + bestPos.dx
+      labels[idx].ly = labels[idx].y + bestPos.dy
+    }
+
+    // Convert back to pixel offsets (approximate)
+    const pixelScaleX = 300 // approximate chart width
+    const pixelScaleY = 300 // approximate chart height
+
+    const offsets = {}
+    for (const label of labels) {
+      offsets[label.index] = {
+        dx: (label.lx - label.x) * pixelScaleX,
+        dy: -(label.ly - label.y) * pixelScaleY // negative because y increases downward in SVG
+      }
     }
 
     return offsets
@@ -269,16 +358,16 @@ function ParetoPlots({ data, isDark = true }) {
                 dataKey="x"
                 name="Time"
                 type="number"
-                tick={{ fill: textColor, fontSize: 14 }}
-                label={{ value: 'Time per step (s)', position: 'bottom', fill: textColor, fontSize: 16, fontWeight: 'bold', dy: 10 }}
+                tick={{ fill: textColor, fontSize: 16 }}
+                label={{ value: 'Time per step (s)', position: 'bottom', fill: textColor, fontSize: 20, fontWeight: 'bold', dy: 10 }}
                 domain={['auto', 'auto']}
               />
               <YAxis
                 dataKey="y"
                 name="MAE"
                 type="number"
-                tick={{ fill: textColor, fontSize: 14 }}
-                label={{ value: 'MAE_normal (eV)', angle: -90, position: 'left', fill: textColor, fontSize: 16, fontWeight: 'bold', dx: -20 }}
+                tick={{ fill: textColor, fontSize: 16 }}
+                label={{ value: 'MAE_normal (eV)', angle: -90, position: 'insideLeft', fill: textColor, fontSize: 20, fontWeight: 'bold', dx: -5, textAnchor: 'middle' }}
                 domain={['auto', 'auto']}
               />
               <Tooltip content={<CustomTooltip metricLabel="MAE" />} isAnimationActive={false} />
@@ -321,16 +410,16 @@ function ParetoPlots({ data, isDark = true }) {
                 dataKey="x"
                 name="Time"
                 type="number"
-                tick={{ fill: textColor, fontSize: 14 }}
-                label={{ value: 'Time per step (s)', position: 'bottom', fill: textColor, fontSize: 16, fontWeight: 'bold', dy: 10 }}
+                tick={{ fill: textColor, fontSize: 16 }}
+                label={{ value: 'Time per step (s)', position: 'bottom', fill: textColor, fontSize: 20, fontWeight: 'bold', dy: 10 }}
                 domain={['auto', 'auto']}
               />
               <YAxis
                 dataKey="y"
                 name="Normal Rate"
                 type="number"
-                tick={{ fill: textColor, fontSize: 14 }}
-                label={{ value: 'Normal Rate (%)', angle: -90, position: 'left', fill: textColor, fontSize: 16, fontWeight: 'bold', dx: -20 }}
+                tick={{ fill: textColor, fontSize: 16 }}
+                label={{ value: 'Normal Rate (%)', angle: -90, position: 'insideLeft', fill: textColor, fontSize: 20, fontWeight: 'bold', dx: -5, textAnchor: 'middle' }}
                 domain={['auto', 'auto']}
               />
               <Tooltip content={<CustomTooltip metricLabel="Normal Rate" />} isAnimationActive={false} />

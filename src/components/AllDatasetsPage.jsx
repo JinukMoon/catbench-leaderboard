@@ -2,6 +2,17 @@ import React, { useState, useMemo } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Search, Database, ArrowLeft, ExternalLink, Link as LinkIcon } from 'lucide-react'
 
+// Override source display for specific datasets
+const SOURCE_DISPLAY_OVERRIDE = {
+  '01_FG': 'ioChem-BD',
+  '07_BM_final': 'ioChem-BD',
+}
+
+// Get display source name
+function getDisplaySource(dataset) {
+  return SOURCE_DISPLAY_OVERRIDE[dataset.id] || dataset.source
+}
+
 function AllDatasetsPage({ meta, isDark }) {
   const navigate = useNavigate()
   const [searchQuery, setSearchQuery] = useState('')
@@ -171,7 +182,7 @@ function AllDatasetsPage({ meta, isDark }) {
                     ? isDark ? 'bg-purple-500/20 text-purple-400' : 'bg-purple-100 text-purple-600'
                     : isDark ? 'bg-green-500/20 text-green-400' : 'bg-green-100 text-green-600'
               }`}>
-                {dataset.source}
+                {getDisplaySource(dataset)}
               </span>
 
               <span className={`text-xs ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>
