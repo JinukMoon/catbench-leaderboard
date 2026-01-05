@@ -1,5 +1,5 @@
 {
-  "last_updated": "2025-12-02T09:22:45.738903Z",
+  "last_updated": "2026-01-05T05:47:22.763718Z",
   "image_base_url": "https://images.catbench.org",
   "sources": [
     {
@@ -22,7 +22,7 @@
       "source": "catalysis-hub"
     },
     {
-      "id": "01_FG",
+      "id": "FG",
       "display_name": "FG",
       "source": "literature"
     },
@@ -32,39 +32,23 @@
       "source": "catalysis-hub"
     },
     {
-      "id": "07_BM_final",
+      "id": "BM",
       "display_name": "BM",
       "source": "literature"
     },
     {
-      "id": "04_KHLOHC",
+      "id": "KHLOHC",
       "display_name": "KHLOHC",
       "source": "ccel"
     }
   ],
   "datasets": [
     {
-      "id": "01_FG",
-      "display_name": "FG",
-      "source": "literature",
-      "featured": true,
-      "mlip_count": 13,
-      "reaction_count": 2651
-    },
-    {
-      "id": "04_KHLOHC",
-      "display_name": "KHLOHC",
-      "source": "ccel",
-      "featured": true,
-      "mlip_count": 13,
-      "reaction_count": 462
-    },
-    {
-      "id": "07_BM_final",
+      "id": "BM",
       "display_name": "BM",
       "source": "literature",
       "featured": true,
-      "mlip_count": 13,
+      "mlip_count": 19,
       "reaction_count": 32
     },
     {
@@ -72,32 +56,881 @@
       "display_name": "ComerGeneralized2024",
       "source": "catalysis-hub",
       "featured": true,
-      "mlip_count": 12,
+      "mlip_count": 21,
       "reaction_count": 325
+    },
+    {
+      "id": "FG",
+      "display_name": "FG",
+      "source": "literature",
+      "featured": true,
+      "mlip_count": 19,
+      "reaction_count": 2651
+    },
+    {
+      "id": "KHLOHC",
+      "display_name": "KHLOHC",
+      "source": "ccel",
+      "featured": true,
+      "mlip_count": 19,
+      "reaction_count": 462
     },
     {
       "id": "MamunHighT2019",
       "display_name": "MamunHighT2019",
       "source": "catalysis-hub",
       "featured": true,
-      "mlip_count": 13,
+      "mlip_count": 19,
       "reaction_count": 45130
+    },
+    {
+      "id": "AlonsoStrain2023",
+      "display_name": "AlonsoStrain2023",
+      "source": "catalysis-hub",
+      "featured": false,
+      "mlip_count": 15,
+      "reaction_count": 2628
+    },
+    {
+      "id": "AraComputational2022",
+      "display_name": "AraComputational2022",
+      "source": "catalysis-hub",
+      "featured": false,
+      "mlip_count": 15,
+      "reaction_count": 192
+    },
+    {
+      "id": "BackPrediction2018",
+      "display_name": "BackPrediction2018",
+      "source": "catalysis-hub",
+      "featured": false,
+      "mlip_count": 15,
+      "reaction_count": 67
+    },
+    {
+      "id": "BackSingle2018",
+      "display_name": "BackSingle2018",
+      "source": "catalysis-hub",
+      "featured": false,
+      "mlip_count": 15,
+      "reaction_count": 141
+    },
+    {
+      "id": "BaeumerTuning2020",
+      "display_name": "BaeumerTuning2020",
+      "source": "catalysis-hub",
+      "featured": false,
+      "mlip_count": 15,
+      "reaction_count": 51
+    },
+    {
+      "id": "BajdichWO32018",
+      "display_name": "BajdichWO32018",
+      "source": "catalysis-hub",
+      "featured": false,
+      "mlip_count": 15,
+      "reaction_count": 250
+    },
+    {
+      "id": "BalzarettiDensity2024",
+      "display_name": "BalzarettiDensity2024",
+      "source": "catalysis-hub",
+      "featured": false,
+      "mlip_count": 15,
+      "reaction_count": 69
+    },
+    {
+      "id": "BaseraImplications2025",
+      "display_name": "BaseraImplications2025",
+      "source": "catalysis-hub",
+      "featured": false,
+      "mlip_count": 15,
+      "reaction_count": 150
+    },
+    {
+      "id": "Baserarole2024",
+      "display_name": "Baserarole2024",
+      "source": "catalysis-hub",
+      "featured": false,
+      "mlip_count": 15,
+      "reaction_count": 54
+    },
+    {
+      "id": "BothraExtendedICOHP2024",
+      "display_name": "BothraExtendedICOHP2024",
+      "source": "catalysis-hub",
+      "featured": false,
+      "mlip_count": 15,
+      "reaction_count": 185
+    },
+    {
+      "id": "BothraSodium2024",
+      "display_name": "BothraSodium2024",
+      "source": "catalysis-hub",
+      "featured": false,
+      "mlip_count": 15,
+      "reaction_count": 26
+    },
+    {
+      "id": "BukasORR2017",
+      "display_name": "BukasORR2017",
+      "source": "catalysis-hub",
+      "featured": false,
+      "mlip_count": 15,
+      "reaction_count": 4
+    },
+    {
+      "id": "CamposEfficient2021",
+      "display_name": "CamposEfficient2021",
+      "source": "catalysis-hub",
+      "featured": false,
+      "mlip_count": 15,
+      "reaction_count": 66
+    },
+    {
+      "id": "CarlsonLiquidcrystal2024",
+      "display_name": "CarlsonLiquidcrystal2024",
+      "source": "catalysis-hub",
+      "featured": false,
+      "mlip_count": 15,
+      "reaction_count": 13
+    },
+    {
+      "id": "ChenUnderstanding2018",
+      "display_name": "ChenUnderstanding2018",
+      "source": "catalysis-hub",
+      "featured": false,
+      "mlip_count": 15,
+      "reaction_count": 2
+    },
+    {
+      "id": "ClarkInfluence2018",
+      "display_name": "ClarkInfluence2018",
+      "source": "catalysis-hub",
+      "featured": false,
+      "mlip_count": 15,
+      "reaction_count": 36
+    },
+    {
+      "id": "ComerUnraveling2022",
+      "display_name": "ComerUnraveling2022",
+      "source": "catalysis-hub",
+      "featured": false,
+      "mlip_count": 15,
+      "reaction_count": 132
+    },
+    {
+      "id": "CraigHigh-throughput2021",
+      "display_name": "CraigHigh-throughput2021",
+      "source": "catalysis-hub",
+      "featured": false,
+      "mlip_count": 16,
+      "reaction_count": 403
+    },
+    {
+      "id": "DStructure2024",
+      "display_name": "DStructure2024",
+      "source": "catalysis-hub",
+      "featured": false,
+      "mlip_count": 1,
+      "reaction_count": 6
+    },
+    {
+      "id": "DheerNitrogenase2025",
+      "display_name": "DheerNitrogenase2025",
+      "source": "catalysis-hub",
+      "featured": false,
+      "mlip_count": 15,
+      "reaction_count": 54
+    },
+    {
+      "id": "DickensElectronic2018",
+      "display_name": "DickensElectronic2018",
+      "source": "catalysis-hub",
+      "featured": false,
+      "mlip_count": 14,
+      "reaction_count": 901
+    },
+    {
+      "id": "FantaQMCcopperCO2024",
+      "display_name": "FantaQMCcopperCO2024",
+      "source": "catalysis-hub",
+      "featured": false,
+      "mlip_count": 15,
+      "reaction_count": 156
+    },
+    {
+      "id": "FesterEdge2017",
+      "display_name": "FesterEdge2017",
+      "source": "catalysis-hub",
+      "featured": false,
+      "mlip_count": 15,
+      "reaction_count": 16
+    },
+    {
+      "id": "FloresActive2020",
+      "display_name": "FloresActive2020",
+      "source": "catalysis-hub",
+      "featured": false,
+      "mlip_count": 15,
+      "reaction_count": 96
+    },
+    {
+      "id": "GauthierFacile2019",
+      "display_name": "GauthierFacile2019",
+      "source": "catalysis-hub",
+      "featured": false,
+      "mlip_count": 15,
+      "reaction_count": 1
+    },
+    {
+      "id": "GauthierSolvation2017",
+      "display_name": "GauthierSolvation2017",
+      "source": "catalysis-hub",
+      "featured": false,
+      "mlip_count": 15,
+      "reaction_count": 4
+    },
+    {
+      "id": "Gauthierrole2021",
+      "display_name": "Gauthierrole2021",
+      "source": "catalysis-hub",
+      "featured": false,
+      "mlip_count": 15,
+      "reaction_count": 351
+    },
+    {
+      "id": "GrewalHighly2019",
+      "display_name": "GrewalHighly2019",
+      "source": "catalysis-hub",
+      "featured": false,
+      "mlip_count": 15,
+      "reaction_count": 37
+    },
+    {
+      "id": "HalldinAssessing2023",
+      "display_name": "HalldinAssessing2023",
+      "source": "catalysis-hub",
+      "featured": false,
+      "mlip_count": 15,
+      "reaction_count": 147
+    },
+    {
+      "id": "HamkinsCoordination2025",
+      "display_name": "HamkinsCoordination2025",
+      "source": "catalysis-hub",
+      "featured": false,
+      "mlip_count": 15,
+      "reaction_count": 84
+    },
+    {
+      "id": "HansenFirst2018",
+      "display_name": "HansenFirst2018",
+      "source": "catalysis-hub",
+      "featured": false,
+      "mlip_count": 15,
+      "reaction_count": 405
+    },
+    {
+      "id": "HassanBidentate2024",
+      "display_name": "HassanBidentate2024",
+      "source": "catalysis-hub",
+      "featured": false,
+      "mlip_count": 15,
+      "reaction_count": 4
+    },
+    {
+      "id": "HoffmannFramework2016",
+      "display_name": "HoffmannFramework2016",
+      "source": "catalysis-hub",
+      "featured": false,
+      "mlip_count": 15,
+      "reaction_count": 48
+    },
+    {
+      "id": "HossainInvestigation2022",
+      "display_name": "HossainInvestigation2022",
+      "source": "catalysis-hub",
+      "featured": false,
+      "mlip_count": 15,
+      "reaction_count": 735
+    },
+    {
+      "id": "HubertAcidic2020",
+      "display_name": "HubertAcidic2020",
+      "source": "catalysis-hub",
+      "featured": false,
+      "mlip_count": 15,
+      "reaction_count": 39
+    },
+    {
+      "id": "Jia-ChengAtomistic2021",
+      "display_name": "Jia-ChengAtomistic2021",
+      "source": "catalysis-hub",
+      "featured": false,
+      "mlip_count": 1,
+      "reaction_count": 1
+    },
+    {
+      "id": "JiangDynamic2023",
+      "display_name": "JiangDynamic2023",
+      "source": "catalysis-hub",
+      "featured": false,
+      "mlip_count": 15,
+      "reaction_count": 133
+    },
+    {
+      "id": "JiangModelling2021",
+      "display_name": "JiangModelling2021",
+      "source": "catalysis-hub",
+      "featured": false,
+      "mlip_count": 1,
+      "reaction_count": 25
+    },
+    {
+      "id": "JuUnraveling2019",
+      "display_name": "JuUnraveling2019",
+      "source": "catalysis-hub",
+      "featured": false,
+      "mlip_count": 16,
+      "reaction_count": 21
+    },
+    {
+      "id": "KaiData-driven2022",
+      "display_name": "KaiData-driven2022",
+      "source": "catalysis-hub",
+      "featured": false,
+      "mlip_count": 15,
+      "reaction_count": 325
+    },
+    {
+      "id": "KoshyInvestigation2022",
+      "display_name": "KoshyInvestigation2022",
+      "source": "catalysis-hub",
+      "featured": false,
+      "mlip_count": 16,
+      "reaction_count": 7
+    },
+    {
+      "id": "LandersUnderstanding2020",
+      "display_name": "LandersUnderstanding2020",
+      "source": "catalysis-hub",
+      "featured": false,
+      "mlip_count": 15,
+      "reaction_count": 94
+    },
+    {
+      "id": "LeeEpitaxial2020",
+      "display_name": "LeeEpitaxial2020",
+      "source": "catalysis-hub",
+      "featured": false,
+      "mlip_count": 15,
+      "reaction_count": 23
+    },
+    {
+      "id": "LiScreening2021",
+      "display_name": "LiScreening2021",
+      "source": "catalysis-hub",
+      "featured": false,
+      "mlip_count": 15,
+      "reaction_count": 337
+    },
+    {
+      "id": "LiccardoUnveiling2024",
+      "display_name": "LiccardoUnveiling2024",
+      "source": "catalysis-hub",
+      "featured": false,
+      "mlip_count": 15,
+      "reaction_count": 14
+    },
+    {
+      "id": "LiuCatalytic2022",
+      "display_name": "LiuCatalytic2022",
+      "source": "catalysis-hub",
+      "featured": false,
+      "mlip_count": 15,
+      "reaction_count": 32
+    },
+    {
+      "id": "LungerCation-dependent2022",
+      "display_name": "LungerCation-dependent2022",
+      "source": "catalysis-hub",
+      "featured": false,
+      "mlip_count": 11,
+      "reaction_count": 45
+    },
+    {
+      "id": "MandalClassification2023",
+      "display_name": "MandalClassification2023",
+      "source": "catalysis-hub",
+      "featured": false,
+      "mlip_count": 8,
+      "reaction_count": 538
+    },
+    {
+      "id": "MandalMetal2024",
+      "display_name": "MandalMetal2024",
+      "source": "catalysis-hub",
+      "featured": false,
+      "mlip_count": 15,
+      "reaction_count": 356
+    },
+    {
+      "id": "MandalTowards2025",
+      "display_name": "MandalTowards2025",
+      "source": "catalysis-hub",
+      "featured": false,
+      "mlip_count": 9,
+      "reaction_count": 417
+    },
+    {
+      "id": "MeffordInterpreting2019",
+      "display_name": "MeffordInterpreting2019",
+      "source": "catalysis-hub",
+      "featured": false,
+      "mlip_count": 15,
+      "reaction_count": 28
+    },
+    {
+      "id": "MichalLixCoO22017",
+      "display_name": "MichalLixCoO22017",
+      "source": "catalysis-hub",
+      "featured": false,
+      "mlip_count": 15,
+      "reaction_count": 15
+    },
+    {
+      "id": "MontoyaThe2015",
+      "display_name": "MontoyaThe2015",
+      "source": "catalysis-hub",
+      "featured": false,
+      "mlip_count": 14,
+      "reaction_count": 248
+    },
+    {
+      "id": "NhanSinter-resistant2025",
+      "display_name": "NhanSinter-resistant2025",
+      "source": "catalysis-hub",
+      "featured": false,
+      "mlip_count": 15,
+      "reaction_count": 60
+    },
+    {
+      "id": "Park2D2019",
+      "display_name": "Park2D2019",
+      "source": "catalysis-hub",
+      "featured": false,
+      "mlip_count": 15,
+      "reaction_count": 9
+    },
+    {
+      "id": "PasumarthiDoubleLayer2023",
+      "display_name": "PasumarthiDoubleLayer2023",
+      "source": "catalysis-hub",
+      "featured": false,
+      "mlip_count": 15,
+      "reaction_count": 38
+    },
+    {
+      "id": "PasumarthiFacetDependence2023",
+      "display_name": "PasumarthiFacetDependence2023",
+      "source": "catalysis-hub",
+      "featured": false,
+      "mlip_count": 2,
+      "reaction_count": 400
+    },
+    {
+      "id": "PatelTheoretical2018",
+      "display_name": "PatelTheoretical2018",
+      "source": "catalysis-hub",
+      "featured": false,
+      "mlip_count": 15,
+      "reaction_count": 28
+    },
+    {
+      "id": "PengRole2020",
+      "display_name": "PengRole2020",
+      "source": "catalysis-hub",
+      "featured": false,
+      "mlip_count": 14,
+      "reaction_count": 170
+    },
+    {
+      "id": "PengTrends2022",
+      "display_name": "PengTrends2022",
+      "source": "catalysis-hub",
+      "featured": false,
+      "mlip_count": 15,
+      "reaction_count": 101
+    },
+    {
+      "id": "RaoResolving2022",
+      "display_name": "RaoResolving2022",
+      "source": "catalysis-hub",
+      "featured": false,
+      "mlip_count": 15,
+      "reaction_count": 78
+    },
+    {
+      "id": "RolingBimetallic2017",
+      "display_name": "RolingBimetallic2017",
+      "source": "catalysis-hub",
+      "featured": false,
+      "mlip_count": 6,
+      "reaction_count": 3850
+    },
+    {
+      "id": "RolingConfigurational2017",
+      "display_name": "RolingConfigurational2017",
+      "source": "catalysis-hub",
+      "featured": false,
+      "mlip_count": 11,
+      "reaction_count": 104
+    },
+    {
+      "id": "SainiElectronic2022",
+      "display_name": "SainiElectronic2022",
+      "source": "catalysis-hub",
+      "featured": false,
+      "mlip_count": 14,
+      "reaction_count": 441
+    },
+    {
+      "id": "Sainifirst2023",
+      "display_name": "Sainifirst2023",
+      "source": "catalysis-hub",
+      "featured": false,
+      "mlip_count": 5,
+      "reaction_count": 2347
+    },
+    {
+      "id": "SanchezCatalyst2020",
+      "display_name": "SanchezCatalyst2020",
+      "source": "catalysis-hub",
+      "featured": false,
+      "mlip_count": 15,
+      "reaction_count": 33
+    },
+    {
+      "id": "SandbergStrongly2018",
+      "display_name": "SandbergStrongly2018",
+      "source": "catalysis-hub",
+      "featured": false,
+      "mlip_count": 15,
+      "reaction_count": 56
+    },
+    {
+      "id": "SarkerMechanistic2024",
+      "display_name": "SarkerMechanistic2024",
+      "source": "catalysis-hub",
+      "featured": false,
+      "mlip_count": 15,
+      "reaction_count": 64
+    },
+    {
+      "id": "SarkerPrediction2023",
+      "display_name": "SarkerPrediction2023",
+      "source": "catalysis-hub",
+      "featured": false,
+      "mlip_count": 15,
+      "reaction_count": 34
+    },
+    {
+      "id": "Schlexer2019pH",
+      "display_name": "Schlexer2019pH",
+      "source": "catalysis-hub",
+      "featured": false,
+      "mlip_count": 15,
+      "reaction_count": 1
+    },
+    {
+      "id": "SchumannSelectivity2018",
+      "display_name": "SchumannSelectivity2018",
+      "source": "catalysis-hub",
+      "featured": false,
+      "mlip_count": 15,
+      "reaction_count": 22
+    },
+    {
+      "id": "SeitzA2016",
+      "display_name": "SeitzA2016",
+      "source": "catalysis-hub",
+      "featured": false,
+      "mlip_count": 15,
+      "reaction_count": 24
+    },
+    {
+      "id": "SharadaAdsorption2019",
+      "display_name": "SharadaAdsorption2019",
+      "source": "catalysis-hub",
+      "featured": false,
+      "mlip_count": 15,
+      "reaction_count": 18
+    },
+    {
+      "id": "ShiLong-term2021",
+      "display_name": "ShiLong-term2021",
+      "source": "catalysis-hub",
+      "featured": false,
+      "mlip_count": 15,
+      "reaction_count": 78
+    },
+    {
+      "id": "SkafteSelective2019",
+      "display_name": "SkafteSelective2019",
+      "source": "catalysis-hub",
+      "featured": false,
+      "mlip_count": 15,
+      "reaction_count": 41
+    },
+    {
+      "id": "SmithAtmosphere2025",
+      "display_name": "SmithAtmosphere2025",
+      "source": "catalysis-hub",
+      "featured": false,
+      "mlip_count": 15,
+      "reaction_count": 6
+    },
+    {
+      "id": "SniderRevealing2018",
+      "display_name": "SniderRevealing2018",
+      "source": "catalysis-hub",
+      "featured": false,
+      "mlip_count": 15,
+      "reaction_count": 44
+    },
+    {
+      "id": "StreibelMicrokinetic2021",
+      "display_name": "StreibelMicrokinetic2021",
+      "source": "catalysis-hub",
+      "featured": false,
+      "mlip_count": 15,
+      "reaction_count": 4
+    },
+    {
+      "id": "StricklerSystematic2019",
+      "display_name": "StricklerSystematic2019",
+      "source": "catalysis-hub",
+      "featured": false,
+      "mlip_count": 15,
+      "reaction_count": 27
+    },
+    {
+      "id": "TangActive2025",
+      "display_name": "TangActive2025",
+      "source": "catalysis-hub",
+      "featured": false,
+      "mlip_count": 14,
+      "reaction_count": 81
+    },
+    {
+      "id": "TangComplementary2024",
+      "display_name": "TangComplementary2024",
+      "source": "catalysis-hub",
+      "featured": false,
+      "mlip_count": 15,
+      "reaction_count": 26
+    },
+    {
+      "id": "TangFrom2020",
+      "display_name": "TangFrom2020",
+      "source": "catalysis-hub",
+      "featured": false,
+      "mlip_count": 5,
+      "reaction_count": 170
+    },
+    {
+      "id": "TangModeling2020",
+      "display_name": "TangModeling2020",
+      "source": "catalysis-hub",
+      "featured": false,
+      "mlip_count": 13,
+      "reaction_count": 65
+    },
+    {
+      "id": "TangNitrate2024",
+      "display_name": "TangNitrate2024",
+      "source": "catalysis-hub",
+      "featured": false,
+      "mlip_count": 15,
+      "reaction_count": 62
+    },
+    {
+      "id": "TangRevamped2024",
+      "display_name": "TangRevamped2024",
+      "source": "catalysis-hub",
+      "featured": false,
+      "mlip_count": 15,
+      "reaction_count": 30
+    },
+    {
+      "id": "TettehCompressively2022",
+      "display_name": "TettehCompressively2022",
+      "source": "catalysis-hub",
+      "featured": false,
+      "mlip_count": 15,
+      "reaction_count": 117
+    },
+    {
+      "id": "WangAchieving2021",
+      "display_name": "WangAchieving2021",
+      "source": "catalysis-hub",
+      "featured": false,
+      "mlip_count": 15,
+      "reaction_count": 132
+    },
+    {
+      "id": "WangTheory-aided2020",
+      "display_name": "WangTheory-aided2020",
+      "source": "catalysis-hub",
+      "featured": false,
+      "mlip_count": 15,
+      "reaction_count": 30
+    },
+    {
+      "id": "WeiInsights2022",
+      "display_name": "WeiInsights2022",
+      "source": "catalysis-hub",
+      "featured": false,
+      "mlip_count": 15,
+      "reaction_count": 38
+    },
+    {
+      "id": "WerghiDynamic2024",
+      "display_name": "WerghiDynamic2024",
+      "source": "catalysis-hub",
+      "featured": false,
+      "mlip_count": 15,
+      "reaction_count": 682
+    },
+    {
+      "id": "YangIntrinsic2016",
+      "display_name": "YangIntrinsic2016",
+      "source": "catalysis-hub",
+      "featured": false,
+      "mlip_count": 15,
+      "reaction_count": 10
+    },
+    {
+      "id": "YohannesCombined2023",
+      "display_name": "YohannesCombined2023",
+      "source": "catalysis-hub",
+      "featured": false,
+      "mlip_count": 7,
+      "reaction_count": 11277
+    },
+    {
+      "id": "ZhangDopant-dependent2025",
+      "display_name": "ZhangDopant-dependent2025",
+      "source": "catalysis-hub",
+      "featured": false,
+      "mlip_count": 16,
+      "reaction_count": 8272
+    },
+    {
+      "id": "ZhangOff-equilibrium2025",
+      "display_name": "ZhangOff-equilibrium2025",
+      "source": "catalysis-hub",
+      "featured": false,
+      "mlip_count": 1,
+      "reaction_count": 1650
+    },
+    {
+      "id": "ZhangUnlocking2025",
+      "display_name": "ZhangUnlocking2025",
+      "source": "catalysis-hub",
+      "featured": false,
+      "mlip_count": 15,
+      "reaction_count": 1106
+    },
+    {
+      "id": "ZhaoImproved2019",
+      "display_name": "ZhaoImproved2019",
+      "source": "catalysis-hub",
+      "featured": false,
+      "mlip_count": 15,
+      "reaction_count": 30
+    },
+    {
+      "id": "ZhaoTrends2019",
+      "display_name": "ZhaoTrends2019",
+      "source": "catalysis-hub",
+      "featured": false,
+      "mlip_count": 15,
+      "reaction_count": 129
+    },
+    {
+      "id": "ZhengOrigin2020",
+      "display_name": "ZhengOrigin2020",
+      "source": "catalysis-hub",
+      "featured": false,
+      "mlip_count": 15,
+      "reaction_count": 16
+    },
+    {
+      "id": "mgfieldslanders2018",
+      "display_name": "mgfieldslanders2018",
+      "source": "catalysis-hub",
+      "featured": false,
+      "mlip_count": 15,
+      "reaction_count": 35
     }
   ],
   "mlips": [
+    "Allegro-OAM-L",
     "AlphaNet",
+    "AlphaNet-v1-OMA",
+    "AlphaNet_D3",
     "CHGNet",
+    "CHGNet_D3",
+    "CHGNetv0.3.0",
     "DPA-3",
+    "DPA-3.1-3M-FT",
+    "DP_D3",
     "Eqnorm",
+    "Eqnorm-MPtrj",
     "GRACE-2L",
+    "GRACE_D3",
+    "MACE-MH-1",
+    "MACE-MH-1-OMAT",
     "MACE-MPA",
+    "MACE-MPA-0",
+    "MACE_D3",
+    "MATLANTIS",
+    "MATLANTISv7",
     "MATLANTISv8",
+    "MATLANTISv8_D3",
     "MatterSim",
+    "MatterSim_D3",
+    "NequIP-OAM-L",
+    "NequIP-OAM-XL",
+    "Nequix-MP-1",
     "ORB",
+    "ORB-v3",
+    "ORB_D3",
     "SevenNet-MF",
+    "SevenNet-Omni",
+    "SevenNet_D3",
+    "UMA-m-1p1_oc20",
+    "UMA-m-1p1_omat",
     "UMA-m-oc20",
+    "UMA-s-1p1_oc20",
+    "UMA-s-1p1_omat",
     "UMA-s-oc20",
-    "eSEN"
+    "UMA_oc20_m_D3",
+    "UMA_oc20_s_D3",
+    "UMA_omat_m",
+    "UMA_omat_m_D3",
+    "UMA_omat_s",
+    "UMA_omat_s_D3",
+    "eSEN",
+    "eSEN-30M-OAM",
+    "eSEN_D3",
+    "eSEN_md",
+    "eSEN_md_D3",
+    "eSEN_sm",
+    "eSEN_sm_D3",
+    "eqnorm_D3"
   ],
   "mlip_name_mapping": {
     "AlphaNet": "AlphaNet",

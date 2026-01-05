@@ -4,8 +4,8 @@ import { Search, Database, ArrowLeft, ExternalLink, Link as LinkIcon } from 'luc
 
 // Override source display for specific datasets
 const SOURCE_DISPLAY_OVERRIDE = {
-  '01_FG': 'ioChem-BD',
-  '07_BM_final': 'ioChem-BD',
+  'FG': 'ioChem-BD',
+  'BM': 'ioChem-BD',
 }
 
 // Get display source name
@@ -120,11 +120,6 @@ function AllDatasetsPage({ meta, isDark }) {
             </button>
           ))}
         </div>
-      </div>
-
-      {/* Results count */}
-      <div className={`mb-4 text-sm ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>
-        Showing {filteredDatasets.length} of {allDatasets.length} datasets
       </div>
 
       {/* Dataset Grid */}

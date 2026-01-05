@@ -4,10 +4,10 @@ import { Info } from 'lucide-react'
 // Dataset descriptions (same as LeaderboardTable)
 const DATASET_DESCRIPTIONS = {
   'MamunHighT2019': 'Small molecules (H, C, N, O, S, CH, CH₂, CH₃, OH, NH, SH) on 2,035 bimetallic alloy surfaces. 37 metals in binary combinations.',
-  '01_FG': 'Large organic molecules with functional groups (alcohols, amines, thiols, aromatics) on metallic surfaces.',
+  'FG': 'Large organic molecules with functional groups (alcohols, amines, thiols, aromatics) on metallic surfaces.',
   'ComerGeneralized2024': 'Small molecules on metal oxide surfaces with diverse oxide compositions.',
-  '07_BM_final': 'Extended large molecules (up to 30 heteroatoms) for biomass conversion, polyurethane synthesis, and plastic recycling on Ni/Ru/Ag/Au/Pt surfaces.',
-  '04_KHLOHC': 'Liquid Organic Hydrogen Carriers - methylcyclohexane (MCH) and toluene on Pt-based alloys for hydrogen storage applications.',
+  'BM': 'Extended large molecules (up to 30 heteroatoms) for biomass conversion, polyurethane synthesis, and plastic recycling on Ni/Ru/Ag/Au/Pt surfaces.',
+  'KHLOHC': 'Liquid Organic Hydrogen Carriers - methylcyclohexane (MCH) and toluene on Pt-based alloys for hydrogen storage applications.',
 }
 
 function DatasetSelector({ meta, currentDataset, onSelectDataset, isDark }) {

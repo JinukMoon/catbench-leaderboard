@@ -147,7 +147,8 @@ function App() {
         const metaData = await metaResponse.json()
         setMeta(metaData)
 
-        if (mlipResponse.ok) {
+        // Only parse if response is actually JSON (not HTML fallback)
+        if (mlipResponse.ok && mlipResponse.headers.get('content-type')?.includes('application/json')) {
           const mlipData = await mlipResponse.json()
           setMlipMetadata(mlipData)
         }

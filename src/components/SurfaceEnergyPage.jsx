@@ -2,8 +2,7 @@ import React, { useState, useEffect, useMemo } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { ArrowLeft, ArrowUp, ArrowDown, Info, Layers, FileText, Github } from 'lucide-react'
 
-// Conversion factor: 1 eV/Å² = 16.0218 J/m²
-const EV_A2_TO_J_M2 = 16.0218
+// Data is already in J/m² from xlsx
 
 // Build efficient source_name -> metadata lookup map
 function buildMLIPLookupMap(metadata) {
@@ -112,7 +111,7 @@ function SurfaceEnergyPage({ isDark }) {
       return {
         name,
         displayName: metadata?.display_name || name,
-        mae: metrics.MAE * EV_A2_TO_J_M2, // Convert to J/m²
+        mae: metrics.MAE, // Already in J/m²
         metadata
       }
     })
