@@ -370,20 +370,20 @@ function ParetoPlots({ data, isDark = true }) {
                 label={{ value: 'MAE_normal (eV)', angle: -90, position: 'insideLeft', fill: textColor, fontSize: 20, fontWeight: 'bold', dx: -5, textAnchor: 'middle' }}
                 domain={['auto', 'auto']}
               />
-              <Tooltip content={<CustomTooltip metricLabel="MAE" />} isAnimationActive={false} />
-
-              {/* Pareto frontier line */}
+              {/* Pareto frontier line - rendered first, no tooltip */}
               {plotData.performancePath.length > 1 && (
                 <Scatter
                   data={plotData.performancePath}
                   line={{ stroke: '#ef4444', strokeWidth: 2, strokeDasharray: '5 5' }}
                   shape={() => null}
                   isAnimationActive={false}
+                  legendType="none"
                 />
               )}
 
-              {/* Data points */}
+              {/* Data points with tooltip */}
               <Scatter data={plotData.performance} isAnimationActive={false}>
+                <Tooltip content={<CustomTooltip metricLabel="MAE" />} isAnimationActive={false} />
                 {plotData.performance.map((entry, index) => (
                   <Cell
                     key={`cell-${index}`}
@@ -422,20 +422,20 @@ function ParetoPlots({ data, isDark = true }) {
                 label={{ value: 'Normal Rate (%)', angle: -90, position: 'insideLeft', fill: textColor, fontSize: 20, fontWeight: 'bold', dx: -5, textAnchor: 'middle' }}
                 domain={['auto', 'auto']}
               />
-              <Tooltip content={<CustomTooltip metricLabel="Normal Rate" />} isAnimationActive={false} />
-
-              {/* Pareto frontier line */}
+              {/* Pareto frontier line - rendered first, no tooltip */}
               {plotData.stabilityPath.length > 1 && (
                 <Scatter
                   data={plotData.stabilityPath}
                   line={{ stroke: '#3b82f6', strokeWidth: 2, strokeDasharray: '5 5' }}
                   shape={() => null}
                   isAnimationActive={false}
+                  legendType="none"
                 />
               )}
 
-              {/* Data points */}
+              {/* Data points with tooltip */}
               <Scatter data={plotData.stability} isAnimationActive={false}>
+                <Tooltip content={<CustomTooltip metricLabel="Normal Rate" />} isAnimationActive={false} />
                 {plotData.stability.map((entry, index) => (
                   <Cell
                     key={`cell-${index}`}

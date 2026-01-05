@@ -191,7 +191,7 @@ function SortIndicator({ active, direction }) {
 }
 
 // Modal for adsorbate breakdown
-function AdsorbateModal({ mlip, metadata, onClose, isDark }) {
+function AdsorbateModal({ mlip, metadata, onClose, isDark, datasetId }) {
   if (!mlip) return null
 
   const breakdown = mlip.adsorbate_breakdown || {}
@@ -281,7 +281,7 @@ function AdsorbateModal({ mlip, metadata, onClose, isDark }) {
         {/* Table */}
         <div className="overflow-auto max-h-[calc(85vh-80px)]">
           <table className={`w-full text-sm ${isDark ? 'text-slate-200' : 'text-slate-700'}`}>
-            <thead className={`sticky top-0 ${isDark ? 'bg-slate-800' : 'bg-slate-50'}`}>
+            <thead className={`sticky top-0 z-10 ${isDark ? 'bg-slate-800' : 'bg-slate-50'}`}>
               <tr>
                 <th className={`px-4 py-3 text-center font-semibold ${isDark ? 'text-slate-300' : 'text-slate-700'}`}>
                   Adsorbate
@@ -322,7 +322,7 @@ function AdsorbateModal({ mlip, metadata, onClose, isDark }) {
                   isDark ? 'hover:bg-slate-800/50' : 'hover:bg-slate-50'
                 }`}>
                   <td className={`px-4 py-2 text-center font-semibold ${isDark ? 'text-white' : 'text-slate-900'}`}>
-                    {formatChemicalFormula(adsId)}
+                    {datasetId === 'FG' || datasetId === 'BM' ? adsId : formatChemicalFormula(adsId)}
                   </td>
                   <td className="px-3 py-2 text-center tabular-nums">
                     {formatValue(ads.MAE_normal, 'mae')}
@@ -482,6 +482,15 @@ function LeaderboardTable({ data, isDark = true, mlipMetadata = null }) {
             <h2 className={`font-display font-semibold ${isDark ? 'text-white' : 'text-slate-900'}`}>
               {data.display_name}
             </h2>
+            {data.has_d3 && (
+              <Tooltip content="D3 dispersion correction applied to MLIPs for fair comparison with vdW-corrected DFT reference" position="right">
+                <span className={`px-2 py-0.5 text-xs font-medium rounded cursor-help ${
+                  isDark ? 'bg-purple-900/50 text-purple-300' : 'bg-purple-100 text-purple-700'
+                }`}>
+                  D3
+                </span>
+              </Tooltip>
+            )}
             {DATASET_DESCRIPTIONS[data.id] && (
               <Tooltip content={DATASET_DESCRIPTIONS[data.id]} position="right">
                 <Info className={`w-4 h-4 ${
@@ -684,6 +693,7 @@ function LeaderboardTable({ data, isDark = true, mlipMetadata = null }) {
           metadata={selectedMLIP.metadata}
           onClose={() => setSelectedMLIP(null)}
           isDark={isDark}
+          datasetId={data.id}
         />
       )}
     </div>
