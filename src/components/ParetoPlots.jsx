@@ -14,8 +14,10 @@ import {
 } from 'recharts'
 
 // Point colors
-const POINT_COLOR = '#6366f1' // indigo
+const POINT_COLOR = '#9ca3af' // gray for non-Pareto
 const PARETO_STROKE_COLOR = '#ef4444' // red border for Pareto optimal
+const ACCURACY_PARETO_LINE = '#ef4444' // red for Accuracy-Efficiency
+const ROBUSTNESS_PARETO_LINE = '#3b82f6' // blue for Robustness-Efficiency
 
 // Find Pareto frontier indices
 function findParetoFrontier(points, minimizeX = true, minimizeY = true) {
@@ -183,14 +185,14 @@ function ParetoPlots({ data, isDark = true }) {
 
   return (
     <div className={`mt-8 rounded-xl p-6 ${bgColor} border ${isDark ? 'border-slate-800/50' : 'border-slate-200'}`}>
-      <h3 className={`text-xl font-display font-semibold mb-6 ${isDark ? 'text-white' : 'text-slate-900'}`}>
+      <h3 className={`text-3xl font-display font-bold mb-6 ${isDark ? 'text-white' : 'text-slate-900'}`}>
         Pareto Analysis
       </h3>
 
       <div className="grid md:grid-cols-2 gap-6">
         {/* Performance-Efficiency Plot */}
         <div className={`rounded-lg p-4 ${isDark ? 'bg-slate-800/50' : 'bg-slate-50'}`}>
-          <h4 className={`text-lg font-semibold mb-4 ${isDark ? 'text-white' : 'text-slate-900'}`}>
+          <h4 className={`text-2xl font-bold mb-4 ${isDark ? 'text-white' : 'text-slate-900'}`}>
             Accuracy-Efficiency
           </h4>
           <ResponsiveContainer width="100%" height={500}>
@@ -200,16 +202,16 @@ function ParetoPlots({ data, isDark = true }) {
                 dataKey="x"
                 name="Time"
                 type="number"
-                tick={{ fill: textColor, fontSize: 16 }}
-                label={{ value: 'Time per step (s)', position: 'bottom', fill: textColor, fontSize: 20, fontWeight: 'bold', dy: 10 }}
+                tick={{ fill: textColor, fontSize: 18 }}
+                label={{ value: 'Time per step (s)', position: 'bottom', fill: textColor, fontSize: 24, fontWeight: 'bold', dy: 10 }}
                 domain={['auto', 'auto']}
               />
               <YAxis
                 dataKey="y"
                 name="MAE"
                 type="number"
-                tick={{ fill: textColor, fontSize: 16 }}
-                label={{ value: 'MAE_normal (eV)', angle: -90, position: 'insideLeft', fill: textColor, fontSize: 20, fontWeight: 'bold', dx: -5, textAnchor: 'middle' }}
+                tick={{ fill: textColor, fontSize: 18 }}
+                label={{ value: 'Normal MAE (eV)', angle: -90, position: 'insideLeft', fill: textColor, fontSize: 24, fontWeight: 'bold', dx: -5, textAnchor: 'middle' }}
                 domain={['auto', 'auto']}
               />
               <Tooltip
@@ -218,11 +220,11 @@ function ParetoPlots({ data, isDark = true }) {
                 isAnimationActive={false}
                 allowEscapeViewBox={{ x: true, y: true }}
               />
-              {/* Pareto frontier line */}
+              {/* Pareto frontier line - RED for Accuracy */}
               {plotData.performancePath.length > 1 && (
                 <Scatter
                   data={plotData.performancePath}
-                  line={{ stroke: PARETO_STROKE_COLOR, strokeWidth: 2, strokeDasharray: '5 5' }}
+                  line={{ stroke: ACCURACY_PARETO_LINE, strokeWidth: 2, strokeDasharray: '5 5' }}
                   shape={() => null}
                   isAnimationActive={false}
                   legendType="none"
@@ -236,7 +238,7 @@ function ParetoPlots({ data, isDark = true }) {
                   <Cell
                     key={`cell-${index}`}
                     fill={POINT_COLOR}
-                    stroke={entry.isPareto ? PARETO_STROKE_COLOR : 'none'}
+                    stroke={entry.isPareto ? ACCURACY_PARETO_LINE : 'none'}
                     strokeWidth={entry.isPareto ? 3 : 0}
                   />
                 ))}
@@ -248,7 +250,7 @@ function ParetoPlots({ data, isDark = true }) {
 
         {/* Robustness-Efficiency Plot */}
         <div className={`rounded-lg p-4 ${isDark ? 'bg-slate-800/50' : 'bg-slate-50'}`}>
-          <h4 className={`text-lg font-semibold mb-4 ${isDark ? 'text-white' : 'text-slate-900'}`}>
+          <h4 className={`text-2xl font-bold mb-4 ${isDark ? 'text-white' : 'text-slate-900'}`}>
             Robustness-Efficiency
           </h4>
           <ResponsiveContainer width="100%" height={500}>
@@ -258,16 +260,16 @@ function ParetoPlots({ data, isDark = true }) {
                 dataKey="x"
                 name="Time"
                 type="number"
-                tick={{ fill: textColor, fontSize: 16 }}
-                label={{ value: 'Time per step (s)', position: 'bottom', fill: textColor, fontSize: 20, fontWeight: 'bold', dy: 10 }}
+                tick={{ fill: textColor, fontSize: 18 }}
+                label={{ value: 'Time per step (s)', position: 'bottom', fill: textColor, fontSize: 24, fontWeight: 'bold', dy: 10 }}
                 domain={['auto', 'auto']}
               />
               <YAxis
                 dataKey="y"
                 name="Normal Rate"
                 type="number"
-                tick={{ fill: textColor, fontSize: 16 }}
-                label={{ value: 'Normal Rate (%)', angle: -90, position: 'insideLeft', fill: textColor, fontSize: 20, fontWeight: 'bold', dx: -5, textAnchor: 'middle' }}
+                tick={{ fill: textColor, fontSize: 18 }}
+                label={{ value: 'Normal Rate (%)', angle: -90, position: 'insideLeft', fill: textColor, fontSize: 24, fontWeight: 'bold', dx: -5, textAnchor: 'middle' }}
                 domain={['auto', 'auto']}
               />
               <Tooltip
@@ -276,11 +278,11 @@ function ParetoPlots({ data, isDark = true }) {
                 isAnimationActive={false}
                 allowEscapeViewBox={{ x: true, y: true }}
               />
-              {/* Pareto frontier line */}
+              {/* Pareto frontier line - BLUE for Robustness */}
               {plotData.stabilityPath.length > 1 && (
                 <Scatter
                   data={plotData.stabilityPath}
-                  line={{ stroke: PARETO_STROKE_COLOR, strokeWidth: 2, strokeDasharray: '5 5' }}
+                  line={{ stroke: ROBUSTNESS_PARETO_LINE, strokeWidth: 2, strokeDasharray: '5 5' }}
                   shape={() => null}
                   isAnimationActive={false}
                   legendType="none"
@@ -294,7 +296,7 @@ function ParetoPlots({ data, isDark = true }) {
                   <Cell
                     key={`cell-${index}`}
                     fill={POINT_COLOR}
-                    stroke={entry.isPareto ? PARETO_STROKE_COLOR : 'none'}
+                    stroke={entry.isPareto ? ROBUSTNESS_PARETO_LINE : 'none'}
                     strokeWidth={entry.isPareto ? 3 : 0}
                   />
                 ))}
