@@ -4,7 +4,7 @@
   "source": "catalysis-hub",
   "featured": false,
   "has_d3": false,
-  "last_updated": "2026-01-05T08:53:48.698437Z",
+  "last_updated": "2026-01-14T07:56:18.633531Z",
   "reaction_count": 38,
   "adsorbates": [
     "C",
@@ -67,20 +67,6 @@
           "num_adsorbate_migration": 0,
           "num_energy_anomaly": 0
         },
-        "C": {
-          "MAE_total": 2.57586331146922,
-          "MAE_normal": 1.36082513378642,
-          "MAE_single": 1.204657027899884,
-          "ADwT": 81.70068027210884,
-          "AMDwT": 68.73322147651007,
-          "num_total": 4,
-          "num_normal": 2,
-          "num_anomaly_total": 0,
-          "num_reproduction_failure": 0,
-          "num_unphysical_relaxation": 0,
-          "num_adsorbate_migration": 2,
-          "num_energy_anomaly": 0
-        },
         "COH": {
           "MAE_total": 1.416751261305762,
           "MAE_normal": 1.236850509075642,
@@ -93,6 +79,20 @@
           "num_reproduction_failure": 0,
           "num_unphysical_relaxation": 0,
           "num_adsorbate_migration": 1,
+          "num_energy_anomaly": 0
+        },
+        "C": {
+          "MAE_total": 2.57586331146922,
+          "MAE_normal": 1.36082513378642,
+          "MAE_single": 1.204657027899884,
+          "ADwT": 81.70068027210884,
+          "AMDwT": 68.73322147651007,
+          "num_total": 4,
+          "num_normal": 2,
+          "num_anomaly_total": 0,
+          "num_reproduction_failure": 0,
+          "num_unphysical_relaxation": 0,
+          "num_adsorbate_migration": 2,
           "num_energy_anomaly": 0
         },
         "OH": {
@@ -109,26 +109,26 @@
           "num_adsorbate_migration": 0,
           "num_energy_anomaly": 0
         },
-        "OCCOH": {
-          "MAE_total": 2.338602002991441,
-          "MAE_normal": 0.0,
-          "MAE_single": 2.14677406999787,
-          "ADwT": 76.36054421768715,
-          "AMDwT": 75.58165548098388,
-          "num_total": 3,
-          "num_normal": 0,
-          "num_anomaly_total": 2,
-          "num_reproduction_failure": 0,
-          "num_unphysical_relaxation": 0,
-          "num_adsorbate_migration": 1,
-          "num_energy_anomaly": 2
-        },
         "CHO": {
           "MAE_total": 1.389519933972527,
           "MAE_normal": 1.389519933972527,
           "MAE_single": 1.343457941327263,
           "ADwT": 83.16326530612245,
           "AMDwT": 86.8717375093214,
+          "num_total": 3,
+          "num_normal": 3,
+          "num_anomaly_total": 0,
+          "num_reproduction_failure": 0,
+          "num_unphysical_relaxation": 0,
+          "num_adsorbate_migration": 0,
+          "num_energy_anomaly": 0
+        },
+        "H": {
+          "MAE_total": 0.3578213501483939,
+          "MAE_normal": 0.3578213501483939,
+          "MAE_single": 0.3237260628253959,
+          "ADwT": 83.84353741496598,
+          "AMDwT": 90.11185682326624,
           "num_total": 3,
           "num_normal": 3,
           "num_anomaly_total": 0,
@@ -151,19 +151,19 @@
           "num_adsorbate_migration": 1,
           "num_energy_anomaly": 0
         },
-        "H": {
-          "MAE_total": 0.3578213501483939,
-          "MAE_normal": 0.3578213501483939,
-          "MAE_single": 0.3237260628253959,
-          "ADwT": 83.84353741496598,
-          "AMDwT": 90.11185682326624,
+        "OCCOH": {
+          "MAE_total": 2.338602002991441,
+          "MAE_normal": 0.0,
+          "MAE_single": 2.14677406999787,
+          "ADwT": 76.36054421768715,
+          "AMDwT": 75.58165548098388,
           "num_total": 3,
-          "num_normal": 3,
-          "num_anomaly_total": 0,
+          "num_normal": 0,
+          "num_anomaly_total": 2,
           "num_reproduction_failure": 0,
           "num_unphysical_relaxation": 0,
-          "num_adsorbate_migration": 0,
-          "num_energy_anomaly": 0
+          "num_adsorbate_migration": 1,
+          "num_energy_anomaly": 2
         },
         "CH2": {
           "MAE_total": 2.12254804386248,
@@ -207,6 +207,20 @@
           "num_adsorbate_migration": 0,
           "num_energy_anomaly": 0
         },
+        "CHCO": {
+          "MAE_total": 1.865380276234646,
+          "MAE_normal": 1.865380276234646,
+          "MAE_single": 1.828174103291531,
+          "ADwT": 83.6734693877551,
+          "AMDwT": 89.36241610738254,
+          "num_total": 1,
+          "num_normal": 1,
+          "num_anomaly_total": 0,
+          "num_reproduction_failure": 0,
+          "num_unphysical_relaxation": 0,
+          "num_adsorbate_migration": 0,
+          "num_energy_anomaly": 0
+        },
         "OCCO": {
           "MAE_total": 2.270681520007201,
           "MAE_normal": 0.0,
@@ -227,20 +241,6 @@
           "MAE_single": 1.66271004077862,
           "ADwT": 84.6938775510204,
           "AMDwT": 89.63087248322148,
-          "num_total": 1,
-          "num_normal": 1,
-          "num_anomaly_total": 0,
-          "num_reproduction_failure": 0,
-          "num_unphysical_relaxation": 0,
-          "num_adsorbate_migration": 0,
-          "num_energy_anomaly": 0
-        },
-        "CHCO": {
-          "MAE_total": 1.865380276234646,
-          "MAE_normal": 1.865380276234646,
-          "MAE_single": 1.828174103291531,
-          "ADwT": 83.6734693877551,
-          "AMDwT": 89.36241610738254,
           "num_total": 1,
           "num_normal": 1,
           "num_anomaly_total": 0,
@@ -295,20 +295,6 @@
           "num_adsorbate_migration": 0,
           "num_energy_anomaly": 0
         },
-        "C": {
-          "MAE_total": 2.65215725678172,
-          "MAE_normal": 1.496750266975141,
-          "MAE_single": 1.082570979773664,
-          "ADwT": 57.3469387755102,
-          "AMDwT": 54.33165548098435,
-          "num_total": 4,
-          "num_normal": 1,
-          "num_anomaly_total": 1,
-          "num_reproduction_failure": 0,
-          "num_unphysical_relaxation": 1,
-          "num_adsorbate_migration": 2,
-          "num_energy_anomaly": 0
-        },
         "COH": {
           "MAE_total": 1.558693643164588,
           "MAE_normal": 1.526981788769869,
@@ -321,6 +307,20 @@
           "num_reproduction_failure": 0,
           "num_unphysical_relaxation": 1,
           "num_adsorbate_migration": 0,
+          "num_energy_anomaly": 0
+        },
+        "C": {
+          "MAE_total": 2.65215725678172,
+          "MAE_normal": 1.496750266975141,
+          "MAE_single": 1.082570979773664,
+          "ADwT": 57.3469387755102,
+          "AMDwT": 54.33165548098435,
+          "num_total": 4,
+          "num_normal": 1,
+          "num_anomaly_total": 1,
+          "num_reproduction_failure": 0,
+          "num_unphysical_relaxation": 1,
+          "num_adsorbate_migration": 2,
           "num_energy_anomaly": 0
         },
         "OH": {
@@ -337,26 +337,26 @@
           "num_adsorbate_migration": 1,
           "num_energy_anomaly": 0
         },
-        "OCCOH": {
-          "MAE_total": 2.722198502752387,
-          "MAE_normal": 0.0,
-          "MAE_single": 2.597401238017483,
-          "ADwT": 70.54421768707483,
-          "AMDwT": 79.6868008948546,
-          "num_total": 3,
-          "num_normal": 0,
-          "num_anomaly_total": 3,
-          "num_reproduction_failure": 0,
-          "num_unphysical_relaxation": 0,
-          "num_adsorbate_migration": 0,
-          "num_energy_anomaly": 3
-        },
         "CHO": {
           "MAE_total": 1.669520461672316,
           "MAE_normal": 1.669520461672316,
           "MAE_single": 1.569198533012241,
           "ADwT": 70.88435374149658,
           "AMDwT": 74.35123042505586,
+          "num_total": 3,
+          "num_normal": 3,
+          "num_anomaly_total": 0,
+          "num_reproduction_failure": 0,
+          "num_unphysical_relaxation": 0,
+          "num_adsorbate_migration": 0,
+          "num_energy_anomaly": 0
+        },
+        "H": {
+          "MAE_total": 0.4490318743895235,
+          "MAE_normal": 0.4490318743895235,
+          "MAE_single": 0.3291634369403861,
+          "ADwT": 71.87074829931974,
+          "AMDwT": 79.910514541387,
           "num_total": 3,
           "num_normal": 3,
           "num_anomaly_total": 0,
@@ -379,19 +379,19 @@
           "num_adsorbate_migration": 1,
           "num_energy_anomaly": 1
         },
-        "H": {
-          "MAE_total": 0.4490318743895235,
-          "MAE_normal": 0.4490318743895235,
-          "MAE_single": 0.3291634369403861,
-          "ADwT": 71.87074829931974,
-          "AMDwT": 79.910514541387,
+        "OCCOH": {
+          "MAE_total": 2.722198502752387,
+          "MAE_normal": 0.0,
+          "MAE_single": 2.597401238017483,
+          "ADwT": 70.54421768707483,
+          "AMDwT": 79.6868008948546,
           "num_total": 3,
-          "num_normal": 3,
-          "num_anomaly_total": 0,
+          "num_normal": 0,
+          "num_anomaly_total": 3,
           "num_reproduction_failure": 0,
           "num_unphysical_relaxation": 0,
           "num_adsorbate_migration": 0,
-          "num_energy_anomaly": 0
+          "num_energy_anomaly": 3
         },
         "CH2": {
           "MAE_total": 2.173158586159843,
@@ -435,6 +435,20 @@
           "num_adsorbate_migration": 0,
           "num_energy_anomaly": 0
         },
+        "CHCO": {
+          "MAE_total": 2.226257313282986,
+          "MAE_normal": 0.0,
+          "MAE_single": 2.148260105641384,
+          "ADwT": 71.42857142857143,
+          "AMDwT": 80.83892617449665,
+          "num_total": 1,
+          "num_normal": 0,
+          "num_anomaly_total": 1,
+          "num_reproduction_failure": 0,
+          "num_unphysical_relaxation": 0,
+          "num_adsorbate_migration": 0,
+          "num_energy_anomaly": 1
+        },
         "OCCO": {
           "MAE_total": 2.793138642809936,
           "MAE_normal": 0.0,
@@ -462,20 +476,6 @@
           "num_unphysical_relaxation": 0,
           "num_adsorbate_migration": 0,
           "num_energy_anomaly": 0
-        },
-        "CHCO": {
-          "MAE_total": 2.226257313282986,
-          "MAE_normal": 0.0,
-          "MAE_single": 2.148260105641384,
-          "ADwT": 71.42857142857143,
-          "AMDwT": 80.83892617449665,
-          "num_total": 1,
-          "num_normal": 0,
-          "num_anomaly_total": 1,
-          "num_reproduction_failure": 0,
-          "num_unphysical_relaxation": 0,
-          "num_adsorbate_migration": 0,
-          "num_energy_anomaly": 1
         }
       }
     },
@@ -523,20 +523,6 @@
           "num_adsorbate_migration": 0,
           "num_energy_anomaly": 0
         },
-        "C": {
-          "MAE_total": 1.976860395103358,
-          "MAE_normal": 0.845030845826841,
-          "MAE_single": 0.7123674474951258,
-          "ADwT": 57.16836734693877,
-          "AMDwT": 49.68400447427285,
-          "num_total": 4,
-          "num_normal": 1,
-          "num_anomaly_total": 2,
-          "num_reproduction_failure": 1,
-          "num_unphysical_relaxation": 1,
-          "num_adsorbate_migration": 1,
-          "num_energy_anomaly": 0
-        },
         "COH": {
           "MAE_total": 1.182040411484195,
           "MAE_normal": 0.9234878161369124,
@@ -551,26 +537,26 @@
           "num_adsorbate_migration": 1,
           "num_energy_anomaly": 0
         },
+        "C": {
+          "MAE_total": 1.976860395103358,
+          "MAE_normal": 0.845030845826841,
+          "MAE_single": 0.7123674474951258,
+          "ADwT": 57.16836734693877,
+          "AMDwT": 49.68400447427285,
+          "num_total": 4,
+          "num_normal": 1,
+          "num_anomaly_total": 2,
+          "num_reproduction_failure": 1,
+          "num_unphysical_relaxation": 1,
+          "num_adsorbate_migration": 1,
+          "num_energy_anomaly": 0
+        },
         "OH": {
           "MAE_total": 0.5110921478602298,
           "MAE_normal": 0.2459267389131128,
           "MAE_single": 0.2001129355364052,
           "ADwT": 75.05668934240371,
           "AMDwT": 73.64653243847754,
-          "num_total": 3,
-          "num_normal": 2,
-          "num_anomaly_total": 0,
-          "num_reproduction_failure": 0,
-          "num_unphysical_relaxation": 0,
-          "num_adsorbate_migration": 1,
-          "num_energy_anomaly": 0
-        },
-        "OCCOH": {
-          "MAE_total": 1.316235340171261,
-          "MAE_normal": 1.331843935466168,
-          "MAE_single": 1.299180742634538,
-          "ADwT": 78.36734693877551,
-          "AMDwT": 79.1722595078304,
           "num_total": 3,
           "num_normal": 2,
           "num_anomaly_total": 0,
@@ -593,6 +579,20 @@
           "num_adsorbate_migration": 0,
           "num_energy_anomaly": 0
         },
+        "H": {
+          "MAE_total": 0.2940558441987378,
+          "MAE_normal": 0.2716036700439872,
+          "MAE_single": 0.2471440283964815,
+          "ADwT": 79.5578231292517,
+          "AMDwT": 79.66442953020177,
+          "num_total": 3,
+          "num_normal": 2,
+          "num_anomaly_total": 0,
+          "num_reproduction_failure": 0,
+          "num_unphysical_relaxation": 0,
+          "num_adsorbate_migration": 1,
+          "num_energy_anomaly": 0
+        },
         "CCO": {
           "MAE_total": 1.827217708404836,
           "MAE_normal": 1.210940766966814,
@@ -607,12 +607,12 @@
           "num_adsorbate_migration": 1,
           "num_energy_anomaly": 0
         },
-        "H": {
-          "MAE_total": 0.2940558441987378,
-          "MAE_normal": 0.2716036700439872,
-          "MAE_single": 0.2471440283964815,
-          "ADwT": 79.5578231292517,
-          "AMDwT": 79.66442953020177,
+        "OCCOH": {
+          "MAE_total": 1.316235340171261,
+          "MAE_normal": 1.331843935466168,
+          "MAE_single": 1.299180742634538,
+          "ADwT": 78.36734693877551,
+          "AMDwT": 79.1722595078304,
           "num_total": 3,
           "num_normal": 2,
           "num_anomaly_total": 0,
@@ -663,6 +663,20 @@
           "num_adsorbate_migration": 0,
           "num_energy_anomaly": 0
         },
+        "CHCO": {
+          "MAE_total": 1.177160967381496,
+          "MAE_normal": 1.177160967381496,
+          "MAE_single": 1.192563940079708,
+          "ADwT": 80.3061224489796,
+          "AMDwT": 87.51677852348993,
+          "num_total": 1,
+          "num_normal": 1,
+          "num_anomaly_total": 0,
+          "num_reproduction_failure": 0,
+          "num_unphysical_relaxation": 0,
+          "num_adsorbate_migration": 0,
+          "num_energy_anomaly": 0
+        },
         "OCCO": {
           "MAE_total": 2.136188958786079,
           "MAE_normal": 0.0,
@@ -683,20 +697,6 @@
           "MAE_single": 0.9916112720675301,
           "ADwT": 80.20408163265306,
           "AMDwT": 85.36912751677852,
-          "num_total": 1,
-          "num_normal": 1,
-          "num_anomaly_total": 0,
-          "num_reproduction_failure": 0,
-          "num_unphysical_relaxation": 0,
-          "num_adsorbate_migration": 0,
-          "num_energy_anomaly": 0
-        },
-        "CHCO": {
-          "MAE_total": 1.177160967381496,
-          "MAE_normal": 1.177160967381496,
-          "MAE_single": 1.192563940079708,
-          "ADwT": 80.3061224489796,
-          "AMDwT": 87.51677852348993,
           "num_total": 1,
           "num_normal": 1,
           "num_anomaly_total": 0,
@@ -751,12 +751,12 @@
           "num_adsorbate_migration": 0,
           "num_energy_anomaly": 0
         },
-        "C": {
-          "MAE_total": 1.424296806037091,
-          "MAE_normal": 0.6196026282486855,
-          "MAE_single": 0.4529880978461733,
-          "ADwT": 71.02891156462584,
-          "AMDwT": 69.082774049217,
+        "COH": {
+          "MAE_total": 1.380881186079932,
+          "MAE_normal": 0.9066617080388824,
+          "MAE_single": 0.6610077577352058,
+          "ADwT": 61.86224489795917,
+          "AMDwT": 63.8786353467564,
           "num_total": 4,
           "num_normal": 2,
           "num_anomaly_total": 1,
@@ -765,12 +765,12 @@
           "num_adsorbate_migration": 1,
           "num_energy_anomaly": 0
         },
-        "COH": {
-          "MAE_total": 1.380881186079932,
-          "MAE_normal": 0.9066617080388824,
-          "MAE_single": 0.6610077577352058,
-          "ADwT": 61.86224489795917,
-          "AMDwT": 63.8786353467564,
+        "C": {
+          "MAE_total": 1.424296806037091,
+          "MAE_normal": 0.6196026282486855,
+          "MAE_single": 0.4529880978461733,
+          "ADwT": 71.02891156462584,
+          "AMDwT": 69.082774049217,
           "num_total": 4,
           "num_normal": 2,
           "num_anomaly_total": 1,
@@ -793,26 +793,26 @@
           "num_adsorbate_migration": 2,
           "num_energy_anomaly": 0
         },
-        "OCCOH": {
-          "MAE_total": 1.838810062938137,
-          "MAE_normal": 1.874328122416046,
-          "MAE_single": 1.263395405345364,
-          "ADwT": 73.12925170068024,
-          "AMDwT": 64.46308724832139,
-          "num_total": 3,
-          "num_normal": 1,
-          "num_anomaly_total": 0,
-          "num_reproduction_failure": 0,
-          "num_unphysical_relaxation": 0,
-          "num_adsorbate_migration": 2,
-          "num_energy_anomaly": 0
-        },
         "CHO": {
           "MAE_total": 1.060525977724562,
           "MAE_normal": 1.060525977724562,
           "MAE_single": 0.9702874065575694,
           "ADwT": 85.13605442176872,
           "AMDwT": 84.35123042505593,
+          "num_total": 3,
+          "num_normal": 3,
+          "num_anomaly_total": 0,
+          "num_reproduction_failure": 0,
+          "num_unphysical_relaxation": 0,
+          "num_adsorbate_migration": 0,
+          "num_energy_anomaly": 0
+        },
+        "H": {
+          "MAE_total": 0.3215634473672253,
+          "MAE_normal": 0.3215634473672253,
+          "MAE_single": 0.2703543154905977,
+          "ADwT": 86.9047619047619,
+          "AMDwT": 90.39149888143176,
           "num_total": 3,
           "num_normal": 3,
           "num_anomaly_total": 0,
@@ -835,18 +835,18 @@
           "num_adsorbate_migration": 0,
           "num_energy_anomaly": 0
         },
-        "H": {
-          "MAE_total": 0.3215634473672253,
-          "MAE_normal": 0.3215634473672253,
-          "MAE_single": 0.2703543154905977,
-          "ADwT": 86.9047619047619,
-          "AMDwT": 90.39149888143176,
+        "OCCOH": {
+          "MAE_total": 1.838810062938137,
+          "MAE_normal": 1.874328122416046,
+          "MAE_single": 1.263395405345364,
+          "ADwT": 73.12925170068024,
+          "AMDwT": 64.46308724832139,
           "num_total": 3,
-          "num_normal": 3,
+          "num_normal": 1,
           "num_anomaly_total": 0,
           "num_reproduction_failure": 0,
           "num_unphysical_relaxation": 0,
-          "num_adsorbate_migration": 0,
+          "num_adsorbate_migration": 2,
           "num_energy_anomaly": 0
         },
         "CH2": {
@@ -891,6 +891,20 @@
           "num_adsorbate_migration": 0,
           "num_energy_anomaly": 0
         },
+        "CHCO": {
+          "MAE_total": 1.036765564473171,
+          "MAE_normal": 1.036765564473171,
+          "MAE_single": 0.935709465535183,
+          "ADwT": 83.06122448979592,
+          "AMDwT": 84.96644295302013,
+          "num_total": 1,
+          "num_normal": 1,
+          "num_anomaly_total": 0,
+          "num_reproduction_failure": 0,
+          "num_unphysical_relaxation": 0,
+          "num_adsorbate_migration": 0,
+          "num_energy_anomaly": 0
+        },
         "OCCO": {
           "MAE_total": 1.509367127917358,
           "MAE_normal": 1.509367127917358,
@@ -911,20 +925,6 @@
           "MAE_single": 1.062191814155085,
           "ADwT": 85.20408163265306,
           "AMDwT": 88.38926174496645,
-          "num_total": 1,
-          "num_normal": 1,
-          "num_anomaly_total": 0,
-          "num_reproduction_failure": 0,
-          "num_unphysical_relaxation": 0,
-          "num_adsorbate_migration": 0,
-          "num_energy_anomaly": 0
-        },
-        "CHCO": {
-          "MAE_total": 1.036765564473171,
-          "MAE_normal": 1.036765564473171,
-          "MAE_single": 0.935709465535183,
-          "ADwT": 83.06122448979592,
-          "AMDwT": 84.96644295302013,
           "num_total": 1,
           "num_normal": 1,
           "num_anomaly_total": 0,
@@ -979,20 +979,6 @@
           "num_adsorbate_migration": 0,
           "num_energy_anomaly": 0
         },
-        "C": {
-          "MAE_total": 1.46001596230235,
-          "MAE_normal": 0.6956393350167976,
-          "MAE_single": 0.6557301976081362,
-          "ADwT": 84.6938775510204,
-          "AMDwT": 80.69630872483222,
-          "num_total": 4,
-          "num_normal": 3,
-          "num_anomaly_total": 0,
-          "num_reproduction_failure": 0,
-          "num_unphysical_relaxation": 0,
-          "num_adsorbate_migration": 1,
-          "num_energy_anomaly": 0
-        },
         "COH": {
           "MAE_total": 0.8244024472951423,
           "MAE_normal": 0.5600637981115142,
@@ -1004,6 +990,20 @@
           "num_anomaly_total": 1,
           "num_reproduction_failure": 0,
           "num_unphysical_relaxation": 1,
+          "num_adsorbate_migration": 1,
+          "num_energy_anomaly": 0
+        },
+        "C": {
+          "MAE_total": 1.46001596230235,
+          "MAE_normal": 0.6956393350167976,
+          "MAE_single": 0.6557301976081362,
+          "ADwT": 84.6938775510204,
+          "AMDwT": 80.69630872483222,
+          "num_total": 4,
+          "num_normal": 3,
+          "num_anomaly_total": 0,
+          "num_reproduction_failure": 0,
+          "num_unphysical_relaxation": 0,
           "num_adsorbate_migration": 1,
           "num_energy_anomaly": 0
         },
@@ -1021,20 +1021,6 @@
           "num_adsorbate_migration": 1,
           "num_energy_anomaly": 0
         },
-        "OCCOH": {
-          "MAE_total": 0.6787539487413596,
-          "MAE_normal": 0.6787539487413596,
-          "MAE_single": 0.6886943345598411,
-          "ADwT": 84.65986394557822,
-          "AMDwT": 89.3400447427293,
-          "num_total": 3,
-          "num_normal": 3,
-          "num_anomaly_total": 0,
-          "num_reproduction_failure": 0,
-          "num_unphysical_relaxation": 0,
-          "num_adsorbate_migration": 0,
-          "num_energy_anomaly": 0
-        },
         "CHO": {
           "MAE_total": 0.480252428962558,
           "MAE_normal": 0.47406916894397,
@@ -1047,6 +1033,20 @@
           "num_reproduction_failure": 0,
           "num_unphysical_relaxation": 0,
           "num_adsorbate_migration": 2,
+          "num_energy_anomaly": 0
+        },
+        "H": {
+          "MAE_total": 0.1344064522296927,
+          "MAE_normal": 0.1344064522296927,
+          "MAE_single": 0.1112988440703096,
+          "ADwT": 84.65986394557822,
+          "AMDwT": 90.32438478747204,
+          "num_total": 3,
+          "num_normal": 3,
+          "num_anomaly_total": 0,
+          "num_reproduction_failure": 0,
+          "num_unphysical_relaxation": 0,
+          "num_adsorbate_migration": 0,
           "num_energy_anomaly": 0
         },
         "CCO": {
@@ -1063,12 +1063,12 @@
           "num_adsorbate_migration": 0,
           "num_energy_anomaly": 0
         },
-        "H": {
-          "MAE_total": 0.1344064522296927,
-          "MAE_normal": 0.1344064522296927,
-          "MAE_single": 0.1112988440703096,
+        "OCCOH": {
+          "MAE_total": 0.6787539487413596,
+          "MAE_normal": 0.6787539487413596,
+          "MAE_single": 0.6886943345598411,
           "ADwT": 84.65986394557822,
-          "AMDwT": 90.32438478747204,
+          "AMDwT": 89.3400447427293,
           "num_total": 3,
           "num_normal": 3,
           "num_anomaly_total": 0,
@@ -1119,6 +1119,20 @@
           "num_adsorbate_migration": 0,
           "num_energy_anomaly": 0
         },
+        "CHCO": {
+          "MAE_total": 0.7292630563097191,
+          "MAE_normal": 0.7292630563097191,
+          "MAE_single": 0.7410747895555687,
+          "ADwT": 85.0,
+          "AMDwT": 90.73825503355705,
+          "num_total": 1,
+          "num_normal": 1,
+          "num_anomaly_total": 0,
+          "num_reproduction_failure": 0,
+          "num_unphysical_relaxation": 0,
+          "num_adsorbate_migration": 0,
+          "num_energy_anomaly": 0
+        },
         "OCCO": {
           "MAE_total": 1.40326895286853,
           "MAE_normal": 0.0,
@@ -1139,20 +1153,6 @@
           "MAE_single": 0.8442550599284004,
           "ADwT": 85.61224489795919,
           "AMDwT": 91.10738255033557,
-          "num_total": 1,
-          "num_normal": 1,
-          "num_anomaly_total": 0,
-          "num_reproduction_failure": 0,
-          "num_unphysical_relaxation": 0,
-          "num_adsorbate_migration": 0,
-          "num_energy_anomaly": 0
-        },
-        "CHCO": {
-          "MAE_total": 0.7292630563097191,
-          "MAE_normal": 0.7292630563097191,
-          "MAE_single": 0.7410747895555687,
-          "ADwT": 85.0,
-          "AMDwT": 90.73825503355705,
           "num_total": 1,
           "num_normal": 1,
           "num_anomaly_total": 0,
@@ -1207,12 +1207,12 @@
           "num_adsorbate_migration": 1,
           "num_energy_anomaly": 0
         },
-        "C": {
-          "MAE_total": 1.266291847209208,
-          "MAE_normal": 0.8335934447819563,
-          "MAE_single": 0.8197712110777347,
-          "ADwT": 81.60714285714286,
-          "AMDwT": 78.74161073825503,
+        "COH": {
+          "MAE_total": 1.100554808584376,
+          "MAE_normal": 0.8637054999343245,
+          "MAE_single": 0.8573653529499357,
+          "ADwT": 76.98979591836735,
+          "AMDwT": 78.39765100671141,
           "num_total": 4,
           "num_normal": 3,
           "num_anomaly_total": 0,
@@ -1221,12 +1221,12 @@
           "num_adsorbate_migration": 1,
           "num_energy_anomaly": 0
         },
-        "COH": {
-          "MAE_total": 1.100554808584376,
-          "MAE_normal": 0.8637054999343245,
-          "MAE_single": 0.8573653529499357,
-          "ADwT": 76.98979591836735,
-          "AMDwT": 78.39765100671141,
+        "C": {
+          "MAE_total": 1.266291847209208,
+          "MAE_normal": 0.8335934447819563,
+          "MAE_single": 0.8197712110777347,
+          "ADwT": 81.60714285714286,
+          "AMDwT": 78.74161073825503,
           "num_total": 4,
           "num_normal": 3,
           "num_anomaly_total": 0,
@@ -1249,20 +1249,6 @@
           "num_adsorbate_migration": 0,
           "num_energy_anomaly": 0
         },
-        "OCCOH": {
-          "MAE_total": 1.440411661979384,
-          "MAE_normal": 1.440411661979384,
-          "MAE_single": 1.409765108390619,
-          "ADwT": 79.42176870748298,
-          "AMDwT": 87.18120805369128,
-          "num_total": 3,
-          "num_normal": 3,
-          "num_anomaly_total": 0,
-          "num_reproduction_failure": 0,
-          "num_unphysical_relaxation": 0,
-          "num_adsorbate_migration": 0,
-          "num_energy_anomaly": 0
-        },
         "CHO": {
           "MAE_total": 0.9124389232856233,
           "MAE_normal": 0.9221595035957648,
@@ -1275,6 +1261,20 @@
           "num_reproduction_failure": 0,
           "num_unphysical_relaxation": 0,
           "num_adsorbate_migration": 2,
+          "num_energy_anomaly": 0
+        },
+        "H": {
+          "MAE_total": 0.2251622448864604,
+          "MAE_normal": 0.2251622448864604,
+          "MAE_single": 0.1859353680045904,
+          "ADwT": 79.1156462585034,
+          "AMDwT": 87.29306487695749,
+          "num_total": 3,
+          "num_normal": 3,
+          "num_anomaly_total": 0,
+          "num_reproduction_failure": 0,
+          "num_unphysical_relaxation": 0,
+          "num_adsorbate_migration": 0,
           "num_energy_anomaly": 0
         },
         "CCO": {
@@ -1291,12 +1291,12 @@
           "num_adsorbate_migration": 1,
           "num_energy_anomaly": 0
         },
-        "H": {
-          "MAE_total": 0.2251622448864604,
-          "MAE_normal": 0.2251622448864604,
-          "MAE_single": 0.1859353680045904,
-          "ADwT": 79.1156462585034,
-          "AMDwT": 87.29306487695749,
+        "OCCOH": {
+          "MAE_total": 1.440411661979384,
+          "MAE_normal": 1.440411661979384,
+          "MAE_single": 1.409765108390619,
+          "ADwT": 79.42176870748298,
+          "AMDwT": 87.18120805369128,
           "num_total": 3,
           "num_normal": 3,
           "num_anomaly_total": 0,
@@ -1347,6 +1347,20 @@
           "num_adsorbate_migration": 0,
           "num_energy_anomaly": 0
         },
+        "CHCO": {
+          "MAE_total": 1.308536969460182,
+          "MAE_normal": 1.308536969460182,
+          "MAE_single": 1.27583561887104,
+          "ADwT": 78.77551020408163,
+          "AMDwT": 86.34228187919463,
+          "num_total": 1,
+          "num_normal": 1,
+          "num_anomaly_total": 0,
+          "num_reproduction_failure": 0,
+          "num_unphysical_relaxation": 0,
+          "num_adsorbate_migration": 0,
+          "num_energy_anomaly": 0
+        },
         "OCCO": {
           "MAE_total": 2.383318462575801,
           "MAE_normal": 0.0,
@@ -1367,20 +1381,6 @@
           "MAE_single": 0.9658979347830137,
           "ADwT": 80.3061224489796,
           "AMDwT": 86.97986577181209,
-          "num_total": 1,
-          "num_normal": 1,
-          "num_anomaly_total": 0,
-          "num_reproduction_failure": 0,
-          "num_unphysical_relaxation": 0,
-          "num_adsorbate_migration": 0,
-          "num_energy_anomaly": 0
-        },
-        "CHCO": {
-          "MAE_total": 1.308536969460182,
-          "MAE_normal": 1.308536969460182,
-          "MAE_single": 1.27583561887104,
-          "ADwT": 78.77551020408163,
-          "AMDwT": 86.34228187919463,
           "num_total": 1,
           "num_normal": 1,
           "num_anomaly_total": 0,
@@ -1435,20 +1435,6 @@
           "num_adsorbate_migration": 0,
           "num_energy_anomaly": 0
         },
-        "C": {
-          "MAE_total": 1.990242431342267,
-          "MAE_normal": 1.817073257392622,
-          "MAE_single": 1.47048229950633,
-          "ADwT": 58.7159863945578,
-          "AMDwT": 52.26789709172264,
-          "num_total": 4,
-          "num_normal": 1,
-          "num_anomaly_total": 2,
-          "num_reproduction_failure": 1,
-          "num_unphysical_relaxation": 1,
-          "num_adsorbate_migration": 1,
-          "num_energy_anomaly": 0
-        },
         "COH": {
           "MAE_total": 2.066514368605567,
           "MAE_normal": 1.68115063397272,
@@ -1459,6 +1445,20 @@
           "num_normal": 2,
           "num_anomaly_total": 1,
           "num_reproduction_failure": 0,
+          "num_unphysical_relaxation": 1,
+          "num_adsorbate_migration": 1,
+          "num_energy_anomaly": 0
+        },
+        "C": {
+          "MAE_total": 1.990242431342267,
+          "MAE_normal": 1.817073257392622,
+          "MAE_single": 1.47048229950633,
+          "ADwT": 58.7159863945578,
+          "AMDwT": 52.26789709172264,
+          "num_total": 4,
+          "num_normal": 1,
+          "num_anomaly_total": 2,
+          "num_reproduction_failure": 1,
           "num_unphysical_relaxation": 1,
           "num_adsorbate_migration": 1,
           "num_energy_anomaly": 0
@@ -1477,26 +1477,26 @@
           "num_adsorbate_migration": 2,
           "num_energy_anomaly": 0
         },
-        "OCCOH": {
-          "MAE_total": 3.138729668193264,
-          "MAE_normal": 0.0,
-          "MAE_single": 2.222068087789618,
-          "ADwT": 64.2517006802719,
-          "AMDwT": 61.21551081282475,
-          "num_total": 3,
-          "num_normal": 0,
-          "num_anomaly_total": 1,
-          "num_reproduction_failure": 0,
-          "num_unphysical_relaxation": 0,
-          "num_adsorbate_migration": 2,
-          "num_energy_anomaly": 1
-        },
         "CHO": {
           "MAE_total": 1.60351364226517,
           "MAE_normal": 1.60351364226517,
           "MAE_single": 1.45242238453405,
           "ADwT": 79.96598639455783,
           "AMDwT": 81.96868008948546,
+          "num_total": 3,
+          "num_normal": 3,
+          "num_anomaly_total": 0,
+          "num_reproduction_failure": 0,
+          "num_unphysical_relaxation": 0,
+          "num_adsorbate_migration": 0,
+          "num_energy_anomaly": 0
+        },
+        "H": {
+          "MAE_total": 0.3623697408547741,
+          "MAE_normal": 0.3623697408547741,
+          "MAE_single": 0.2880111186217012,
+          "ADwT": 81.53061224489795,
+          "AMDwT": 87.48322147651007,
           "num_total": 3,
           "num_normal": 3,
           "num_anomaly_total": 0,
@@ -1519,19 +1519,19 @@
           "num_adsorbate_migration": 0,
           "num_energy_anomaly": 1
         },
-        "H": {
-          "MAE_total": 0.3623697408547741,
-          "MAE_normal": 0.3623697408547741,
-          "MAE_single": 0.2880111186217012,
-          "ADwT": 81.53061224489795,
-          "AMDwT": 87.48322147651007,
+        "OCCOH": {
+          "MAE_total": 3.138729668193264,
+          "MAE_normal": 0.0,
+          "MAE_single": 2.222068087789618,
+          "ADwT": 64.2517006802719,
+          "AMDwT": 61.21551081282475,
           "num_total": 3,
-          "num_normal": 3,
-          "num_anomaly_total": 0,
+          "num_normal": 0,
+          "num_anomaly_total": 1,
           "num_reproduction_failure": 0,
           "num_unphysical_relaxation": 0,
-          "num_adsorbate_migration": 0,
-          "num_energy_anomaly": 0
+          "num_adsorbate_migration": 2,
+          "num_energy_anomaly": 1
         },
         "CH2": {
           "MAE_total": 2.522705972329277,
@@ -1575,6 +1575,20 @@
           "num_adsorbate_migration": 0,
           "num_energy_anomaly": 2
         },
+        "CHCO": {
+          "MAE_total": 2.661139477284451,
+          "MAE_normal": 0.0,
+          "MAE_single": 2.019358624012966,
+          "ADwT": 63.57142857142857,
+          "AMDwT": 45.46979865771812,
+          "num_total": 1,
+          "num_normal": 0,
+          "num_anomaly_total": 0,
+          "num_reproduction_failure": 0,
+          "num_unphysical_relaxation": 0,
+          "num_adsorbate_migration": 1,
+          "num_energy_anomaly": 0
+        },
         "OCCO": {
           "MAE_total": 2.653734345934936,
           "MAE_normal": 0.0,
@@ -1602,20 +1616,6 @@
           "num_unphysical_relaxation": 0,
           "num_adsorbate_migration": 0,
           "num_energy_anomaly": 1
-        },
-        "CHCO": {
-          "MAE_total": 2.661139477284451,
-          "MAE_normal": 0.0,
-          "MAE_single": 2.019358624012966,
-          "ADwT": 63.57142857142857,
-          "AMDwT": 45.46979865771812,
-          "num_total": 1,
-          "num_normal": 0,
-          "num_anomaly_total": 0,
-          "num_reproduction_failure": 0,
-          "num_unphysical_relaxation": 0,
-          "num_adsorbate_migration": 1,
-          "num_energy_anomaly": 0
         }
       }
     },
@@ -1663,20 +1663,6 @@
           "num_adsorbate_migration": 0,
           "num_energy_anomaly": 0
         },
-        "C": {
-          "MAE_total": 0.342257741258531,
-          "MAE_normal": 0.3175374197929912,
-          "MAE_single": 0.3420478096459414,
-          "ADwT": 88.70748299319735,
-          "AMDwT": 85.24608501118739,
-          "num_total": 4,
-          "num_normal": 2,
-          "num_anomaly_total": 2,
-          "num_reproduction_failure": 2,
-          "num_unphysical_relaxation": 0,
-          "num_adsorbate_migration": 0,
-          "num_energy_anomaly": 0
-        },
         "COH": {
           "MAE_total": 0.5661085306666673,
           "MAE_normal": 0.3088009260960258,
@@ -1689,6 +1675,20 @@
           "num_reproduction_failure": 0,
           "num_unphysical_relaxation": 1,
           "num_adsorbate_migration": 1,
+          "num_energy_anomaly": 0
+        },
+        "C": {
+          "MAE_total": 0.342257741258531,
+          "MAE_normal": 0.3175374197929912,
+          "MAE_single": 0.3420478096459414,
+          "ADwT": 88.70748299319735,
+          "AMDwT": 85.24608501118739,
+          "num_total": 4,
+          "num_normal": 2,
+          "num_anomaly_total": 2,
+          "num_reproduction_failure": 2,
+          "num_unphysical_relaxation": 0,
+          "num_adsorbate_migration": 0,
           "num_energy_anomaly": 0
         },
         "OH": {
@@ -1705,12 +1705,12 @@
           "num_adsorbate_migration": 1,
           "num_energy_anomaly": 0
         },
-        "OCCOH": {
-          "MAE_total": 0.5216440972213436,
-          "MAE_normal": 0.5216440972213436,
-          "MAE_single": 0.5122148073594796,
-          "ADwT": 88.84353741496598,
-          "AMDwT": 90.79418344519014,
+        "CHO": {
+          "MAE_total": 0.2520889160770189,
+          "MAE_normal": 0.2520889160770189,
+          "MAE_single": 0.2511931689914064,
+          "ADwT": 89.86394557823128,
+          "AMDwT": 92.90827740492169,
           "num_total": 3,
           "num_normal": 3,
           "num_anomaly_total": 0,
@@ -1719,12 +1719,12 @@
           "num_adsorbate_migration": 0,
           "num_energy_anomaly": 0
         },
-        "CHO": {
-          "MAE_total": 0.2520889160770189,
-          "MAE_normal": 0.2520889160770189,
-          "MAE_single": 0.2511931689914064,
-          "ADwT": 89.86394557823128,
-          "AMDwT": 92.90827740492169,
+        "H": {
+          "MAE_total": 0.08626663190862383,
+          "MAE_normal": 0.08626663190862383,
+          "MAE_single": 0.06921024932710414,
+          "ADwT": 88.46938775510205,
+          "AMDwT": 92.02460850111856,
           "num_total": 3,
           "num_normal": 3,
           "num_anomaly_total": 0,
@@ -1747,12 +1747,12 @@
           "num_adsorbate_migration": 0,
           "num_energy_anomaly": 0
         },
-        "H": {
-          "MAE_total": 0.08626663190862383,
-          "MAE_normal": 0.08626663190862383,
-          "MAE_single": 0.06921024932710414,
-          "ADwT": 88.46938775510205,
-          "AMDwT": 92.02460850111856,
+        "OCCOH": {
+          "MAE_total": 0.5216440972213436,
+          "MAE_normal": 0.5216440972213436,
+          "MAE_single": 0.5122148073594796,
+          "ADwT": 88.84353741496598,
+          "AMDwT": 90.79418344519014,
           "num_total": 3,
           "num_normal": 3,
           "num_anomaly_total": 0,
@@ -1803,6 +1803,20 @@
           "num_adsorbate_migration": 0,
           "num_energy_anomaly": 0
         },
+        "CHCO": {
+          "MAE_total": 0.5707297008380072,
+          "MAE_normal": 0.5707297008380072,
+          "MAE_single": 0.5725950382106824,
+          "ADwT": 89.38775510204081,
+          "AMDwT": 93.35570469798658,
+          "num_total": 1,
+          "num_normal": 1,
+          "num_anomaly_total": 0,
+          "num_reproduction_failure": 0,
+          "num_unphysical_relaxation": 0,
+          "num_adsorbate_migration": 0,
+          "num_energy_anomaly": 0
+        },
         "OCCO": {
           "MAE_total": 0.402649594882007,
           "MAE_normal": 0.0,
@@ -1823,20 +1837,6 @@
           "MAE_single": 0.4790757786226898,
           "ADwT": 88.57142857142857,
           "AMDwT": 90.69351230425055,
-          "num_total": 1,
-          "num_normal": 1,
-          "num_anomaly_total": 0,
-          "num_reproduction_failure": 0,
-          "num_unphysical_relaxation": 0,
-          "num_adsorbate_migration": 0,
-          "num_energy_anomaly": 0
-        },
-        "CHCO": {
-          "MAE_total": 0.5707297008380072,
-          "MAE_normal": 0.5707297008380072,
-          "MAE_single": 0.5725950382106824,
-          "ADwT": 89.38775510204081,
-          "AMDwT": 93.35570469798658,
           "num_total": 1,
           "num_normal": 1,
           "num_anomaly_total": 0,
@@ -1891,20 +1891,6 @@
           "num_adsorbate_migration": 0,
           "num_energy_anomaly": 0
         },
-        "C": {
-          "MAE_total": 1.174229452788495,
-          "MAE_normal": 0.8613161162793403,
-          "MAE_single": 0.6713880993720522,
-          "ADwT": 71.19897959183675,
-          "AMDwT": 65.76901565995452,
-          "num_total": 4,
-          "num_normal": 1,
-          "num_anomaly_total": 2,
-          "num_reproduction_failure": 1,
-          "num_unphysical_relaxation": 1,
-          "num_adsorbate_migration": 1,
-          "num_energy_anomaly": 0
-        },
         "COH": {
           "MAE_total": 0.7963929134130012,
           "MAE_normal": 0.5569146463094512,
@@ -1919,26 +1905,26 @@
           "num_adsorbate_migration": 1,
           "num_energy_anomaly": 0
         },
+        "C": {
+          "MAE_total": 1.174229452788495,
+          "MAE_normal": 0.8613161162793403,
+          "MAE_single": 0.6713880993720522,
+          "ADwT": 71.19897959183675,
+          "AMDwT": 65.76901565995452,
+          "num_total": 4,
+          "num_normal": 1,
+          "num_anomaly_total": 2,
+          "num_reproduction_failure": 1,
+          "num_unphysical_relaxation": 1,
+          "num_adsorbate_migration": 1,
+          "num_energy_anomaly": 0
+        },
         "OH": {
           "MAE_total": 0.2756482612288285,
           "MAE_normal": 0.07091572022909531,
           "MAE_single": 0.127981228994031,
           "ADwT": 68.79818594104314,
           "AMDwT": 69.1275167785225,
-          "num_total": 3,
-          "num_normal": 2,
-          "num_anomaly_total": 0,
-          "num_reproduction_failure": 0,
-          "num_unphysical_relaxation": 0,
-          "num_adsorbate_migration": 1,
-          "num_energy_anomaly": 0
-        },
-        "OCCOH": {
-          "MAE_total": 0.53294882827322,
-          "MAE_normal": 0.5522794505122874,
-          "MAE_single": 0.4878485367031923,
-          "ADwT": 72.36961451247166,
-          "AMDwT": 76.64429530201366,
           "num_total": 3,
           "num_normal": 2,
           "num_anomaly_total": 0,
@@ -1961,6 +1947,20 @@
           "num_adsorbate_migration": 0,
           "num_energy_anomaly": 0
         },
+        "H": {
+          "MAE_total": 0.2567015139769258,
+          "MAE_normal": 0.2567015139769258,
+          "MAE_single": 0.2160904058328015,
+          "ADwT": 74.45578231292517,
+          "AMDwT": 85.6152125279642,
+          "num_total": 3,
+          "num_normal": 3,
+          "num_anomaly_total": 0,
+          "num_reproduction_failure": 0,
+          "num_unphysical_relaxation": 0,
+          "num_adsorbate_migration": 0,
+          "num_energy_anomaly": 0
+        },
         "CCO": {
           "MAE_total": 0.606685335810956,
           "MAE_normal": 0.606685335810956,
@@ -1975,18 +1975,18 @@
           "num_adsorbate_migration": 0,
           "num_energy_anomaly": 0
         },
-        "H": {
-          "MAE_total": 0.2567015139769258,
-          "MAE_normal": 0.2567015139769258,
-          "MAE_single": 0.2160904058328015,
-          "ADwT": 74.45578231292517,
-          "AMDwT": 85.6152125279642,
+        "OCCOH": {
+          "MAE_total": 0.53294882827322,
+          "MAE_normal": 0.5522794505122874,
+          "MAE_single": 0.4878485367031923,
+          "ADwT": 72.36961451247166,
+          "AMDwT": 76.64429530201366,
           "num_total": 3,
-          "num_normal": 3,
+          "num_normal": 2,
           "num_anomaly_total": 0,
           "num_reproduction_failure": 0,
           "num_unphysical_relaxation": 0,
-          "num_adsorbate_migration": 0,
+          "num_adsorbate_migration": 1,
           "num_energy_anomaly": 0
         },
         "CH2": {
@@ -2031,6 +2031,20 @@
           "num_adsorbate_migration": 0,
           "num_energy_anomaly": 0
         },
+        "CHCO": {
+          "MAE_total": 0.6508414635973168,
+          "MAE_normal": 0.6508414635973168,
+          "MAE_single": 0.6286401639299584,
+          "ADwT": 74.18367346938776,
+          "AMDwT": 82.41610738255034,
+          "num_total": 1,
+          "num_normal": 1,
+          "num_anomaly_total": 0,
+          "num_reproduction_failure": 0,
+          "num_unphysical_relaxation": 0,
+          "num_adsorbate_migration": 0,
+          "num_energy_anomaly": 0
+        },
         "OCCO": {
           "MAE_total": 1.5848962264281,
           "MAE_normal": 0.0,
@@ -2051,20 +2065,6 @@
           "MAE_single": 1.110423415870173,
           "ADwT": 72.75510204081633,
           "AMDwT": 78.32214765100672,
-          "num_total": 1,
-          "num_normal": 1,
-          "num_anomaly_total": 0,
-          "num_reproduction_failure": 0,
-          "num_unphysical_relaxation": 0,
-          "num_adsorbate_migration": 0,
-          "num_energy_anomaly": 0
-        },
-        "CHCO": {
-          "MAE_total": 0.6508414635973168,
-          "MAE_normal": 0.6508414635973168,
-          "MAE_single": 0.6286401639299584,
-          "ADwT": 74.18367346938776,
-          "AMDwT": 82.41610738255034,
           "num_total": 1,
           "num_normal": 1,
           "num_anomaly_total": 0,
@@ -2119,20 +2119,6 @@
           "num_adsorbate_migration": 1,
           "num_energy_anomaly": 0
         },
-        "C": {
-          "MAE_total": 0.8348504998084536,
-          "MAE_normal": 1.029056938117719,
-          "MAE_single": 0.8287863232490054,
-          "ADwT": 62.984693877551,
-          "AMDwT": 64.4770693512309,
-          "num_total": 4,
-          "num_normal": 1,
-          "num_anomaly_total": 3,
-          "num_reproduction_failure": 2,
-          "num_unphysical_relaxation": 1,
-          "num_adsorbate_migration": 0,
-          "num_energy_anomaly": 0
-        },
         "COH": {
           "MAE_total": 1.035009141516639,
           "MAE_normal": 0.8566178867040435,
@@ -2147,26 +2133,26 @@
           "num_adsorbate_migration": 0,
           "num_energy_anomaly": 0
         },
+        "C": {
+          "MAE_total": 0.8348504998084536,
+          "MAE_normal": 1.029056938117719,
+          "MAE_single": 0.8287863232490054,
+          "ADwT": 62.984693877551,
+          "AMDwT": 64.4770693512309,
+          "num_total": 4,
+          "num_normal": 1,
+          "num_anomaly_total": 3,
+          "num_reproduction_failure": 2,
+          "num_unphysical_relaxation": 1,
+          "num_adsorbate_migration": 0,
+          "num_energy_anomaly": 0
+        },
         "OH": {
           "MAE_total": 0.3471634751889117,
           "MAE_normal": 0.0836964633417665,
           "MAE_single": 0.04724547270113059,
           "ADwT": 73.08390022675745,
           "AMDwT": 70.6785980611473,
-          "num_total": 3,
-          "num_normal": 2,
-          "num_anomaly_total": 0,
-          "num_reproduction_failure": 0,
-          "num_unphysical_relaxation": 0,
-          "num_adsorbate_migration": 1,
-          "num_energy_anomaly": 0
-        },
-        "OCCOH": {
-          "MAE_total": 1.125238037639065,
-          "MAE_normal": 1.131548263645527,
-          "MAE_single": 1.122870223257147,
-          "ADwT": 78.4013605442177,
-          "AMDwT": 79.28038777032106,
           "num_total": 3,
           "num_normal": 2,
           "num_anomaly_total": 0,
@@ -2189,6 +2175,20 @@
           "num_adsorbate_migration": 0,
           "num_energy_anomaly": 0
         },
+        "H": {
+          "MAE_total": 0.2607411194355033,
+          "MAE_normal": 0.2607411194355033,
+          "MAE_single": 0.2186797905475638,
+          "ADwT": 79.62585034013605,
+          "AMDwT": 87.95302013422818,
+          "num_total": 3,
+          "num_normal": 3,
+          "num_anomaly_total": 0,
+          "num_reproduction_failure": 0,
+          "num_unphysical_relaxation": 0,
+          "num_adsorbate_migration": 0,
+          "num_energy_anomaly": 0
+        },
         "CCO": {
           "MAE_total": 1.025793249781903,
           "MAE_normal": 1.025793249781903,
@@ -2203,18 +2203,18 @@
           "num_adsorbate_migration": 0,
           "num_energy_anomaly": 0
         },
-        "H": {
-          "MAE_total": 0.2607411194355033,
-          "MAE_normal": 0.2607411194355033,
-          "MAE_single": 0.2186797905475638,
-          "ADwT": 79.62585034013605,
-          "AMDwT": 87.95302013422818,
+        "OCCOH": {
+          "MAE_total": 1.125238037639065,
+          "MAE_normal": 1.131548263645527,
+          "MAE_single": 1.122870223257147,
+          "ADwT": 78.4013605442177,
+          "AMDwT": 79.28038777032106,
           "num_total": 3,
-          "num_normal": 3,
+          "num_normal": 2,
           "num_anomaly_total": 0,
           "num_reproduction_failure": 0,
           "num_unphysical_relaxation": 0,
-          "num_adsorbate_migration": 0,
+          "num_adsorbate_migration": 1,
           "num_energy_anomaly": 0
         },
         "CH2": {
@@ -2259,6 +2259,20 @@
           "num_adsorbate_migration": 0,
           "num_energy_anomaly": 0
         },
+        "CHCO": {
+          "MAE_total": 0.8988094220476341,
+          "MAE_normal": 0.8988094220476341,
+          "MAE_single": 0.8942828069048119,
+          "ADwT": 78.6734693877551,
+          "AMDwT": 85.49217002237135,
+          "num_total": 1,
+          "num_normal": 1,
+          "num_anomaly_total": 0,
+          "num_reproduction_failure": 0,
+          "num_unphysical_relaxation": 0,
+          "num_adsorbate_migration": 0,
+          "num_energy_anomaly": 0
+        },
         "OCCO": {
           "MAE_total": 2.363187928698608,
           "MAE_normal": 0.0,
@@ -2279,20 +2293,6 @@
           "MAE_single": 0.9701803624338936,
           "ADwT": 81.0204081632653,
           "AMDwT": 87.91946308724832,
-          "num_total": 1,
-          "num_normal": 1,
-          "num_anomaly_total": 0,
-          "num_reproduction_failure": 0,
-          "num_unphysical_relaxation": 0,
-          "num_adsorbate_migration": 0,
-          "num_energy_anomaly": 0
-        },
-        "CHCO": {
-          "MAE_total": 0.8988094220476341,
-          "MAE_normal": 0.8988094220476341,
-          "MAE_single": 0.8942828069048119,
-          "ADwT": 78.6734693877551,
-          "AMDwT": 85.49217002237135,
           "num_total": 1,
           "num_normal": 1,
           "num_anomaly_total": 0,
@@ -2347,20 +2347,6 @@
           "num_adsorbate_migration": 0,
           "num_energy_anomaly": 0
         },
-        "C": {
-          "MAE_total": 1.368318984686994,
-          "MAE_normal": 1.001813323920942,
-          "MAE_single": 0.9056272007819643,
-          "ADwT": 79.90646258503402,
-          "AMDwT": 73.14876957494288,
-          "num_total": 4,
-          "num_normal": 1,
-          "num_anomaly_total": 2,
-          "num_reproduction_failure": 1,
-          "num_unphysical_relaxation": 1,
-          "num_adsorbate_migration": 1,
-          "num_energy_anomaly": 0
-        },
         "COH": {
           "MAE_total": 1.391355391097022,
           "MAE_normal": 1.008635241669253,
@@ -2371,6 +2357,20 @@
           "num_normal": 2,
           "num_anomaly_total": 1,
           "num_reproduction_failure": 0,
+          "num_unphysical_relaxation": 1,
+          "num_adsorbate_migration": 1,
+          "num_energy_anomaly": 0
+        },
+        "C": {
+          "MAE_total": 1.368318984686994,
+          "MAE_normal": 1.001813323920942,
+          "MAE_single": 0.9056272007819643,
+          "ADwT": 79.90646258503402,
+          "AMDwT": 73.14876957494288,
+          "num_total": 4,
+          "num_normal": 1,
+          "num_anomaly_total": 2,
+          "num_reproduction_failure": 1,
           "num_unphysical_relaxation": 1,
           "num_adsorbate_migration": 1,
           "num_energy_anomaly": 0
@@ -2389,12 +2389,12 @@
           "num_adsorbate_migration": 1,
           "num_energy_anomaly": 0
         },
-        "OCCOH": {
-          "MAE_total": 1.400858974986477,
-          "MAE_normal": 1.400858974986477,
-          "MAE_single": 1.398601707352403,
-          "ADwT": 84.89795918367346,
-          "AMDwT": 89.20581655480986,
+        "CHO": {
+          "MAE_total": 0.9074030758080577,
+          "MAE_normal": 0.9074030758080577,
+          "MAE_single": 0.8756146471835867,
+          "ADwT": 84.79591836734694,
+          "AMDwT": 88.54586129753918,
           "num_total": 3,
           "num_normal": 3,
           "num_anomaly_total": 0,
@@ -2403,12 +2403,12 @@
           "num_adsorbate_migration": 0,
           "num_energy_anomaly": 0
         },
-        "CHO": {
-          "MAE_total": 0.9074030758080577,
-          "MAE_normal": 0.9074030758080577,
-          "MAE_single": 0.8756146471835867,
-          "ADwT": 84.79591836734694,
-          "AMDwT": 88.54586129753918,
+        "H": {
+          "MAE_total": 0.3337568092853568,
+          "MAE_normal": 0.3337568092853568,
+          "MAE_single": 0.3016578007251762,
+          "ADwT": 84.31972789115646,
+          "AMDwT": 90.44742729306488,
           "num_total": 3,
           "num_normal": 3,
           "num_anomaly_total": 0,
@@ -2431,12 +2431,12 @@
           "num_adsorbate_migration": 0,
           "num_energy_anomaly": 0
         },
-        "H": {
-          "MAE_total": 0.3337568092853568,
-          "MAE_normal": 0.3337568092853568,
-          "MAE_single": 0.3016578007251762,
-          "ADwT": 84.31972789115646,
-          "AMDwT": 90.44742729306488,
+        "OCCOH": {
+          "MAE_total": 1.400858974986477,
+          "MAE_normal": 1.400858974986477,
+          "MAE_single": 1.398601707352403,
+          "ADwT": 84.89795918367346,
+          "AMDwT": 89.20581655480986,
           "num_total": 3,
           "num_normal": 3,
           "num_anomaly_total": 0,
@@ -2487,6 +2487,20 @@
           "num_adsorbate_migration": 0,
           "num_energy_anomaly": 0
         },
+        "CHCO": {
+          "MAE_total": 1.384683121235867,
+          "MAE_normal": 1.384683121235867,
+          "MAE_single": 1.381720293553371,
+          "ADwT": 84.28571428571429,
+          "AMDwT": 89.49664429530202,
+          "num_total": 1,
+          "num_normal": 1,
+          "num_anomaly_total": 0,
+          "num_reproduction_failure": 0,
+          "num_unphysical_relaxation": 0,
+          "num_adsorbate_migration": 0,
+          "num_energy_anomaly": 0
+        },
         "OCCO": {
           "MAE_total": 2.171156068347045,
           "MAE_normal": 0.0,
@@ -2507,20 +2521,6 @@
           "MAE_single": 1.195280164451106,
           "ADwT": 86.3265306122449,
           "AMDwT": 91.67785234899328,
-          "num_total": 1,
-          "num_normal": 1,
-          "num_anomaly_total": 0,
-          "num_reproduction_failure": 0,
-          "num_unphysical_relaxation": 0,
-          "num_adsorbate_migration": 0,
-          "num_energy_anomaly": 0
-        },
-        "CHCO": {
-          "MAE_total": 1.384683121235867,
-          "MAE_normal": 1.384683121235867,
-          "MAE_single": 1.381720293553371,
-          "ADwT": 84.28571428571429,
-          "AMDwT": 89.49664429530202,
           "num_total": 1,
           "num_normal": 1,
           "num_anomaly_total": 0,
@@ -2575,20 +2575,6 @@
           "num_adsorbate_migration": 0,
           "num_energy_anomaly": 0
         },
-        "C": {
-          "MAE_total": 0.2596332677003228,
-          "MAE_normal": 0.2803092253913437,
-          "MAE_single": 0.2696707941885488,
-          "ADwT": 88.39285714285714,
-          "AMDwT": 89.30369127516778,
-          "num_total": 4,
-          "num_normal": 3,
-          "num_anomaly_total": 1,
-          "num_reproduction_failure": 0,
-          "num_unphysical_relaxation": 1,
-          "num_adsorbate_migration": 0,
-          "num_energy_anomaly": 0
-        },
         "COH": {
           "MAE_total": 0.4195460374176145,
           "MAE_normal": 0.1620825791178506,
@@ -2603,26 +2589,26 @@
           "num_adsorbate_migration": 1,
           "num_energy_anomaly": 0
         },
+        "C": {
+          "MAE_total": 0.2596332677003228,
+          "MAE_normal": 0.2803092253913437,
+          "MAE_single": 0.2696707941885488,
+          "ADwT": 88.39285714285714,
+          "AMDwT": 89.30369127516778,
+          "num_total": 4,
+          "num_normal": 3,
+          "num_anomaly_total": 1,
+          "num_reproduction_failure": 0,
+          "num_unphysical_relaxation": 1,
+          "num_adsorbate_migration": 0,
+          "num_energy_anomaly": 0
+        },
         "OH": {
           "MAE_total": 0.1297318223781415,
           "MAE_normal": 0.1297318223781415,
           "MAE_single": 0.1260597441262981,
           "ADwT": 100.0,
           "AMDwT": 99.74272930648769,
-          "num_total": 3,
-          "num_normal": 3,
-          "num_anomaly_total": 0,
-          "num_reproduction_failure": 0,
-          "num_unphysical_relaxation": 0,
-          "num_adsorbate_migration": 0,
-          "num_energy_anomaly": 0
-        },
-        "OCCOH": {
-          "MAE_total": 0.05509822473200628,
-          "MAE_normal": 0.05509822473200628,
-          "MAE_single": 0.05624169513855751,
-          "ADwT": 98.23129251700679,
-          "AMDwT": 97.06935123042504,
           "num_total": 3,
           "num_normal": 3,
           "num_anomaly_total": 0,
@@ -2645,6 +2631,20 @@
           "num_adsorbate_migration": 0,
           "num_energy_anomaly": 0
         },
+        "H": {
+          "MAE_total": 0.0726353474965391,
+          "MAE_normal": 0.0726353474965391,
+          "MAE_single": 0.07482259954122157,
+          "ADwT": 100.0,
+          "AMDwT": 99.7539149888143,
+          "num_total": 3,
+          "num_normal": 3,
+          "num_anomaly_total": 0,
+          "num_reproduction_failure": 0,
+          "num_unphysical_relaxation": 0,
+          "num_adsorbate_migration": 0,
+          "num_energy_anomaly": 0
+        },
         "CCO": {
           "MAE_total": 0.186877842124255,
           "MAE_normal": 0.186877842124255,
@@ -2659,12 +2659,12 @@
           "num_adsorbate_migration": 0,
           "num_energy_anomaly": 0
         },
-        "H": {
-          "MAE_total": 0.0726353474965391,
-          "MAE_normal": 0.0726353474965391,
-          "MAE_single": 0.07482259954122157,
-          "ADwT": 100.0,
-          "AMDwT": 99.7539149888143,
+        "OCCOH": {
+          "MAE_total": 0.05509822473200628,
+          "MAE_normal": 0.05509822473200628,
+          "MAE_single": 0.05624169513855751,
+          "ADwT": 98.23129251700679,
+          "AMDwT": 97.06935123042504,
           "num_total": 3,
           "num_normal": 3,
           "num_anomaly_total": 0,
@@ -2715,6 +2715,20 @@
           "num_adsorbate_migration": 0,
           "num_energy_anomaly": 0
         },
+        "CHCO": {
+          "MAE_total": 0.04568444588949205,
+          "MAE_normal": 0.04568444588949205,
+          "MAE_single": 0.06073524454404833,
+          "ADwT": 100.0,
+          "AMDwT": 99.59731543624162,
+          "num_total": 1,
+          "num_normal": 1,
+          "num_anomaly_total": 0,
+          "num_reproduction_failure": 0,
+          "num_unphysical_relaxation": 0,
+          "num_adsorbate_migration": 0,
+          "num_energy_anomaly": 0
+        },
         "OCCO": {
           "MAE_total": 1.038654466174194,
           "MAE_normal": 0.0,
@@ -2735,20 +2749,6 @@
           "MAE_single": 0.287821888894527,
           "ADwT": 100.0,
           "AMDwT": 99.83221476510067,
-          "num_total": 1,
-          "num_normal": 1,
-          "num_anomaly_total": 0,
-          "num_reproduction_failure": 0,
-          "num_unphysical_relaxation": 0,
-          "num_adsorbate_migration": 0,
-          "num_energy_anomaly": 0
-        },
-        "CHCO": {
-          "MAE_total": 0.04568444588949205,
-          "MAE_normal": 0.04568444588949205,
-          "MAE_single": 0.06073524454404833,
-          "ADwT": 100.0,
-          "AMDwT": 99.59731543624162,
           "num_total": 1,
           "num_normal": 1,
           "num_anomaly_total": 0,
@@ -2803,20 +2803,6 @@
           "num_adsorbate_migration": 0,
           "num_energy_anomaly": 0
         },
-        "C": {
-          "MAE_total": 1.443047853588706,
-          "MAE_normal": 0.6971061130025049,
-          "MAE_single": 0.5745079167481544,
-          "ADwT": 79.56632653061222,
-          "AMDwT": 75.2069351230412,
-          "num_total": 4,
-          "num_normal": 2,
-          "num_anomaly_total": 1,
-          "num_reproduction_failure": 1,
-          "num_unphysical_relaxation": 0,
-          "num_adsorbate_migration": 1,
-          "num_energy_anomaly": 0
-        },
         "COH": {
           "MAE_total": 1.172791189950662,
           "MAE_normal": 0.9597434812603716,
@@ -2828,6 +2814,20 @@
           "num_anomaly_total": 1,
           "num_reproduction_failure": 0,
           "num_unphysical_relaxation": 1,
+          "num_adsorbate_migration": 1,
+          "num_energy_anomaly": 0
+        },
+        "C": {
+          "MAE_total": 1.443047853588706,
+          "MAE_normal": 0.6971061130025049,
+          "MAE_single": 0.5745079167481544,
+          "ADwT": 79.56632653061222,
+          "AMDwT": 75.2069351230412,
+          "num_total": 4,
+          "num_normal": 2,
+          "num_anomaly_total": 1,
+          "num_reproduction_failure": 1,
+          "num_unphysical_relaxation": 0,
           "num_adsorbate_migration": 1,
           "num_energy_anomaly": 0
         },
@@ -2845,12 +2845,12 @@
           "num_adsorbate_migration": 1,
           "num_energy_anomaly": 0
         },
-        "OCCOH": {
-          "MAE_total": 1.34555782033321,
-          "MAE_normal": 1.34555782033321,
-          "MAE_single": 1.347652302715349,
-          "ADwT": 80.41950113378685,
-          "AMDwT": 88.14690529455629,
+        "CHO": {
+          "MAE_total": 0.7429571838316681,
+          "MAE_normal": 0.7429571838316681,
+          "MAE_single": 0.7323061218994221,
+          "ADwT": 79.93197278911565,
+          "AMDwT": 86.67785234899328,
           "num_total": 3,
           "num_normal": 3,
           "num_anomaly_total": 0,
@@ -2859,12 +2859,12 @@
           "num_adsorbate_migration": 0,
           "num_energy_anomaly": 0
         },
-        "CHO": {
-          "MAE_total": 0.7429571838316681,
-          "MAE_normal": 0.7429571838316681,
-          "MAE_single": 0.7323061218994221,
-          "ADwT": 79.93197278911565,
-          "AMDwT": 86.67785234899328,
+        "H": {
+          "MAE_total": 0.3696357656032537,
+          "MAE_normal": 0.3696357656032537,
+          "MAE_single": 0.3382536817104314,
+          "ADwT": 79.38775510204081,
+          "AMDwT": 87.75167785234899,
           "num_total": 3,
           "num_normal": 3,
           "num_anomaly_total": 0,
@@ -2887,12 +2887,12 @@
           "num_adsorbate_migration": 0,
           "num_energy_anomaly": 0
         },
-        "H": {
-          "MAE_total": 0.3696357656032537,
-          "MAE_normal": 0.3696357656032537,
-          "MAE_single": 0.3382536817104314,
-          "ADwT": 79.38775510204081,
-          "AMDwT": 87.75167785234899,
+        "OCCOH": {
+          "MAE_total": 1.34555782033321,
+          "MAE_normal": 1.34555782033321,
+          "MAE_single": 1.347652302715349,
+          "ADwT": 80.41950113378685,
+          "AMDwT": 88.14690529455629,
           "num_total": 3,
           "num_normal": 3,
           "num_anomaly_total": 0,
@@ -2943,6 +2943,20 @@
           "num_adsorbate_migration": 0,
           "num_energy_anomaly": 0
         },
+        "CHCO": {
+          "MAE_total": 0.9964641372280418,
+          "MAE_normal": 0.9964641372280418,
+          "MAE_single": 0.9913343975858986,
+          "ADwT": 80.51020408163265,
+          "AMDwT": 87.68456375838926,
+          "num_total": 1,
+          "num_normal": 1,
+          "num_anomaly_total": 0,
+          "num_reproduction_failure": 0,
+          "num_unphysical_relaxation": 0,
+          "num_adsorbate_migration": 0,
+          "num_energy_anomaly": 0
+        },
         "OCCO": {
           "MAE_total": 2.381227885387432,
           "MAE_normal": 0.0,
@@ -2963,20 +2977,6 @@
           "MAE_single": 0.908657953113984,
           "ADwT": 78.9795918367347,
           "AMDwT": 85.93959731543625,
-          "num_total": 1,
-          "num_normal": 1,
-          "num_anomaly_total": 0,
-          "num_reproduction_failure": 0,
-          "num_unphysical_relaxation": 0,
-          "num_adsorbate_migration": 0,
-          "num_energy_anomaly": 0
-        },
-        "CHCO": {
-          "MAE_total": 0.9964641372280418,
-          "MAE_normal": 0.9964641372280418,
-          "MAE_single": 0.9913343975858986,
-          "ADwT": 80.51020408163265,
-          "AMDwT": 87.68456375838926,
           "num_total": 1,
           "num_normal": 1,
           "num_anomaly_total": 0,
@@ -3031,20 +3031,6 @@
           "num_adsorbate_migration": 0,
           "num_energy_anomaly": 0
         },
-        "C": {
-          "MAE_total": 0.7312362067696045,
-          "MAE_normal": 0.3157458917557818,
-          "MAE_single": 0.3052909173366127,
-          "ADwT": 84.03911564625851,
-          "AMDwT": 75.6291946308724,
-          "num_total": 4,
-          "num_normal": 1,
-          "num_anomaly_total": 3,
-          "num_reproduction_failure": 2,
-          "num_unphysical_relaxation": 1,
-          "num_adsorbate_migration": 0,
-          "num_energy_anomaly": 0
-        },
         "COH": {
           "MAE_total": 0.1893902825831228,
           "MAE_normal": 0.1619850376203641,
@@ -3059,26 +3045,26 @@
           "num_adsorbate_migration": 0,
           "num_energy_anomaly": 0
         },
+        "C": {
+          "MAE_total": 0.7312362067696045,
+          "MAE_normal": 0.3157458917557818,
+          "MAE_single": 0.3052909173366127,
+          "ADwT": 84.03911564625851,
+          "AMDwT": 75.6291946308724,
+          "num_total": 4,
+          "num_normal": 1,
+          "num_anomaly_total": 3,
+          "num_reproduction_failure": 2,
+          "num_unphysical_relaxation": 1,
+          "num_adsorbate_migration": 0,
+          "num_energy_anomaly": 0
+        },
         "OH": {
           "MAE_total": 0.1630616221494551,
           "MAE_normal": 0.1630616221494551,
           "MAE_single": 0.1602080646819992,
           "ADwT": 100.0,
           "AMDwT": 99.7539149888143,
-          "num_total": 3,
-          "num_normal": 3,
-          "num_anomaly_total": 0,
-          "num_reproduction_failure": 0,
-          "num_unphysical_relaxation": 0,
-          "num_adsorbate_migration": 0,
-          "num_energy_anomaly": 0
-        },
-        "OCCOH": {
-          "MAE_total": 0.04802486949485803,
-          "MAE_normal": 0.04802486949485803,
-          "MAE_single": 0.05541917834002227,
-          "ADwT": 98.23129251700679,
-          "AMDwT": 97.15883668903803,
           "num_total": 3,
           "num_normal": 3,
           "num_anomaly_total": 0,
@@ -3101,6 +3087,20 @@
           "num_adsorbate_migration": 0,
           "num_energy_anomaly": 0
         },
+        "H": {
+          "MAE_total": 0.05609530195700577,
+          "MAE_normal": 0.05609530195700577,
+          "MAE_single": 0.05640021945144754,
+          "ADwT": 99.93197278911566,
+          "AMDwT": 99.40715883668904,
+          "num_total": 3,
+          "num_normal": 3,
+          "num_anomaly_total": 0,
+          "num_reproduction_failure": 0,
+          "num_unphysical_relaxation": 0,
+          "num_adsorbate_migration": 0,
+          "num_energy_anomaly": 0
+        },
         "CCO": {
           "MAE_total": 0.2483507348855044,
           "MAE_normal": 0.2483507348855044,
@@ -3115,12 +3115,12 @@
           "num_adsorbate_migration": 0,
           "num_energy_anomaly": 0
         },
-        "H": {
-          "MAE_total": 0.05609530195700577,
-          "MAE_normal": 0.05609530195700577,
-          "MAE_single": 0.05640021945144754,
-          "ADwT": 99.93197278911566,
-          "AMDwT": 99.40715883668904,
+        "OCCOH": {
+          "MAE_total": 0.04802486949485803,
+          "MAE_normal": 0.04802486949485803,
+          "MAE_single": 0.05541917834002227,
+          "ADwT": 98.23129251700679,
+          "AMDwT": 97.15883668903803,
           "num_total": 3,
           "num_normal": 3,
           "num_anomaly_total": 0,
@@ -3171,6 +3171,20 @@
           "num_adsorbate_migration": 0,
           "num_energy_anomaly": 0
         },
+        "CHCO": {
+          "MAE_total": 0.1028291473703575,
+          "MAE_normal": 0.1028291473703575,
+          "MAE_single": 0.1169846991615486,
+          "ADwT": 100.0,
+          "AMDwT": 99.56375838926175,
+          "num_total": 1,
+          "num_normal": 1,
+          "num_anomaly_total": 0,
+          "num_reproduction_failure": 0,
+          "num_unphysical_relaxation": 0,
+          "num_adsorbate_migration": 0,
+          "num_energy_anomaly": 0
+        },
         "OCCO": {
           "MAE_total": 1.020981927416869,
           "MAE_normal": 0.0,
@@ -3191,20 +3205,6 @@
           "MAE_single": 0.3115499764389824,
           "ADwT": 100.0,
           "AMDwT": 99.79865771812081,
-          "num_total": 1,
-          "num_normal": 1,
-          "num_anomaly_total": 0,
-          "num_reproduction_failure": 0,
-          "num_unphysical_relaxation": 0,
-          "num_adsorbate_migration": 0,
-          "num_energy_anomaly": 0
-        },
-        "CHCO": {
-          "MAE_total": 0.1028291473703575,
-          "MAE_normal": 0.1028291473703575,
-          "MAE_single": 0.1169846991615486,
-          "ADwT": 100.0,
-          "AMDwT": 99.56375838926175,
           "num_total": 1,
           "num_normal": 1,
           "num_anomaly_total": 0,
@@ -3259,20 +3259,6 @@
           "num_adsorbate_migration": 0,
           "num_energy_anomaly": 0
         },
-        "C": {
-          "MAE_total": 0.8967127003070603,
-          "MAE_normal": 0.4294200126824291,
-          "MAE_single": 0.4274260349866319,
-          "ADwT": 83.00170068027211,
-          "AMDwT": 79.69798657718121,
-          "num_total": 4,
-          "num_normal": 3,
-          "num_anomaly_total": 0,
-          "num_reproduction_failure": 0,
-          "num_unphysical_relaxation": 0,
-          "num_adsorbate_migration": 1,
-          "num_energy_anomaly": 0
-        },
         "COH": {
           "MAE_total": 1.216621528816095,
           "MAE_normal": 0.8194166311440618,
@@ -3284,6 +3270,20 @@
           "num_anomaly_total": 1,
           "num_reproduction_failure": 0,
           "num_unphysical_relaxation": 1,
+          "num_adsorbate_migration": 1,
+          "num_energy_anomaly": 0
+        },
+        "C": {
+          "MAE_total": 0.8967127003070603,
+          "MAE_normal": 0.4294200126824291,
+          "MAE_single": 0.4274260349866319,
+          "ADwT": 83.00170068027211,
+          "AMDwT": 79.69798657718121,
+          "num_total": 4,
+          "num_normal": 3,
+          "num_anomaly_total": 0,
+          "num_reproduction_failure": 0,
+          "num_unphysical_relaxation": 0,
           "num_adsorbate_migration": 1,
           "num_energy_anomaly": 0
         },
@@ -3301,20 +3301,6 @@
           "num_adsorbate_migration": 1,
           "num_energy_anomaly": 0
         },
-        "OCCOH": {
-          "MAE_total": 1.147920932902037,
-          "MAE_normal": 1.147920932902037,
-          "MAE_single": 1.15252070281227,
-          "ADwT": 82.61904761904762,
-          "AMDwT": 88.71364653243849,
-          "num_total": 3,
-          "num_normal": 3,
-          "num_anomaly_total": 0,
-          "num_reproduction_failure": 0,
-          "num_unphysical_relaxation": 0,
-          "num_adsorbate_migration": 0,
-          "num_energy_anomaly": 0
-        },
         "CHO": {
           "MAE_total": 0.8866077801721465,
           "MAE_normal": 0.5078240094698607,
@@ -3327,6 +3313,20 @@
           "num_reproduction_failure": 0,
           "num_unphysical_relaxation": 0,
           "num_adsorbate_migration": 1,
+          "num_energy_anomaly": 0
+        },
+        "H": {
+          "MAE_total": 0.1794024555395737,
+          "MAE_normal": 0.1794024555395737,
+          "MAE_single": 0.1455700247000351,
+          "ADwT": 80.95238095238095,
+          "AMDwT": 88.32214765100672,
+          "num_total": 3,
+          "num_normal": 3,
+          "num_anomaly_total": 0,
+          "num_reproduction_failure": 0,
+          "num_unphysical_relaxation": 0,
+          "num_adsorbate_migration": 0,
           "num_energy_anomaly": 0
         },
         "CCO": {
@@ -3343,12 +3343,12 @@
           "num_adsorbate_migration": 0,
           "num_energy_anomaly": 0
         },
-        "H": {
-          "MAE_total": 0.1794024555395737,
-          "MAE_normal": 0.1794024555395737,
-          "MAE_single": 0.1455700247000351,
-          "ADwT": 80.95238095238095,
-          "AMDwT": 88.32214765100672,
+        "OCCOH": {
+          "MAE_total": 1.147920932902037,
+          "MAE_normal": 1.147920932902037,
+          "MAE_single": 1.15252070281227,
+          "ADwT": 82.61904761904762,
+          "AMDwT": 88.71364653243849,
           "num_total": 3,
           "num_normal": 3,
           "num_anomaly_total": 0,
@@ -3399,6 +3399,20 @@
           "num_adsorbate_migration": 0,
           "num_energy_anomaly": 0
         },
+        "CHCO": {
+          "MAE_total": 0.6780050287561146,
+          "MAE_normal": 0.6780050287561146,
+          "MAE_single": 0.6626436302976337,
+          "ADwT": 81.73469387755102,
+          "AMDwT": 87.98657718120805,
+          "num_total": 1,
+          "num_normal": 1,
+          "num_anomaly_total": 0,
+          "num_reproduction_failure": 0,
+          "num_unphysical_relaxation": 0,
+          "num_adsorbate_migration": 0,
+          "num_energy_anomaly": 0
+        },
         "OCCO": {
           "MAE_total": 2.367873807452213,
           "MAE_normal": 0.0,
@@ -3419,20 +3433,6 @@
           "MAE_single": 0.3430435806221475,
           "ADwT": 81.3265306122449,
           "AMDwT": 86.3758389261745,
-          "num_total": 1,
-          "num_normal": 1,
-          "num_anomaly_total": 0,
-          "num_reproduction_failure": 0,
-          "num_unphysical_relaxation": 0,
-          "num_adsorbate_migration": 0,
-          "num_energy_anomaly": 0
-        },
-        "CHCO": {
-          "MAE_total": 0.6780050287561146,
-          "MAE_normal": 0.6780050287561146,
-          "MAE_single": 0.6626436302976337,
-          "ADwT": 81.73469387755102,
-          "AMDwT": 87.98657718120805,
           "num_total": 1,
           "num_normal": 1,
           "num_anomaly_total": 0,
