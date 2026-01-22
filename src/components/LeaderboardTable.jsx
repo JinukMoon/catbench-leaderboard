@@ -1,24 +1,10 @@
 import React, { useState, useMemo, useEffect } from 'react'
 import { createPortal } from 'react-dom'
 import { ArrowUp, ArrowDown, X, Info, ExternalLink, Github, FileText } from 'lucide-react'
+import { DATASET_DESCRIPTIONS, EXTERNAL_LINKS } from '../constants/datasets'
 
-// Dataset source links
-const DATASET_LINKS = {
-  'MamunHighT2019': 'https://www.catalysis-hub.org/publications/MamunHighT2019',
-  'FG': 'https://doi.org/10.1038/s43588-023-00437-y',
-  'BM': 'https://doi.org/10.1038/s43588-023-00437-y',
-  'ComerGeneralized2024': 'https://www.catalysis-hub.org/publications/ComerGeneralized2024',
-  'KHLOHC': 'https://zenodo.org/records/17157086',
-}
-
-// Dataset descriptions (pure dataset info)
-const DATASET_DESCRIPTIONS = {
-  'MamunHighT2019': 'Small molecules (H, C, N, O, S, CH, CH₂, CH₃, OH, NH, SH) on 2,035 bimetallic alloy surfaces. 37 metals in binary combinations.',
-  'FG': 'Large organic molecules with functional groups (alcohols, amines, thiols, aromatics) on metallic surfaces.',
-  'ComerGeneralized2024': 'Small molecules on metal oxide surfaces with diverse oxide compositions.',
-  'BM': 'Extended large molecules (up to 30 heteroatoms) for biomass conversion, polyurethane synthesis, and plastic recycling on Ni/Ru/Ag/Au/Pt surfaces.',
-  'KHLOHC': 'Liquid Organic Hydrogen Carriers - methylcyclohexane (MCH) and toluene on Pt-based alloys for hydrogen storage applications.',
-}
+// Alias for backward compatibility
+const DATASET_LINKS = EXTERNAL_LINKS
 
 // Metric tooltips based on CatBench paper
 const TOOLTIPS = {

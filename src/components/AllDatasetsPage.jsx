@@ -1,17 +1,7 @@
 import React, { useState, useMemo } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Search, Database, ArrowLeft, ExternalLink, Link as LinkIcon } from 'lucide-react'
-
-// Override source display for specific datasets
-const SOURCE_DISPLAY_OVERRIDE = {
-  'FG': 'ioChem-BD',
-  'BM': 'ioChem-BD',
-}
-
-// Get display source name
-function getDisplaySource(dataset) {
-  return SOURCE_DISPLAY_OVERRIDE[dataset.id] || dataset.source
-}
+import { EXTERNAL_LINKS, getDisplaySource } from '../constants/datasets'
 
 function AllDatasetsPage({ meta, isDark }) {
   const navigate = useNavigate()
@@ -159,6 +149,20 @@ function AllDatasetsPage({ meta, isDark }) {
                     isDark ? 'hover:bg-slate-700 text-slate-400 hover:text-white' : 'hover:bg-slate-200 text-slate-500 hover:text-slate-900'
                   }`}
                   title="View on Catalysis Hub"
+                >
+                  <ExternalLink className="w-3.5 h-3.5" />
+                </a>
+              )}
+              {EXTERNAL_LINKS[dataset.id] && (
+                <a
+                  href={EXTERNAL_LINKS[dataset.id]}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={(e) => e.stopPropagation()}
+                  className={`p-1 rounded transition-colors flex-shrink-0 ${
+                    isDark ? 'hover:bg-slate-700 text-slate-400 hover:text-white' : 'hover:bg-slate-200 text-slate-500 hover:text-slate-900'
+                  }`}
+                  title="View dataset source"
                 >
                   <ExternalLink className="w-3.5 h-3.5" />
                 </a>
