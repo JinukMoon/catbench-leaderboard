@@ -38,6 +38,11 @@ function MainPage({ meta, mlipMetadata, isDark, currentDataset, setCurrentDatase
           }`}>
             Benchmarking framework of MLIPs for Adsorption Energy Predictions
           </p>
+          <p className={`text-sm mt-1 ${
+            isDark ? 'text-slate-500' : 'text-slate-400'
+          }`}>
+            Last Updated: January 22, 2026
+          </p>
         </div>
         {/* Overview & Surface Energy - right side */}
         <div className="absolute right-0 top-full -translate-y-[57%] z-[9999] flex flex-col gap-2">
