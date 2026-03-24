@@ -41,7 +41,7 @@ function MainPage({ meta, mlipMetadata, isDark, currentDataset, setCurrentDatase
           <p className={`text-sm mt-1 ${
             isDark ? 'text-slate-500' : 'text-slate-400'
           }`}>
-            Last Updated: January 22, 2026
+            Last Updated: March 24, 2026
           </p>
         </div>
         {/* Overview & Surface Energy - right side */}
