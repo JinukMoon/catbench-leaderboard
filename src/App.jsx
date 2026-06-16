@@ -14,77 +14,79 @@ import { Loader2, Headphones, Info } from 'lucide-react'
 function MainPage({ meta, mlipMetadata, isDark, currentDataset, setCurrentDataset, datasetData, loading }) {
   return (
     <>
-      {/* Hero section with logo */}
-      <div className="relative flex items-center mb-6 animate-fade-in">
-        {/* Logo - left side, absolute positioned to allow overlap */}
-        <div className="absolute left-0 top-full -translate-y-1/2 z-0">
-          <div className="rounded-xl p-2 bg-slate-50">
-            <img
-              src="/images/CatBench_logo.png"
-              alt="CatBench"
-              className="h-36 w-auto"
-            />
-          </div>
-        </div>
-        {/* Title and description - centered */}
-        <div className="flex-grow text-center">
-          <h1 className={`text-4xl md:text-5xl font-display font-bold ${
-            isDark ? 'text-white' : 'text-slate-900'
-          }`}>
-            CatBench Leaderboard
-          </h1>
-          <p className={`text-lg mt-2 ${
-            isDark ? 'text-slate-400' : 'text-slate-600'
-          }`}>
-            Benchmarking framework of MLIPs for Adsorption Energy Predictions
-          </p>
-          <p className={`text-sm mt-1 ${
-            isDark ? 'text-slate-500' : 'text-slate-400'
-          }`}>
-            Last Updated: March 24, 2026
-          </p>
-        </div>
-        {/* Overview & Surface Energy - right side */}
-        <div className="absolute right-0 top-full -translate-y-[57%] z-[9999] flex flex-col gap-2">
-          {/* CatBench Overview */}
-          <div className={`rounded-xl p-4 ${isDark ? 'bg-slate-800/90' : 'bg-white shadow-md'}`} style={{ width: '280px' }}>
-            <div className="flex items-center gap-2 mb-3">
-              <Headphones className={`w-5 h-5 ${isDark ? 'text-accent-400' : 'text-accent-600'}`} />
-              <span className={`text-sm font-semibold ${isDark ? 'text-white' : 'text-slate-900'}`}>
-                CatBench Overview
-              </span>
-            </div>
-            <audio
-              controls
-              src="/audio/CatBench_summary.mp3"
-              className="h-8 w-full"
-            />
-          </div>
-          {/* Surface Energy */}
-          <div className="relative group">
-            <a
-              href="/surface-energy"
-              className={`
-                px-4 py-2 rounded-lg text-sm font-medium transition-all flex items-center gap-2
-                ${isDark
-                  ? 'bg-slate-800/60 text-slate-300 hover:bg-slate-700/60 hover:text-white border border-slate-700/50'
-                  : 'bg-white text-slate-600 hover:bg-slate-100 hover:text-slate-900 border border-slate-300 shadow-sm'
-                }
-              `}
-            >
-              <span>Surface Energy Benchmark</span>
-              <Info className={`w-3.5 h-3.5 ${isDark ? 'text-slate-500' : 'text-slate-400'}`} />
-            </a>
-            {/* Tooltip */}
-            <div
-              className="absolute z-50 top-full left-1/2 -translate-x-1/2 mt-2 w-64 px-3 py-2 text-xs font-normal leading-relaxed text-left whitespace-normal text-slate-200 rounded-lg shadow-xl border border-slate-600 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity"
-              style={{ backgroundColor: '#0f172a' }}
-            >
-              <span
-                className="absolute bottom-full left-1/2 -translate-x-1/2 border-4 border-transparent"
-                style={{ borderBottomColor: '#0f172a' }}
+      {/* Hero section with logo — responsive flex (no overlap on zoom/narrow) */}
+      <div className="mb-6 animate-fade-in">
+        <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
+          {/* Logo - left (decorative; hidden on small screens to avoid crowding) */}
+          <div className="hidden lg:block shrink-0 order-3 lg:order-1">
+            <div className="rounded-xl p-2 bg-slate-50">
+              <img
+                src="/images/CatBench_logo.png"
+                alt="CatBench"
+                className="h-28 xl:h-36 w-auto"
               />
-              Surface energy predictions on 1,915 binary alloy slabs from MamunHighT2019 dataset
+            </div>
+          </div>
+          {/* Title and description - centered */}
+          <div className="flex-grow min-w-0 text-center order-1 lg:order-2">
+            <h1 className={`text-3xl sm:text-4xl md:text-5xl font-display font-bold ${
+              isDark ? 'text-white' : 'text-slate-900'
+            }`}>
+              CatBench Leaderboard
+            </h1>
+            <p className={`text-base sm:text-lg mt-2 ${
+              isDark ? 'text-slate-400' : 'text-slate-600'
+            }`}>
+              Benchmarking framework of MLIPs for Adsorption Energy Predictions
+            </p>
+            <p className={`text-sm mt-1 ${
+              isDark ? 'text-slate-500' : 'text-slate-400'
+            }`}>
+              Last Updated: March 24, 2026
+            </p>
+          </div>
+          {/* Overview & Surface Energy - right side */}
+          <div className="shrink-0 order-2 lg:order-3 flex flex-col gap-2 w-full max-w-[280px] mx-auto lg:mx-0">
+            {/* CatBench Overview */}
+            <div className={`rounded-xl p-4 ${isDark ? 'bg-slate-800/90' : 'bg-white shadow-md'}`}>
+              <div className="flex items-center gap-2 mb-3">
+                <Headphones className={`w-5 h-5 ${isDark ? 'text-accent-400' : 'text-accent-600'}`} />
+                <span className={`text-sm font-semibold ${isDark ? 'text-white' : 'text-slate-900'}`}>
+                  CatBench Overview
+                </span>
+              </div>
+              <audio
+                controls
+                src="/audio/CatBench_summary.mp3"
+                className="h-8 w-full"
+              />
+            </div>
+            {/* Surface Energy */}
+            <div className="relative group">
+              <a
+                href="/surface-energy"
+                className={`
+                  px-4 py-2 rounded-lg text-sm font-medium transition-all flex items-center justify-center gap-2
+                  ${isDark
+                    ? 'bg-slate-800/60 text-slate-300 hover:bg-slate-700/60 hover:text-white border border-slate-700/50'
+                    : 'bg-white text-slate-600 hover:bg-slate-100 hover:text-slate-900 border border-slate-300 shadow-sm'
+                  }
+                `}
+              >
+                <span>Surface Energy Benchmark</span>
+                <Info className={`w-3.5 h-3.5 ${isDark ? 'text-slate-500' : 'text-slate-400'}`} />
+              </a>
+              {/* Tooltip */}
+              <div
+                className="absolute z-50 top-full left-1/2 -translate-x-1/2 mt-2 w-64 px-3 py-2 text-xs font-normal leading-relaxed text-left whitespace-normal text-slate-200 rounded-lg shadow-xl border border-slate-600 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity"
+                style={{ backgroundColor: '#0f172a' }}
+              >
+                <span
+                  className="absolute bottom-full left-1/2 -translate-x-1/2 border-4 border-transparent"
+                  style={{ borderBottomColor: '#0f172a' }}
+                />
+                Surface energy predictions on 1,915 binary alloy slabs from MamunHighT2019 dataset
+              </div>
             </div>
           </div>
         </div>

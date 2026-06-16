@@ -83,7 +83,7 @@ function AllDatasetsPage({ meta, isDark }) {
         </div>
 
         {/* Source Filter */}
-        <div className="flex gap-2">
+        <div className="flex flex-wrap gap-2">
           {[
             { id: 'all', label: 'All', count: allDatasets.length },
             { id: 'catalysis-hub', label: 'Catalysis-Hub', count: sourceStats['catalysis-hub'] },

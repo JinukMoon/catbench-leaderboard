@@ -21,6 +21,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -36,6 +38,17 @@ jobs:
 
       - name: Copy index.html to 404.html for SPA routing
         run: cp dist/index.html dist/404.html
+
+      - name: Merge plot assets from 'plots' branch into dist/plots
+        run: |
+          if git fetch origin plots:plots --depth=1 2>/dev/null && git rev-parse --verify plots >/dev/null 2>&1; then
+            git worktree add /tmp/plots plots
+            mkdir -p dist/plots
+            rsync -a --exclude='.git' /tmp/plots/ dist/plots/
+            echo "Merged $(find dist/plots -name '*.webp' | wc -l) plot images into dist/plots"
+          else
+            echo "no 'plots' branch yet — skipping plot assets"
+          fi
 
       - name: Setup Pages
         uses: actions/configure-pages@v4

@@ -8,10 +8,10 @@ function Header({ isDark, onToggleTheme }) {
       isDark ? 'bg-slate-950/80 border-slate-800/50' : 'bg-white/80 border-slate-200'
     }`}>
       <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-20">
+        <div className="flex items-center justify-between gap-x-4 gap-y-2 flex-wrap min-h-[5rem] py-2">
           {/* Title */}
-          <Link to="/" className="group">
-            <span className={`font-display font-bold text-2xl transition-colors ${
+          <Link to="/" className="group shrink-0">
+            <span className={`font-display font-bold text-xl sm:text-2xl transition-colors ${
               isDark ? 'text-white group-hover:text-accent-400' : 'text-slate-900 group-hover:text-accent-600'
             }`}>
               CatBench Leaderboard
@@ -19,8 +19,8 @@ function Header({ isDark, onToggleTheme }) {
           </Link>
 
           {/* Navigation */}
-          <nav className="flex items-center gap-5">
-            <span className={`text-base hidden md:inline ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
+          <nav className="flex items-center flex-wrap justify-end gap-x-4 gap-y-2">
+            <span className={`text-base hidden lg:inline whitespace-nowrap ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
               120+ Catalysis Hub datasets →
             </span>
             <Link

@@ -6,6 +6,47 @@ import { DATASET_DESCRIPTIONS, EXTERNAL_LINKS } from '../constants/datasets'
 // Alias for backward compatibility
 const DATASET_LINKS = EXTERNAL_LINKS
 
+// Multi-plot legend scheme — MUST mirror catbench config.py PLOT_COLORS / PLOT_MARKERS.
+// In the multi plot, adsorbates are sorted by count (desc) then assigned colors[i]/markers[i].
+// The modal's adsorbate table uses the same sort, so row index i === plot color/marker index i.
+// These are matplotlib named colors, which are also valid CSS color keywords.
+const PLOT_COLORS = [
+  'blue', 'red', 'green', 'purple', 'orange', 'brown', 'pink', 'gray',
+  'olive', 'cyan', 'magenta', 'lime', 'indigo', 'gold', 'darkred', 'teal',
+  'coral', 'turquoise', 'salmon', 'navy', 'maroon', 'forestgreen',
+  'darkorange', 'aqua', 'lavender', 'khaki', 'crimson', 'chocolate',
+]
+// SVG shapes replicating matplotlib markers (filled), in catbench PLOT_MARKERS order:
+// o ^ s p * h D H d < > v 8 P X. viewBox 0 0 24 24, centered. Fixed render size = uniform.
+const MARKER_SHAPES = [
+  (c) => <circle cx="12" cy="12" r="9" fill={c} />,                                                      // o circle
+  (c) => <polygon points="12,2 21,20 3,20" fill={c} />,                                                  // ^ triangle up
+  (c) => <rect x="4" y="4" width="16" height="16" fill={c} />,                                           // s square
+  (c) => <polygon points="12,2 21.5,8.9 17.9,20.1 6.1,20.1 2.5,8.9" fill={c} />,                         // p pentagon
+  (c) => <polygon points="12,2 14.4,8.8 21.5,8.9 15.8,13.2 17.9,20.1 12,16 6.1,20.1 8.2,13.2 2.5,8.9 9.6,8.8" fill={c} />, // * star
+  (c) => <polygon points="12,2 20.7,7 20.7,17 12,22 3.3,17 3.3,7" fill={c} />,                           // h hexagon (pointy top)
+  (c) => <polygon points="12,2 22,12 12,22 2,12" fill={c} />,                                            // D diamond
+  (c) => <polygon points="22,12 17,20.7 7,20.7 2,12 7,3.3 17,3.3" fill={c} />,                           // H hexagon (flat top)
+  (c) => <polygon points="12,2 18,12 12,22 6,12" fill={c} />,                                            // d thin diamond
+  (c) => <polygon points="2,12 20,3 20,21" fill={c} />,                                                  // < triangle left
+  (c) => <polygon points="22,12 4,3 4,21" fill={c} />,                                                   // > triangle right
+  (c) => <polygon points="3,4 21,4 12,21" fill={c} />,                                                   // v triangle down
+  (c) => <polygon points="8,2 16,2 22,8 22,16 16,22 8,22 2,16 2,8" fill={c} />,                          // 8 octagon
+  (c) => <polygon points="9,2 15,2 15,9 22,9 22,15 15,15 15,22 9,22 9,15 2,15 2,9 9,9" fill={c} />,      // P plus
+  (c) => <polygon points="8,2 12,8 16,2 22,8 16,12 22,16 16,22 12,16 8,22 2,16 8,12 2,8" fill={c} />,    // X
+]
+// adsorbate index i -> color PLOT_COLORS[i] and marker MARKER_SHAPES[i], matching catbench's
+// "sort by count desc, then colors[i]/markers[i]" (colors cycle at 28, markers at 15).
+function MarkerIcon({ idx }) {
+  const color = PLOT_COLORS[idx % PLOT_COLORS.length]
+  const shape = MARKER_SHAPES[idx % MARKER_SHAPES.length]
+  return (
+    <svg width="13" height="13" viewBox="0 0 24 24" className="inline-block shrink-0" aria-hidden="true">
+      {shape(color)}
+    </svg>
+  )
+}
+
 // Metric tooltips based on CatBench paper
 const TOOLTIPS = {
   MAE_normal_eV: 'Mean Absolute Error for successfully reproduced structures only.',
@@ -105,7 +146,7 @@ function formatChemicalFormula(text) {
   return (
     <>
       {parts.map((part, i) =>
-        /^\d+$/.test(part) ? <sub key={i} className="text-[1em]">{part}</sub> : part
+        /^\d+$/.test(part) ? <sub key={i}>{part}</sub> : part
       )}
     </>
   )
@@ -266,6 +307,32 @@ function AdsorbateModal({ mlip, metadata, onClose, isDark, datasetId }) {
 
         {/* Table */}
         <div className="overflow-auto max-h-[calc(85vh-80px)]">
+          {/* Parity plots (multi total + normal, side by side) — shown when WebP synced for this (dataset × MLIP) */}
+          {(mlip.plots?.multi_total || mlip.plots?.multi_normal) && (
+            <div className="px-6 pt-4">
+              <div className={`text-base font-semibold mb-3 ${isDark ? 'text-slate-300' : 'text-slate-700'}`}>
+                Parity plots · MLIP vs DFT (per adsorbate type)
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {[['multi_total', 'Total', 'all reactions'], ['multi_normal', 'Normal', 'anomalies & migration excluded']].map(([k, label, sub]) => (
+                  mlip.plots?.[k] ? (
+                    <figure key={k} className="m-0">
+                      <figcaption className={`text-center text-lg font-bold mb-1.5 ${isDark ? 'text-slate-100' : 'text-slate-900'}`}>
+                        {label} <span className="text-sm font-normal opacity-60">({sub})</span>
+                      </figcaption>
+                      <img
+                        src={`/plots/${mlip.plots[k].replace(/\.png$/, '.webp')}`}
+                        alt={`${mlip.name} — ${label}`}
+                        loading="lazy"
+                        className="w-full rounded-lg border border-slate-700/50 bg-white"
+                        onError={(e) => { const f = e.currentTarget.closest('figure'); if (f) f.style.display = 'none' }}
+                      />
+                    </figure>
+                  ) : null
+                ))}
+              </div>
+            </div>
+          )}
           <table className={`w-full text-sm ${isDark ? 'text-slate-200' : 'text-slate-700'}`}>
             <thead className={`sticky top-0 z-10 ${isDark ? 'bg-slate-800' : 'bg-slate-50'}`}>
               <tr>
@@ -303,12 +370,15 @@ function AdsorbateModal({ mlip, metadata, onClose, isDark, datasetId }) {
               </tr>
             </thead>
             <tbody className={isDark ? 'divide-y divide-slate-800/50' : 'divide-y divide-slate-100'}>
-              {adsorbates.map(([adsId, ads]) => (
+              {adsorbates.map(([adsId, ads], idx) => (
                 <tr key={adsId} className={`transition-colors ${
                   isDark ? 'hover:bg-slate-800/50' : 'hover:bg-slate-50'
                 }`}>
                   <td className={`px-4 py-2 text-center font-semibold ${isDark ? 'text-white' : 'text-slate-900'}`}>
-                    {datasetId === 'FG' || datasetId === 'BM' ? adsId : formatChemicalFormula(adsId)}
+                    <span className="inline-flex items-center justify-center gap-1.5">
+                      <MarkerIcon idx={idx} />
+                      <span>{datasetId === 'FG' || datasetId === 'BM' ? adsId : formatChemicalFormula(adsId)}</span>
+                    </span>
                   </td>
                   <td className="px-3 py-2 text-center tabular-nums">
                     {formatValue(ads.MAE_normal, 'mae')}

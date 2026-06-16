@@ -8,7 +8,7 @@ function DatasetSelector({ meta, currentDataset, onSelectDataset, isDark }) {
   const [hoveredDataset, setHoveredDataset] = useState(null)
 
   return (
-    <div className="grid gap-2 max-w-3xl mx-auto" style={{ gridTemplateColumns: '1.5fr 1.5fr 1.5fr' }}>
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2 max-w-3xl mx-auto">
       {featuredDatasets.map((dataset) => {
         const datasetInfo = allDatasets.find(d => d.id === dataset.id)
         const isActive = currentDataset === dataset.id

@@ -181,7 +181,7 @@ function SurfaceEnergyPage({ isDark }) {
       </div>
 
       {/* Table */}
-      <div className={`rounded-xl overflow-hidden ${
+      <div className={`rounded-xl overflow-x-auto ${
         isDark ? 'bg-slate-900/50 border border-slate-800' : 'bg-white border border-slate-200 shadow-sm'
       }`}>
         <table className={`w-full text-xl font-display ${isDark ? 'text-slate-200' : 'text-slate-700'}`}>

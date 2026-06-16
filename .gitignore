@@ -3,6 +3,10 @@ dist/
 .DS_Store
 *.log
 
+# Plot images live on the dedicated orphan 'plots' branch, not main
+# (kept locally for dev; merged into dist/plots at deploy time)
+public/plots/
+
 # Claude Code related files
 CLAUDE.md
 .claude/
