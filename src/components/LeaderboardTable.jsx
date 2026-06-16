@@ -1,6 +1,6 @@
 import React, { useState, useMemo, useEffect } from 'react'
 import { createPortal } from 'react-dom'
-import { ArrowUp, ArrowDown, X, Info, ExternalLink, Github, FileText } from 'lucide-react'
+import { ArrowUp, ArrowDown, X, Info, ExternalLink, Github, FileText, Download } from 'lucide-react'
 import { DATASET_DESCRIPTIONS, EXTERNAL_LINKS } from '../constants/datasets'
 
 // Alias for backward compatibility
@@ -574,6 +574,21 @@ function LeaderboardTable({ data, isDark = true, mlipMetadata = null }) {
                 </a>
               )
             })()}
+            {data.has_xlsx && (
+              <a
+                href={`/downloads/${data.id}.xlsx`}
+                download
+                className={`flex items-center gap-1 px-2 py-0.5 text-xs font-medium rounded transition-colors ${
+                  isDark
+                    ? 'bg-slate-800 text-slate-300 hover:bg-slate-700 hover:text-white'
+                    : 'bg-slate-100 text-slate-600 hover:bg-slate-200 hover:text-slate-900'
+                }`}
+                title="Download this dataset's benchmark analysis (Excel)"
+              >
+                <Download className="w-3.5 h-3.5" />
+                Excel
+              </a>
+            )}
           </div>
           <p className={`text-xs ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
             {sortedRows.length} models · {data.reaction_count?.toLocaleString()} reactions

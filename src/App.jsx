@@ -42,7 +42,9 @@ function MainPage({ meta, mlipMetadata, isDark, currentDataset, setCurrentDatase
             <p className={`text-sm mt-1 ${
               isDark ? 'text-slate-500' : 'text-slate-400'
             }`}>
-              Last Updated: March 24, 2026
+              Last Updated: {meta?.last_updated
+                ? new Date(meta.last_updated).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })
+                : '—'}
             </p>
           </div>
           {/* Overview & Surface Energy - right side */}
