@@ -3,7 +3,19 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/png" href="/images/CatBench_logo.png" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" id="vp" content="width=device-width, initial-scale=1.0" />
+    <script>
+      // Mobile-only: render the full desktop-width layout scaled DOWN (zoomed out)
+      // so the wide leaderboard table is visible at a glance instead of the cramped
+      // mobile reflow. Desktop browsers ignore the viewport meta, so they're unaffected.
+      (function () {
+        try {
+          if (Math.min(screen.width, screen.height) <= 768) {
+            document.getElementById('vp').setAttribute('content', 'width=1280');
+          }
+        } catch (e) {}
+      })();
+    </script>
     <title>CatBench | MLIP Benchmarking Leaderboard</title>
     <meta name="description" content="CatBench: Benchmarking Machine Learning Interatomic Potentials for Heterogeneous Catalysis" />
 
