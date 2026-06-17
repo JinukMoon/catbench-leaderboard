@@ -80,6 +80,8 @@ cathub_preprocessing(
 )
 \`\`\`
 
+> **Fixed-atom constraints are handled automatically (v1.1.0+):** CatHub's deposited \`constraints\` are kept as-is; when a dataset omits them, the fixed set is **inferred from geometry** (substrate atoms that do not move between the clean slab and the adslab were held fixed) and injected as \`FixAtoms\`. A genuinely unconstrained slab is left free, so every preprocessed dataset is self-describing. Tunable via \`require_constraints\` (default \`True\`), \`infer_fix_when_missing\` (default \`True\`), and \`fix_detect_tol\` (default \`1e-4\` Å). Downloads are also deterministic — stable \`order: "id"\` pagination with id-based dedup.
+
 #### Option B: User VASP Data
 
 > ⚠️ **Important**: The VASP preprocessing functions will DELETE all files except CONTCAR and OSZICAR to save disk space. **Always work with a copy of your original VASP data!**
@@ -190,7 +192,7 @@ for i in range(calc_num):
 config = {
     "mlip_name": "YourMLIP",
     "benchmark": "dataset_name",
-    # "rate": None,  # IMPORTANT: Use None to preserve VASP's original fixing constraints
+    # "rate": None,  # default — uses the structure's stored FixAtoms automatically (set a float only to force legacy z-fixing)
     # "save_files": False,  # Set to False to save disk space by skipping trajectory/log files
     # For all available configuration options, see the Configuration Options section below
 }
@@ -221,7 +223,7 @@ for i in range(calc_num):
 config = {
     "mlip_name": "YourMLIP_D3",
     "benchmark": "dataset_name",
-    # "rate": None,  # IMPORTANT: Use None to preserve VASP's original fixed atoms
+    # "rate": None,  # default — uses the structure's stored FixAtoms automatically (set a float only to force legacy z-fixing)
     # "save_files": False,  # Set to False to save disk space by skipping trajectory/log files
     # For all available configuration options, see the Configuration Options section below
 }
@@ -248,7 +250,7 @@ for i in range(calc_num):
 config = {
     "mlip_name": "OC20_MLIP",
     "benchmark": "dataset_name",
-    # "rate": None,  # IMPORTANT: Use None to preserve VASP's original fixed atoms
+    # "rate": None,  # default — uses the structure's stored FixAtoms automatically (set a float only to force legacy z-fixing)
     # "save_files": False,  # Set to False to save disk space by skipping trajectory/log files
     # For all available configuration options, see the Configuration Options section below
 }
@@ -697,7 +699,7 @@ The Excel report includes comprehensive EOS analysis with Birch-Murnaghan equati
 | \`mode\` | Calculation mode: "basic" or "oc20" | str | "basic" |
 | \`f_crit_relax\` | Force convergence criterion (eV/Å) | float | 0.05 |
 | \`n_crit_relax\` | Maximum optimization steps | int | 999 |
-| \`rate\` | Fraction of atoms to fix (0: no atoms fixed, None: preserve original constraints) | float | 0.5 |
+| \`rate\` | Fixed-atom handling: \`None\` (default) honors the structure's stored \`FixAtoms\`; a float force-fixes the bottom fraction of atoms by z-coordinate (legacy override) | None / float | None |
 | \`damping\` | Optimization damping factor | float | 1.0 |
 | \`optimizer\` | ASE optimizer: "LBFGS", "LBFGSLineSearch", "BFGS", "BFGSLineSearch", "GPMin", "MDMin", "FIRE" | str | "LBFGS" |
 | \`save_step\` | Save interval for updating result.json file | int | 50 |
