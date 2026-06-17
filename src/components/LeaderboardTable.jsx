@@ -589,6 +589,21 @@ function LeaderboardTable({ data, isDark = true, mlipMetadata = null }) {
                 Excel
               </a>
             )}
+            {data.has_benchmark && (
+              <a
+                href={`/benchmark/${data.id}.json.gz`}
+                download
+                className={`flex items-center gap-1 px-2 py-0.5 text-xs font-medium rounded transition-colors ${
+                  isDark
+                    ? 'bg-slate-800 text-slate-300 hover:bg-slate-700 hover:text-white'
+                    : 'bg-slate-100 text-slate-600 hover:bg-slate-200 hover:text-slate-900'
+                }`}
+                title="Download this dataset's CatBench benchmark JSON (gzip — run: gunzip <file>.json.gz)"
+              >
+                <Download className="w-3.5 h-3.5" />
+                JSON.gz
+              </a>
+            )}
           </div>
           <p className={`text-xs ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
             {sortedRows.length} models · {data.reaction_count?.toLocaleString()} reactions

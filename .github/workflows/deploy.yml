@@ -50,6 +50,17 @@ jobs:
             echo "no 'plots' branch yet — skipping plot assets"
           fi
 
+      - name: Merge benchmark JSONs from 'benchmark-data' branch into dist/benchmark
+        run: |
+          if git fetch origin benchmark-data:benchmark-data --depth=1 2>/dev/null && git rev-parse --verify benchmark-data >/dev/null 2>&1; then
+            git worktree add /tmp/benchmark benchmark-data
+            mkdir -p dist/benchmark
+            rsync -a --exclude='.git' /tmp/benchmark/ dist/benchmark/
+            echo "Merged $(find dist/benchmark -name '*.json.gz' | wc -l) benchmark JSONs into dist/benchmark"
+          else
+            echo "no 'benchmark-data' branch yet — skipping benchmark JSONs"
+          fi
+
       - name: Setup Pages
         uses: actions/configure-pages@v4
 
