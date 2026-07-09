@@ -88,7 +88,7 @@ function CustomTooltip({ active, payload, metricLabel }) {
     return (
       <div className="bg-slate-800 border border-slate-600 rounded-lg px-3 py-2 shadow-xl">
         <p className="text-white font-semibold text-base">{data.name}</p>
-        <p className="text-slate-300 text-sm">Time: {data.x.toFixed(4)} s</p>
+        <p className="text-slate-300 text-sm">Time: {data.x.toFixed(1)} ms</p>
         <p className="text-slate-300 text-sm">{metricLabel}: {data.y.toFixed(3)}</p>
         {data.isPareto && <p className="text-red-400 text-xs mt-1 font-semibold">★ Pareto Optimal</p>}
       </div>
@@ -134,7 +134,7 @@ function ParetoPlots({ data, isDark = true }) {
       )
       .map(([name, metrics]) => ({
         name,
-        time: metrics.time_per_step_s,
+        time: metrics.time_per_step_s * 1000, // s -> ms for display
         mae: metrics.MAE_normal_eV,
         normalRate: metrics.normal_rate_pct,
       }))
@@ -203,7 +203,7 @@ function ParetoPlots({ data, isDark = true }) {
                 name="Time"
                 type="number"
                 tick={{ fill: textColor, fontSize: 18 }}
-                label={{ value: 'Time per step (s)', position: 'bottom', fill: textColor, fontSize: 24, fontWeight: 'bold', dy: 10 }}
+                label={{ value: 'Time per step (ms)', position: 'bottom', fill: textColor, fontSize: 24, fontWeight: 'bold', dy: 10 }}
                 domain={['auto', 'auto']}
               />
               <YAxis
@@ -261,7 +261,7 @@ function ParetoPlots({ data, isDark = true }) {
                 name="Time"
                 type="number"
                 tick={{ fill: textColor, fontSize: 18 }}
-                label={{ value: 'Time per step (s)', position: 'bottom', fill: textColor, fontSize: 24, fontWeight: 'bold', dy: 10 }}
+                label={{ value: 'Time per step (ms)', position: 'bottom', fill: textColor, fontSize: 24, fontWeight: 'bold', dy: 10 }}
                 domain={['auto', 'auto']}
               />
               <YAxis

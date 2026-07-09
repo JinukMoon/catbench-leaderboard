@@ -59,7 +59,7 @@ const TOOLTIPS = {
   anomaly_energy_anomaly: 'Large energy deviation beyond threshold.',
   ADwT_pct: 'Average Distance within Threshold - mean fraction of atoms within distance threshold.',
   AMDwT_pct: 'Average Maximum Distance within Threshold - uses max per-atom displacement.',
-  time_per_step_s: 'Computational time per relaxation step.',
+  time_per_step_s: 'Computational time per relaxation step, in milliseconds.',
 }
 
 // Tooltip component (position: 'center' | 'right' | 'left')
@@ -107,6 +107,7 @@ function formatValue(value, format) {
     case 'mae': return value.toFixed(3)
     case 'pct': return value.toFixed(1)
     case 'time': return value < 0.01 ? value.toExponential(1) : value.toFixed(3)
+    case 'time_ms': return (value * 1000).toFixed(1) // stored in seconds, shown in ms
     default: return value
   }
 }
@@ -665,7 +666,7 @@ function LeaderboardTable({ data, isDark = true, mlipMetadata = null }) {
               <th rowSpan={2} className={`${thBase} ${sortKey === 'time_per_step_s' ? thActive : thColor} ${borderB}`}
                   onClick={() => handleSort('time_per_step_s')}>
                 <div>Time/step<SortIndicator active={sortKey === 'time_per_step_s'} direction={sortDirection} /></div>
-                <div className="text-sm font-normal flex items-center justify-center gap-1"><span className="opacity-70">(s)</span> <Tooltip content={TOOLTIPS.time_per_step_s} position="left"><Info className="w-4 h-4 inline opacity-50" /></Tooltip></div>
+                <div className="text-sm font-normal flex items-center justify-center gap-1"><span className="opacity-70">(ms)</span> <Tooltip content={TOOLTIPS.time_per_step_s} position="left"><Info className="w-4 h-4 inline opacity-50" /></Tooltip></div>
               </th>
             </tr>
             {/* Row 2: Anomaly sub-headers */}
@@ -763,7 +764,7 @@ function LeaderboardTable({ data, isDark = true, mlipMetadata = null }) {
                 )})()}
                 {(() => { const s = getHeatmapStyle(row.time_per_step_s, columnStats.time_per_step_s?.min, columnStats.time_per_step_s?.max, false, isDark); return (
                 <td className="px-3 py-3 text-center tabular-nums border border-black" style={{ backgroundColor: s.bg, color: s.text, fontFamily: 'Arial, sans-serif' }}>
-                  {formatValue(row.time_per_step_s, 'time')}
+                  {formatValue(row.time_per_step_s, 'time_ms')}
                 </td>
                 )})()}
               </tr>
