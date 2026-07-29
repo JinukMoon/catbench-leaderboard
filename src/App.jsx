@@ -8,6 +8,7 @@ import ParetoPlots from './components/ParetoPlots'
 import AllDatasetsPage from './components/AllDatasetsPage'
 import SurfaceEnergyPage from './components/SurfaceEnergyPage'
 import DocumentationPage from './components/DocumentationPage'
+import UsedByPage from './components/UsedByPage'
 import { Loader2, Headphones, Info } from 'lucide-react'
 
 // Main leaderboard page component
@@ -266,6 +267,14 @@ function App() {
             path="/docs"
             element={
               <DocumentationPage
+                isDark={isDark}
+              />
+            }
+          />
+          <Route
+            path="/used-by"
+            element={
+              <UsedByPage
                 isDark={isDark}
               />
             }

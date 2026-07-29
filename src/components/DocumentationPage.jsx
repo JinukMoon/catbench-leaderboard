@@ -1,867 +1,254 @@
-import React from 'react'
+import React, { useState, useEffect, useRef, useCallback } from 'react'
 import { useNavigate } from 'react-router-dom'
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
-import { ArrowLeft } from 'lucide-react'
+import { ArrowLeft, ArrowRight, ChevronLeft, Loader2, Github, BookOpen } from 'lucide-react'
 
-const DOCUMENTATION_MD = `# CatBench
+// Documentation structure — content lives in public/docs/<id>.md
+// (split from the CatBench GitHub README; update those files when the README changes)
+const DOC_GROUPS = [
+  {
+    label: 'Getting Started',
+    items: [
+      { id: 'overview', title: 'Overview' },
+      { id: 'installation', title: 'Installation' },
+      { id: 'quick-start', title: 'Quick Start' },
+      { id: 'tutorials', title: 'Tutorials' },
+    ],
+  },
+  {
+    label: 'Adsorption Energy',
+    items: [
+      { id: 'data-preparation', title: 'Data Preparation' },
+      { id: 'calculation', title: 'Calculation' },
+      { id: 'analysis', title: 'Analysis' },
+      { id: 'output-files', title: 'Output Files' },
+    ],
+  },
+  {
+    label: 'Relative Energy',
+    items: [
+      { id: 'surface-energy', title: 'Surface Energy' },
+      { id: 'bulk-formation', title: 'Bulk Formation Energy' },
+    ],
+  },
+  {
+    label: 'Equation of State',
+    items: [
+      { id: 'eos', title: 'EOS Benchmarking' },
+    ],
+  },
+  {
+    label: 'Configuration Reference',
+    items: [
+      { id: 'config-adsorption-calculation', title: 'AdsorptionCalculation' },
+      { id: 'config-adsorption-analysis', title: 'AdsorptionAnalysis' },
+      { id: 'config-dispersion', title: 'DispersionCorrection' },
+      { id: 'config-relative-eos', title: 'Relative & EOS Classes' },
+    ],
+  },
+  {
+    label: 'About',
+    items: [
+      { id: 'citation', title: 'Citation' },
+      { id: 'license-contact', title: 'License & Contact' },
+    ],
+  },
+]
 
-**CatBench Framework for Benchmarking Machine Learning Interatomic Potentials in Adsorption Energy Predictions for Heterogeneous Catalysis**
+const FLAT_SECTIONS = DOC_GROUPS.flatMap((g) => g.items)
+const SECTION_IDS = new Set(FLAT_SECTIONS.map((s) => s.id))
+const DEFAULT_SECTION = 'overview'
 
-CatBench provides a unified framework for evaluating MLIP performance across diverse catalytic systems, offering automated data processing, calculation workflows, and comprehensive analysis tools for adsorption energies, surface energies, bulk formation energies, and equation of state properties.
-
-If you want to use MLIPs in your catalysis research, CatBench enables you to establish quantitative reliability through systematic benchmarking against DFT references.
-
-## Quick Navigation
-
-- [Installation](#installation)
-- [Overview](#overview)
-- [Adsorption Energy Benchmarking](#adsorption-energy-benchmarking)
-- [Relative Energy Benchmarking](#relative-energy-benchmarking)
-  - [Surface Energy](#surface-energy)
-  - [Bulk Formation Energy](#bulk-formation-energy)
-- [Equation of State (EOS) Benchmarking](#equation-of-state-eos-benchmarking)
-- [Configuration Options](#configuration-options)
-- [Citation](#citation)
-
-## Installation
-
-\`\`\`bash
-# Basic installation (core features only)
-pip install catbench
-
-# With D3 dispersion correction support (requires CUDA)
-pip install catbench[d3]
-
-# Development installation
-git clone https://github.com/JinukMoon/CatBench.git
-cd CatBench
-pip install -e .
-
-# Development with D3 support
-pip install -e .[d3]
-\`\`\`
-
-### Installation Options
-
-- **Basic**: Core benchmarking features without dispersion correction
-- **[d3]**: Includes PyTorch for GPU-accelerated D3 dispersion correction
-
-> **Note**: D3 dispersion correction requires CUDA toolkit for GPU acceleration. CPU-only mode is not currently supported.
-
-## Overview
-
-![CatBench Schematic](/assets/CatBench_Schematic.png)
-
-CatBench follows a three-step workflow for comprehensive MLIP evaluation:
-
-1. **Data Processing**: Automated download from CatHub or processing of user VASP calculations
-2. **Calculation**: MLIP-based adsorption and reaction energy calculations
-3. **Analysis**: Statistical evaluation, anomaly detection, and visualization
-
-## Adsorption Energy Benchmarking
-
-### Data Preparation
-
-#### Option A: CatHub Database
-
-Download and preprocess catalysis reaction data directly from CatHub:
-
-\`\`\`python
-from catbench.adsorption import cathub_preprocessing
-
-# Single benchmark dataset
-cathub_preprocessing("MamunHighT2019")
-
-# Multiple datasets with adsorbate name integration
-cathub_preprocessing(
-    ["MamunHighT2019", "AraComputational2022"],
-    adsorbate_integration={'HO': 'OH', 'O2H': 'OOH'}  # Unify naming conventions
-)
-\`\`\`
-
-> **Fixed-atom constraints are handled automatically (v1.1.0+):** CatHub's deposited \`constraints\` are kept as-is; when a dataset omits them, the fixed set is **inferred from geometry** (substrate atoms that do not move between the clean slab and the adslab were held fixed) and injected as \`FixAtoms\`. A genuinely unconstrained slab is left free, so every preprocessed dataset is self-describing. Tunable via \`require_constraints\` (default \`True\`), \`infer_fix_when_missing\` (default \`True\`), and \`fix_detect_tol\` (default \`1e-4\` Å). Downloads are also deterministic — stable \`order: "id"\` pagination with id-based dedup. **v1.1.1** adds frame-invariant structure deduplication: identical clean slabs/gas refs are stored once (smaller benchmark JSONs) and relaxed once per run then reused across frame-equivalent copies (\`slab_cache\`, large GPU savings); load benchmark JSONs with \`load_catbench_json\`.
-
-#### Option B: User VASP Data
-
-> ⚠️ **Important**: The VASP preprocessing functions will DELETE all files except CONTCAR and OSZICAR to save disk space. **Always work with a copy of your original VASP data!**
-
-\`\`\`bash
-# STRONGLY RECOMMENDED: Copy your original data first
-cp -r original_vasp_data/ your_dataset_name/
-\`\`\`
-
-Organize your VASP calculation folders following this hierarchy (folder name is customizable):
-
-\`\`\`
-your_dataset_name/  # You can use any name for this folder
-├── gas/
-│   ├── H2gas/            # Complete VASP calculation folder
-│   │   ├── INCAR
-│   │   ├── POSCAR
-│   │   ├── POTCAR
-│   │   ├── KPOINTS
-│   │   ├── CONTCAR      # Required
-│   │   ├── OSZICAR      # Required
-│   │   ├── OUTCAR
-│   │   ├── vasprun.xml
-│   │   └── ...          # All other VASP files
-│   └── H2Ogas/
-│       ├── CONTCAR
-│       ├── OSZICAR
-│       └── ...
-├── system1/  # e.g., material_1
-│   ├── slab/
-│   │   ├── CONTCAR
-│   │   ├── OSZICAR
-│   │   └── ...
-│   ├── H/
-│   │   ├── 1/
-│   │   │   ├── CONTCAR
-│   │   │   ├── OSZICAR
-│   │   │   └── ...
-│   │   └── 2/
-│   │       ├── CONTCAR
-│   │       ├── OSZICAR
-│   │       └── ...
-│   └── OH/
-│       ├── 1/
-│       │   ├── CONTCAR
-│       │   ├── OSZICAR
-│       │   └── ...
-│       └── 2/
-│           ├── CONTCAR
-│           ├── OSZICAR
-│           └── ...
-└── system2/  # e.g., material_2
-    └── ...
-\`\`\`
-
-Process the data with coefficient settings:
-
-> ⚠️ **Critical: Required Keywords**
-> - \`"slab"\` and \`"adslab"\` are **mandatory fixed keywords** - do NOT change these names
-> - Gas phase references **must end with "gas"** suffix (e.g., "H2gas", "COgas", "H2Ogas")
-> - These naming conventions are hard-coded in CatBench and changing them will cause errors
-
-\`\`\`python
-from catbench.adsorption import vasp_preprocessing
-
-# Define reaction stoichiometry
-coeff_setting = {
-    "H": {
-        "slab": -1,      # E(slab) - REQUIRED: must be exactly "slab"
-        "adslab": 1,     # E(H*) - REQUIRED: must be exactly "adslab"
-        "H2gas": -1/2,   # -1/2 E(H2) - REQUIRED: must end with "gas"
-    },
-    "OH": {
-        "slab": -1,      # REQUIRED: must be exactly "slab"
-        "adslab": 1,     # REQUIRED: must be exactly "adslab"
-        "H2gas": +1/2,   # REQUIRED: must end with "gas"
-        "H2Ogas": -1,    # REQUIRED: must end with "gas"
-    },
+function sectionFromHash() {
+  const h = window.location.hash.replace(/^#/, '')
+  return SECTION_IDS.has(h) ? h : DEFAULT_SECTION
 }
-
-# Process and prepare data (use your actual folder name here)
-vasp_preprocessing("your_dataset_name", coeff_setting)  # Replace "your_dataset_name" with your actual folder name
-
-# Output: Creates raw_data/{your_folder_name}_adsorption.json with all processed data
-\`\`\`
-
-After processing:
-- All VASP files except CONTCAR and OSZICAR are deleted (saves disk space)
-- Data is stored in \`raw_data/{dataset_name}_adsorption.json\`
-- Original folder structure is preserved but cleaned
-
-### Calculation
-
-#### Basic Calculation
-
-\`\`\`python
-from catbench.adsorption import AdsorptionCalculation
-from your_mlip import YourCalculator
-
-# Initialize calculators for reproducibility testing
-calc_num = 3  # Number of independent calculations
-calculators = []
-for i in range(calc_num):
-    calc = YourCalculator(...)  # Your MLIP with desired settings
-    calculators.append(calc)
-
-# Configure and run (only required parameters shown)
-config = {
-    "mlip_name": "YourMLIP",
-    "benchmark": "dataset_name",
-    # "slab_cache": True,  # (v1.1.1) reuse a relaxed clean-slab across frame-equivalent slabs — large GPU savings, on by default
-    # "save_files": False,  # Set to False to save disk space by skipping trajectory/log files
-    # For all available configuration options, see the Configuration Options section below
-}
-
-adsorption_calc = AdsorptionCalculation(calculators, **config)
-adsorption_calc.run()
-\`\`\`
-
-#### With D3 Dispersion Correction
-
-\`\`\`python
-from catbench.adsorption import AdsorptionCalculation
-from catbench.dispersion import DispersionCorrection
-from your_mlip import YourCalculator
-
-# Setup D3 correction (using default PBE parameters)
-d3_corr = DispersionCorrection()
-
-# Apply D3 to calculators
-calc_num = 3
-calculators = []
-for i in range(calc_num):
-    calc = YourCalculator(...)  # Your MLIP with desired settings
-    calc_d3 = d3_corr.apply(calc)  # Combine MLIP with D3
-    calculators.append(calc_d3)
-
-# Run calculation
-config = {
-    "mlip_name": "YourMLIP_D3",
-    "benchmark": "dataset_name",
-    # "slab_cache": True,  # (v1.1.1) reuse a relaxed clean-slab across frame-equivalent slabs — large GPU savings, on by default
-    # "save_files": False,  # Set to False to save disk space by skipping trajectory/log files
-    # For all available configuration options, see the Configuration Options section below
-}
-adsorption_calc = AdsorptionCalculation(calculators, **config)
-adsorption_calc.run()
-\`\`\`
-
-#### OC20 Mode (Direct Adsorption Energy Prediction)
-
-For MLIPs trained on OC20 dataset that directly predict adsorption energies:
-
-\`\`\`python
-from catbench.adsorption import AdsorptionCalculation
-from your_oc20_mlip import OC20Calculator  # Your OC20-trained MLIP
-
-# OC20-trained models (directly predict adsorption energies)
-calc_num = 3
-calculators = []
-for i in range(calc_num):
-    oc20_calculator = OC20Calculator(...)  # Your OC20 MLIP with desired settings
-    calculators.append(oc20_calculator)
-
-# Run in OC20 mode
-config = {
-    "mlip_name": "OC20_MLIP",
-    "benchmark": "dataset_name",
-    # "slab_cache": True,  # (v1.1.1) reuse a relaxed clean-slab across frame-equivalent slabs — large GPU savings, on by default
-    # "save_files": False,  # Set to False to save disk space by skipping trajectory/log files
-    # For all available configuration options, see the Configuration Options section below
-}
-adsorption_calc = AdsorptionCalculation(calculators, mode="oc20", **config)
-adsorption_calc.run()
-\`\`\`
-
-### Analysis
-
-\`\`\`python
-from catbench.adsorption import AdsorptionAnalysis
-
-# Configure and run analysis
-config = {
-    #"mlip_list": ["MLIP_A", "MLIP_B", ...],  # If not set, auto-detects all MLIPs in result folder
-    #"font_setting": ["~/fonts/your_font_file.ttf", "sans-serif"],  # Custom font path
-    # ... add any other options from Configuration Options section
-}
-
-analysis = AdsorptionAnalysis(**config)
-analysis.analysis()
-\`\`\`
-
-This generates:
-- **Parity plots**: Visual comparison of MLIP vs DFT energies
-- **Excel report**: Comprehensive metrics including MAE, RMSE, anomaly statistics
-- **Anomaly detection**: Automatic identification of problematic calculations
-
-All configuration options are documented in the [Configuration Options](#configuration-options) section below.
-
-### Threshold Sensitivity Analysis
-
-Evaluate how different threshold values affect anomaly detection:
-
-\`\`\`python
-from catbench.adsorption import AdsorptionAnalysis
-
-analysis = AdsorptionAnalysis()
-
-# Run both threshold sensitivity analyses automatically (default)
-analysis.threshold_sensitivity_analysis()
-
-# Or specify a specific mode if needed
-analysis.threshold_sensitivity_analysis(mode="disp_thrs")  # Only displacement threshold
-analysis.threshold_sensitivity_analysis(mode="bond_length_change_threshold")  # Only bond length threshold
-\`\`\`
-
-This generates stacked area charts showing how anomaly detection rates change with different threshold values, helping you optimize threshold parameters for your specific system. By default, both displacement and bond length threshold analyses are performed automatically.
-
-### Output Files
-
-Results are automatically saved to organized directories with comprehensive analysis reports, parity plots, and Excel summaries containing detailed performance metrics.
-
-#### 1. Parity Plot Analysis
-
-CatBench generates comprehensive parity plots for visual assessment of MLIP performance:
-
-| Mono Plot | Multi Plot |
-|-----------|------------|
-| ![Mono Plot](/assets/mono_plot.png) | ![Multi Plot](/assets/multi_plot.png) |
-| All reactions combined in a single parity plot | Separate parity plots displayed by adsorbate type |
-
-#### 2. Comprehensive Excel Analysis
-
-The \`{current_directory}_Benchmarking_Analysis.xlsx\` file provides detailed performance metrics across multiple sheets:
-
-##### **Main Performance Comparison**
-MLIP-to-MLIP performance overview with key metrics:
-
-| MLIP | Normal (%) | Anomaly (%) | MAE_total (eV) | MAE_normal (eV) | ADwT (%) | AMDwT (%) | Time/step (ms) |
-|------|------------|-------------|----------------|-----------------|----------|-----------|----------------|
-| MLIP_A | 77.25 | 14.39 | 1.118 | 0.316 | 77.98 | 84.71 | 125.3 |
-| MLIP_B | 74.22 | 16.84 | 0.667 | 0.512 | 69.66 | 80.80 | 89.7 |
-| MLIP_C | 80.18 | 13.51 | 0.917 | 0.241 | 78.97 | 86.79 | 156.8 |
-| MLIP_D | 73.20 | 16.26 | 0.738 | 0.413 | 71.27 | 81.03 | 203.4 |
-| MLIP_E | 78.45 | 12.87 | 0.892 | 0.298 | 76.15 | 83.92 | 142.1 |
-| ... | ... | ... | ... | ... | ... | ... | ... |
-
-*Direct performance comparison across all benchmarked MLIPs with comprehensive metrics including ADwT (Accuracy within Threshold) and AMDwT (Anomaly-free Mean Deviation within Threshold)*
-
-##### **Anomaly Analysis Sheet**
-Detailed breakdown of calculation anomalies by category:
-
-| MLIP | Normal | Migration | Energy Anom. | Unphys. Relax | Reprod. Fail |
-|------|--------|-----------|--------------|---------------|--------------|
-| MLIP_A | 34,869 | 3,774 | 590 | 3,845 | 2,052 |
-| MLIP_B | 33,503 | 4,035 | 834 | 5,221 | 1,537 |
-| MLIP_C | 36,178 | 2,847 | 1,334 | 3,671 | 1,100 |
-| MLIP_D | 33,025 | 4,759 | 956 | 5,372 | 1,018 |
-| ... | ... | ... | ... | ... | ... |
-
-*Identifies systematic issues and reliability patterns across MLIPs*
-
-##### **Individual MLIP Sheets**
-Adsorbate-specific performance for each MLIP (example from MLIP_A sheet):
-
-| Adsorbate | Normal | Anomaly | MAE_total (eV) | MAE_normal (eV) | ADwT (%) | AMDwT (%) |
-|-----------|--------|---------|----------------|-----------------|----------|-----------|
-| H | 1,247 | 89 | 0.891 | 0.234 | 89.3 | 93.4 |
-| OH | 1,156 | 124 | 1.045 | 0.298 | 82.7 | 87.1 |
-| O | 1,089 | 156 | 1.234 | 0.387 | 78.5 | 82.9 |
-| CO | 978 | 203 | 1.567 | 0.445 | 74.2 | 78.6 |
-| NH3 | 892 | 167 | 1.789 | 0.512 | 71.8 | 76.3 |
-| ... | ... | ... | ... | ... | ... | ... |
-
-*Each MLIP has its own sheet revealing adsorbate-specific strengths and weaknesses*
-
-#### 3. Threshold Sensitivity Analysis
-
-CatBench provides automated threshold sensitivity analysis to optimize anomaly detection parameters:
-
-| Displacement Threshold Analysis | Bond Length Threshold Analysis |
-|--------------------------------|-------------------------------|
-| ![Displacement Threshold Sensitivity](/assets/disp_thrs_sensitivity.png) | ![Bond Length Threshold Sensitivity](/assets/bond_threshold_sensitivity.png) |
-| Impact of displacement threshold on anomaly detection rates | Impact of bond length change threshold on anomaly detection rates |
-
-## Relative Energy Benchmarking
-
-CatBench supports two main types of relative energy calculations: surface energy and bulk formation energy.
-
-### Surface Energy
-
-#### Data Preparation
-
-> **Warning**: Preprocessing functions will DELETE all VASP files except CONTCAR and OSZICAR to save disk space. Always work with copies of your original data.
-
-\`\`\`
-your_surface_data/  # You can use any name for this folder
-├── Material_1/
-│   ├── bulk/
-│   │   ├── CONTCAR      # Required
-│   │   ├── OSZICAR      # Required
-│   │   └── ...          # Other VASP files are preserved
-│   └── slab/
-│       ├── CONTCAR      # Required
-│       ├── OSZICAR      # Required
-│       └── ...          # Other VASP files are preserved
-├── Material_2/
-│   ├── bulk/
-│   │   ├── CONTCAR
-│   │   └── OSZICAR
-│   └── slab/
-│       ├── CONTCAR
-│       └── OSZICAR
-├── Material_3/
-│   ├── bulk/
-│   │   ├── CONTCAR
-│   │   └── OSZICAR
-│   └── slab/
-│       ├── CONTCAR
-│       └── OSZICAR
-└── Material_4/
-    ├── bulk/
-    │   ├── CONTCAR
-    │   └── OSZICAR
-    └── slab/
-        ├── CONTCAR
-        └── OSZICAR
-\`\`\`
-
-Each material folder must contain:
-- \`bulk/\`: Bulk phase calculation
-- \`slab/\`: Surface slab calculation
-
-\`\`\`python
-from catbench.relative.surface_energy.data import surface_energy_vasp_preprocessing
-
-# Process surface energy data (use your actual folder name here)
-surface_energy_vasp_preprocessing("your_surface_data")  # Deletes extra VASP files
-# Output: Creates raw_data/{your_surface_data}_surface_energy.json
-\`\`\`
-
-#### Calculation
-
-\`\`\`python
-from catbench.relative import SurfaceEnergyCalculation
-from your_mlip import YourCalculator
-
-calc = YourCalculator(...)  # Your MLIP with desired settings
-
-surface_calc = SurfaceEnergyCalculation(
-    calculator=calc,
-    benchmark="surface_benchmark",
-    mlip_name="YourMLIP"
-)
-surface_calc.run()
-\`\`\`
-
-#### Analysis
-
-\`\`\`python
-from catbench.relative import RelativeEnergyAnalysis
-
-# Configure and run analysis
-config = {
-    "task_type": "surface",  # Required: "surface", "bulk_formation", or "custom"
-    #"mlip_list": ["MLIP_A", "MLIP_B", ...],  # If not set, auto-detects all MLIPs in result folder
-    #"font_setting": ["~/fonts/your_font_file.ttf", "sans-serif"],  # Custom font path
-    # ... add any other options from Configuration Options section
-}
-
-analysis = RelativeEnergyAnalysis(**config)
-analysis.analysis()
-\`\`\`
-
-#### Output Files
-
-Results include comprehensive Excel reports with performance metrics and publication-ready parity plots for visual comparison.
-
-#### Surface Energy Analysis Examples
-
-![Surface Energy Parity Plot](/assets/surface_parity.png)
-
-*Surface energy parity plot showing MLIP performance against DFT references for various metal surfaces*
-
-The Excel report provides comprehensive surface energy analysis:
-
-| MLIP | MAE (J/m²) | RMSE (J/m²) | Max Error (J/m²) | Num_surfaces |
-|------|------------|-------------|------------------|--------------|
-| MLIP_A | 0.185 | 0.255 | 1.251 | 1915 |
-| MLIP_B | 0.483 | 0.567 | 2.110 | 1915 |
-| MLIP_C | 0.127 | 0.182 | 1.305 | 1915 |
-| MLIP_D | 0.261 | 0.333 | 1.326 | 1915 |
-| MLIP_E | 0.122 | 0.179 | 1.358 | 1915 |
-| MLIP_F | 0.138 | 0.194 | 1.245 | 1915 |
-| MLIP_G | 0.119 | 0.173 | 1.287 | 1915 |
-| ... | ... | ... | ... | ... |
-
-### Bulk Formation Energy
-
-#### Data Preparation
-
-> **Warning**: Preprocessing functions will DELETE all VASP files except CONTCAR and OSZICAR to save disk space. Always work with copies of your original data.
-
-\`\`\`
-your_formation_data/  # You can use any name for this folder
-├── bulk_compounds/
-│   ├── Compound_1/
-│   │   ├── INCAR
-│   │   ├── POSCAR
-│   │   ├── POTCAR
-│   │   ├── KPOINTS
-│   │   ├── CONTCAR      # Required
-│   │   ├── OSZICAR      # Required
-│   │   ├── OUTCAR
-│   │   ├── vasprun.xml
-│   │   └── ...          # All other VASP files
-│   └── Compound_2/
-│       ├── CONTCAR
-│       ├── OSZICAR
-│       └── ...
-└── elements/
-    ├── Element_A/
-    │   ├── CONTCAR
-    │   ├── OSZICAR
-    │   └── ...
-    ├── Element_B/
-    │   ├── CONTCAR
-    │   ├── OSZICAR
-    │   └── ...
-    └── Element_C/
-        ├── CONTCAR
-        ├── OSZICAR
-        └── ...
-\`\`\`
-
-\`\`\`python
-from catbench.relative.bulk_formation.data import bulk_formation_vasp_preprocessing
-
-# Define formation reaction stoichiometry
-coeff_setting = {
-    "Compound_1": {
-        "bulk": 1,         # Compound_1
-        "Element_A": -1,   # -Element_A
-        "Element_C": -1/2, # -1/2 Element_C2
-    },
-    "Compound_2": {
-        "bulk": 1,         # Compound_2
-        "Element_B": -2,   # -2Element_B
-        "Element_C": -3/2, # -3/2 Element_C2
-    },
-}
-
-bulk_formation_vasp_preprocessing("your_formation_data", coeff_setting)  # Deletes extra VASP files
-# Output: Creates raw_data/{your_folder_name}_bulk.json
-\`\`\`
-
-#### Calculation
-
-\`\`\`python
-from catbench.relative import BulkFormationCalculation
-from your_mlip import YourCalculator
-
-calc = YourCalculator(...)  # Your MLIP with desired settings
-
-formation_calc = BulkFormationCalculation(
-    calculator=calc,
-    benchmark="formation_benchmark",
-    mlip_name="YourMLIP"
-)
-formation_calc.run()
-\`\`\`
-
-#### Analysis
-
-\`\`\`python
-from catbench.relative import RelativeEnergyAnalysis
-
-# Configure and run analysis
-config = {
-    "task_type": "bulk_formation",  # Required: "surface", "bulk_formation", or "custom"
-    #"mlip_list": ["MLIP_A", "MLIP_B", ...],  # If not set, auto-detects all MLIPs in result folder
-    #"font_setting": ["~/fonts/your_font_file.ttf", "sans-serif"],  # Custom font path
-    # ... add any other options from Configuration Options section
-}
-
-analysis = RelativeEnergyAnalysis(**config)
-analysis.analysis()
-\`\`\`
-
-#### Output Files
-
-Results include detailed Excel reports with formation energy metrics and comparative parity plots across different MLIPs.
-
-## Equation of State (EOS) Benchmarking
-
-### Data Preparation
-
-> **Note**: Unlike adsorption preprocessing, EOS preprocessing does NOT delete any files.
-
-EOS data requires multiple volume points for each material:
-
-\`\`\`
-your_eos_data/  # You can use any name for this folder
-├── Material_1/
-│   ├── 0/                 # Volume point 0 (smallest)
-│   │   ├── INCAR
-│   │   ├── POSCAR
-│   │   ├── POTCAR
-│   │   ├── KPOINTS
-│   │   ├── CONTCAR      # Required
-│   │   ├── OSZICAR      # Required
-│   │   ├── OUTCAR
-│   │   ├── vasprun.xml
-│   │   └── ...          # All other VASP files
-│   ├── 1/
-│   │   ├── CONTCAR
-│   │   ├── OSZICAR
-│   │   └── ...
-│   ├── ...
-│   └── 10/                # Volume point 10 (largest)
-│       ├── CONTCAR
-│       ├── OSZICAR
-│       └── ...
-├── Material_2/
-│   ├── 0/
-│   │   ├── CONTCAR
-│   │   ├── OSZICAR
-│   │   └── ...
-│   ├── 1/
-│   │   ├── CONTCAR
-│   │   ├── OSZICAR
-│   │   └── ...
-│   └── ...
-└── Material_3/
-    ├── 0/
-    │   ├── CONTCAR
-    │   ├── OSZICAR
-    │   └── ...
-    └── ...
-\`\`\`
-
-Each material folder contains subdirectories (0, 1, 2, ..., 10) representing different volume points for EOS fitting.
-
-\`\`\`python
-from catbench.eos import eos_vasp_preprocessing
-
-# Process EOS data (use your actual folder name here)
-eos_vasp_preprocessing("your_eos_data")  # Deletes extra VASP files
-# Output: Creates raw_data/{your_eos_data}_eos.json
-\`\`\`
-
-### Calculation
-
-\`\`\`python
-from catbench.eos import EOSCalculation
-from your_mlip import YourCalculator
-
-calc = YourCalculator(...)  # Your MLIP with desired settings
-
-eos_calc = EOSCalculation(
-    calculator=calc,
-    mlip_name="YourMLIP",
-    benchmark="eos_benchmark"
-)
-eos_calc.run()
-\`\`\`
-
-### Analysis
-
-\`\`\`python
-from catbench.eos import EOSAnalysis
-
-# Configure and run analysis
-config = {
-    #"mlip_list": ["MLIP_A", "MLIP_B", ...],  # If not set, auto-detects all MLIPs in result folder
-    #"font_setting": ["~/fonts/your_font_file.ttf", "sans-serif"],  # Custom font path
-    # ... add any other options from Configuration Options section
-}
-
-eos_analysis = EOSAnalysis(**config)
-eos_analysis.analysis()
-\`\`\`
-
-### Output Files
-
-Comprehensive analysis results including individual material EOS curves and multi-MLIP comparison reports with Birch-Murnaghan equation fitting parameters.
-
-#### EOS Analysis Examples
-
-![EOS Analysis Example](/assets/EOS_example.png)
-
-*EOS curve comparison showing MLIP vs DFT results fitted with Birch-Murnaghan equation*
-
-The Excel report includes comprehensive EOS analysis with Birch-Murnaghan equation fitting:
-
-| MLIP | RMSE (eV) | MAE (eV) | VASP B0 (GPa) | MLIP B0 (GPa) | B0 Error (GPa) | VASP V0 (Å³) | MLIP V0 (Å³) | V0 Error (Å³) |
-|------|-----------|----------|---------------|---------------|----------------|--------------|--------------|---------------|
-| MLIP_A | 0.634 | 0.462 | 80.53 | 102.59 | 22.06 | 475.37 | 469.42 | 5.95 |
-| MLIP_B | 0.411 | 0.318 | 80.53 | 72.29 | 8.24 | 475.37 | 478.51 | 3.13 |
-| MLIP_C | 0.444 | 0.350 | 80.53 | 88.02 | 7.49 | 475.37 | 470.70 | 4.67 |
-| MLIP_F | 0.343 | 0.229 | 80.53 | 89.10 | 8.57 | 475.37 | 474.96 | 0.42 |
-| MLIP_G | 0.762 | 0.447 | 80.53 | 97.94 | 17.41 | 475.37 | 472.02 | 3.36 |
-| ... | ... | ... | ... | ... | ... | ... | ... | ... |
-
-*Analysis includes bulk modulus (B0), equilibrium volume (V0), and derivative (B0') from Birch-Murnaghan EOS fitting*
-
-## Configuration Options
-
-### AdsorptionCalculation
-
-| Parameter | Description | Type | Default |
-|-----------|-------------|------|---------|
-| \`mlip_name\` | Name identifier for the MLIP | str | Required |
-| \`benchmark\` | Dataset name or "multiple_tag" for combined | str | Required |
-| \`mode\` | Calculation mode: "basic" or "oc20" | str | "basic" |
-| \`f_crit_relax\` | Force convergence criterion (eV/Å) | float | 0.05 |
-| \`n_crit_relax\` | Maximum optimization steps | int | 999 |
-| \`slab_cache\` | (v1.1.1) Reuse a relaxed clean-slab result across frame-equivalent slabs (and gas refs) — large GPU savings, restart-safe. Fixed atoms come from the structure's stored \`FixAtoms\` (the legacy \`rate\` z-fixing option was removed in v1.1.1) | bool | True |
-| \`damping\` | Optimization damping factor | float | 1.0 |
-| \`optimizer\` | ASE optimizer: "LBFGS", "LBFGSLineSearch", "BFGS", "BFGSLineSearch", "GPMin", "MDMin", "FIRE" | str | "LBFGS" |
-| \`save_step\` | Save interval for updating result.json file | int | 50 |
-| \`save_files\` | Save trajectory, log, and gas files (False: only result.json) | bool | True |
-| \`chemical_bond_cutoff\` | Cutoff distance for bond change calculation (Å) | float | 6.0 |
-
-### AdsorptionAnalysis
-
-| Parameter | Description | Type | Default |
-|-----------|-------------|------|---------|
-| \`calculating_path\` | Path to results directory | str | "./result" |
-| \`mlip_list\` | MLIPs to analyze | list[str] | Auto-detect |
-| \`target_adsorbates\` | Specific adsorbates to analyze | list[str] | All |
-| \`exclude_adsorbates\` | Adsorbates to exclude | list[str] | None |
-| \`benchmarking_name\` | Output file prefix | str | Current dir |
-| \`disp_thrs\` | Displacement threshold (Å) | float | 0.5 |
-| \`energy_thrs\` | Energy anomaly threshold (eV) | float | 2.0 |
-| \`reproduction_thrs\` | Reproducibility threshold (eV) | float | 0.2 |
-| \`bond_length_change_threshold\` | Bond length change threshold for anomaly detection (fraction) | float | 0.2 |
-| \`energy_cutoff\` | Max reference energy to include (eV) | float | None |
-| **Plot Customization** | | | |
-| \`figsize\` | Figure size (width, height) in inches | tuple | (9, 8) |
-| \`dpi\` | Plot resolution (dots per inch) | int | 300 |
-| \`time_unit\` | Time display unit: "s", "ms", "µs" | str | "ms" |
-| \`plot_enabled\` | Generate plots | bool | True |
-| \`mlip_name_map\` | Dictionary for MLIP display names | dict[str, str] | {} |
-| **Plot Appearance** | | | |
-| \`mark_size\` | Marker size in plots | int | 100 |
-| \`linewidths\` | Line width in plots | float | 1.5 |
-| **Plot Axes** | | | |
-| \`min\` | Minimum value for plot axes | float | None |
-| \`max\` | Maximum value for plot axes | float | None |
-| \`tick_bins\` | Number of tick bins for both axes (None = auto) | int | 6 |
-| \`tick_decimal_places\` | Decimal places for tick labels (None = auto) | int | 1 |
-| \`tick_labelsize\` | Font size for tick labels | int | 25 |
-| **Font Sizes** | | | |
-| \`xlabel_fontsize\` | Font size for x-axis labels | int | 40 |
-| \`ylabel_fontsize\` | Font size for y-axis labels | int | 40 |
-| \`mae_text_fontsize\` | Font size for MAE text | int | 30 |
-| \`legend_fontsize\` | Legend font size | int | 25 |
-| \`comparison_legend_fontsize\` | Comparison plot legend font size | int | 15 |
-| \`threshold_xlabel_fontsize\` | X-axis label font size for threshold plots | int | 40 |
-| \`threshold_ylabel_fontsize\` | Y-axis label font size for threshold plots | int | 40 |
-| **Display Options** | | | |
-| \`legend_off\` | Hide legends in plots | bool | False |
-| \`mae_text_off\` | Hide MAE text in plots | bool | False |
-| \`error_bar_display\` | Show error bars in plots | bool | False |
-| \`xlabel_off\` | Hide x-axis labels | bool | False |
-| \`ylabel_off\` | Hide y-axis labels | bool | False |
-| \`grid\` | Show grid on plots | bool | False |
-| \`specific_color\` | Color for single MLIP plots | str | "#2077B5" |
-| **Advanced** | | | |
-| \`font_setting\` | Custom font settings [family, path] | list[str] | False |
-
-### DispersionCorrection
-
-| Parameter | Description | Type | Default |
-|-----------|-------------|------|---------|
-| \`damping_type\` | Damping function: "damp_bj", "damp_zero" | str | "damp_bj" |
-| \`functional_name\` | DFT functional for parameters | str | "pbe" |
-| \`vdw_cutoff\` | van der Waals cutoff (au²) | int | 9000 |
-| \`cn_cutoff\` | Coordination number cutoff (au²) | int | 1600 |
-
-### SurfaceEnergyCalculation / BulkFormationCalculation
-
-| Parameter | Description | Type | Default |
-|-----------|-------------|------|---------|
-| \`calculator\` | ASE calculator instance | ASE Calculator | Required |
-| \`mlip_name\` | MLIP identifier | | Required |
-| \`benchmark\` | Dataset name | | Required |
-| \`f_crit_relax\` | Force convergence (eV/Å) | | 0.05 |
-| \`n_crit_relax\` | Max steps | | 999 |
-
-### RelativeEnergyAnalysis
-
-| Parameter | Description | Type | Default |
-|-----------|-------------|------|---------|
-| \`calculating_path\` | Path to results directory | str | "./result" |
-| \`plot_path\` | Path for plot output | str | "./plot" |
-| \`benchmark\` | Dataset name | str | Current dir name |
-| \`task_type\` | Analysis type: "surface", "bulk_formation", "custom" | str | Required |
-| \`mlip_list\` | MLIPs to analyze | list[str] | Auto-detect |
-| \`figsize\` | Plot dimensions | tuple[int, int] | (9, 8) |
-| \`dpi\` | Plot resolution | int | 300 |
-| \`mark_size\` | Marker size in plots | int | 100 |
-| \`linewidths\` | Line width in plots | float | 1.5 |
-| \`specific_color\` | Color for plots | str | "#2077B5" |
-| \`min\` | Minimum value for plot axes | float | None |
-| \`max\` | Maximum value for plot axes | float | None |
-| \`grid\` | Show grid on plots | bool | False |
-| \`font_setting\` | Custom font settings | list[str] | False |
-
-### EOSCalculation
-
-| Parameter | Description | Type | Default |
-|-----------|-------------|------|---------|
-| \`calculator\` | ASE calculator instance | ASE Calculator | Required |
-| \`mlip_name\` | MLIP identifier | | Required |
-| \`benchmark\` | Dataset name | | Required |
-
-### EOSAnalysis
-
-| Parameter | Description | Type | Default |
-|-----------|-------------|------|---------|
-| \`calculating_path\` | Path to results directory | str | "./result" |
-| \`plot_path\` | Path for plot output | str | "./plot" |
-| \`benchmark\` | Dataset name | str | Current dir name |
-| \`mlip_list\` | MLIPs to analyze | list[str] | Auto-detect |
-| \`figsize\` | Plot dimensions | tuple[int, int] | (9, 8) |
-| \`dpi\` | Plot resolution | int | 300 |
-| \`mark_size\` | Marker size in plots | int | 100 |
-| \`x_tick_bins\` | Number of x-axis tick bins | int | 5 |
-| \`y_tick_bins\` | Number of y-axis tick bins | int | 5 |
-| \`tick_decimal_places\` | Decimal places for tick labels | int | 1 |
-| \`tick_labelsize\` | Font size for tick labels | int | 25 |
-| \`xlabel_fontsize\` | Font size for x-axis labels | int | 40 |
-| \`ylabel_fontsize\` | Font size for y-axis labels | int | 40 |
-| \`legend_fontsize\` | Legend font size | int | 25 |
-| \`comparison_legend_fontsize\` | Comparison plot legend font size | int | 15 |
-| \`grid\` | Show grid on plots | bool | False |
-| \`font_setting\` | Custom font settings | list[str] | False |
-
-## Citation
-
-If you use CatBench in your research, please cite:
-
-\`\`\`bibtex
-@article{catbench2025,
-  title={CatBench Framework for Benchmarking Machine Learning Interatomic Potentials in Adsorption Energy Predictions for Heterogeneous Catalysis},
-  author={Moon, Jinuk and Jeon, Uchan and Choung, Seokhyun and Han, Jeong Woo},
-  journal={Cell Reports Physical Science},
-  volume={6},
-  pages={102968},
-  year={2025},
-  doi={10.1016/j.xcrp.2025.102968}
-}
-\`\`\`
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## Contact
-
-**Jinuk Moon** - [jumoon@snu.ac.kr](mailto:jumoon@snu.ac.kr)
-**Jeong Woo Han** - [jwhan98@snu.ac.kr](mailto:jwhan98@snu.ac.kr)
-Seoul National University
-
----
-
-For bug reports, feature requests, and contributions, visit our [GitHub repository](https://github.com/JinukMoon/CatBench).
-`
 
 function DocumentationPage({ isDark }) {
   const navigate = useNavigate()
+  const [activeId, setActiveId] = useState(sectionFromHash)
+  const [content, setContent] = useState(null)
+  const [loading, setLoading] = useState(true)
+  const cacheRef = useRef({})
+  const contentTopRef = useRef(null)
+
+  // Sync with browser back/forward
+  useEffect(() => {
+    const onHashChange = () => setActiveId(sectionFromHash())
+    window.addEventListener('hashchange', onHashChange)
+    return () => window.removeEventListener('hashchange', onHashChange)
+  }, [])
+
+  // Fetch section markdown (cached)
+  useEffect(() => {
+    let cancelled = false
+    const load = async () => {
+      if (cacheRef.current[activeId]) {
+        setContent(cacheRef.current[activeId])
+        return
+      }
+      setLoading(true)
+      try {
+        const res = await fetch(`/docs/${activeId}.md`)
+        const text = res.ok ? await res.text() : '*Failed to load this section.*'
+        cacheRef.current[activeId] = text
+        if (!cancelled) setContent(text)
+      } catch {
+        if (!cancelled) setContent('*Failed to load this section.*')
+      } finally {
+        if (!cancelled) setLoading(false)
+      }
+    }
+    load()
+    return () => { cancelled = true }
+  }, [activeId])
+
+  const goToSection = useCallback((id) => {
+    if (!SECTION_IDS.has(id)) return
+    if (window.location.hash !== `#${id}`) {
+      window.location.hash = id   // fires hashchange → setActiveId
+    } else {
+      setActiveId(id)
+    }
+    // Scroll content to top (small delay so the new content mounts first)
+    requestAnimationFrame(() => {
+      contentTopRef.current?.scrollIntoView({ behavior: 'auto', block: 'start' })
+      window.scrollTo({ top: 0 })
+    })
+  }, [])
+
+  const activeSection = FLAT_SECTIONS.find((s) => s.id === activeId) || FLAT_SECTIONS[0]
+  const activeIndex = FLAT_SECTIONS.findIndex((s) => s.id === activeId)
+  const prevSection = activeIndex > 0 ? FLAT_SECTIONS[activeIndex - 1] : null
+  const nextSection = activeIndex < FLAT_SECTIONS.length - 1 ? FLAT_SECTIONS[activeIndex + 1] : null
+  const activeGroup = DOC_GROUPS.find((g) => g.items.some((s) => s.id === activeId))
+
+  // ---- Markdown renderers (theme-aware) ----
+  const mdComponents = {
+    img: ({ node, ...props }) => (
+      <img
+        {...props}
+        className="max-w-full h-auto rounded-lg my-5 mx-auto"
+        style={{ maxWidth: 'min(100%, 620px)' }}
+        loading="lazy"
+      />
+    ),
+    // react-markdown v10: no `inline` prop — inline code renders via `code`,
+    // fenced blocks via `pre` (the .md-pre CSS resets the chip style inside).
+    code: ({ node, className, children, ...props }) => (
+      <code
+        className={`px-1.5 py-0.5 rounded font-mono text-sm whitespace-nowrap ${
+          isDark ? 'bg-slate-800 text-accent-400' : 'bg-slate-200 text-accent-600'
+        }`}
+        {...props}
+      >
+        {children}
+      </code>
+    ),
+    pre: ({ node, children, ...props }) => (
+      <pre className={`md-pre p-4 rounded-lg overflow-x-auto font-mono text-sm my-4 leading-relaxed ${
+        isDark ? 'bg-slate-800 text-slate-200' : 'bg-slate-100 text-slate-800'
+      }`} {...props}>
+        {children}
+      </pre>
+    ),
+    table: ({ node, ...props }) => (
+      <div className="overflow-x-auto my-5">
+        <table className={`w-full text-sm ${
+          isDark ? 'text-slate-300' : 'text-slate-600'
+        }`} {...props} />
+      </div>
+    ),
+    th: ({ node, ...props }) => (
+      <th className={`px-3 py-2.5 text-left font-semibold border-b-2 ${
+        isDark ? 'border-slate-600 text-slate-200' : 'border-slate-300 text-slate-800'
+      }`} {...props} />
+    ),
+    td: ({ node, ...props }) => (
+      <td className={`px-3 py-2.5 align-top border-b ${
+        isDark ? 'border-slate-800' : 'border-slate-200'
+      }`} {...props} />
+    ),
+    tr: ({ node, ...props }) => (
+      <tr className={`transition-colors ${
+        isDark ? 'hover:bg-slate-900/60' : 'hover:bg-slate-50'
+      }`} {...props} />
+    ),
+    blockquote: ({ node, ...props }) => (
+      <blockquote className={`border-l-4 pl-4 my-4 ${
+        isDark ? 'border-yellow-500 bg-yellow-900/20 text-yellow-200' : 'border-yellow-500 bg-yellow-50 text-yellow-800'
+      } p-3 rounded-r-lg`} {...props} />
+    ),
+    h2: ({ node, children, ...props }) => (
+      <h2 className={`text-2xl font-bold mt-8 mb-4 pb-2 border-b ${
+        isDark ? 'text-white border-slate-700' : 'text-slate-900 border-slate-200'
+      }`} {...props}>{children}</h2>
+    ),
+    h3: ({ node, children, ...props }) => (
+      <h3 className={`text-xl font-semibold mt-6 mb-3 ${
+        isDark ? 'text-white' : 'text-slate-900'
+      }`} {...props}>{children}</h3>
+    ),
+    p: ({ node, ...props }) => (
+      <p className={`my-3 leading-relaxed ${
+        isDark ? 'text-slate-300' : 'text-slate-600'
+      }`} {...props} />
+    ),
+    ul: ({ node, ...props }) => (
+      <ul className={`list-disc list-inside my-3 space-y-1 ${
+        isDark ? 'text-slate-300' : 'text-slate-600'
+      }`} {...props} />
+    ),
+    ol: ({ node, ...props }) => (
+      <ol className={`list-decimal list-inside my-3 space-y-1 ${
+        isDark ? 'text-slate-300' : 'text-slate-600'
+      }`} {...props} />
+    ),
+    a: ({ node, href, ...props }) => {
+      // Internal section links (#section-id) switch the docs page in place
+      if (href?.startsWith('#') && SECTION_IDS.has(href.slice(1))) {
+        return (
+          <a
+            href={href}
+            className="text-accent-500 hover:underline cursor-pointer"
+            onClick={(e) => { e.preventDefault(); goToSection(href.slice(1)) }}
+            {...props}
+          />
+        )
+      }
+      return (
+        <a
+          href={href}
+          className="text-accent-500 hover:underline"
+          target={href?.startsWith('http') ? '_blank' : undefined}
+          rel={href?.startsWith('http') ? 'noopener noreferrer' : undefined}
+          {...props}
+        />
+      )
+    },
+    strong: ({ node, ...props }) => (
+      <strong className={isDark ? 'text-white' : 'text-slate-900'} {...props} />
+    ),
+    hr: ({ node, ...props }) => (
+      <hr className={`my-8 ${isDark ? 'border-slate-700' : 'border-slate-300'}`} {...props} />
+    ),
+  }
+
+  const sidebarItemClass = (id) => `
+    w-full text-left px-3 py-1.5 rounded-md text-sm transition-colors
+    ${id === activeId
+      ? (isDark ? 'bg-accent-600/20 text-accent-300 font-semibold' : 'bg-accent-50 text-accent-700 font-semibold')
+      : (isDark ? 'text-slate-400 hover:text-white hover:bg-slate-800/60' : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100')
+    }
+  `
 
   return (
-    <div className="max-w-5xl mx-auto">
+    <div className="max-w-7xl mx-auto animate-fade-in" ref={contentTopRef}>
       {/* Back button */}
       <button
         onClick={() => navigate('/')}
-        className={`flex items-center gap-2 mb-6 text-sm transition-colors ${
+        className={`flex items-center gap-2 mb-4 text-sm transition-colors ${
           isDark ? 'text-slate-400 hover:text-white' : 'text-slate-600 hover:text-slate-900'
         }`}
       >
@@ -869,138 +256,140 @@ function DocumentationPage({ isDark }) {
         Back to Leaderboard
       </button>
 
-      {/* Logo with light background */}
-      <div className="mb-8">
-        <div className="inline-block rounded-xl p-4 bg-slate-50">
-          <img
-            src="/assets/CatBench_logo.png"
-            alt="CatBench Logo"
-            className="h-auto"
-            style={{ maxWidth: '500px' }}
-          />
-        </div>
+      {/* Mobile section picker */}
+      <div className="lg:hidden mb-4">
+        <select
+          value={activeId}
+          onChange={(e) => goToSection(e.target.value)}
+          className={`w-full px-3 py-2.5 rounded-lg text-sm font-medium border ${
+            isDark
+              ? 'bg-slate-900 border-slate-700 text-white'
+              : 'bg-white border-slate-300 text-slate-900'
+          }`}
+        >
+          {DOC_GROUPS.map((group) => (
+            <optgroup key={group.label} label={group.label}>
+              {group.items.map((s) => (
+                <option key={s.id} value={s.id}>{s.title}</option>
+              ))}
+            </optgroup>
+          ))}
+        </select>
       </div>
 
-      {/* Markdown content */}
-      <div className={`prose prose-lg max-w-none ${
-        isDark ? 'prose-invert' : ''
-      }`}>
-        <ReactMarkdown
-          remarkPlugins={[remarkGfm]}
-          components={{
-            // Custom image renderer
-            img: ({ node, ...props }) => (
-              <img
-                {...props}
-                className="max-w-full h-auto rounded-lg my-4"
-                style={{ maxWidth: props.width || '100%' }}
-              />
-            ),
-            // Custom code block
-            code: ({ node, inline, className, children, ...props }) => {
-              if (inline) {
-                return (
-                  <code
-                    className={`px-1.5 py-0.5 rounded font-mono text-sm ${
-                      isDark ? 'bg-slate-800 text-accent-400' : 'bg-slate-200 text-accent-600'
-                    }`}
-                    {...props}
-                  >
-                    {children}
-                  </code>
-                )
-              }
-              return (
-                <pre className={`p-4 rounded-lg overflow-x-auto font-mono text-sm ${
-                  isDark ? 'bg-slate-800 text-slate-200' : 'bg-slate-100 text-slate-800'
+      <div className="flex gap-10">
+        {/* Sidebar (desktop) */}
+        <aside className="hidden lg:block w-60 shrink-0">
+          <nav className="sticky top-24 max-h-[calc(100vh-7rem)] overflow-y-auto pr-2 pb-8">
+            <div className={`flex items-center gap-2 mb-4 px-3 ${isDark ? 'text-white' : 'text-slate-900'}`}>
+              <BookOpen className={`w-5 h-5 ${isDark ? 'text-accent-400' : 'text-accent-600'}`} />
+              <span className="font-display font-bold text-lg">Documentation</span>
+            </div>
+            {DOC_GROUPS.map((group) => (
+              <div key={group.label} className="mb-5">
+                <div className={`px-3 mb-1.5 text-xs font-semibold uppercase tracking-wider ${
+                  isDark ? 'text-slate-500' : 'text-slate-400'
                 }`}>
-                  <code {...props}>{children}</code>
-                </pre>
-              )
-            },
-            // Custom table
-            table: ({ node, ...props }) => (
-              <div className="overflow-x-auto my-4">
-                <table className={`w-full text-sm border-collapse ${
-                  isDark ? 'text-slate-300' : 'text-slate-600'
-                }`} {...props} />
+                  {group.label}
+                </div>
+                <div className="space-y-0.5">
+                  {group.items.map((s) => (
+                    <button key={s.id} onClick={() => goToSection(s.id)} className={sidebarItemClass(s.id)}>
+                      {s.title}
+                    </button>
+                  ))}
+                </div>
               </div>
-            ),
-            th: ({ node, ...props }) => (
-              <th className={`px-3 py-2 text-left font-semibold border ${
-                isDark ? 'border-slate-700 bg-slate-800 text-slate-200' : 'border-slate-300 bg-slate-100 text-slate-700'
-              }`} {...props} />
-            ),
-            td: ({ node, ...props }) => (
-              <td className={`px-3 py-2 border ${
-                isDark ? 'border-slate-700' : 'border-slate-300'
-              }`} {...props} />
-            ),
-            // Custom blockquote
-            blockquote: ({ node, ...props }) => (
-              <blockquote className={`border-l-4 pl-4 my-4 ${
-                isDark ? 'border-yellow-500 bg-yellow-900/20 text-yellow-200' : 'border-yellow-500 bg-yellow-50 text-yellow-800'
-              } p-3 rounded-r-lg`} {...props} />
-            ),
-            // Custom headings with IDs for navigation
-            h1: ({ node, children, ...props }) => (
-              <h1 className={`text-4xl font-bold mt-8 mb-4 ${
-                isDark ? 'text-white' : 'text-slate-900'
-              }`} {...props}>{children}</h1>
-            ),
-            h2: ({ node, children, ...props }) => {
-              const id = typeof children === 'string'
-                ? children.toLowerCase().replace(/[^a-z0-9]+/g, '-')
-                : ''
-              return (
-                <h2 id={id} className={`text-2xl font-bold mt-8 mb-4 pb-2 border-b ${
-                  isDark ? 'text-white border-slate-700' : 'text-slate-900 border-slate-200'
-                }`} {...props}>{children}</h2>
-              )
-            },
-            h3: ({ node, children, ...props }) => (
-              <h3 className={`text-xl font-semibold mt-6 mb-3 ${
-                isDark ? 'text-white' : 'text-slate-900'
-              }`} {...props}>{children}</h3>
-            ),
-            h4: ({ node, children, ...props }) => (
-              <h4 className={`text-lg font-semibold mt-4 mb-2 ${
-                isDark ? 'text-slate-200' : 'text-slate-800'
-              }`} {...props}>{children}</h4>
-            ),
-            // Paragraphs
-            p: ({ node, ...props }) => (
-              <p className={`my-3 leading-relaxed ${
-                isDark ? 'text-slate-300' : 'text-slate-600'
-              }`} {...props} />
-            ),
-            // Lists
-            ul: ({ node, ...props }) => (
-              <ul className={`list-disc list-inside my-3 space-y-1 ${
-                isDark ? 'text-slate-300' : 'text-slate-600'
-              }`} {...props} />
-            ),
-            ol: ({ node, ...props }) => (
-              <ol className={`list-decimal list-inside my-3 space-y-1 ${
-                isDark ? 'text-slate-300' : 'text-slate-600'
-              }`} {...props} />
-            ),
-            // Links
-            a: ({ node, ...props }) => (
-              <a className="text-accent-500 hover:underline" {...props} />
-            ),
-            // Strong
-            strong: ({ node, ...props }) => (
-              <strong className={isDark ? 'text-white' : 'text-slate-900'} {...props} />
-            ),
-            // HR
-            hr: ({ node, ...props }) => (
-              <hr className={`my-8 ${isDark ? 'border-slate-700' : 'border-slate-300'}`} {...props} />
-            ),
-          }}
-        >
-          {DOCUMENTATION_MD}
-        </ReactMarkdown>
+            ))}
+          </nav>
+        </aside>
+
+        {/* Content */}
+        <div className="flex-1 min-w-0 max-w-4xl">
+          {/* Section header */}
+          <div className="mb-6">
+            <div className="flex items-start justify-between gap-4 flex-wrap">
+              <div>
+                <div className={`text-xs font-semibold uppercase tracking-wider mb-1 ${
+                  isDark ? 'text-accent-400' : 'text-accent-600'
+                }`}>
+                  {activeGroup?.label}
+                </div>
+                <h1 className={`text-3xl font-display font-bold ${
+                  isDark ? 'text-white' : 'text-slate-900'
+                }`}>
+                  {activeSection.title}
+                </h1>
+              </div>
+              <a
+                href="https://github.com/JinukMoon/CatBench#readme"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`flex items-center gap-1.5 text-xs mt-2 transition-colors ${
+                  isDark ? 'text-slate-500 hover:text-slate-300' : 'text-slate-400 hover:text-slate-600'
+                }`}
+              >
+                <Github className="w-3.5 h-3.5" />
+                View on GitHub
+              </a>
+            </div>
+          </div>
+
+          {/* Markdown body */}
+          {loading && !content ? (
+            <div className="flex items-center justify-center py-16">
+              <Loader2 className="w-6 h-6 text-accent-500 animate-spin" />
+            </div>
+          ) : (
+            <ReactMarkdown remarkPlugins={[remarkGfm]} components={mdComponents}>
+              {content}
+            </ReactMarkdown>
+          )}
+
+          {/* Prev / Next navigation */}
+          <div className={`mt-12 pt-6 border-t flex items-stretch gap-4 ${
+            isDark ? 'border-slate-800' : 'border-slate-200'
+          }`}>
+            {prevSection ? (
+              <button
+                onClick={() => goToSection(prevSection.id)}
+                className={`flex-1 text-left p-4 rounded-xl border transition-colors group ${
+                  isDark
+                    ? 'border-slate-800 hover:border-accent-500/50 bg-slate-900/40'
+                    : 'border-slate-200 hover:border-accent-400 bg-white'
+                }`}
+              >
+                <div className={`flex items-center gap-1 text-xs mb-1 ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>
+                  <ChevronLeft className="w-3.5 h-3.5" /> Previous
+                </div>
+                <div className={`text-sm font-semibold transition-colors ${
+                  isDark ? 'text-slate-300 group-hover:text-accent-300' : 'text-slate-700 group-hover:text-accent-600'
+                }`}>
+                  {prevSection.title}
+                </div>
+              </button>
+            ) : <div className="flex-1" />}
+            {nextSection ? (
+              <button
+                onClick={() => goToSection(nextSection.id)}
+                className={`flex-1 text-right p-4 rounded-xl border transition-colors group ${
+                  isDark
+                    ? 'border-slate-800 hover:border-accent-500/50 bg-slate-900/40'
+                    : 'border-slate-200 hover:border-accent-400 bg-white'
+                }`}
+              >
+                <div className={`flex items-center justify-end gap-1 text-xs mb-1 ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>
+                  Next <ArrowRight className="w-3.5 h-3.5" />
+                </div>
+                <div className={`text-sm font-semibold transition-colors ${
+                  isDark ? 'text-slate-300 group-hover:text-accent-300' : 'text-slate-700 group-hover:text-accent-600'
+                }`}>
+                  {nextSection.title}
+                </div>
+              </button>
+            ) : <div className="flex-1" />}
+          </div>
+        </div>
       </div>
     </div>
   )

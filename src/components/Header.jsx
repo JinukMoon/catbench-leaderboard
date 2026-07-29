@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { Github, Sun, Moon, FileText, Database, BookOpen } from 'lucide-react'
+import { Github, Sun, Moon, FileText, Database, BookOpen, BookMarked } from 'lucide-react'
 
 function Header({ isDark, onToggleTheme }) {
   return (
@@ -42,6 +42,15 @@ function Header({ isDark, onToggleTheme }) {
             >
               <BookOpen className="w-5 h-5" />
               <span className="hidden sm:inline">Docs</span>
+            </Link>
+            <Link
+              to="/used-by"
+              className={`transition-colors text-base font-medium flex items-center gap-2 ${
+                isDark ? 'text-slate-400 hover:text-white' : 'text-slate-600 hover:text-slate-900'
+              }`}
+            >
+              <BookMarked className="w-5 h-5" />
+              <span className="hidden sm:inline">Used By</span>
             </Link>
             <a
               href="https://www.cell.com/cell-reports-physical-science/fulltext/S2666-3864(25)00567-3"

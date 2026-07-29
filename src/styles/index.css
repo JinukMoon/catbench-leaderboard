@@ -173,3 +173,13 @@
   opacity: 0.03;
   pointer-events: none;
 }
+
+/* Docs markdown: code inside a fenced block must not inherit the inline-chip style */
+.md-pre code {
+  background: transparent !important;
+  padding: 0 !important;
+  color: inherit !important;
+  border-radius: 0 !important;
+  font-size: inherit !important;
+  white-space: pre !important; /* undo the inline chip's nowrap — keep line breaks */
+}
