@@ -18,3 +18,9 @@ AdsorptionAnalysis().threshold_sensitivity_analysis()   # displacement + bond-le
 ```
 
 This generates stacked-area charts showing how anomaly-classification rates change with threshold values.
+
+## Gas-Reference Shift Correction
+
+*(v1.1.4+)* Every Excel report also carries a gas-shift-corrected view. For each adsorbate, the mean signed error (MLIP − DFT) over the structure-valid reactions (normal + energy anomaly; structural failures excluded) is removed as a constant shift — a systematic gas-reference offset correction — and the energy-anomaly classification is re-evaluated on the shifted errors. Groups with fewer than `gas_shift_min_n` (default 5) structure-valid reactions are left uncorrected.
+
+Results land in the `MLIP_Data_shifted` / `anomaly_shifted` twin sheets and a per-adsorbate "Gas shift correction" block (applied shift, N_fit, shifted MAEs) on each MLIP sheet; the original sheets are unchanged. The [leaderboard](https://catbench.org) exposes the same correction as a "Gas shift" toggle.

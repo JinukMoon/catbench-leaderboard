@@ -10,6 +10,7 @@
 | `reproduction_thrs` | Cross-seed reproducibility threshold (eV). | 0.2 |
 | `bond_length_change_threshold` | Bond-length-change anomaly threshold (fraction). | 0.2 |
 | `energy_cutoff` | Exclude reference energies above this value (eV). | None |
+| `gas_shift_min_n` | Min structure-valid reactions per adsorbate to fit a gas-reference shift (v1.1.4+). | 5 |
 | `mlip_name_map` | Display-name overrides, e.g. `{"MACE-MP-0": "MACE"}`. | {} |
 | `font_setting` | `[path_to_ttf, family_name]` for custom plot font. | False |
 

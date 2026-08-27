@@ -12,7 +12,7 @@ import UsedByPage from './components/UsedByPage'
 import { Loader2, Headphones, Info } from 'lucide-react'
 
 // Main leaderboard page component
-function MainPage({ meta, mlipMetadata, isDark, currentDataset, setCurrentDataset, datasetData, loading }) {
+function MainPage({ meta, mlipMetadata, isDark, currentDataset, setCurrentDataset, datasetData, loading, gasShift, setGasShift }) {
   return (
     <>
       {/* Hero section with logo — responsive flex (no overlap on zoom/narrow) */}
@@ -120,8 +120,10 @@ function MainPage({ meta, mlipMetadata, isDark, currentDataset, setCurrentDatase
           </div>
         ) : datasetData ? (
           <div key={datasetData.id}>
-            <LeaderboardTable data={datasetData} isDark={isDark} mlipMetadata={mlipMetadata} />
-            <ParetoPlots data={datasetData} isDark={isDark} />
+            <LeaderboardTable data={datasetData} isDark={isDark} mlipMetadata={mlipMetadata}
+                              gasShift={gasShift} onToggleGasShift={setGasShift} />
+            <ParetoPlots data={datasetData} isDark={isDark}
+                         gasShift={gasShift && Object.values(datasetData.results || {}).some(m => m.shifted)} />
           </div>
         ) : null}
       </div>
@@ -137,6 +139,7 @@ function App() {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
   const [isDark, setIsDark] = useState(true)
+  const [gasShift, setGasShift] = useState(false)
 
   const [searchParams] = useSearchParams()
   const navigate = useNavigate()
@@ -243,6 +246,8 @@ function App() {
                 setCurrentDataset={handleDatasetSelect}
                 datasetData={datasetData}
                 loading={loading}
+                gasShift={gasShift}
+                setGasShift={setGasShift}
               />
             }
           />

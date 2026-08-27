@@ -219,11 +219,15 @@ function SortIndicator({ active, direction }) {
 }
 
 // Modal for adsorbate breakdown
-function AdsorbateModal({ mlip, metadata, onClose, isDark, datasetId }) {
+function AdsorbateModal({ mlip, metadata, onClose, isDark, datasetId, gasShift = false }) {
   if (!mlip) return null
 
   const breakdown = mlip.adsorbate_breakdown || {}
   const adsorbates = Object.entries(breakdown).sort((a, b) => b[1].num_total - a[1].num_total)
+  // With gas shift ON: shifted MAEs, re-classified normal/anomaly counts,
+  // plus the applied per-adsorbate shift itself (null = below N-floor, no correction)
+  const shiftedAnomalyCount = (ads) =>
+    (ads.num_anomaly_total || 0) - (ads.num_energy_anomaly || 0) + (ads.num_energy_anomaly_shifted || 0)
 
   return createPortal(
     <div className="fixed inset-0 z-50" onClick={onClose}>
@@ -292,8 +296,15 @@ function AdsorbateModal({ mlip, metadata, onClose, isDark, datasetId }) {
                 </a>
               )}
             </div>
-            <p className={`text-sm mt-1 ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
+            <p className={`text-sm mt-1 flex items-center gap-2 ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
               Adsorbate-level breakdown · {adsorbates.length} adsorbates
+              {gasShift && (
+                <span className={`px-2 py-0.5 text-xs font-semibold rounded ${
+                  isDark ? 'bg-accent-600/20 text-accent-300' : 'bg-accent-50 text-accent-700'
+                }`}>
+                  Gas shift applied
+                </span>
+              )}
             </p>
           </div>
           <button
@@ -313,6 +324,11 @@ function AdsorbateModal({ mlip, metadata, onClose, isDark, datasetId }) {
             <div className="px-6 pt-4">
               <div className={`text-base font-semibold mb-3 ${isDark ? 'text-slate-300' : 'text-slate-700'}`}>
                 Parity plots · MLIP vs DFT (per adsorbate type)
+                {gasShift && (
+                  <span className={`ml-2 text-xs font-normal ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>
+                    (plots show unshifted values)
+                  </span>
+                )}
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {[['multi_total', 'Total', 'all reactions'], ['multi_normal', 'Normal', 'anomalies & migration excluded']].map(([k, label, sub]) => (
@@ -340,6 +356,17 @@ function AdsorbateModal({ mlip, metadata, onClose, isDark, datasetId }) {
                 <th className={`px-4 py-3 text-center font-semibold ${isDark ? 'text-slate-300' : 'text-slate-700'}`}>
                   Adsorbate
                 </th>
+                {gasShift && (
+                  <>
+                    <th className={`px-3 py-3 text-center font-semibold ${isDark ? 'text-accent-300' : 'text-accent-700'}`}>
+                      <div>Shift</div>
+                      <div className="text-xs font-normal opacity-70">(eV)</div>
+                    </th>
+                    <th className={`px-3 py-3 text-center font-semibold ${isDark ? 'text-accent-300' : 'text-accent-700'}`}>
+                      N_fit
+                    </th>
+                  </>
+                )}
                 <th className={`px-3 py-3 text-center font-semibold ${isDark ? 'text-slate-300' : 'text-slate-700'}`}>
                   <div>MAE_normal</div>
                   <div className="text-xs font-normal opacity-70">(eV)</div>
@@ -381,11 +408,25 @@ function AdsorbateModal({ mlip, metadata, onClose, isDark, datasetId }) {
                       <span>{datasetId === 'FG' || datasetId === 'BM' ? adsId : formatChemicalFormula(adsId)}</span>
                     </span>
                   </td>
+                  {gasShift && (
+                    <>
+                      <td className={`px-3 py-2 text-center tabular-nums font-medium ${
+                        isDark ? 'text-accent-300' : 'text-accent-700'
+                      }`}>
+                        {ads.shift_eV === null || ads.shift_eV === undefined
+                          ? '—'
+                          : `${ads.shift_eV >= 0 ? '+' : ''}${ads.shift_eV.toFixed(3)}`}
+                      </td>
+                      <td className="px-3 py-2 text-center tabular-nums">
+                        {ads.n_fit ?? '—'}
+                      </td>
+                    </>
+                  )}
                   <td className="px-3 py-2 text-center tabular-nums">
-                    {formatValue(ads.MAE_normal, 'mae')}
+                    {formatValue(gasShift ? ads.MAE_normal_shifted : ads.MAE_normal, 'mae')}
                   </td>
                   <td className="px-3 py-2 text-center tabular-nums">
-                    {formatValue(ads.MAE_total, 'mae')}
+                    {formatValue(gasShift ? ads.MAE_total_shifted : ads.MAE_total, 'mae')}
                   </td>
                   <td className="px-3 py-2 text-center tabular-nums">
                     {formatValue(ads.ADwT, 'pct')}
@@ -397,13 +438,13 @@ function AdsorbateModal({ mlip, metadata, onClose, isDark, datasetId }) {
                     {ads.num_total || '—'}
                   </td>
                   <td className="px-3 py-2 text-center tabular-nums">
-                    {ads.num_normal || '—'}
+                    {(gasShift ? ads.num_normal_shifted : ads.num_normal) || '—'}
                   </td>
                   <td className="px-3 py-2 text-center tabular-nums">
                     {ads.num_adsorbate_migration || 0}
                   </td>
                   <td className="px-3 py-2 text-center tabular-nums">
-                    {ads.num_anomaly_total || 0}
+                    {gasShift ? shiftedAnomalyCount(ads) : (ads.num_anomaly_total || 0)}
                   </td>
                 </tr>
               ))}
@@ -416,10 +457,18 @@ function AdsorbateModal({ mlip, metadata, onClose, isDark, datasetId }) {
   )
 }
 
-function LeaderboardTable({ data, isDark = true, mlipMetadata = null }) {
+function LeaderboardTable({ data, isDark = true, mlipMetadata = null, gasShift = false, onToggleGasShift = null }) {
   const [sortKey, setSortKey] = useState('MAE_normal_eV')
   const [sortDirection, setSortDirection] = useState('asc')
   const [selectedMLIP, setSelectedMLIP] = useState(null)
+
+  // Gas-reference shift correction: available only when the dataset's xlsx
+  // (catbench >=1.1.4) carries the shifted twin sheet
+  const hasShifted = useMemo(() => {
+    if (!data?.results) return false
+    return Object.values(data.results).some(m => m.shifted)
+  }, [data])
+  const shiftActive = gasShift && hasShifted
 
   // Lock body scroll when modal is open
   useEffect(() => {
@@ -438,14 +487,26 @@ function LeaderboardTable({ data, isDark = true, mlipMetadata = null }) {
     return buildMLIPLookupMap(mlipMetadata)
   }, [mlipMetadata])
 
-  // Transform data into rows
+  // Transform data into rows. With the gas-shift toggle ON, overlay the
+  // shift-corrected summary onto the top-level fields so sorting, heatmap
+  // stats, and rendering all follow automatically.
   const rows = useMemo(() => {
     if (!data?.results) return []
-    return Object.entries(data.results).map(([name, metrics]) => ({
-      name,
-      ...metrics,
-    }))
-  }, [data])
+    return Object.entries(data.results).map(([name, metrics]) => {
+      if (shiftActive && metrics.shifted) {
+        return {
+          name,
+          ...metrics,
+          normal_rate_pct: metrics.shifted.normal_rate_pct,
+          anomaly_rates_pct: metrics.shifted.anomaly_rates_pct,
+          MAE_total_eV: metrics.shifted.MAE_total_eV,
+          MAE_normal_eV: metrics.shifted.MAE_normal_eV,
+          MAE_single_eV: metrics.shifted.MAE_single_eV,
+        }
+      }
+      return { name, ...metrics }
+    })
+  }, [data, shiftActive])
 
   // Enrich rows with cached metadata (display_name)
   const enrichedRows = useMemo(() => {
@@ -613,6 +674,43 @@ function LeaderboardTable({ data, isDark = true, mlipMetadata = null }) {
         <div className={`text-base ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
           Click any row for model info & per-adsorbate breakdown
         </div>
+        {/* Gas-reference shift toggle */}
+        {onToggleGasShift && (
+          <div className="flex items-center gap-2">
+            <Tooltip
+              content="Removes each adsorbate's mean signed error (fitted on structure-valid reactions, N≥5) — a systematic gas-reference offset correction. Energy anomalies are re-classified after shifting. Parity plots stay unshifted."
+              position="left"
+            >
+              <span className={`flex items-center gap-1.5 text-sm font-medium cursor-help ${
+                isDark ? 'text-slate-300' : 'text-slate-600'
+              }`}>
+                Gas shift
+                <Info className="w-4 h-4 opacity-50" />
+              </span>
+            </Tooltip>
+            <button
+              role="switch"
+              aria-checked={shiftActive}
+              disabled={!hasShifted}
+              onClick={() => onToggleGasShift(!gasShift)}
+              title={hasShifted ? '' : 'Not available for this dataset yet'}
+              className={`relative w-14 h-7 rounded-full text-[11px] font-bold transition-colors ${
+                !hasShifted
+                  ? (isDark ? 'bg-slate-800 text-slate-600 cursor-not-allowed' : 'bg-slate-200 text-slate-400 cursor-not-allowed')
+                  : shiftActive
+                    ? 'bg-accent-600 text-white'
+                    : (isDark ? 'bg-slate-700 text-slate-300' : 'bg-slate-300 text-slate-600')
+              }`}
+            >
+              <span className={`absolute top-0.5 h-6 w-6 rounded-full bg-white shadow transition-all ${
+                shiftActive ? 'left-[30px]' : 'left-0.5'
+              }`} />
+              <span className={`absolute inset-y-0 flex items-center ${shiftActive ? 'left-2' : 'right-2'}`}>
+                {shiftActive ? 'ON' : 'OFF'}
+              </span>
+            </button>
+          </div>
+        )}
         <div className={`text-sm text-right ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
           Click headers to sort
         </div>
@@ -781,6 +879,7 @@ function LeaderboardTable({ data, isDark = true, mlipMetadata = null }) {
           onClose={() => setSelectedMLIP(null)}
           isDark={isDark}
           datasetId={data.id}
+          gasShift={shiftActive}
         />
       )}
     </div>

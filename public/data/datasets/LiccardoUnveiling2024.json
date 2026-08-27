@@ -4,7 +4,7 @@
   "source": "catalysis-hub",
   "featured": false,
   "has_d3": false,
-  "last_updated": "2026-07-09T06:42:23.256212Z",
+  "last_updated": "2026-08-27T21:39:52.798672Z",
   "reaction_count": 14,
   "adsorbates": [
     "Al2H2O4",
@@ -40,19 +40,25 @@
         "multi_normal": "LiccardoUnveiling2024/AlphaNet-v1-OMA/multi/normal.png"
       },
       "adsorbate_breakdown": {
-        "Al2H4O5": {
-          "MAE_total": 0.3224998024804648,
-          "MAE_normal": 0.3454011905468803,
-          "MAE_single": 0.1569228676660117,
-          "ADwT": 78.26530612244898,
-          "AMDwT": 76.19127516778524,
+        "Al2H2O4": {
+          "MAE_total": 0.7937988788867187,
+          "MAE_normal": 0.6978204043945198,
+          "MAE_single": 0.3206123859667969,
+          "ADwT": 65.9013605442177,
+          "AMDwT": 65.23489932885906,
           "num_total": 2,
           "num_normal": 1,
           "num_anomaly_total": 0,
           "num_reproduction_failure": 0,
           "num_unphysical_relaxation": 0,
           "num_adsorbate_migration": 1,
-          "num_energy_anomaly": 0
+          "num_energy_anomaly": 0,
+          "shift_eV": null,
+          "n_fit": 1,
+          "MAE_total_shifted": 0.7937988788867187,
+          "MAE_normal_shifted": 0.6978204043945198,
+          "num_normal_shifted": 1,
+          "num_energy_anomaly_shifted": 0
         },
         "Al2H3O5": {
           "MAE_total": 0.242436673984372,
@@ -66,35 +72,33 @@
           "num_reproduction_failure": 0,
           "num_unphysical_relaxation": 0,
           "num_adsorbate_migration": 2,
-          "num_energy_anomaly": 0
+          "num_energy_anomaly": 0,
+          "shift_eV": null,
+          "n_fit": 0,
+          "MAE_total_shifted": 0.242436673984372,
+          "MAE_normal_shifted": 0.0,
+          "num_normal_shifted": 0,
+          "num_energy_anomaly_shifted": 0
         },
-        "AlH3O3": {
-          "MAE_total": 0.2314652298388751,
-          "MAE_normal": 0.2314652298388751,
-          "MAE_single": 0.1749791000781329,
-          "ADwT": 88.26530612244898,
-          "AMDwT": 86.91275167785236,
-          "num_total": 2,
-          "num_normal": 2,
-          "num_anomaly_total": 0,
-          "num_reproduction_failure": 0,
-          "num_unphysical_relaxation": 0,
-          "num_adsorbate_migration": 0,
-          "num_energy_anomaly": 0
-        },
-        "Al2H2O4": {
-          "MAE_total": 0.7937988788867187,
-          "MAE_normal": 0.6978204043945198,
-          "MAE_single": 0.3206123859667969,
-          "ADwT": 65.9013605442177,
-          "AMDwT": 65.23489932885906,
+        "Al2H4O5": {
+          "MAE_total": 0.3224998024804648,
+          "MAE_normal": 0.3454011905468803,
+          "MAE_single": 0.1569228676660117,
+          "ADwT": 78.26530612244898,
+          "AMDwT": 76.19127516778524,
           "num_total": 2,
           "num_normal": 1,
           "num_anomaly_total": 0,
           "num_reproduction_failure": 0,
           "num_unphysical_relaxation": 0,
           "num_adsorbate_migration": 1,
-          "num_energy_anomaly": 0
+          "num_energy_anomaly": 0,
+          "shift_eV": null,
+          "n_fit": 1,
+          "MAE_total_shifted": 0.3224998024804648,
+          "MAE_normal_shifted": 0.3454011905468803,
+          "num_normal_shifted": 1,
+          "num_energy_anomaly_shifted": 0
         },
         "Al2H6O6": {
           "MAE_total": 0.1025216994335807,
@@ -108,7 +112,13 @@
           "num_reproduction_failure": 0,
           "num_unphysical_relaxation": 0,
           "num_adsorbate_migration": 0,
-          "num_energy_anomaly": 0
+          "num_energy_anomaly": 0,
+          "shift_eV": null,
+          "n_fit": 2,
+          "MAE_total_shifted": 0.1025216994335807,
+          "MAE_normal_shifted": 0.1025216994335807,
+          "num_normal_shifted": 2,
+          "num_energy_anomaly_shifted": 0
         },
         "Al2O3": {
           "MAE_total": 0.9582329231396542,
@@ -122,7 +132,13 @@
           "num_reproduction_failure": 0,
           "num_unphysical_relaxation": 0,
           "num_adsorbate_migration": 0,
-          "num_energy_anomaly": 0
+          "num_energy_anomaly": 0,
+          "shift_eV": null,
+          "n_fit": 2,
+          "MAE_total_shifted": 0.9582329231396542,
+          "MAE_normal_shifted": 0.9582329231396542,
+          "num_normal_shifted": 2,
+          "num_energy_anomaly_shifted": 0
         },
         "AlC3H9": {
           "MAE_total": 0.06668554117186432,
@@ -136,8 +152,47 @@
           "num_reproduction_failure": 0,
           "num_unphysical_relaxation": 0,
           "num_adsorbate_migration": 0,
-          "num_energy_anomaly": 0
+          "num_energy_anomaly": 0,
+          "shift_eV": null,
+          "n_fit": 2,
+          "MAE_total_shifted": 0.06668554117186432,
+          "MAE_normal_shifted": 0.06668554117186432,
+          "num_normal_shifted": 2,
+          "num_energy_anomaly_shifted": 0
+        },
+        "AlH3O3": {
+          "MAE_total": 0.2314652298388751,
+          "MAE_normal": 0.2314652298388751,
+          "MAE_single": 0.1749791000781329,
+          "ADwT": 88.26530612244898,
+          "AMDwT": 86.91275167785236,
+          "num_total": 2,
+          "num_normal": 2,
+          "num_anomaly_total": 0,
+          "num_reproduction_failure": 0,
+          "num_unphysical_relaxation": 0,
+          "num_adsorbate_migration": 0,
+          "num_energy_anomaly": 0,
+          "shift_eV": null,
+          "n_fit": 2,
+          "MAE_total_shifted": 0.2314652298388751,
+          "MAE_normal_shifted": 0.2314652298388751,
+          "num_normal_shifted": 2,
+          "num_energy_anomaly_shifted": 0
         }
+      },
+      "shifted": {
+        "normal_rate_pct": 71.42857142857143,
+        "adsorbate_migration_rate_pct": 28.57142857142857,
+        "anomaly_rates_pct": {
+          "total": 0.0,
+          "reproduction_failure": 0.0,
+          "unphysical_relaxation": 0.0,
+          "energy_anomaly": 0.0
+        },
+        "MAE_total_eV": 0.3882343927050757,
+        "MAE_normal_eV": 0.3761032382109349,
+        "MAE_single_eV": 0.2698132003634188
       }
     },
     "CHGNetv0.3.0": {
@@ -164,19 +219,25 @@
         "multi_normal": "LiccardoUnveiling2024/CHGNetv0.3.0/multi/normal.png"
       },
       "adsorbate_breakdown": {
-        "Al2H4O5": {
-          "MAE_total": 0.525937887089853,
-          "MAE_normal": 0.6558916978906382,
-          "MAE_single": 0.3636192771093789,
-          "ADwT": 62.63605442176871,
-          "AMDwT": 65.01677852348993,
+        "Al2H2O4": {
+          "MAE_total": 0.2430091350292969,
+          "MAE_normal": 0.3041098324218865,
+          "MAE_single": 0.2778678386425781,
+          "ADwT": 73.21428571428571,
+          "AMDwT": 72.0302013422819,
           "num_total": 2,
           "num_normal": 1,
           "num_anomaly_total": 0,
           "num_reproduction_failure": 0,
           "num_unphysical_relaxation": 0,
           "num_adsorbate_migration": 1,
-          "num_energy_anomaly": 0
+          "num_energy_anomaly": 0,
+          "shift_eV": null,
+          "n_fit": 1,
+          "MAE_total_shifted": 0.2430091350292969,
+          "MAE_normal_shifted": 0.3041098324218865,
+          "num_normal_shifted": 1,
+          "num_energy_anomaly_shifted": 0
         },
         "Al2H3O5": {
           "MAE_total": 1.643182065830075,
@@ -190,35 +251,33 @@
           "num_reproduction_failure": 0,
           "num_unphysical_relaxation": 0,
           "num_adsorbate_migration": 1,
-          "num_energy_anomaly": 1
+          "num_energy_anomaly": 1,
+          "shift_eV": null,
+          "n_fit": 1,
+          "MAE_total_shifted": 1.643182065830075,
+          "MAE_normal_shifted": 0.0,
+          "num_normal_shifted": 0,
+          "num_energy_anomaly_shifted": 1
         },
-        "AlH3O3": {
-          "MAE_total": 0.3920508529247968,
-          "MAE_normal": 0.3920508529247968,
-          "MAE_single": 0.4604502822460859,
-          "ADwT": 83.36734693877551,
-          "AMDwT": 79.6923937360179,
-          "num_total": 2,
-          "num_normal": 2,
-          "num_anomaly_total": 0,
-          "num_reproduction_failure": 0,
-          "num_unphysical_relaxation": 0,
-          "num_adsorbate_migration": 0,
-          "num_energy_anomaly": 0
-        },
-        "Al2H2O4": {
-          "MAE_total": 0.2430091350292969,
-          "MAE_normal": 0.3041098324218865,
-          "MAE_single": 0.2778678386425781,
-          "ADwT": 73.21428571428571,
-          "AMDwT": 72.0302013422819,
+        "Al2H4O5": {
+          "MAE_total": 0.525937887089853,
+          "MAE_normal": 0.6558916978906382,
+          "MAE_single": 0.3636192771093789,
+          "ADwT": 62.63605442176871,
+          "AMDwT": 65.01677852348993,
           "num_total": 2,
           "num_normal": 1,
           "num_anomaly_total": 0,
           "num_reproduction_failure": 0,
           "num_unphysical_relaxation": 0,
           "num_adsorbate_migration": 1,
-          "num_energy_anomaly": 0
+          "num_energy_anomaly": 0,
+          "shift_eV": null,
+          "n_fit": 1,
+          "MAE_total_shifted": 0.525937887089853,
+          "MAE_normal_shifted": 0.6558916978906382,
+          "num_normal_shifted": 1,
+          "num_energy_anomaly_shifted": 0
         },
         "Al2H6O6": {
           "MAE_total": 0.1946250231249991,
@@ -232,7 +291,13 @@
           "num_reproduction_failure": 0,
           "num_unphysical_relaxation": 0,
           "num_adsorbate_migration": 1,
-          "num_energy_anomaly": 0
+          "num_energy_anomaly": 0,
+          "shift_eV": null,
+          "n_fit": 1,
+          "MAE_total_shifted": 0.1946250231249991,
+          "MAE_normal_shifted": 0.312931939843736,
+          "num_normal_shifted": 1,
+          "num_energy_anomaly_shifted": 0
         },
         "Al2O3": {
           "MAE_total": 0.2865009742871152,
@@ -246,7 +311,13 @@
           "num_reproduction_failure": 0,
           "num_unphysical_relaxation": 0,
           "num_adsorbate_migration": 0,
-          "num_energy_anomaly": 0
+          "num_energy_anomaly": 0,
+          "shift_eV": null,
+          "n_fit": 2,
+          "MAE_total_shifted": 0.2865009742871152,
+          "MAE_normal_shifted": 0.2865009742871152,
+          "num_normal_shifted": 2,
+          "num_energy_anomaly_shifted": 0
         },
         "AlC3H9": {
           "MAE_total": 1.231845037441417,
@@ -260,8 +331,47 @@
           "num_reproduction_failure": 0,
           "num_unphysical_relaxation": 0,
           "num_adsorbate_migration": 1,
-          "num_energy_anomaly": 0
+          "num_energy_anomaly": 0,
+          "shift_eV": null,
+          "n_fit": 1,
+          "MAE_total_shifted": 1.231845037441417,
+          "MAE_normal_shifted": 0.1047736017773389,
+          "num_normal_shifted": 1,
+          "num_energy_anomaly_shifted": 0
+        },
+        "AlH3O3": {
+          "MAE_total": 0.3920508529247968,
+          "MAE_normal": 0.3920508529247968,
+          "MAE_single": 0.4604502822460859,
+          "ADwT": 83.36734693877551,
+          "AMDwT": 79.6923937360179,
+          "num_total": 2,
+          "num_normal": 2,
+          "num_anomaly_total": 0,
+          "num_reproduction_failure": 0,
+          "num_unphysical_relaxation": 0,
+          "num_adsorbate_migration": 0,
+          "num_energy_anomaly": 0,
+          "shift_eV": null,
+          "n_fit": 2,
+          "MAE_total_shifted": 0.3920508529247968,
+          "MAE_normal_shifted": 0.3920508529247968,
+          "num_normal_shifted": 2,
+          "num_energy_anomaly_shifted": 0
         }
+      },
+      "shifted": {
+        "normal_rate_pct": 57.14285714285714,
+        "adsorbate_migration_rate_pct": 35.71428571428572,
+        "anomaly_rates_pct": {
+          "total": 7.142857142857142,
+          "reproduction_failure": 0.0,
+          "unphysical_relaxation": 0.0,
+          "energy_anomaly": 7.142857142857142
+        },
+        "MAE_total_eV": 0.6453072822467932,
+        "MAE_normal_eV": 0.3418513407946779,
+        "MAE_single_eV": 0.5316872416908477
       }
     },
     "DPA-3.1-3M-FT": {
@@ -280,7 +390,7 @@
       "ADwT_pct": 80.98882410106947,
       "AMDwT_pct": 84.66682646212696,
       "num_total": 14,
-      "time_total_s": 521.4100060462952,
+      "time_total_s": 521.4100060462953,
       "time_per_step_s": 0.1757364361463752,
       "steps_total": 2967,
       "plots": {
@@ -288,19 +398,25 @@
         "multi_normal": "LiccardoUnveiling2024/DPA-3.1-3M-FT/multi/normal.png"
       },
       "adsorbate_breakdown": {
-        "Al2H4O5": {
-          "MAE_total": 0.2551965212030467,
-          "MAE_normal": 0.2551965212030467,
-          "MAE_single": 0.2105448601348456,
-          "ADwT": 84.43877551020408,
-          "AMDwT": 89.68120805369128,
+        "Al2H2O4": {
+          "MAE_total": 0.4782503546261978,
+          "MAE_normal": 0.4782503546261978,
+          "MAE_single": 0.4051430636131954,
+          "ADwT": 81.22448979591837,
+          "AMDwT": 87.14765100671141,
           "num_total": 2,
           "num_normal": 2,
           "num_anomaly_total": 0,
           "num_reproduction_failure": 0,
           "num_unphysical_relaxation": 0,
           "num_adsorbate_migration": 0,
-          "num_energy_anomaly": 0
+          "num_energy_anomaly": 0,
+          "shift_eV": null,
+          "n_fit": 2,
+          "MAE_total_shifted": 0.4782503546261978,
+          "MAE_normal_shifted": 0.4782503546261978,
+          "num_normal_shifted": 2,
+          "num_energy_anomaly_shifted": 0
         },
         "Al2H3O5": {
           "MAE_total": 1.748316526905143,
@@ -314,35 +430,33 @@
           "num_reproduction_failure": 2,
           "num_unphysical_relaxation": 0,
           "num_adsorbate_migration": 0,
-          "num_energy_anomaly": 0
+          "num_energy_anomaly": 0,
+          "shift_eV": null,
+          "n_fit": 0,
+          "MAE_total_shifted": 1.748316526905143,
+          "MAE_normal_shifted": 0.0,
+          "num_normal_shifted": 0,
+          "num_energy_anomaly_shifted": 0
         },
-        "AlH3O3": {
-          "MAE_total": 0.4059371446070941,
-          "MAE_normal": 0.4059371446070941,
-          "MAE_single": 0.333893304765013,
-          "ADwT": 84.59183673469387,
-          "AMDwT": 87.56711409395973,
+        "Al2H4O5": {
+          "MAE_total": 0.2551965212030467,
+          "MAE_normal": 0.2551965212030467,
+          "MAE_single": 0.2105448601348456,
+          "ADwT": 84.43877551020408,
+          "AMDwT": 89.68120805369128,
           "num_total": 2,
           "num_normal": 2,
           "num_anomaly_total": 0,
           "num_reproduction_failure": 0,
           "num_unphysical_relaxation": 0,
           "num_adsorbate_migration": 0,
-          "num_energy_anomaly": 0
-        },
-        "Al2H2O4": {
-          "MAE_total": 0.4782503546261978,
-          "MAE_normal": 0.4782503546261978,
-          "MAE_single": 0.4051430636131954,
-          "ADwT": 81.22448979591837,
-          "AMDwT": 87.14765100671141,
-          "num_total": 2,
-          "num_normal": 2,
-          "num_anomaly_total": 0,
-          "num_reproduction_failure": 0,
-          "num_unphysical_relaxation": 0,
-          "num_adsorbate_migration": 0,
-          "num_energy_anomaly": 0
+          "num_energy_anomaly": 0,
+          "shift_eV": null,
+          "n_fit": 2,
+          "MAE_total_shifted": 0.2551965212030467,
+          "MAE_normal_shifted": 0.2551965212030467,
+          "num_normal_shifted": 2,
+          "num_energy_anomaly_shifted": 0
         },
         "Al2H6O6": {
           "MAE_total": 0.2246498992195285,
@@ -356,7 +470,13 @@
           "num_reproduction_failure": 0,
           "num_unphysical_relaxation": 0,
           "num_adsorbate_migration": 0,
-          "num_energy_anomaly": 0
+          "num_energy_anomaly": 0,
+          "shift_eV": null,
+          "n_fit": 2,
+          "MAE_total_shifted": 0.2246498992195285,
+          "MAE_normal_shifted": 0.2246498992195285,
+          "num_normal_shifted": 2,
+          "num_energy_anomaly_shifted": 0
         },
         "Al2O3": {
           "MAE_total": 0.5510330523446427,
@@ -370,7 +490,13 @@
           "num_reproduction_failure": 0,
           "num_unphysical_relaxation": 0,
           "num_adsorbate_migration": 0,
-          "num_energy_anomaly": 0
+          "num_energy_anomaly": 0,
+          "shift_eV": null,
+          "n_fit": 2,
+          "MAE_total_shifted": 0.5510330523446427,
+          "MAE_normal_shifted": 0.5510330523446427,
+          "num_normal_shifted": 2,
+          "num_energy_anomaly_shifted": 0
         },
         "AlC3H9": {
           "MAE_total": 0.1554993478466713,
@@ -384,8 +510,47 @@
           "num_reproduction_failure": 1,
           "num_unphysical_relaxation": 0,
           "num_adsorbate_migration": 0,
-          "num_energy_anomaly": 0
+          "num_energy_anomaly": 0,
+          "shift_eV": null,
+          "n_fit": 1,
+          "MAE_total_shifted": 0.1554993478466713,
+          "MAE_normal_shifted": 0.06109548199870574,
+          "num_normal_shifted": 1,
+          "num_energy_anomaly_shifted": 0
+        },
+        "AlH3O3": {
+          "MAE_total": 0.4059371446070941,
+          "MAE_normal": 0.4059371446070941,
+          "MAE_single": 0.333893304765013,
+          "ADwT": 84.59183673469387,
+          "AMDwT": 87.56711409395973,
+          "num_total": 2,
+          "num_normal": 2,
+          "num_anomaly_total": 0,
+          "num_reproduction_failure": 0,
+          "num_unphysical_relaxation": 0,
+          "num_adsorbate_migration": 0,
+          "num_energy_anomaly": 0,
+          "shift_eV": null,
+          "n_fit": 2,
+          "MAE_total_shifted": 0.4059371446070941,
+          "MAE_normal_shifted": 0.4059371446070941,
+          "num_normal_shifted": 2,
+          "num_energy_anomaly_shifted": 0
         }
+      },
+      "shifted": {
+        "normal_rate_pct": 78.57142857142857,
+        "adsorbate_migration_rate_pct": 0.0,
+        "anomaly_rates_pct": {
+          "total": 21.42857142857143,
+          "reproduction_failure": 21.42857142857143,
+          "unphysical_relaxation": 0.0,
+          "energy_anomaly": 0.0
+        },
+        "MAE_total_eV": 0.5455546923931891,
+        "MAE_normal_eV": 0.3537481296363387,
+        "MAE_single_eV": 0.3429688694170098
       }
     },
     "Eqnorm-MPtrj": {
@@ -412,19 +577,25 @@
         "multi_normal": "LiccardoUnveiling2024/Eqnorm-MPtrj/multi/normal.png"
       },
       "adsorbate_breakdown": {
-        "Al2H4O5": {
-          "MAE_total": 0.2317909690039102,
-          "MAE_normal": 0.2317909690039102,
-          "MAE_single": 0.3240837546484414,
-          "ADwT": 89.79591836734694,
-          "AMDwT": 90.97315436241611,
+        "Al2H2O4": {
+          "MAE_total": 0.2178321330761719,
+          "MAE_normal": 0.2178321330761719,
+          "MAE_single": 0.3839507549023438,
+          "ADwT": 85.45918367346938,
+          "AMDwT": 86.29194630872483,
           "num_total": 2,
           "num_normal": 2,
           "num_anomaly_total": 0,
           "num_reproduction_failure": 0,
           "num_unphysical_relaxation": 0,
           "num_adsorbate_migration": 0,
-          "num_energy_anomaly": 0
+          "num_energy_anomaly": 0,
+          "shift_eV": null,
+          "n_fit": 2,
+          "MAE_total_shifted": 0.2178321330761719,
+          "MAE_normal_shifted": 0.2178321330761719,
+          "num_normal_shifted": 2,
+          "num_energy_anomaly_shifted": 0
         },
         "Al2H3O5": {
           "MAE_total": 1.027932432041013,
@@ -438,35 +609,33 @@
           "num_reproduction_failure": 0,
           "num_unphysical_relaxation": 0,
           "num_adsorbate_migration": 2,
-          "num_energy_anomaly": 0
+          "num_energy_anomaly": 0,
+          "shift_eV": null,
+          "n_fit": 0,
+          "MAE_total_shifted": 1.027932432041013,
+          "MAE_normal_shifted": 0.0,
+          "num_normal_shifted": 0,
+          "num_energy_anomaly_shifted": 0
         },
-        "AlH3O3": {
-          "MAE_total": 0.1961299087109296,
-          "MAE_normal": 0.1755930673828061,
-          "MAE_single": 0.3956843520703046,
-          "ADwT": 79.94897959183673,
-          "AMDwT": 70.9675615212528,
-          "num_total": 2,
-          "num_normal": 1,
-          "num_anomaly_total": 0,
-          "num_reproduction_failure": 0,
-          "num_unphysical_relaxation": 0,
-          "num_adsorbate_migration": 1,
-          "num_energy_anomaly": 0
-        },
-        "Al2H2O4": {
-          "MAE_total": 0.2178321330761719,
-          "MAE_normal": 0.2178321330761719,
-          "MAE_single": 0.3839507549023438,
-          "ADwT": 85.45918367346938,
-          "AMDwT": 86.29194630872483,
+        "Al2H4O5": {
+          "MAE_total": 0.2317909690039102,
+          "MAE_normal": 0.2317909690039102,
+          "MAE_single": 0.3240837546484414,
+          "ADwT": 89.79591836734694,
+          "AMDwT": 90.97315436241611,
           "num_total": 2,
           "num_normal": 2,
           "num_anomaly_total": 0,
           "num_reproduction_failure": 0,
           "num_unphysical_relaxation": 0,
           "num_adsorbate_migration": 0,
-          "num_energy_anomaly": 0
+          "num_energy_anomaly": 0,
+          "shift_eV": null,
+          "n_fit": 2,
+          "MAE_total_shifted": 0.2317909690039102,
+          "MAE_normal_shifted": 0.2317909690039102,
+          "num_normal_shifted": 2,
+          "num_energy_anomaly_shifted": 0
         },
         "Al2H6O6": {
           "MAE_total": 0.2074258742382682,
@@ -480,7 +649,13 @@
           "num_reproduction_failure": 0,
           "num_unphysical_relaxation": 0,
           "num_adsorbate_migration": 2,
-          "num_energy_anomaly": 0
+          "num_energy_anomaly": 0,
+          "shift_eV": null,
+          "n_fit": 0,
+          "MAE_total_shifted": 0.2074258742382682,
+          "MAE_normal_shifted": 0.0,
+          "num_normal_shifted": 0,
+          "num_energy_anomaly_shifted": 0
         },
         "Al2O3": {
           "MAE_total": 0.1916732353076114,
@@ -494,7 +669,13 @@
           "num_reproduction_failure": 0,
           "num_unphysical_relaxation": 0,
           "num_adsorbate_migration": 0,
-          "num_energy_anomaly": 0
+          "num_energy_anomaly": 0,
+          "shift_eV": null,
+          "n_fit": 2,
+          "MAE_total_shifted": 0.1916732353076114,
+          "MAE_normal_shifted": 0.1916732353076114,
+          "num_normal_shifted": 2,
+          "num_energy_anomaly_shifted": 0
         },
         "AlC3H9": {
           "MAE_total": 0.1108359740038907,
@@ -508,8 +689,47 @@
           "num_reproduction_failure": 0,
           "num_unphysical_relaxation": 0,
           "num_adsorbate_migration": 0,
-          "num_energy_anomaly": 0
+          "num_energy_anomaly": 0,
+          "shift_eV": null,
+          "n_fit": 2,
+          "MAE_total_shifted": 0.1108359740038907,
+          "MAE_normal_shifted": 0.1108359740038907,
+          "num_normal_shifted": 2,
+          "num_energy_anomaly_shifted": 0
+        },
+        "AlH3O3": {
+          "MAE_total": 0.1961299087109296,
+          "MAE_normal": 0.1755930673828061,
+          "MAE_single": 0.3956843520703046,
+          "ADwT": 79.94897959183673,
+          "AMDwT": 70.9675615212528,
+          "num_total": 2,
+          "num_normal": 1,
+          "num_anomaly_total": 0,
+          "num_reproduction_failure": 0,
+          "num_unphysical_relaxation": 0,
+          "num_adsorbate_migration": 1,
+          "num_energy_anomaly": 0,
+          "shift_eV": null,
+          "n_fit": 1,
+          "MAE_total_shifted": 0.1961299087109296,
+          "MAE_normal_shifted": 0.1755930673828061,
+          "num_normal_shifted": 1,
+          "num_energy_anomaly_shifted": 0
         }
+      },
+      "shifted": {
+        "normal_rate_pct": 64.28571428571429,
+        "adsorbate_migration_rate_pct": 35.71428571428572,
+        "anomaly_rates_pct": {
+          "total": 0.0,
+          "reproduction_failure": 0.0,
+          "unphysical_relaxation": 0.0,
+          "energy_anomaly": 0.0
+        },
+        "MAE_total_eV": 0.3119457894831135,
+        "MAE_normal_eV": 0.186650854462886,
+        "MAE_single_eV": 0.3907934021365733
       }
     },
     "eSEN-30M-OAM": {
@@ -536,19 +756,25 @@
         "multi_normal": "LiccardoUnveiling2024/eSEN-30M-OAM/multi/normal.png"
       },
       "adsorbate_breakdown": {
-        "Al2H4O5": {
-          "MAE_total": 0.1253181008203086,
-          "MAE_normal": 0.1253181008203086,
-          "MAE_single": 0.1183906105859336,
-          "ADwT": 88.92857142857143,
-          "AMDwT": 92.91946308724832,
+        "Al2H2O4": {
+          "MAE_total": 0.3855652363085937,
+          "MAE_normal": 0.3855652363085937,
+          "MAE_single": 0.3726601154589844,
+          "ADwT": 89.23469387755102,
+          "AMDwT": 92.66778523489933,
           "num_total": 2,
           "num_normal": 2,
           "num_anomaly_total": 0,
           "num_reproduction_failure": 0,
           "num_unphysical_relaxation": 0,
           "num_adsorbate_migration": 0,
-          "num_energy_anomaly": 0
+          "num_energy_anomaly": 0,
+          "shift_eV": null,
+          "n_fit": 2,
+          "MAE_total_shifted": 0.3855652363085937,
+          "MAE_normal_shifted": 0.3855652363085937,
+          "num_normal_shifted": 2,
+          "num_energy_anomaly_shifted": 0
         },
         "Al2H3O5": {
           "MAE_total": 0.4561322001074188,
@@ -562,35 +788,33 @@
           "num_reproduction_failure": 0,
           "num_unphysical_relaxation": 0,
           "num_adsorbate_migration": 1,
-          "num_energy_anomaly": 0
+          "num_energy_anomaly": 0,
+          "shift_eV": null,
+          "n_fit": 1,
+          "MAE_total_shifted": 0.4561322001074188,
+          "MAE_normal_shifted": 0.6259892857226532,
+          "num_normal_shifted": 1,
+          "num_energy_anomaly_shifted": 0
         },
-        "AlH3O3": {
-          "MAE_total": 0.06229675754883601,
-          "MAE_normal": 0.06229675754883601,
-          "MAE_single": 0.05090988621094539,
+        "Al2H4O5": {
+          "MAE_total": 0.1253181008203086,
+          "MAE_normal": 0.1253181008203086,
+          "MAE_single": 0.1183906105859336,
           "ADwT": 88.92857142857143,
-          "AMDwT": 91.51006711409396,
+          "AMDwT": 92.91946308724832,
           "num_total": 2,
           "num_normal": 2,
           "num_anomaly_total": 0,
           "num_reproduction_failure": 0,
           "num_unphysical_relaxation": 0,
           "num_adsorbate_migration": 0,
-          "num_energy_anomaly": 0
-        },
-        "Al2H2O4": {
-          "MAE_total": 0.3855652363085937,
-          "MAE_normal": 0.3855652363085937,
-          "MAE_single": 0.3726601154589844,
-          "ADwT": 89.23469387755102,
-          "AMDwT": 92.66778523489933,
-          "num_total": 2,
-          "num_normal": 2,
-          "num_anomaly_total": 0,
-          "num_reproduction_failure": 0,
-          "num_unphysical_relaxation": 0,
-          "num_adsorbate_migration": 0,
-          "num_energy_anomaly": 0
+          "num_energy_anomaly": 0,
+          "shift_eV": null,
+          "n_fit": 2,
+          "MAE_total_shifted": 0.1253181008203086,
+          "MAE_normal_shifted": 0.1253181008203086,
+          "num_normal_shifted": 2,
+          "num_energy_anomaly_shifted": 0
         },
         "Al2H6O6": {
           "MAE_total": 0.3395059523632682,
@@ -604,7 +828,13 @@
           "num_reproduction_failure": 0,
           "num_unphysical_relaxation": 0,
           "num_adsorbate_migration": 0,
-          "num_energy_anomaly": 0
+          "num_energy_anomaly": 0,
+          "shift_eV": null,
+          "n_fit": 2,
+          "MAE_total_shifted": 0.3395059523632682,
+          "MAE_normal_shifted": 0.3395059523632682,
+          "num_normal_shifted": 2,
+          "num_energy_anomaly_shifted": 0
         },
         "Al2O3": {
           "MAE_total": 0.3955021339550839,
@@ -618,7 +848,13 @@
           "num_reproduction_failure": 0,
           "num_unphysical_relaxation": 0,
           "num_adsorbate_migration": 0,
-          "num_energy_anomaly": 0
+          "num_energy_anomaly": 0,
+          "shift_eV": null,
+          "n_fit": 2,
+          "MAE_total_shifted": 0.3955021339550839,
+          "MAE_normal_shifted": 0.3955021339550839,
+          "num_normal_shifted": 2,
+          "num_energy_anomaly_shifted": 0
         },
         "AlC3H9": {
           "MAE_total": 0.2674712584277188,
@@ -632,8 +868,47 @@
           "num_reproduction_failure": 0,
           "num_unphysical_relaxation": 0,
           "num_adsorbate_migration": 0,
-          "num_energy_anomaly": 0
+          "num_energy_anomaly": 0,
+          "shift_eV": null,
+          "n_fit": 2,
+          "MAE_total_shifted": 0.2674712584277188,
+          "MAE_normal_shifted": 0.2674712584277188,
+          "num_normal_shifted": 2,
+          "num_energy_anomaly_shifted": 0
+        },
+        "AlH3O3": {
+          "MAE_total": 0.06229675754883601,
+          "MAE_normal": 0.06229675754883601,
+          "MAE_single": 0.05090988621094539,
+          "ADwT": 88.92857142857143,
+          "AMDwT": 91.51006711409396,
+          "num_total": 2,
+          "num_normal": 2,
+          "num_anomaly_total": 0,
+          "num_reproduction_failure": 0,
+          "num_unphysical_relaxation": 0,
+          "num_adsorbate_migration": 0,
+          "num_energy_anomaly": 0,
+          "shift_eV": null,
+          "n_fit": 2,
+          "MAE_total_shifted": 0.06229675754883601,
+          "MAE_normal_shifted": 0.06229675754883601,
+          "num_normal_shifted": 2,
+          "num_energy_anomaly_shifted": 0
         }
+      },
+      "shifted": {
+        "normal_rate_pct": 92.85714285714286,
+        "adsorbate_migration_rate_pct": 7.142857142857142,
+        "anomaly_rates_pct": {
+          "total": 0.0,
+          "reproduction_failure": 0.0,
+          "unphysical_relaxation": 0.0,
+          "energy_anomaly": 0.0
+        },
+        "MAE_total_eV": 0.2902559485044612,
+        "MAE_normal_eV": 0.2905621665054055,
+        "MAE_single_eV": 0.2404708037367444
       }
     },
     "GRACE-2L-OAM": {
@@ -653,26 +928,32 @@
       "AMDwT_pct": 83.77277085330665,
       "num_total": 14,
       "time_total_s": 27.49932217597961,
-      "time_per_step_s": 0.01282019681863852,
+      "time_per_step_s": 0.012820196818638508,
       "steps_total": 2145,
       "plots": {
         "multi_total": "LiccardoUnveiling2024/GRACE-2L-OAM/multi/total.png",
         "multi_normal": "LiccardoUnveiling2024/GRACE-2L-OAM/multi/normal.png"
       },
       "adsorbate_breakdown": {
-        "Al2H4O5": {
-          "MAE_total": 0.197061158629694,
-          "MAE_normal": 0.197061158629694,
-          "MAE_single": 0.2102463097377409,
-          "ADwT": 86.78571428571429,
-          "AMDwT": 88.42281879194631,
+        "Al2H2O4": {
+          "MAE_total": 0.7254767105948332,
+          "MAE_normal": 0.7254767105948332,
+          "MAE_single": 0.752907241119626,
+          "ADwT": 81.88775510204081,
+          "AMDwT": 84.09395973154362,
           "num_total": 2,
           "num_normal": 2,
           "num_anomaly_total": 0,
           "num_reproduction_failure": 0,
           "num_unphysical_relaxation": 0,
           "num_adsorbate_migration": 0,
-          "num_energy_anomaly": 0
+          "num_energy_anomaly": 0,
+          "shift_eV": null,
+          "n_fit": 2,
+          "MAE_total_shifted": 0.7254767105948332,
+          "MAE_normal_shifted": 0.7254767105948332,
+          "num_normal_shifted": 2,
+          "num_energy_anomaly_shifted": 0
         },
         "Al2H3O5": {
           "MAE_total": 2.245838783525237,
@@ -686,35 +967,33 @@
           "num_reproduction_failure": 0,
           "num_unphysical_relaxation": 0,
           "num_adsorbate_migration": 1,
-          "num_energy_anomaly": 1
+          "num_energy_anomaly": 1,
+          "shift_eV": null,
+          "n_fit": 1,
+          "MAE_total_shifted": 2.245838783525237,
+          "MAE_normal_shifted": 0.0,
+          "num_normal_shifted": 0,
+          "num_energy_anomaly_shifted": 1
         },
-        "AlH3O3": {
-          "MAE_total": 0.4317916553728196,
-          "MAE_normal": 0.4317916553728196,
-          "MAE_single": 0.3962222768525763,
-          "ADwT": 88.87755102040816,
-          "AMDwT": 92.08053691275168,
+        "Al2H4O5": {
+          "MAE_total": 0.197061158629694,
+          "MAE_normal": 0.197061158629694,
+          "MAE_single": 0.2102463097377409,
+          "ADwT": 86.78571428571429,
+          "AMDwT": 88.42281879194631,
           "num_total": 2,
           "num_normal": 2,
           "num_anomaly_total": 0,
           "num_reproduction_failure": 0,
           "num_unphysical_relaxation": 0,
           "num_adsorbate_migration": 0,
-          "num_energy_anomaly": 0
-        },
-        "Al2H2O4": {
-          "MAE_total": 0.7254767105948332,
-          "MAE_normal": 0.7254767105948332,
-          "MAE_single": 0.752907241119626,
-          "ADwT": 81.88775510204081,
-          "AMDwT": 84.09395973154362,
-          "num_total": 2,
-          "num_normal": 2,
-          "num_anomaly_total": 0,
-          "num_reproduction_failure": 0,
-          "num_unphysical_relaxation": 0,
-          "num_adsorbate_migration": 0,
-          "num_energy_anomaly": 0
+          "num_energy_anomaly": 0,
+          "shift_eV": null,
+          "n_fit": 2,
+          "MAE_total_shifted": 0.197061158629694,
+          "MAE_normal_shifted": 0.197061158629694,
+          "num_normal_shifted": 2,
+          "num_energy_anomaly_shifted": 0
         },
         "Al2H6O6": {
           "MAE_total": 0.065123956684765,
@@ -728,7 +1007,13 @@
           "num_reproduction_failure": 0,
           "num_unphysical_relaxation": 0,
           "num_adsorbate_migration": 0,
-          "num_energy_anomaly": 0
+          "num_energy_anomaly": 0,
+          "shift_eV": null,
+          "n_fit": 2,
+          "MAE_total_shifted": 0.065123956684765,
+          "MAE_normal_shifted": 0.065123956684765,
+          "num_normal_shifted": 2,
+          "num_energy_anomaly_shifted": 0
         },
         "Al2O3": {
           "MAE_total": 0.6248276402424082,
@@ -742,7 +1027,13 @@
           "num_reproduction_failure": 0,
           "num_unphysical_relaxation": 0,
           "num_adsorbate_migration": 0,
-          "num_energy_anomaly": 0
+          "num_energy_anomaly": 0,
+          "shift_eV": null,
+          "n_fit": 2,
+          "MAE_total_shifted": 0.6248276402424082,
+          "MAE_normal_shifted": 0.6248276402424082,
+          "num_normal_shifted": 2,
+          "num_energy_anomaly_shifted": 0
         },
         "AlC3H9": {
           "MAE_total": 1.134338983078962,
@@ -756,8 +1047,47 @@
           "num_reproduction_failure": 0,
           "num_unphysical_relaxation": 0,
           "num_adsorbate_migration": 1,
-          "num_energy_anomaly": 0
+          "num_energy_anomaly": 0,
+          "shift_eV": null,
+          "n_fit": 1,
+          "MAE_total_shifted": 1.134338983078962,
+          "MAE_normal_shifted": 0.03934563268359881,
+          "num_normal_shifted": 1,
+          "num_energy_anomaly_shifted": 0
+        },
+        "AlH3O3": {
+          "MAE_total": 0.4317916553728196,
+          "MAE_normal": 0.4317916553728196,
+          "MAE_single": 0.3962222768525763,
+          "ADwT": 88.87755102040816,
+          "AMDwT": 92.08053691275168,
+          "num_total": 2,
+          "num_normal": 2,
+          "num_anomaly_total": 0,
+          "num_reproduction_failure": 0,
+          "num_unphysical_relaxation": 0,
+          "num_adsorbate_migration": 0,
+          "num_energy_anomaly": 0,
+          "shift_eV": null,
+          "n_fit": 2,
+          "MAE_total_shifted": 0.4317916553728196,
+          "MAE_normal_shifted": 0.4317916553728196,
+          "num_normal_shifted": 2,
+          "num_energy_anomaly_shifted": 0
         }
+      },
+      "shifted": {
+        "normal_rate_pct": 78.57142857142857,
+        "adsorbate_migration_rate_pct": 14.28571428571428,
+        "anomaly_rates_pct": {
+          "total": 7.142857142857142,
+          "reproduction_failure": 0.0,
+          "unphysical_relaxation": 0.0,
+          "energy_anomaly": 7.142857142857142
+        },
+        "MAE_total_eV": 0.7749226983041027,
+        "MAE_normal_eV": 0.3752643523393308,
+        "MAE_single_eV": 0.507472298161978
       }
     },
     "MACE-MPA-0": {
@@ -784,19 +1114,25 @@
         "multi_normal": "LiccardoUnveiling2024/MACE-MPA-0/multi/normal.png"
       },
       "adsorbate_breakdown": {
-        "Al2H4O5": {
-          "MAE_total": 0.7709030600683633,
-          "MAE_normal": 0.7709030600683633,
-          "MAE_single": 0.8673271628515664,
-          "ADwT": 84.33673469387755,
-          "AMDwT": 85.5592841163311,
+        "Al2H2O4": {
+          "MAE_total": 1.270787760517578,
+          "MAE_normal": 1.242611715224598,
+          "MAE_single": 1.488805338642578,
+          "ADwT": 79.38775510204081,
+          "AMDwT": 79.68120805369128,
           "num_total": 2,
-          "num_normal": 2,
+          "num_normal": 1,
           "num_anomaly_total": 0,
           "num_reproduction_failure": 0,
           "num_unphysical_relaxation": 0,
-          "num_adsorbate_migration": 0,
-          "num_energy_anomaly": 0
+          "num_adsorbate_migration": 1,
+          "num_energy_anomaly": 0,
+          "shift_eV": null,
+          "n_fit": 1,
+          "MAE_total_shifted": 1.270787760517578,
+          "MAE_normal_shifted": 1.242611715224598,
+          "num_normal_shifted": 1,
+          "num_energy_anomaly_shifted": 0
         },
         "Al2H3O5": {
           "MAE_total": 2.137807157382809,
@@ -810,35 +1146,33 @@
           "num_reproduction_failure": 0,
           "num_unphysical_relaxation": 0,
           "num_adsorbate_migration": 2,
-          "num_energy_anomaly": 0
+          "num_energy_anomaly": 0,
+          "shift_eV": null,
+          "n_fit": 0,
+          "MAE_total_shifted": 2.137807157382809,
+          "MAE_normal_shifted": 0.0,
+          "num_normal_shifted": 0,
+          "num_energy_anomaly_shifted": 0
         },
-        "AlH3O3": {
-          "MAE_total": 0.3836299087109296,
-          "MAE_normal": 0.3836299087109296,
-          "MAE_single": 0.5075427199902265,
-          "ADwT": 86.53061224489795,
-          "AMDwT": 89.14429530201342,
+        "Al2H4O5": {
+          "MAE_total": 0.7709030600683633,
+          "MAE_normal": 0.7709030600683633,
+          "MAE_single": 0.8673271628515664,
+          "ADwT": 84.33673469387755,
+          "AMDwT": 85.5592841163311,
           "num_total": 2,
           "num_normal": 2,
           "num_anomaly_total": 0,
           "num_reproduction_failure": 0,
           "num_unphysical_relaxation": 0,
           "num_adsorbate_migration": 0,
-          "num_energy_anomaly": 0
-        },
-        "Al2H2O4": {
-          "MAE_total": 1.270787760517578,
-          "MAE_normal": 1.242611715224598,
-          "MAE_single": 1.488805338642578,
-          "ADwT": 79.38775510204081,
-          "AMDwT": 79.68120805369128,
-          "num_total": 2,
-          "num_normal": 1,
-          "num_anomaly_total": 0,
-          "num_reproduction_failure": 0,
-          "num_unphysical_relaxation": 0,
-          "num_adsorbate_migration": 1,
-          "num_energy_anomaly": 0
+          "num_energy_anomaly": 0,
+          "shift_eV": null,
+          "n_fit": 2,
+          "MAE_total_shifted": 0.7709030600683633,
+          "MAE_normal_shifted": 0.7709030600683633,
+          "num_normal_shifted": 2,
+          "num_energy_anomaly_shifted": 0
         },
         "Al2H6O6": {
           "MAE_total": 0.3438699660351432,
@@ -852,7 +1186,13 @@
           "num_reproduction_failure": 0,
           "num_unphysical_relaxation": 0,
           "num_adsorbate_migration": 1,
-          "num_energy_anomaly": 0
+          "num_energy_anomaly": 0,
+          "shift_eV": null,
+          "n_fit": 1,
+          "MAE_total_shifted": 0.3438699660351432,
+          "MAE_normal_shifted": 0.3419083802734235,
+          "num_normal_shifted": 1,
+          "num_energy_anomaly_shifted": 0
         },
         "Al2O3": {
           "MAE_total": 0.7362842124804629,
@@ -866,7 +1206,13 @@
           "num_reproduction_failure": 0,
           "num_unphysical_relaxation": 0,
           "num_adsorbate_migration": 0,
-          "num_energy_anomaly": 0
+          "num_energy_anomaly": 0,
+          "shift_eV": null,
+          "n_fit": 2,
+          "MAE_total_shifted": 0.7362842124804629,
+          "MAE_normal_shifted": 0.7362842124804629,
+          "num_normal_shifted": 2,
+          "num_energy_anomaly_shifted": 0
         },
         "AlC3H9": {
           "MAE_total": 0.2062034056445157,
@@ -880,8 +1226,47 @@
           "num_reproduction_failure": 0,
           "num_unphysical_relaxation": 0,
           "num_adsorbate_migration": 0,
-          "num_energy_anomaly": 0
+          "num_energy_anomaly": 0,
+          "shift_eV": null,
+          "n_fit": 2,
+          "MAE_total_shifted": 0.2062034056445157,
+          "MAE_normal_shifted": 0.2062034056445157,
+          "num_normal_shifted": 2,
+          "num_energy_anomaly_shifted": 0
+        },
+        "AlH3O3": {
+          "MAE_total": 0.3836299087109296,
+          "MAE_normal": 0.3836299087109296,
+          "MAE_single": 0.5075427199902265,
+          "ADwT": 86.53061224489795,
+          "AMDwT": 89.14429530201342,
+          "num_total": 2,
+          "num_normal": 2,
+          "num_anomaly_total": 0,
+          "num_reproduction_failure": 0,
+          "num_unphysical_relaxation": 0,
+          "num_adsorbate_migration": 0,
+          "num_energy_anomaly": 0,
+          "shift_eV": null,
+          "n_fit": 2,
+          "MAE_total_shifted": 0.3836299087109296,
+          "MAE_normal_shifted": 0.3836299087109296,
+          "num_normal_shifted": 2,
+          "num_energy_anomaly_shifted": 0
         }
+      },
+      "shifted": {
+        "normal_rate_pct": 71.42857142857143,
+        "adsorbate_migration_rate_pct": 28.57142857142857,
+        "anomaly_rates_pct": {
+          "total": 0.0,
+          "reproduction_failure": 0.0,
+          "unphysical_relaxation": 0.0,
+          "energy_anomaly": 0.0
+        },
+        "MAE_total_eV": 0.8356407815485432,
+        "MAE_normal_eV": 0.5778561269306565,
+        "MAE_single_eV": 1.009522857267014
       }
     },
     "MATLANTISv8": {
@@ -908,19 +1293,25 @@
         "multi_normal": "LiccardoUnveiling2024/MATLANTISv8/multi/normal.png"
       },
       "adsorbate_breakdown": {
-        "Al2H4O5": {
-          "MAE_total": 0.0726805472190648,
-          "MAE_normal": 0.0726805472190648,
-          "MAE_single": 0.09075226320554464,
-          "ADwT": 84.59183673469387,
-          "AMDwT": 90.65436241610739,
+        "Al2H2O4": {
+          "MAE_total": 0.1158925483565483,
+          "MAE_normal": 0.1158925483565483,
+          "MAE_single": 0.1388245179774046,
+          "ADwT": 85.71428571428571,
+          "AMDwT": 90.73825503355705,
           "num_total": 2,
           "num_normal": 2,
           "num_anomaly_total": 0,
           "num_reproduction_failure": 0,
           "num_unphysical_relaxation": 0,
           "num_adsorbate_migration": 0,
-          "num_energy_anomaly": 0
+          "num_energy_anomaly": 0,
+          "shift_eV": null,
+          "n_fit": 2,
+          "MAE_total_shifted": 0.1158925483565483,
+          "MAE_normal_shifted": 0.1158925483565483,
+          "num_normal_shifted": 2,
+          "num_energy_anomaly_shifted": 0
         },
         "Al2H3O5": {
           "MAE_total": 0.8440947938095107,
@@ -934,35 +1325,33 @@
           "num_reproduction_failure": 0,
           "num_unphysical_relaxation": 0,
           "num_adsorbate_migration": 0,
-          "num_energy_anomaly": 0
+          "num_energy_anomaly": 0,
+          "shift_eV": null,
+          "n_fit": 2,
+          "MAE_total_shifted": 0.8440947938095107,
+          "MAE_normal_shifted": 0.8440947938095107,
+          "num_normal_shifted": 2,
+          "num_energy_anomaly_shifted": 0
         },
-        "AlH3O3": {
-          "MAE_total": 0.01892005900821481,
-          "MAE_normal": 0.01892005900821481,
-          "MAE_single": 0.08601115368035295,
-          "ADwT": 84.03061224489795,
-          "AMDwT": 89.09395973154362,
+        "Al2H4O5": {
+          "MAE_total": 0.0726805472190648,
+          "MAE_normal": 0.0726805472190648,
+          "MAE_single": 0.09075226320554464,
+          "ADwT": 84.59183673469387,
+          "AMDwT": 90.65436241610739,
           "num_total": 2,
           "num_normal": 2,
           "num_anomaly_total": 0,
           "num_reproduction_failure": 0,
           "num_unphysical_relaxation": 0,
           "num_adsorbate_migration": 0,
-          "num_energy_anomaly": 0
-        },
-        "Al2H2O4": {
-          "MAE_total": 0.1158925483565483,
-          "MAE_normal": 0.1158925483565483,
-          "MAE_single": 0.1388245179774046,
-          "ADwT": 85.71428571428571,
-          "AMDwT": 90.73825503355705,
-          "num_total": 2,
-          "num_normal": 2,
-          "num_anomaly_total": 0,
-          "num_reproduction_failure": 0,
-          "num_unphysical_relaxation": 0,
-          "num_adsorbate_migration": 0,
-          "num_energy_anomaly": 0
+          "num_energy_anomaly": 0,
+          "shift_eV": null,
+          "n_fit": 2,
+          "MAE_total_shifted": 0.0726805472190648,
+          "MAE_normal_shifted": 0.0726805472190648,
+          "num_normal_shifted": 2,
+          "num_energy_anomaly_shifted": 0
         },
         "Al2H6O6": {
           "MAE_total": 0.3547437178789323,
@@ -976,7 +1365,13 @@
           "num_reproduction_failure": 0,
           "num_unphysical_relaxation": 0,
           "num_adsorbate_migration": 0,
-          "num_energy_anomaly": 0
+          "num_energy_anomaly": 0,
+          "shift_eV": null,
+          "n_fit": 2,
+          "MAE_total_shifted": 0.3547437178789323,
+          "MAE_normal_shifted": 0.3547437178789323,
+          "num_normal_shifted": 2,
+          "num_energy_anomaly_shifted": 0
         },
         "Al2O3": {
           "MAE_total": 0.2125494220987658,
@@ -990,7 +1385,13 @@
           "num_reproduction_failure": 0,
           "num_unphysical_relaxation": 0,
           "num_adsorbate_migration": 0,
-          "num_energy_anomaly": 0
+          "num_energy_anomaly": 0,
+          "shift_eV": null,
+          "n_fit": 2,
+          "MAE_total_shifted": 0.2125494220987658,
+          "MAE_normal_shifted": 0.2125494220987658,
+          "num_normal_shifted": 2,
+          "num_energy_anomaly_shifted": 0
         },
         "AlC3H9": {
           "MAE_total": 0.2594215573017067,
@@ -1004,8 +1405,47 @@
           "num_reproduction_failure": 0,
           "num_unphysical_relaxation": 0,
           "num_adsorbate_migration": 0,
-          "num_energy_anomaly": 0
+          "num_energy_anomaly": 0,
+          "shift_eV": null,
+          "n_fit": 2,
+          "MAE_total_shifted": 0.2594215573017067,
+          "MAE_normal_shifted": 0.2594215573017067,
+          "num_normal_shifted": 2,
+          "num_energy_anomaly_shifted": 0
+        },
+        "AlH3O3": {
+          "MAE_total": 0.01892005900821481,
+          "MAE_normal": 0.01892005900821481,
+          "MAE_single": 0.08601115368035295,
+          "ADwT": 84.03061224489795,
+          "AMDwT": 89.09395973154362,
+          "num_total": 2,
+          "num_normal": 2,
+          "num_anomaly_total": 0,
+          "num_reproduction_failure": 0,
+          "num_unphysical_relaxation": 0,
+          "num_adsorbate_migration": 0,
+          "num_energy_anomaly": 0,
+          "shift_eV": null,
+          "n_fit": 2,
+          "MAE_total_shifted": 0.01892005900821481,
+          "MAE_normal_shifted": 0.01892005900821481,
+          "num_normal_shifted": 2,
+          "num_energy_anomaly_shifted": 0
         }
+      },
+      "shifted": {
+        "normal_rate_pct": 100.0,
+        "adsorbate_migration_rate_pct": 0.0,
+        "anomaly_rates_pct": {
+          "total": 0.0,
+          "reproduction_failure": 0.0,
+          "unphysical_relaxation": 0.0,
+          "energy_anomaly": 0.0
+        },
+        "MAE_total_eV": 0.2683289493818205,
+        "MAE_normal_eV": 0.2683289493818205,
+        "MAE_single_eV": 0.1973761705430392
       }
     },
     "MatterSim_v1_5M": {
@@ -1025,26 +1465,32 @@
       "AMDwT_pct": 65.32198785554552,
       "num_total": 14,
       "time_total_s": 119.9677574634552,
-      "time_per_step_s": 0.03725706753523454,
+      "time_per_step_s": 0.037257067535234535,
       "steps_total": 3220,
       "plots": {
         "multi_total": "LiccardoUnveiling2024/MatterSim_v1_5M/multi/total.png",
         "multi_normal": "LiccardoUnveiling2024/MatterSim_v1_5M/multi/normal.png"
       },
       "adsorbate_breakdown": {
-        "Al2H4O5": {
-          "MAE_total": 0.1395719965869233,
-          "MAE_normal": 0.0,
-          "MAE_single": 0.2198738547460977,
-          "ADwT": 66.85374149659866,
-          "AMDwT": 52.49999999999989,
+        "Al2H2O4": {
+          "MAE_total": 0.3603004963183594,
+          "MAE_normal": 0.2065522464355354,
+          "MAE_single": 0.3324180095410156,
+          "ADwT": 63.92857142857143,
+          "AMDwT": 61.67785234899329,
           "num_total": 2,
-          "num_normal": 0,
+          "num_normal": 1,
           "num_anomaly_total": 0,
           "num_reproduction_failure": 0,
           "num_unphysical_relaxation": 0,
-          "num_adsorbate_migration": 2,
-          "num_energy_anomaly": 0
+          "num_adsorbate_migration": 1,
+          "num_energy_anomaly": 0,
+          "shift_eV": null,
+          "n_fit": 1,
+          "MAE_total_shifted": 0.3603004963183594,
+          "MAE_normal_shifted": 0.2065522464355354,
+          "num_normal_shifted": 1,
+          "num_energy_anomaly_shifted": 0
         },
         "Al2H3O5": {
           "MAE_total": 0.1908511510791016,
@@ -1058,35 +1504,33 @@
           "num_reproduction_failure": 0,
           "num_unphysical_relaxation": 0,
           "num_adsorbate_migration": 2,
-          "num_energy_anomaly": 0
+          "num_energy_anomaly": 0,
+          "shift_eV": null,
+          "n_fit": 0,
+          "MAE_total_shifted": 0.1908511510791016,
+          "MAE_normal_shifted": 0.0,
+          "num_normal_shifted": 0,
+          "num_energy_anomaly_shifted": 0
         },
-        "AlH3O3": {
-          "MAE_total": 0.541819462626961,
+        "Al2H4O5": {
+          "MAE_total": 0.1395719965869233,
           "MAE_normal": 0.0,
-          "MAE_single": 0.2736271713671954,
-          "ADwT": 73.16326530612245,
-          "AMDwT": 59.11633109619687,
+          "MAE_single": 0.2198738547460977,
+          "ADwT": 66.85374149659866,
+          "AMDwT": 52.49999999999989,
           "num_total": 2,
           "num_normal": 0,
           "num_anomaly_total": 0,
           "num_reproduction_failure": 0,
           "num_unphysical_relaxation": 0,
           "num_adsorbate_migration": 2,
-          "num_energy_anomaly": 0
-        },
-        "Al2H2O4": {
-          "MAE_total": 0.3603004963183594,
-          "MAE_normal": 0.2065522464355354,
-          "MAE_single": 0.3324180095410156,
-          "ADwT": 63.92857142857143,
-          "AMDwT": 61.67785234899329,
-          "num_total": 2,
-          "num_normal": 1,
-          "num_anomaly_total": 0,
-          "num_reproduction_failure": 0,
-          "num_unphysical_relaxation": 0,
-          "num_adsorbate_migration": 1,
-          "num_energy_anomaly": 0
+          "num_energy_anomaly": 0,
+          "shift_eV": null,
+          "n_fit": 0,
+          "MAE_total_shifted": 0.1395719965869233,
+          "MAE_normal_shifted": 0.0,
+          "num_normal_shifted": 0,
+          "num_energy_anomaly_shifted": 0
         },
         "Al2H6O6": {
           "MAE_total": 0.3234808030078256,
@@ -1100,7 +1544,13 @@
           "num_reproduction_failure": 0,
           "num_unphysical_relaxation": 0,
           "num_adsorbate_migration": 2,
-          "num_energy_anomaly": 0
+          "num_energy_anomaly": 0,
+          "shift_eV": null,
+          "n_fit": 0,
+          "MAE_total_shifted": 0.3234808030078256,
+          "MAE_normal_shifted": 0.0,
+          "num_normal_shifted": 0,
+          "num_energy_anomaly_shifted": 0
         },
         "Al2O3": {
           "MAE_total": 0.1908226448193417,
@@ -1114,7 +1564,13 @@
           "num_reproduction_failure": 0,
           "num_unphysical_relaxation": 0,
           "num_adsorbate_migration": 0,
-          "num_energy_anomaly": 0
+          "num_energy_anomaly": 0,
+          "shift_eV": null,
+          "n_fit": 2,
+          "MAE_total_shifted": 0.1908226448193417,
+          "MAE_normal_shifted": 0.1908226448193417,
+          "num_normal_shifted": 2,
+          "num_energy_anomaly_shifted": 0
         },
         "AlC3H9": {
           "MAE_total": 0.2663813991357529,
@@ -1128,8 +1584,47 @@
           "num_reproduction_failure": 0,
           "num_unphysical_relaxation": 0,
           "num_adsorbate_migration": 1,
-          "num_energy_anomaly": 0
+          "num_energy_anomaly": 0,
+          "shift_eV": null,
+          "n_fit": 1,
+          "MAE_total_shifted": 0.2663813991357529,
+          "MAE_normal_shifted": 0.1987181513378857,
+          "num_normal_shifted": 1,
+          "num_energy_anomaly_shifted": 0
+        },
+        "AlH3O3": {
+          "MAE_total": 0.541819462626961,
+          "MAE_normal": 0.0,
+          "MAE_single": 0.2736271713671954,
+          "ADwT": 73.16326530612245,
+          "AMDwT": 59.11633109619687,
+          "num_total": 2,
+          "num_normal": 0,
+          "num_anomaly_total": 0,
+          "num_reproduction_failure": 0,
+          "num_unphysical_relaxation": 0,
+          "num_adsorbate_migration": 2,
+          "num_energy_anomaly": 0,
+          "shift_eV": null,
+          "n_fit": 0,
+          "MAE_total_shifted": 0.541819462626961,
+          "MAE_normal_shifted": 0.0,
+          "num_normal_shifted": 0,
+          "num_energy_anomaly_shifted": 0
         }
+      },
+      "shifted": {
+        "normal_rate_pct": 28.57142857142857,
+        "adsorbate_migration_rate_pct": 71.42857142857143,
+        "anomaly_rates_pct": {
+          "total": 0.0,
+          "reproduction_failure": 0.0,
+          "unphysical_relaxation": 0.0,
+          "energy_anomaly": 0.0
+        },
+        "MAE_total_eV": 0.2876039933677522,
+        "MAE_normal_eV": 0.1967289218530262,
+        "MAE_single_eV": 0.2332695259919078
       }
     },
     "ORB-v3": {
@@ -1156,19 +1651,25 @@
         "multi_normal": "LiccardoUnveiling2024/ORB-v3/multi/normal.png"
       },
       "adsorbate_breakdown": {
-        "Al2H4O5": {
-          "MAE_total": 0.2959650477343843,
-          "MAE_normal": 0.2959650477343843,
-          "MAE_single": 0.265928121464853,
-          "ADwT": 80.61224489795919,
-          "AMDwT": 88.42281879194631,
+        "Al2H2O4": {
+          "MAE_total": 0.2485192061718635,
+          "MAE_normal": 0.2485192061718635,
+          "MAE_single": 0.2280342818554573,
+          "ADwT": 78.77551020408163,
+          "AMDwT": 84.54697986577182,
           "num_total": 2,
           "num_normal": 2,
           "num_anomaly_total": 0,
           "num_reproduction_failure": 0,
           "num_unphysical_relaxation": 0,
           "num_adsorbate_migration": 0,
-          "num_energy_anomaly": 0
+          "num_energy_anomaly": 0,
+          "shift_eV": null,
+          "n_fit": 2,
+          "MAE_total_shifted": 0.2485192061718635,
+          "MAE_normal_shifted": 0.2485192061718635,
+          "num_normal_shifted": 2,
+          "num_energy_anomaly_shifted": 0
         },
         "Al2H3O5": {
           "MAE_total": 0.6755650309179657,
@@ -1182,35 +1683,33 @@
           "num_reproduction_failure": 0,
           "num_unphysical_relaxation": 0,
           "num_adsorbate_migration": 1,
-          "num_energy_anomaly": 0
+          "num_energy_anomaly": 0,
+          "shift_eV": null,
+          "n_fit": 1,
+          "MAE_total_shifted": 0.6755650309179657,
+          "MAE_normal_shifted": 0.8703816807421845,
+          "num_normal_shifted": 1,
+          "num_energy_anomaly_shifted": 0
         },
-        "AlH3O3": {
-          "MAE_total": 0.154252587382814,
-          "MAE_normal": 0.154252587382814,
-          "MAE_single": 0.109422265117189,
-          "ADwT": 76.87074829931973,
-          "AMDwT": 80.0,
+        "Al2H4O5": {
+          "MAE_total": 0.2959650477343843,
+          "MAE_normal": 0.2959650477343843,
+          "MAE_single": 0.265928121464853,
+          "ADwT": 80.61224489795919,
+          "AMDwT": 88.42281879194631,
           "num_total": 2,
           "num_normal": 2,
           "num_anomaly_total": 0,
           "num_reproduction_failure": 0,
           "num_unphysical_relaxation": 0,
           "num_adsorbate_migration": 0,
-          "num_energy_anomaly": 0
-        },
-        "Al2H2O4": {
-          "MAE_total": 0.2485192061718635,
-          "MAE_normal": 0.2485192061718635,
-          "MAE_single": 0.2280342818554573,
-          "ADwT": 78.77551020408163,
-          "AMDwT": 84.54697986577182,
-          "num_total": 2,
-          "num_normal": 2,
-          "num_anomaly_total": 0,
-          "num_reproduction_failure": 0,
-          "num_unphysical_relaxation": 0,
-          "num_adsorbate_migration": 0,
-          "num_energy_anomaly": 0
+          "num_energy_anomaly": 0,
+          "shift_eV": null,
+          "n_fit": 2,
+          "MAE_total_shifted": 0.2959650477343843,
+          "MAE_normal_shifted": 0.2959650477343843,
+          "num_normal_shifted": 2,
+          "num_energy_anomaly_shifted": 0
         },
         "Al2H6O6": {
           "MAE_total": 0.09074612283204431,
@@ -1224,7 +1723,13 @@
           "num_reproduction_failure": 0,
           "num_unphysical_relaxation": 0,
           "num_adsorbate_migration": 0,
-          "num_energy_anomaly": 0
+          "num_energy_anomaly": 0,
+          "shift_eV": null,
+          "n_fit": 2,
+          "MAE_total_shifted": 0.09074612283204431,
+          "MAE_normal_shifted": 0.09074612283204431,
+          "num_normal_shifted": 2,
+          "num_energy_anomaly_shifted": 0
         },
         "Al2O3": {
           "MAE_total": 0.3012084525927676,
@@ -1238,7 +1743,13 @@
           "num_reproduction_failure": 0,
           "num_unphysical_relaxation": 0,
           "num_adsorbate_migration": 0,
-          "num_energy_anomaly": 0
+          "num_energy_anomaly": 0,
+          "shift_eV": null,
+          "n_fit": 2,
+          "MAE_total_shifted": 0.3012084525927676,
+          "MAE_normal_shifted": 0.3012084525927676,
+          "num_normal_shifted": 2,
+          "num_energy_anomaly_shifted": 0
         },
         "AlC3H9": {
           "MAE_total": 0.1899605347851718,
@@ -1252,8 +1763,47 @@
           "num_reproduction_failure": 1,
           "num_unphysical_relaxation": 0,
           "num_adsorbate_migration": 0,
-          "num_energy_anomaly": 0
+          "num_energy_anomaly": 0,
+          "shift_eV": null,
+          "n_fit": 1,
+          "MAE_total_shifted": 0.1899605347851718,
+          "MAE_normal_shifted": 0.0240487248828174,
+          "num_normal_shifted": 1,
+          "num_energy_anomaly_shifted": 0
+        },
+        "AlH3O3": {
+          "MAE_total": 0.154252587382814,
+          "MAE_normal": 0.154252587382814,
+          "MAE_single": 0.109422265117189,
+          "ADwT": 76.87074829931973,
+          "AMDwT": 80.0,
+          "num_total": 2,
+          "num_normal": 2,
+          "num_anomaly_total": 0,
+          "num_reproduction_failure": 0,
+          "num_unphysical_relaxation": 0,
+          "num_adsorbate_migration": 0,
+          "num_energy_anomaly": 0,
+          "shift_eV": null,
+          "n_fit": 2,
+          "MAE_total_shifted": 0.154252587382814,
+          "MAE_normal_shifted": 0.154252587382814,
+          "num_normal_shifted": 2,
+          "num_energy_anomaly_shifted": 0
         }
+      },
+      "shifted": {
+        "normal_rate_pct": 85.71428571428571,
+        "adsorbate_migration_rate_pct": 7.142857142857142,
+        "anomaly_rates_pct": {
+          "total": 7.142857142857142,
+          "reproduction_failure": 7.142857142857142,
+          "unphysical_relaxation": 0.0,
+          "energy_anomaly": 0.0
+        },
+        "MAE_total_eV": 0.2794595689167159,
+        "MAE_normal_eV": 0.2563177699210624,
+        "MAE_single_eV": 0.1834653487667463
       }
     },
     "SevenNet-MF-OMPA": {
@@ -1280,19 +1830,25 @@
         "multi_normal": "LiccardoUnveiling2024/SevenNet-MF-OMPA/multi/normal.png"
       },
       "adsorbate_breakdown": {
-        "Al2H4O5": {
-          "MAE_total": 0.4533518275195405,
-          "MAE_normal": 0.03234128285157567,
-          "MAE_single": 0.1013465432031211,
-          "ADwT": 67.15986394557822,
-          "AMDwT": 68.6744966442953,
+        "Al2H2O4": {
+          "MAE_total": 0.3067497761035156,
+          "MAE_normal": 0.3067497761035156,
+          "MAE_single": 0.2614502460742187,
+          "ADwT": 83.06122448979592,
+          "AMDwT": 85.0,
           "num_total": 2,
-          "num_normal": 1,
+          "num_normal": 2,
           "num_anomaly_total": 0,
           "num_reproduction_failure": 0,
           "num_unphysical_relaxation": 0,
-          "num_adsorbate_migration": 1,
-          "num_energy_anomaly": 0
+          "num_adsorbate_migration": 0,
+          "num_energy_anomaly": 0,
+          "shift_eV": null,
+          "n_fit": 2,
+          "MAE_total_shifted": 0.3067497761035156,
+          "MAE_normal_shifted": 0.3067497761035156,
+          "num_normal_shifted": 2,
+          "num_energy_anomaly_shifted": 0
         },
         "Al2H3O5": {
           "MAE_total": 0.5192234781835907,
@@ -1306,35 +1862,33 @@
           "num_reproduction_failure": 0,
           "num_unphysical_relaxation": 0,
           "num_adsorbate_migration": 1,
-          "num_energy_anomaly": 0
+          "num_energy_anomaly": 0,
+          "shift_eV": null,
+          "n_fit": 1,
+          "MAE_total_shifted": 0.5192234781835907,
+          "MAE_normal_shifted": 0.7199833054101532,
+          "num_normal_shifted": 1,
+          "num_energy_anomaly_shifted": 0
         },
-        "AlH3O3": {
-          "MAE_total": 0.5847233627734454,
-          "MAE_normal": 0.5847233627734454,
-          "MAE_single": 0.5089939926562579,
-          "ADwT": 80.81632653061224,
-          "AMDwT": 77.3042505592841,
+        "Al2H4O5": {
+          "MAE_total": 0.4533518275195405,
+          "MAE_normal": 0.03234128285157567,
+          "MAE_single": 0.1013465432031211,
+          "ADwT": 67.15986394557822,
+          "AMDwT": 68.6744966442953,
           "num_total": 2,
-          "num_normal": 2,
+          "num_normal": 1,
           "num_anomaly_total": 0,
           "num_reproduction_failure": 0,
           "num_unphysical_relaxation": 0,
-          "num_adsorbate_migration": 0,
-          "num_energy_anomaly": 0
-        },
-        "Al2H2O4": {
-          "MAE_total": 0.3067497761035156,
-          "MAE_normal": 0.3067497761035156,
-          "MAE_single": 0.2614502460742187,
-          "ADwT": 83.06122448979592,
-          "AMDwT": 85.0,
-          "num_total": 2,
-          "num_normal": 2,
-          "num_anomaly_total": 0,
-          "num_reproduction_failure": 0,
-          "num_unphysical_relaxation": 0,
-          "num_adsorbate_migration": 0,
-          "num_energy_anomaly": 0
+          "num_adsorbate_migration": 1,
+          "num_energy_anomaly": 0,
+          "shift_eV": null,
+          "n_fit": 1,
+          "MAE_total_shifted": 0.4533518275195405,
+          "MAE_normal_shifted": 0.03234128285157567,
+          "num_normal_shifted": 1,
+          "num_energy_anomaly_shifted": 0
         },
         "Al2H6O6": {
           "MAE_total": 0.1727744371874991,
@@ -1348,7 +1902,13 @@
           "num_reproduction_failure": 0,
           "num_unphysical_relaxation": 0,
           "num_adsorbate_migration": 1,
-          "num_energy_anomaly": 0
+          "num_energy_anomaly": 0,
+          "shift_eV": null,
+          "n_fit": 1,
+          "MAE_total_shifted": 0.1727744371874991,
+          "MAE_normal_shifted": 0.0003556458984235178,
+          "num_normal_shifted": 1,
+          "num_energy_anomaly_shifted": 0
         },
         "Al2O3": {
           "MAE_total": 0.3456497627392636,
@@ -1362,7 +1922,13 @@
           "num_reproduction_failure": 0,
           "num_unphysical_relaxation": 0,
           "num_adsorbate_migration": 0,
-          "num_energy_anomaly": 0
+          "num_energy_anomaly": 0,
+          "shift_eV": null,
+          "n_fit": 2,
+          "MAE_total_shifted": 0.3456497627392636,
+          "MAE_normal_shifted": 0.3456497627392636,
+          "num_normal_shifted": 2,
+          "num_energy_anomaly_shifted": 0
         },
         "AlC3H9": {
           "MAE_total": 0.01938329507811432,
@@ -1376,8 +1942,47 @@
           "num_reproduction_failure": 0,
           "num_unphysical_relaxation": 0,
           "num_adsorbate_migration": 0,
-          "num_energy_anomaly": 0
+          "num_energy_anomaly": 0,
+          "shift_eV": null,
+          "n_fit": 2,
+          "MAE_total_shifted": 0.01938329507811432,
+          "MAE_normal_shifted": 0.01938329507811432,
+          "num_normal_shifted": 2,
+          "num_energy_anomaly_shifted": 0
+        },
+        "AlH3O3": {
+          "MAE_total": 0.5847233627734454,
+          "MAE_normal": 0.5847233627734454,
+          "MAE_single": 0.5089939926562579,
+          "ADwT": 80.81632653061224,
+          "AMDwT": 77.3042505592841,
+          "num_total": 2,
+          "num_normal": 2,
+          "num_anomaly_total": 0,
+          "num_reproduction_failure": 0,
+          "num_unphysical_relaxation": 0,
+          "num_adsorbate_migration": 0,
+          "num_energy_anomaly": 0,
+          "shift_eV": null,
+          "n_fit": 2,
+          "MAE_total_shifted": 0.5847233627734454,
+          "MAE_normal_shifted": 0.5847233627734454,
+          "num_normal_shifted": 2,
+          "num_energy_anomaly_shifted": 0
         }
+      },
+      "shifted": {
+        "normal_rate_pct": 78.57142857142857,
+        "adsorbate_migration_rate_pct": 21.42857142857143,
+        "anomaly_rates_pct": {
+          "total": 0.0,
+          "reproduction_failure": 0.0,
+          "unphysical_relaxation": 0.0,
+          "energy_anomaly": 0.0
+        },
+        "MAE_total_eV": 0.343122277083567,
+        "MAE_normal_eV": 0.2968811479589846,
+        "MAE_single_eV": 0.199002667045898
       }
     },
     "UMA-m-1p1_oc20": {
@@ -1397,26 +2002,32 @@
       "AMDwT_pct": 94.30089485458385,
       "num_total": 14,
       "time_total_s": 217.0224423408508,
-      "time_per_step_s": 0.226065044105053,
+      "time_per_step_s": 0.2260650441050529,
       "steps_total": 960,
       "plots": {
         "multi_total": "LiccardoUnveiling2024/UMA-m-1p1_oc20/multi/total.png",
         "multi_normal": "LiccardoUnveiling2024/UMA-m-1p1_oc20/multi/normal.png"
       },
       "adsorbate_breakdown": {
-        "Al2H4O5": {
-          "MAE_total": 0.4919504614966144,
-          "MAE_normal": 0.4919504614966144,
-          "MAE_single": 0.4919121953146686,
-          "ADwT": 97.34693877551021,
-          "AMDwT": 97.86912751677852,
+        "Al2H2O4": {
+          "MAE_total": 0.4822676627850662,
+          "MAE_normal": 0.4822676627850662,
+          "MAE_single": 0.4824517219281184,
+          "ADwT": 97.24489795918367,
+          "AMDwT": 97.93624161073825,
           "num_total": 2,
           "num_normal": 2,
           "num_anomaly_total": 0,
           "num_reproduction_failure": 0,
           "num_unphysical_relaxation": 0,
           "num_adsorbate_migration": 0,
-          "num_energy_anomaly": 0
+          "num_energy_anomaly": 0,
+          "shift_eV": null,
+          "n_fit": 2,
+          "MAE_total_shifted": 0.4822676627850662,
+          "MAE_normal_shifted": 0.4822676627850662,
+          "num_normal_shifted": 2,
+          "num_energy_anomaly_shifted": 0
         },
         "Al2H3O5": {
           "MAE_total": 1.466296222553119,
@@ -1430,35 +2041,33 @@
           "num_reproduction_failure": 0,
           "num_unphysical_relaxation": 0,
           "num_adsorbate_migration": 0,
-          "num_energy_anomaly": 0
+          "num_energy_anomaly": 0,
+          "shift_eV": null,
+          "n_fit": 2,
+          "MAE_total_shifted": 1.466296222553119,
+          "MAE_normal_shifted": 1.466296222553119,
+          "num_normal_shifted": 2,
+          "num_energy_anomaly_shifted": 0
         },
-        "AlH3O3": {
-          "MAE_total": 0.4053984786572684,
-          "MAE_normal": 0.4053984786572684,
-          "MAE_single": 0.3997589255872001,
-          "ADwT": 97.5,
-          "AMDwT": 98.03691275167785,
+        "Al2H4O5": {
+          "MAE_total": 0.4919504614966144,
+          "MAE_normal": 0.4919504614966144,
+          "MAE_single": 0.4919121953146686,
+          "ADwT": 97.34693877551021,
+          "AMDwT": 97.86912751677852,
           "num_total": 2,
           "num_normal": 2,
           "num_anomaly_total": 0,
           "num_reproduction_failure": 0,
           "num_unphysical_relaxation": 0,
           "num_adsorbate_migration": 0,
-          "num_energy_anomaly": 0
-        },
-        "Al2H2O4": {
-          "MAE_total": 0.4822676627850662,
-          "MAE_normal": 0.4822676627850662,
-          "MAE_single": 0.4824517219281184,
-          "ADwT": 97.24489795918367,
-          "AMDwT": 97.93624161073825,
-          "num_total": 2,
-          "num_normal": 2,
-          "num_anomaly_total": 0,
-          "num_reproduction_failure": 0,
-          "num_unphysical_relaxation": 0,
-          "num_adsorbate_migration": 0,
-          "num_energy_anomaly": 0
+          "num_energy_anomaly": 0,
+          "shift_eV": null,
+          "n_fit": 2,
+          "MAE_total_shifted": 0.4919504614966144,
+          "MAE_normal_shifted": 0.4919504614966144,
+          "num_normal_shifted": 2,
+          "num_energy_anomaly_shifted": 0
         },
         "Al2H6O6": {
           "MAE_total": 0.4869857249310741,
@@ -1472,7 +2081,13 @@
           "num_reproduction_failure": 0,
           "num_unphysical_relaxation": 0,
           "num_adsorbate_migration": 1,
-          "num_energy_anomaly": 0
+          "num_energy_anomaly": 0,
+          "shift_eV": null,
+          "n_fit": 1,
+          "MAE_total_shifted": 0.4869857249310741,
+          "MAE_normal_shifted": 0.4874495651788777,
+          "num_normal_shifted": 1,
+          "num_energy_anomaly_shifted": 0
         },
         "Al2O3": {
           "MAE_total": 0.1656072896823133,
@@ -1486,7 +2101,13 @@
           "num_reproduction_failure": 0,
           "num_unphysical_relaxation": 0,
           "num_adsorbate_migration": 0,
-          "num_energy_anomaly": 0
+          "num_energy_anomaly": 0,
+          "shift_eV": null,
+          "n_fit": 2,
+          "MAE_total_shifted": 0.1656072896823133,
+          "MAE_normal_shifted": 0.1656072896823133,
+          "num_normal_shifted": 2,
+          "num_energy_anomaly_shifted": 0
         },
         "AlC3H9": {
           "MAE_total": 0.2998649523516619,
@@ -1500,8 +2121,47 @@
           "num_reproduction_failure": 0,
           "num_unphysical_relaxation": 0,
           "num_adsorbate_migration": 0,
-          "num_energy_anomaly": 0
+          "num_energy_anomaly": 0,
+          "shift_eV": null,
+          "n_fit": 2,
+          "MAE_total_shifted": 0.2998649523516619,
+          "MAE_normal_shifted": 0.2998649523516619,
+          "num_normal_shifted": 2,
+          "num_energy_anomaly_shifted": 0
+        },
+        "AlH3O3": {
+          "MAE_total": 0.4053984786572684,
+          "MAE_normal": 0.4053984786572684,
+          "MAE_single": 0.3997589255872001,
+          "ADwT": 97.5,
+          "AMDwT": 98.03691275167785,
+          "num_total": 2,
+          "num_normal": 2,
+          "num_anomaly_total": 0,
+          "num_reproduction_failure": 0,
+          "num_unphysical_relaxation": 0,
+          "num_adsorbate_migration": 0,
+          "num_energy_anomaly": 0,
+          "shift_eV": null,
+          "n_fit": 2,
+          "MAE_total_shifted": 0.4053984786572684,
+          "MAE_normal_shifted": 0.4053984786572684,
+          "num_normal_shifted": 2,
+          "num_energy_anomaly_shifted": 0
         }
+      },
+      "shifted": {
+        "normal_rate_pct": 92.85714285714286,
+        "adsorbate_migration_rate_pct": 7.142857142857142,
+        "anomaly_rates_pct": {
+          "total": 0.0,
+          "reproduction_failure": 0.0,
+          "unphysical_relaxation": 0.0,
+          "energy_anomaly": 0.0
+        },
+        "MAE_total_eV": 0.5426243989224453,
+        "MAE_normal_eV": 0.5469399769408434,
+        "MAE_single_eV": 0.465621618144386
       }
     },
     "UMA-m-1p1_omat": {
@@ -1528,19 +2188,25 @@
         "multi_normal": "LiccardoUnveiling2024/UMA-m-1p1_omat/multi/normal.png"
       },
       "adsorbate_breakdown": {
-        "Al2H4O5": {
-          "MAE_total": 0.6960087326867637,
-          "MAE_normal": 0.6960087326867637,
-          "MAE_single": 0.7030067948205527,
-          "ADwT": 83.26530612244898,
-          "AMDwT": 89.42953020134229,
+        "Al2H2O4": {
+          "MAE_total": 1.1475599558139,
+          "MAE_normal": 1.1475599558139,
+          "MAE_single": 1.151973113515393,
+          "ADwT": 83.41836734693878,
+          "AMDwT": 90.20134228187919,
           "num_total": 2,
           "num_normal": 2,
           "num_anomaly_total": 0,
           "num_reproduction_failure": 0,
           "num_unphysical_relaxation": 0,
           "num_adsorbate_migration": 0,
-          "num_energy_anomaly": 0
+          "num_energy_anomaly": 0,
+          "shift_eV": null,
+          "n_fit": 2,
+          "MAE_total_shifted": 1.1475599558139,
+          "MAE_normal_shifted": 1.1475599558139,
+          "num_normal_shifted": 2,
+          "num_energy_anomaly_shifted": 0
         },
         "Al2H3O5": {
           "MAE_total": 1.887450006351315,
@@ -1554,35 +2220,33 @@
           "num_reproduction_failure": 2,
           "num_unphysical_relaxation": 0,
           "num_adsorbate_migration": 0,
-          "num_energy_anomaly": 0
+          "num_energy_anomaly": 0,
+          "shift_eV": null,
+          "n_fit": 0,
+          "MAE_total_shifted": 1.887450006351315,
+          "MAE_normal_shifted": 0.0,
+          "num_normal_shifted": 0,
+          "num_energy_anomaly_shifted": 0
         },
-        "AlH3O3": {
-          "MAE_total": 1.279408106654667,
-          "MAE_normal": 1.279408106654667,
-          "MAE_single": 1.246219048350834,
-          "ADwT": 81.1734693877551,
-          "AMDwT": 84.40715883668904,
+        "Al2H4O5": {
+          "MAE_total": 0.6960087326867637,
+          "MAE_normal": 0.6960087326867637,
+          "MAE_single": 0.7030067948205527,
+          "ADwT": 83.26530612244898,
+          "AMDwT": 89.42953020134229,
           "num_total": 2,
           "num_normal": 2,
           "num_anomaly_total": 0,
           "num_reproduction_failure": 0,
           "num_unphysical_relaxation": 0,
           "num_adsorbate_migration": 0,
-          "num_energy_anomaly": 0
-        },
-        "Al2H2O4": {
-          "MAE_total": 1.1475599558139,
-          "MAE_normal": 1.1475599558139,
-          "MAE_single": 1.151973113515393,
-          "ADwT": 83.41836734693878,
-          "AMDwT": 90.20134228187919,
-          "num_total": 2,
-          "num_normal": 2,
-          "num_anomaly_total": 0,
-          "num_reproduction_failure": 0,
-          "num_unphysical_relaxation": 0,
-          "num_adsorbate_migration": 0,
-          "num_energy_anomaly": 0
+          "num_energy_anomaly": 0,
+          "shift_eV": null,
+          "n_fit": 2,
+          "MAE_total_shifted": 0.6960087326867637,
+          "MAE_normal_shifted": 0.6960087326867637,
+          "num_normal_shifted": 2,
+          "num_energy_anomaly_shifted": 0
         },
         "Al2H6O6": {
           "MAE_total": 0.6129552903125131,
@@ -1596,7 +2260,13 @@
           "num_reproduction_failure": 0,
           "num_unphysical_relaxation": 0,
           "num_adsorbate_migration": 0,
-          "num_energy_anomaly": 0
+          "num_energy_anomaly": 0,
+          "shift_eV": null,
+          "n_fit": 2,
+          "MAE_total_shifted": 0.6129552903125131,
+          "MAE_normal_shifted": 0.6129552903125131,
+          "num_normal_shifted": 2,
+          "num_energy_anomaly_shifted": 0
         },
         "Al2O3": {
           "MAE_total": 2.486803098310521,
@@ -1610,7 +2280,13 @@
           "num_reproduction_failure": 0,
           "num_unphysical_relaxation": 0,
           "num_adsorbate_migration": 0,
-          "num_energy_anomaly": 2
+          "num_energy_anomaly": 2,
+          "shift_eV": null,
+          "n_fit": 2,
+          "MAE_total_shifted": 2.486803098310521,
+          "MAE_normal_shifted": 0.0,
+          "num_normal_shifted": 0,
+          "num_energy_anomaly_shifted": 2
         },
         "AlC3H9": {
           "MAE_total": 0.2232584402820805,
@@ -1624,8 +2300,47 @@
           "num_reproduction_failure": 0,
           "num_unphysical_relaxation": 0,
           "num_adsorbate_migration": 0,
-          "num_energy_anomaly": 0
+          "num_energy_anomaly": 0,
+          "shift_eV": null,
+          "n_fit": 2,
+          "MAE_total_shifted": 0.2232584402820805,
+          "MAE_normal_shifted": 0.2232584402820805,
+          "num_normal_shifted": 2,
+          "num_energy_anomaly_shifted": 0
+        },
+        "AlH3O3": {
+          "MAE_total": 1.279408106654667,
+          "MAE_normal": 1.279408106654667,
+          "MAE_single": 1.246219048350834,
+          "ADwT": 81.1734693877551,
+          "AMDwT": 84.40715883668904,
+          "num_total": 2,
+          "num_normal": 2,
+          "num_anomaly_total": 0,
+          "num_reproduction_failure": 0,
+          "num_unphysical_relaxation": 0,
+          "num_adsorbate_migration": 0,
+          "num_energy_anomaly": 0,
+          "shift_eV": null,
+          "n_fit": 2,
+          "MAE_total_shifted": 1.279408106654667,
+          "MAE_normal_shifted": 1.279408106654667,
+          "num_normal_shifted": 2,
+          "num_energy_anomaly_shifted": 0
         }
+      },
+      "shifted": {
+        "normal_rate_pct": 71.42857142857143,
+        "adsorbate_migration_rate_pct": 0.0,
+        "anomaly_rates_pct": {
+          "total": 28.57142857142857,
+          "reproduction_failure": 14.28571428571428,
+          "unphysical_relaxation": 0.0,
+          "energy_anomaly": 14.28571428571428
+        },
+        "MAE_total_eV": 1.19049194720168,
+        "MAE_normal_eV": 0.791838105149985,
+        "MAE_single_eV": 1.074862202744195
       }
     },
     "UMA-s-1p1_oc20": {
@@ -1652,19 +2367,25 @@
         "multi_normal": "LiccardoUnveiling2024/UMA-s-1p1_oc20/multi/normal.png"
       },
       "adsorbate_breakdown": {
-        "Al2H4O5": {
-          "MAE_total": 0.4423592778341714,
-          "MAE_normal": 0.4423592778341714,
-          "MAE_single": 0.4713576527731647,
-          "ADwT": 87.1938775510204,
-          "AMDwT": 85.83892617449665,
+        "Al2H2O4": {
+          "MAE_total": 0.3766577689862096,
+          "MAE_normal": 0.3766577689862096,
+          "MAE_single": 0.3810279815411413,
+          "ADwT": 98.01020408163265,
+          "AMDwT": 98.25503355704699,
           "num_total": 2,
           "num_normal": 2,
           "num_anomaly_total": 0,
           "num_reproduction_failure": 0,
           "num_unphysical_relaxation": 0,
           "num_adsorbate_migration": 0,
-          "num_energy_anomaly": 0
+          "num_energy_anomaly": 0,
+          "shift_eV": null,
+          "n_fit": 2,
+          "MAE_total_shifted": 0.3766577689862096,
+          "MAE_normal_shifted": 0.3766577689862096,
+          "num_normal_shifted": 2,
+          "num_energy_anomaly_shifted": 0
         },
         "Al2H3O5": {
           "MAE_total": 1.108769920215487,
@@ -1678,35 +2399,33 @@
           "num_reproduction_failure": 0,
           "num_unphysical_relaxation": 0,
           "num_adsorbate_migration": 0,
-          "num_energy_anomaly": 0
+          "num_energy_anomaly": 0,
+          "shift_eV": null,
+          "n_fit": 2,
+          "MAE_total_shifted": 1.108769920215487,
+          "MAE_normal_shifted": 1.108769920215487,
+          "num_normal_shifted": 2,
+          "num_energy_anomaly_shifted": 0
         },
-        "AlH3O3": {
-          "MAE_total": 0.4411178733410921,
-          "MAE_normal": 0.4411178733410921,
-          "MAE_single": 0.4475532676282015,
-          "ADwT": 96.07142857142857,
-          "AMDwT": 94.66442953020135,
+        "Al2H4O5": {
+          "MAE_total": 0.4423592778341714,
+          "MAE_normal": 0.4423592778341714,
+          "MAE_single": 0.4713576527731647,
+          "ADwT": 87.1938775510204,
+          "AMDwT": 85.83892617449665,
           "num_total": 2,
           "num_normal": 2,
           "num_anomaly_total": 0,
           "num_reproduction_failure": 0,
           "num_unphysical_relaxation": 0,
           "num_adsorbate_migration": 0,
-          "num_energy_anomaly": 0
-        },
-        "Al2H2O4": {
-          "MAE_total": 0.3766577689862096,
-          "MAE_normal": 0.3766577689862096,
-          "MAE_single": 0.3810279815411413,
-          "ADwT": 98.01020408163265,
-          "AMDwT": 98.25503355704699,
-          "num_total": 2,
-          "num_normal": 2,
-          "num_anomaly_total": 0,
-          "num_reproduction_failure": 0,
-          "num_unphysical_relaxation": 0,
-          "num_adsorbate_migration": 0,
-          "num_energy_anomaly": 0
+          "num_energy_anomaly": 0,
+          "shift_eV": null,
+          "n_fit": 2,
+          "MAE_total_shifted": 0.4423592778341714,
+          "MAE_normal_shifted": 0.4423592778341714,
+          "num_normal_shifted": 2,
+          "num_energy_anomaly_shifted": 0
         },
         "Al2H6O6": {
           "MAE_total": 0.6814556834747947,
@@ -1720,7 +2439,13 @@
           "num_reproduction_failure": 0,
           "num_unphysical_relaxation": 0,
           "num_adsorbate_migration": 0,
-          "num_energy_anomaly": 0
+          "num_energy_anomaly": 0,
+          "shift_eV": null,
+          "n_fit": 2,
+          "MAE_total_shifted": 0.6814556834747947,
+          "MAE_normal_shifted": 0.6814556834747947,
+          "num_normal_shifted": 2,
+          "num_energy_anomaly_shifted": 0
         },
         "Al2O3": {
           "MAE_total": 0.1470238727435316,
@@ -1734,7 +2459,13 @@
           "num_reproduction_failure": 0,
           "num_unphysical_relaxation": 0,
           "num_adsorbate_migration": 0,
-          "num_energy_anomaly": 0
+          "num_energy_anomaly": 0,
+          "shift_eV": null,
+          "n_fit": 2,
+          "MAE_total_shifted": 0.1470238727435316,
+          "MAE_normal_shifted": 0.1470238727435316,
+          "num_normal_shifted": 2,
+          "num_energy_anomaly_shifted": 0
         },
         "AlC3H9": {
           "MAE_total": 0.4076737807056006,
@@ -1748,8 +2479,47 @@
           "num_reproduction_failure": 0,
           "num_unphysical_relaxation": 0,
           "num_adsorbate_migration": 0,
-          "num_energy_anomaly": 0
+          "num_energy_anomaly": 0,
+          "shift_eV": null,
+          "n_fit": 2,
+          "MAE_total_shifted": 0.4076737807056006,
+          "MAE_normal_shifted": 0.4076737807056006,
+          "num_normal_shifted": 2,
+          "num_energy_anomaly_shifted": 0
+        },
+        "AlH3O3": {
+          "MAE_total": 0.4411178733410921,
+          "MAE_normal": 0.4411178733410921,
+          "MAE_single": 0.4475532676282015,
+          "ADwT": 96.07142857142857,
+          "AMDwT": 94.66442953020135,
+          "num_total": 2,
+          "num_normal": 2,
+          "num_anomaly_total": 0,
+          "num_reproduction_failure": 0,
+          "num_unphysical_relaxation": 0,
+          "num_adsorbate_migration": 0,
+          "num_energy_anomaly": 0,
+          "shift_eV": null,
+          "n_fit": 2,
+          "MAE_total_shifted": 0.4411178733410921,
+          "MAE_normal_shifted": 0.4411178733410921,
+          "num_normal_shifted": 2,
+          "num_energy_anomaly_shifted": 0
         }
+      },
+      "shifted": {
+        "normal_rate_pct": 100.0,
+        "adsorbate_migration_rate_pct": 0.0,
+        "anomaly_rates_pct": {
+          "total": 0.0,
+          "reproduction_failure": 0.0,
+          "unphysical_relaxation": 0.0,
+          "energy_anomaly": 0.0
+        },
+        "MAE_total_eV": 0.5150083110429838,
+        "MAE_normal_eV": 0.5150083110429838,
+        "MAE_single_eV": 0.4521361226111139
       }
     },
     "UMA-s-1p1_omat": {
@@ -1776,19 +2546,25 @@
         "multi_normal": "LiccardoUnveiling2024/UMA-s-1p1_omat/multi/normal.png"
       },
       "adsorbate_breakdown": {
-        "Al2H4O5": {
-          "MAE_total": 0.6084063557489827,
-          "MAE_normal": 0.6084063557489827,
-          "MAE_single": 0.5921016243797936,
-          "ADwT": 81.1734693877551,
-          "AMDwT": 89.74832214765101,
+        "Al2H2O4": {
+          "MAE_total": 2.37222774336578,
+          "MAE_normal": 0.0,
+          "MAE_single": 2.890382245280701,
+          "ADwT": 82.04081632653062,
+          "AMDwT": 90.58724832214764,
           "num_total": 2,
-          "num_normal": 2,
-          "num_anomaly_total": 0,
+          "num_normal": 0,
+          "num_anomaly_total": 2,
           "num_reproduction_failure": 0,
           "num_unphysical_relaxation": 0,
           "num_adsorbate_migration": 0,
-          "num_energy_anomaly": 0
+          "num_energy_anomaly": 2,
+          "shift_eV": null,
+          "n_fit": 2,
+          "MAE_total_shifted": 2.37222774336578,
+          "MAE_normal_shifted": 0.0,
+          "num_normal_shifted": 0,
+          "num_energy_anomaly_shifted": 2
         },
         "Al2H3O5": {
           "MAE_total": 1.002605464801633,
@@ -1802,35 +2578,33 @@
           "num_reproduction_failure": 0,
           "num_unphysical_relaxation": 0,
           "num_adsorbate_migration": 0,
-          "num_energy_anomaly": 0
+          "num_energy_anomaly": 0,
+          "shift_eV": null,
+          "n_fit": 2,
+          "MAE_total_shifted": 1.002605464801633,
+          "MAE_normal_shifted": 1.002605464801633,
+          "num_normal_shifted": 2,
+          "num_energy_anomaly_shifted": 0
         },
-        "AlH3O3": {
-          "MAE_total": 0.781574139445862,
-          "MAE_normal": 0.781574139445862,
-          "MAE_single": 0.7597240303455202,
-          "ADwT": 79.59183673469387,
-          "AMDwT": 85.13422818791946,
+        "Al2H4O5": {
+          "MAE_total": 0.6084063557489827,
+          "MAE_normal": 0.6084063557489827,
+          "MAE_single": 0.5921016243797936,
+          "ADwT": 81.1734693877551,
+          "AMDwT": 89.74832214765101,
           "num_total": 2,
           "num_normal": 2,
           "num_anomaly_total": 0,
           "num_reproduction_failure": 0,
           "num_unphysical_relaxation": 0,
           "num_adsorbate_migration": 0,
-          "num_energy_anomaly": 0
-        },
-        "Al2H2O4": {
-          "MAE_total": 2.37222774336578,
-          "MAE_normal": 0.0,
-          "MAE_single": 2.890382245280701,
-          "ADwT": 82.04081632653062,
-          "AMDwT": 90.58724832214764,
-          "num_total": 2,
-          "num_normal": 0,
-          "num_anomaly_total": 2,
-          "num_reproduction_failure": 0,
-          "num_unphysical_relaxation": 0,
-          "num_adsorbate_migration": 0,
-          "num_energy_anomaly": 2
+          "num_energy_anomaly": 0,
+          "shift_eV": null,
+          "n_fit": 2,
+          "MAE_total_shifted": 0.6084063557489827,
+          "MAE_normal_shifted": 0.6084063557489827,
+          "num_normal_shifted": 2,
+          "num_energy_anomaly_shifted": 0
         },
         "Al2H6O6": {
           "MAE_total": 0.5059077324815888,
@@ -1844,7 +2618,13 @@
           "num_reproduction_failure": 0,
           "num_unphysical_relaxation": 0,
           "num_adsorbate_migration": 0,
-          "num_energy_anomaly": 0
+          "num_energy_anomaly": 0,
+          "shift_eV": null,
+          "n_fit": 2,
+          "MAE_total_shifted": 0.5059077324815888,
+          "MAE_normal_shifted": 0.5059077324815888,
+          "num_normal_shifted": 2,
+          "num_energy_anomaly_shifted": 0
         },
         "Al2O3": {
           "MAE_total": 10.35347418366819,
@@ -1858,7 +2638,13 @@
           "num_reproduction_failure": 0,
           "num_unphysical_relaxation": 0,
           "num_adsorbate_migration": 0,
-          "num_energy_anomaly": 2
+          "num_energy_anomaly": 2,
+          "shift_eV": null,
+          "n_fit": 2,
+          "MAE_total_shifted": 10.35347418366819,
+          "MAE_normal_shifted": 0.0,
+          "num_normal_shifted": 0,
+          "num_energy_anomaly_shifted": 2
         },
         "AlC3H9": {
           "MAE_total": 1.788733427311968,
@@ -1872,8 +2658,47 @@
           "num_reproduction_failure": 0,
           "num_unphysical_relaxation": 0,
           "num_adsorbate_migration": 0,
-          "num_energy_anomaly": 0
+          "num_energy_anomaly": 0,
+          "shift_eV": null,
+          "n_fit": 2,
+          "MAE_total_shifted": 1.788733427311968,
+          "MAE_normal_shifted": 1.788733427311968,
+          "num_normal_shifted": 2,
+          "num_energy_anomaly_shifted": 0
+        },
+        "AlH3O3": {
+          "MAE_total": 0.781574139445862,
+          "MAE_normal": 0.781574139445862,
+          "MAE_single": 0.7597240303455202,
+          "ADwT": 79.59183673469387,
+          "AMDwT": 85.13422818791946,
+          "num_total": 2,
+          "num_normal": 2,
+          "num_anomaly_total": 0,
+          "num_reproduction_failure": 0,
+          "num_unphysical_relaxation": 0,
+          "num_adsorbate_migration": 0,
+          "num_energy_anomaly": 0,
+          "shift_eV": null,
+          "n_fit": 2,
+          "MAE_total_shifted": 0.781574139445862,
+          "MAE_normal_shifted": 0.781574139445862,
+          "num_normal_shifted": 2,
+          "num_energy_anomaly_shifted": 0
         }
+      },
+      "shifted": {
+        "normal_rate_pct": 71.42857142857143,
+        "adsorbate_migration_rate_pct": 0.0,
+        "anomaly_rates_pct": {
+          "total": 28.57142857142857,
+          "reproduction_failure": 0.0,
+          "unphysical_relaxation": 0.0,
+          "energy_anomaly": 28.57142857142857
+        },
+        "MAE_total_eV": 2.487561292403428,
+        "MAE_normal_eV": 0.9374454239580068,
+        "MAE_single_eV": 2.584100628918644
       }
     }
   },

@@ -121,7 +121,7 @@ function createLabelRenderer(dataArray) {
   }
 }
 
-function ParetoPlots({ data, isDark = true }) {
+function ParetoPlots({ data, isDark = true, gasShift = false }) {
   // Transform data for plots
   const plotData = useMemo(() => {
     if (!data?.results) return { performance: [], stability: [] }
@@ -132,12 +132,15 @@ function ParetoPlots({ data, isDark = true }) {
         metrics.normal_rate_pct != null &&
         metrics.time_per_step_s != null
       )
-      .map(([name, metrics]) => ({
-        name,
-        time: metrics.time_per_step_s * 1000, // s -> ms for display
-        mae: metrics.MAE_normal_eV,
-        normalRate: metrics.normal_rate_pct,
-      }))
+      .map(([name, metrics]) => {
+        const useShifted = gasShift && metrics.shifted
+        return {
+          name,
+          time: metrics.time_per_step_s * 1000, // s -> ms for display
+          mae: useShifted ? metrics.shifted.MAE_normal_eV : metrics.MAE_normal_eV,
+          normalRate: useShifted ? metrics.shifted.normal_rate_pct : metrics.normal_rate_pct,
+        }
+      })
 
     // Performance plot data (Time vs MAE)
     const performanceData = points.map(p => ({
@@ -175,7 +178,7 @@ function ParetoPlots({ data, isDark = true }) {
       performancePareto: performancePareto.map(i => performanceData[i].name),
       stabilityPareto: stabilityPareto.map(i => stabilityData[i].name),
     }
-  }, [data])
+  }, [data, gasShift])
 
   if (!plotData.performance.length) return null
 
@@ -211,7 +214,7 @@ function ParetoPlots({ data, isDark = true }) {
                 name="MAE"
                 type="number"
                 tick={{ fill: textColor, fontSize: 18 }}
-                label={{ value: 'Normal MAE (eV)', angle: -90, position: 'insideLeft', fill: textColor, fontSize: 24, fontWeight: 'bold', dx: -5, textAnchor: 'middle' }}
+                label={{ value: gasShift ? 'Normal MAE (eV, gas-shifted)' : 'Normal MAE (eV)', angle: -90, position: 'insideLeft', fill: textColor, fontSize: 24, fontWeight: 'bold', dx: -5, textAnchor: 'middle' }}
                 domain={['auto', 'auto']}
               />
               <Tooltip
