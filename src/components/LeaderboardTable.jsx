@@ -228,6 +228,12 @@ function AdsorbateModal({ mlip, metadata, onClose, isDark, datasetId, gasShift =
   // plus the applied per-adsorbate shift itself (null = below N-floor, no correction)
   const shiftedAnomalyCount = (ads) =>
     (ads.num_anomaly_total || 0) - (ads.num_energy_anomaly || 0) + (ads.num_energy_anomaly_shifted || 0)
+  // Shifted parity plots (drawn from shift-corrected energies + re-classified categories)
+  const hasShiftedPlots = !!(mlip.plots?.multi_total_shifted || mlip.plots?.multi_normal_shifted)
+  const useShiftedPlots = gasShift && hasShiftedPlots
+  const plotPairs = useShiftedPlots
+    ? [['multi_total_shifted', 'Total', 'all reactions · gas-shifted'], ['multi_normal_shifted', 'Normal', 're-classified · gas-shifted']]
+    : [['multi_total', 'Total', 'all reactions'], ['multi_normal', 'Normal', 'anomalies & migration excluded']]
 
   return createPortal(
     <div className="fixed inset-0 z-50" onClick={onClose}>
@@ -324,14 +330,21 @@ function AdsorbateModal({ mlip, metadata, onClose, isDark, datasetId, gasShift =
             <div className="px-6 pt-4">
               <div className={`text-base font-semibold mb-3 ${isDark ? 'text-slate-300' : 'text-slate-700'}`}>
                 Parity plots · MLIP vs DFT (per adsorbate type)
-                {gasShift && (
+                {useShiftedPlots && (
+                  <span className={`ml-2 px-2 py-0.5 text-xs font-semibold rounded ${
+                    isDark ? 'bg-accent-600/20 text-accent-300' : 'bg-accent-50 text-accent-700'
+                  }`}>
+                    gas-shifted
+                  </span>
+                )}
+                {gasShift && !hasShiftedPlots && (
                   <span className={`ml-2 text-xs font-normal ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>
                     (plots show unshifted values)
                   </span>
                 )}
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {[['multi_total', 'Total', 'all reactions'], ['multi_normal', 'Normal', 'anomalies & migration excluded']].map(([k, label, sub]) => (
+                {plotPairs.map(([k, label, sub]) => (
                   mlip.plots?.[k] ? (
                     <figure key={k} className="m-0">
                       <figcaption className={`text-center text-lg font-bold mb-1.5 ${isDark ? 'text-slate-100' : 'text-slate-900'}`}>
@@ -678,7 +691,7 @@ function LeaderboardTable({ data, isDark = true, mlipMetadata = null, gasShift =
         {onToggleGasShift && (
           <div className="flex items-center gap-2">
             <Tooltip
-              content="Removes each adsorbate's mean signed error (fitted on structure-valid reactions, N≥5) — a systematic gas-reference offset correction. Energy anomalies are re-classified after shifting. Parity plots stay unshifted."
+              content="Removes each adsorbate's median signed error (fitted on structure-valid reactions, N≥5) — a systematic gas-reference offset correction. Energy anomalies are re-classified after shifting, and the modal shows gas-shifted parity plots."
               position="left"
             >
               <span className={`flex items-center gap-1.5 text-sm font-medium cursor-help ${

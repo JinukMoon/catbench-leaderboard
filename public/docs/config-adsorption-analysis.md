@@ -22,6 +22,7 @@
 | `benchmarking_name` | Output file prefix. | CWD name |
 | `time_unit` | `"s"`, `"ms"`, or `"us"`. | "ms" |
 | `plot_enabled` | Generate plots. | True |
+| `plot_scope` | `"full"` (all mono/multi plots) or `"multi_core"` (only multi total/normal + gas-shifted twins; much faster). | "full" |
 | `figsize` | Figure size (width, height) in inches. | (9, 8) |
 | `dpi` | Plot DPI. | 300 |
 | `mark_size` | Marker size. | 100 |

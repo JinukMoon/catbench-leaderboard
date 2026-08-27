@@ -4,7 +4,7 @@
   "source": "catalysis-hub",
   "featured": false,
   "has_d3": false,
-  "last_updated": "2026-08-27T21:40:03.995267Z",
+  "last_updated": "2026-08-27T23:32:36.143807Z",
   "reaction_count": 129,
   "adsorbates": [
     "HO",
@@ -33,7 +33,9 @@
       "steps_total": 37837,
       "plots": {
         "multi_total": "ZhaoTrends2019/AlphaNet-v1-OMA/multi/total.png",
-        "multi_normal": "ZhaoTrends2019/AlphaNet-v1-OMA/multi/normal.png"
+        "multi_normal": "ZhaoTrends2019/AlphaNet-v1-OMA/multi/normal.png",
+        "multi_total_shifted": "ZhaoTrends2019/AlphaNet-v1-OMA/multi/total_shifted.png",
+        "multi_normal_shifted": "ZhaoTrends2019/AlphaNet-v1-OMA/multi/normal_shifted.png"
       },
       "adsorbate_breakdown": {
         "HO": {
@@ -49,10 +51,10 @@
           "num_unphysical_relaxation": 34,
           "num_adsorbate_migration": 0,
           "num_energy_anomaly": 0,
-          "shift_eV": 0.09104683034369646,
+          "shift_eV": -0.04558160786376675,
           "n_fit": 9,
-          "MAE_total_shifted": 0.2666922484491084,
-          "MAE_normal_shifted": 0.3213740762818315,
+          "MAE_total_shifted": 0.2611138438335753,
+          "MAE_normal_shifted": 0.3014267172005248,
           "num_normal_shifted": 9,
           "num_energy_anomaly_shifted": 0
         },
@@ -89,9 +91,9 @@
           "num_unphysical_relaxation": 34,
           "num_adsorbate_migration": 1,
           "num_energy_anomaly": 0,
-          "shift_eV": 0.1162921170629829,
+          "shift_eV": 0.08776921717773689,
           "n_fit": 8,
-          "MAE_total_shifted": 0.5616082943294086,
+          "MAE_total_shifted": 0.5635982640888444,
           "MAE_normal_shifted": 0.3034926317407241,
           "num_normal_shifted": 8,
           "num_energy_anomaly_shifted": 0
@@ -106,9 +108,9 @@
           "unphysical_relaxation": 79.06976744186046,
           "energy_anomaly": 0.0
         },
-        "MAE_total_eV": 0.4976887155806461,
-        "MAE_normal_eV": 0.3196827724274477,
-        "MAE_single_eV": 0.4010734255587064
+        "MAE_total_eV": 0.4964925706286137,
+        "MAE_normal_eV": 0.310234023388934,
+        "MAE_single_eV": 0.4036560935296878
       }
     },
     "CHGNetv0.3.0": {
@@ -132,7 +134,9 @@
       "steps_total": 31067,
       "plots": {
         "multi_total": "ZhaoTrends2019/CHGNetv0.3.0/multi/total.png",
-        "multi_normal": "ZhaoTrends2019/CHGNetv0.3.0/multi/normal.png"
+        "multi_normal": "ZhaoTrends2019/CHGNetv0.3.0/multi/normal.png",
+        "multi_total_shifted": "ZhaoTrends2019/CHGNetv0.3.0/multi/total_shifted.png",
+        "multi_normal_shifted": "ZhaoTrends2019/CHGNetv0.3.0/multi/normal_shifted.png"
       },
       "adsorbate_breakdown": {
         "HO": {
@@ -148,10 +152,10 @@
           "num_unphysical_relaxation": 20,
           "num_adsorbate_migration": 0,
           "num_energy_anomaly": 0,
-          "shift_eV": 0.07046936807202696,
+          "shift_eV": 0.05512448773436063,
           "n_fit": 23,
-          "MAE_total_shifted": 0.2438875233373075,
-          "MAE_normal_shifted": 0.2112325482907306,
+          "MAE_total_shifted": 0.2435306656550362,
+          "MAE_normal_shifted": 0.2105653795803973,
           "num_normal_shifted": 23,
           "num_energy_anomaly_shifted": 0
         },
@@ -168,9 +172,9 @@
           "num_unphysical_relaxation": 22,
           "num_adsorbate_migration": 9,
           "num_energy_anomaly": 1,
-          "shift_eV": 1.335996719384772,
+          "shift_eV": 1.32666260861329,
           "n_fit": 8,
-          "MAE_total_shifted": 0.9201041189060201,
+          "MAE_total_shifted": 0.9194529018754516,
           "MAE_normal_shifted": 0.4982123770410194,
           "num_normal_shifted": 8,
           "num_energy_anomaly_shifted": 0
@@ -188,10 +192,10 @@
           "num_unphysical_relaxation": 22,
           "num_adsorbate_migration": 6,
           "num_energy_anomaly": 0,
-          "shift_eV": 0.415804130023107,
+          "shift_eV": 0.2438921930859408,
           "n_fit": 15,
-          "MAE_total_shifted": 0.5137456376494778,
-          "MAE_normal_shifted": 0.3390384968089857,
+          "MAE_total_shifted": 0.4533898489672284,
+          "MAE_normal_shifted": 0.3230388626819704,
           "num_normal_shifted": 15,
           "num_energy_anomaly_shifted": 0
         }
@@ -205,9 +209,9 @@
           "unphysical_relaxation": 49.6124031007752,
           "energy_anomaly": 0.0
         },
-        "MAE_total_eV": 0.5592457599642684,
-        "MAE_normal_eV": 0.3028179365032553,
-        "MAE_single_eV": 0.4660361542015118
+        "MAE_total_eV": 0.538791138832572,
+        "MAE_normal_eV": 0.2972670801501489,
+        "MAE_single_eV": 0.4479270812012295
       }
     },
     "DPA-3.1-3M-FT": {
@@ -231,7 +235,9 @@
       "steps_total": 34956,
       "plots": {
         "multi_total": "ZhaoTrends2019/DPA-3.1-3M-FT/multi/total.png",
-        "multi_normal": "ZhaoTrends2019/DPA-3.1-3M-FT/multi/normal.png"
+        "multi_normal": "ZhaoTrends2019/DPA-3.1-3M-FT/multi/normal.png",
+        "multi_total_shifted": "ZhaoTrends2019/DPA-3.1-3M-FT/multi/total_shifted.png",
+        "multi_normal_shifted": "ZhaoTrends2019/DPA-3.1-3M-FT/multi/normal_shifted.png"
       },
       "adsorbate_breakdown": {
         "HO": {
@@ -247,10 +253,10 @@
           "num_unphysical_relaxation": 35,
           "num_adsorbate_migration": 0,
           "num_energy_anomaly": 0,
-          "shift_eV": 0.1311963637419402,
+          "shift_eV": -0.0009653170676955369,
           "n_fit": 8,
-          "MAE_total_shifted": 0.2953810816925583,
-          "MAE_normal_shifted": 0.4479947542918187,
+          "MAE_total_shifted": 0.2680729996613733,
+          "MAE_normal_shifted": 0.4207895632805267,
           "num_normal_shifted": 8,
           "num_energy_anomaly_shifted": 0
         },
@@ -267,10 +273,10 @@
           "num_unphysical_relaxation": 35,
           "num_adsorbate_migration": 0,
           "num_energy_anomaly": 0,
-          "shift_eV": 0.4009508426197418,
+          "shift_eV": 0.1313624596446914,
           "n_fit": 8,
-          "MAE_total_shifted": 0.6426238061698536,
-          "MAE_normal_shifted": 0.4439684196319901,
+          "MAE_total_shifted": 0.4634525558148792,
+          "MAE_normal_shifted": 0.3829896505123703,
           "num_normal_shifted": 8,
           "num_energy_anomaly_shifted": 0
         },
@@ -287,10 +293,10 @@
           "num_unphysical_relaxation": 36,
           "num_adsorbate_migration": 0,
           "num_energy_anomaly": 0,
-          "shift_eV": 0.02337900220237321,
+          "shift_eV": -0.01534350692915609,
           "n_fit": 7,
-          "MAE_total_shifted": 0.47641369504511,
-          "MAE_normal_shifted": 0.3485736982971055,
+          "MAE_total_shifted": 0.475513171576935,
+          "MAE_normal_shifted": 0.3430419112783156,
           "num_normal_shifted": 7,
           "num_energy_anomaly_shifted": 0
         }
@@ -304,9 +310,9 @@
           "unphysical_relaxation": 82.17054263565892,
           "energy_anomaly": 0.0
         },
-        "MAE_total_eV": 0.471472860969174,
-        "MAE_normal_eV": 0.4163357078030526,
-        "MAE_single_eV": 0.3509103652963653
+        "MAE_total_eV": 0.4023462423510625,
+        "MAE_normal_eV": 0.3839794386648429,
+        "MAE_single_eV": 0.2797315614924609
       }
     },
     "Eqnorm-MPtrj": {
@@ -330,7 +336,9 @@
       "steps_total": 37239,
       "plots": {
         "multi_total": "ZhaoTrends2019/Eqnorm-MPtrj/multi/total.png",
-        "multi_normal": "ZhaoTrends2019/Eqnorm-MPtrj/multi/normal.png"
+        "multi_normal": "ZhaoTrends2019/Eqnorm-MPtrj/multi/normal.png",
+        "multi_total_shifted": "ZhaoTrends2019/Eqnorm-MPtrj/multi/total_shifted.png",
+        "multi_normal_shifted": "ZhaoTrends2019/Eqnorm-MPtrj/multi/normal_shifted.png"
       },
       "adsorbate_breakdown": {
         "HO": {
@@ -346,10 +354,10 @@
           "num_unphysical_relaxation": 36,
           "num_adsorbate_migration": 1,
           "num_energy_anomaly": 0,
-          "shift_eV": 0.1116287168785419,
+          "shift_eV": 0.08856150622619907,
           "n_fit": 5,
-          "MAE_total_shifted": 0.2522260220612291,
-          "MAE_normal_shifted": 0.3612794939703178,
+          "MAE_total_shifted": 0.2565683431963127,
+          "MAE_normal_shifted": 0.3566660518398493,
           "num_normal_shifted": 5,
           "num_energy_anomaly_shifted": 0
         },
@@ -366,10 +374,10 @@
           "num_unphysical_relaxation": 35,
           "num_adsorbate_migration": 2,
           "num_energy_anomaly": 0,
-          "shift_eV": 0.6590715114461643,
+          "shift_eV": 0.4955572039617948,
           "n_fit": 5,
-          "MAE_total_shifted": 0.6732488348520087,
-          "MAE_normal_shifted": 0.3079082267624952,
+          "MAE_total_shifted": 0.5600867035969241,
+          "MAE_normal_shifted": 0.2752053652656213,
           "num_normal_shifted": 5,
           "num_energy_anomaly_shifted": 0
         },
@@ -386,10 +394,10 @@
           "num_unphysical_relaxation": 37,
           "num_adsorbate_migration": 0,
           "num_energy_anomaly": 0,
-          "shift_eV": 0.1773501689035584,
+          "shift_eV": 0.3327470764074576,
           "n_fit": 5,
-          "MAE_total_shifted": 0.392832451088845,
-          "MAE_normal_shifted": 0.3580728305281241,
+          "MAE_total_shifted": 0.4137585562377305,
+          "MAE_normal_shifted": 0.3269934490273442,
           "num_normal_shifted": 5,
           "num_energy_anomaly_shifted": 0
         }
@@ -403,9 +411,9 @@
           "unphysical_relaxation": 83.72093023255815,
           "energy_anomaly": 0.0
         },
-        "MAE_total_eV": 0.4394357693340276,
-        "MAE_normal_eV": 0.3424201837536457,
-        "MAE_single_eV": 0.3318107960461465
+        "MAE_total_eV": 0.4101378676769891,
+        "MAE_normal_eV": 0.3196216220442716,
+        "MAE_single_eV": 0.2929568228418697
       }
     },
     "eSEN-30M-OAM": {
@@ -429,7 +437,9 @@
       "steps_total": 28521,
       "plots": {
         "multi_total": "ZhaoTrends2019/eSEN-30M-OAM/multi/total.png",
-        "multi_normal": "ZhaoTrends2019/eSEN-30M-OAM/multi/normal.png"
+        "multi_normal": "ZhaoTrends2019/eSEN-30M-OAM/multi/normal.png",
+        "multi_total_shifted": "ZhaoTrends2019/eSEN-30M-OAM/multi/total_shifted.png",
+        "multi_normal_shifted": "ZhaoTrends2019/eSEN-30M-OAM/multi/normal_shifted.png"
       },
       "adsorbate_breakdown": {
         "HO": {
@@ -445,9 +455,9 @@
           "num_unphysical_relaxation": 35,
           "num_adsorbate_migration": 0,
           "num_energy_anomaly": 0,
-          "shift_eV": 0.1195007524212648,
+          "shift_eV": 0.1616655053216647,
           "n_fit": 8,
-          "MAE_total_shifted": 0.2309847974629853,
+          "MAE_total_shifted": 0.244052469987289,
           "MAE_normal_shifted": 0.3069294420019566,
           "num_normal_shifted": 8,
           "num_energy_anomaly_shifted": 0
@@ -465,10 +475,10 @@
           "num_unphysical_relaxation": 35,
           "num_adsorbate_migration": 1,
           "num_energy_anomaly": 0,
-          "shift_eV": 0.6074989748970215,
+          "shift_eV": 0.3082808405889921,
           "n_fit": 7,
-          "MAE_total_shifted": 0.6311255166869447,
-          "MAE_normal_shifted": 0.3718652240640891,
+          "MAE_total_shifted": 0.4217634097719787,
+          "MAE_normal_shifted": 0.3291197763057991,
           "num_normal_shifted": 7,
           "num_energy_anomaly_shifted": 0
         },
@@ -485,10 +495,10 @@
           "num_unphysical_relaxation": 35,
           "num_adsorbate_migration": 0,
           "num_energy_anomaly": 0,
-          "shift_eV": 0.1919874584045347,
+          "shift_eV": 0.1231710383142115,
           "n_fit": 8,
-          "MAE_total_shifted": 0.3780294193948138,
-          "MAE_normal_shifted": 0.3093462675689731,
+          "MAE_total_shifted": 0.3550226286523446,
+          "MAE_normal_shifted": 0.2977767899584992,
           "num_normal_shifted": 8,
           "num_energy_anomaly_shifted": 0
         }
@@ -502,9 +512,9 @@
           "unphysical_relaxation": 81.3953488372093,
           "energy_anomaly": 0.0
         },
-        "MAE_total_eV": 0.4133799111815813,
-        "MAE_normal_eV": 0.3275331410876549,
-        "MAE_single_eV": 0.3269871180109757
+        "MAE_total_eV": 0.3402795028038707,
+        "MAE_normal_eV": 0.3104994908619235,
+        "MAE_single_eV": 0.2516200001345236
       }
     },
     "GRACE-2L-OAM": {
@@ -528,7 +538,9 @@
       "steps_total": 44999,
       "plots": {
         "multi_total": "ZhaoTrends2019/GRACE-2L-OAM/multi/total.png",
-        "multi_normal": "ZhaoTrends2019/GRACE-2L-OAM/multi/normal.png"
+        "multi_normal": "ZhaoTrends2019/GRACE-2L-OAM/multi/normal.png",
+        "multi_total_shifted": "ZhaoTrends2019/GRACE-2L-OAM/multi/total_shifted.png",
+        "multi_normal_shifted": "ZhaoTrends2019/GRACE-2L-OAM/multi/normal_shifted.png"
       },
       "adsorbate_breakdown": {
         "HO": {
@@ -544,10 +556,10 @@
           "num_unphysical_relaxation": 33,
           "num_adsorbate_migration": 3,
           "num_energy_anomaly": 0,
-          "shift_eV": 0.1450406291715316,
+          "shift_eV": 0.2137522662443621,
           "n_fit": 6,
-          "MAE_total_shifted": 0.2794777826185646,
-          "MAE_normal_shifted": 0.3425352633737049,
+          "MAE_total_shifted": 0.2948834860673299,
+          "MAE_normal_shifted": 0.3336001750697237,
           "num_normal_shifted": 6,
           "num_energy_anomaly_shifted": 0
         },
@@ -584,10 +596,10 @@
           "num_unphysical_relaxation": 35,
           "num_adsorbate_migration": 0,
           "num_energy_anomaly": 0,
-          "shift_eV": 0.06084108905621864,
+          "shift_eV": 0.2646123765478983,
           "n_fit": 7,
-          "MAE_total_shifted": 0.5620878266175199,
-          "MAE_normal_shifted": 0.3155686161893225,
+          "MAE_total_shifted": 0.5674169037151122,
+          "MAE_normal_shifted": 0.2864584322619397,
           "num_normal_shifted": 7,
           "num_energy_anomaly_shifted": 0
         }
@@ -601,9 +613,9 @@
           "unphysical_relaxation": 79.84496124031007,
           "energy_anomaly": 0.0
         },
-        "MAE_total_eV": 0.465440713614357,
-        "MAE_normal_eV": 0.403607935323457,
-        "MAE_single_eV": 0.379729631723778
+        "MAE_total_eV": 0.4723523071298096,
+        "MAE_normal_eV": 0.3864491475024193,
+        "MAE_single_eV": 0.3811617611834899
       }
     },
     "MACE-MPA-0": {
@@ -627,7 +639,9 @@
       "steps_total": 34591,
       "plots": {
         "multi_total": "ZhaoTrends2019/MACE-MPA-0/multi/total.png",
-        "multi_normal": "ZhaoTrends2019/MACE-MPA-0/multi/normal.png"
+        "multi_normal": "ZhaoTrends2019/MACE-MPA-0/multi/normal.png",
+        "multi_total_shifted": "ZhaoTrends2019/MACE-MPA-0/multi/total_shifted.png",
+        "multi_normal_shifted": "ZhaoTrends2019/MACE-MPA-0/multi/normal_shifted.png"
       },
       "adsorbate_breakdown": {
         "HO": {
@@ -643,10 +657,10 @@
           "num_unphysical_relaxation": 34,
           "num_adsorbate_migration": 0,
           "num_energy_anomaly": 0,
-          "shift_eV": 0.188366275010848,
+          "shift_eV": 0.1567132796874944,
           "n_fit": 9,
-          "MAE_total_shifted": 0.2550584957226067,
-          "MAE_normal_shifted": 0.3881023212186598,
+          "MAE_total_shifted": 0.2641082620589593,
+          "MAE_normal_shifted": 0.3845853217382873,
           "num_normal_shifted": 9,
           "num_energy_anomaly_shifted": 0
         },
@@ -683,10 +697,10 @@
           "num_unphysical_relaxation": 34,
           "num_adsorbate_migration": 0,
           "num_energy_anomaly": 0,
-          "shift_eV": 0.3169623921071971,
+          "shift_eV": 0.3747056525976689,
           "n_fit": 9,
-          "MAE_total_shifted": 0.3762611849704252,
-          "MAE_normal_shifted": 0.341423480367481,
+          "MAE_total_shifted": 0.3786808080341593,
+          "MAE_normal_shifted": 0.3244351415408018,
           "num_normal_shifted": 9,
           "num_energy_anomaly_shifted": 0
         }
@@ -700,9 +714,9 @@
           "unphysical_relaxation": 79.06976744186046,
           "energy_anomaly": 0.0
         },
-        "MAE_total_eV": 0.4698456032288307,
-        "MAE_normal_eV": 0.4762736661220642,
-        "MAE_single_eV": 0.4250148502752289
+        "MAE_total_eV": 0.4736687330288596,
+        "MAE_normal_eV": 0.4678851186328157,
+        "MAE_single_eV": 0.4278348089952702
       }
     },
     "MATLANTISv8": {
@@ -726,7 +740,9 @@
       "steps_total": 33163,
       "plots": {
         "multi_total": "ZhaoTrends2019/MATLANTISv8/multi/total.png",
-        "multi_normal": "ZhaoTrends2019/MATLANTISv8/multi/normal.png"
+        "multi_normal": "ZhaoTrends2019/MATLANTISv8/multi/normal.png",
+        "multi_total_shifted": "ZhaoTrends2019/MATLANTISv8/multi/total_shifted.png",
+        "multi_normal_shifted": "ZhaoTrends2019/MATLANTISv8/multi/normal_shifted.png"
       },
       "adsorbate_breakdown": {
         "HO": {
@@ -742,10 +758,10 @@
           "num_unphysical_relaxation": 33,
           "num_adsorbate_migration": 1,
           "num_energy_anomaly": 0,
-          "shift_eV": 0.1433422166278205,
+          "shift_eV": 0.1309181524368626,
           "n_fit": 9,
-          "MAE_total_shifted": 0.265876745256695,
-          "MAE_normal_shifted": 0.2726549939204798,
+          "MAE_total_shifted": 0.2603870424746438,
+          "MAE_normal_shifted": 0.2712745423437066,
           "num_normal_shifted": 9,
           "num_energy_anomaly_shifted": 0
         },
@@ -762,10 +778,10 @@
           "num_unphysical_relaxation": 33,
           "num_adsorbate_migration": 1,
           "num_energy_anomaly": 0,
-          "shift_eV": 0.4321524507079449,
+          "shift_eV": 0.3828935846227353,
           "n_fit": 8,
-          "MAE_total_shifted": 0.6391539010962983,
-          "MAE_normal_shifted": 0.1266158835306562,
+          "MAE_total_shifted": 0.6014180221778589,
+          "MAE_normal_shifted": 0.1146636404242319,
           "num_normal_shifted": 8,
           "num_energy_anomaly_shifted": 0
         },
@@ -782,10 +798,10 @@
           "num_unphysical_relaxation": 34,
           "num_adsorbate_migration": 0,
           "num_energy_anomaly": 0,
-          "shift_eV": 0.2417865930804247,
+          "shift_eV": 0.3381245558341277,
           "n_fit": 9,
-          "MAE_total_shifted": 0.4900874771249432,
-          "MAE_normal_shifted": 0.2485350488582984,
+          "MAE_total_shifted": 0.5306398121343577,
+          "MAE_normal_shifted": 0.2152809210600584,
           "num_normal_shifted": 9,
           "num_energy_anomaly_shifted": 0
         }
@@ -799,9 +815,9 @@
           "unphysical_relaxation": 77.51937984496125,
           "energy_anomaly": 0.0
         },
-        "MAE_total_eV": 0.4650393744926455,
-        "MAE_normal_eV": 0.2193706712790097,
-        "MAE_single_eV": 0.3243224389188559
+        "MAE_total_eV": 0.4641482922622868,
+        "MAE_normal_eV": 0.2037041651549131,
+        "MAE_single_eV": 0.3223397562945073
       }
     },
     "MatterSim_v1_5M": {
@@ -825,7 +841,9 @@
       "steps_total": 35080,
       "plots": {
         "multi_total": "ZhaoTrends2019/MatterSim_v1_5M/multi/total.png",
-        "multi_normal": "ZhaoTrends2019/MatterSim_v1_5M/multi/normal.png"
+        "multi_normal": "ZhaoTrends2019/MatterSim_v1_5M/multi/normal.png",
+        "multi_total_shifted": "ZhaoTrends2019/MatterSim_v1_5M/multi/total_shifted.png",
+        "multi_normal_shifted": "ZhaoTrends2019/MatterSim_v1_5M/multi/normal_shifted.png"
       },
       "adsorbate_breakdown": {
         "HO": {
@@ -841,10 +859,10 @@
           "num_unphysical_relaxation": 29,
           "num_adsorbate_migration": 0,
           "num_energy_anomaly": 0,
-          "shift_eV": 0.04631235105259433,
+          "shift_eV": -0.005433137836911572,
           "n_fit": 14,
-          "MAE_total_shifted": 0.2259408207373873,
-          "MAE_normal_shifted": 0.2210198118478979,
+          "MAE_total_shifted": 0.2277410481913132,
+          "MAE_normal_shifted": 0.2127604994531284,
           "num_normal_shifted": 14,
           "num_energy_anomaly_shifted": 0
         },
@@ -861,9 +879,9 @@
           "num_unphysical_relaxation": 28,
           "num_adsorbate_migration": 6,
           "num_energy_anomaly": 0,
-          "shift_eV": 0.3920189298486487,
+          "shift_eV": 0.3547866290869239,
           "n_fit": 6,
-          "MAE_total_shifted": 0.7101069127993289,
+          "MAE_total_shifted": 0.6929100437881509,
           "MAE_normal_shifted": 0.2442850955143073,
           "num_normal_shifted": 6,
           "num_energy_anomaly_shifted": 0
@@ -881,10 +899,10 @@
           "num_unphysical_relaxation": 30,
           "num_adsorbate_migration": 1,
           "num_energy_anomaly": 0,
-          "shift_eV": 0.05533725346857198,
+          "shift_eV": 0.1956644257128914,
           "n_fit": 11,
-          "MAE_total_shifted": 0.515432763837167,
-          "MAE_normal_shifted": 0.2952309114643608,
+          "MAE_total_shifted": 0.5296215453819962,
+          "MAE_normal_shifted": 0.2714487246590928,
           "num_normal_shifted": 11,
           "num_energy_anomaly_shifted": 0
         }
@@ -898,9 +916,9 @@
           "unphysical_relaxation": 67.44186046511628,
           "energy_anomaly": 0.0
         },
-        "MAE_total_eV": 0.483826832457961,
-        "MAE_normal_eV": 0.2518557408085285,
-        "MAE_single_eV": 0.2756101641698409
+        "MAE_total_eV": 0.4834242124538201,
+        "MAE_normal_eV": 0.2396868882799891,
+        "MAE_single_eV": 0.2684466036081508
       }
     },
     "ORB-v3": {
@@ -924,7 +942,9 @@
       "steps_total": 31934,
       "plots": {
         "multi_total": "ZhaoTrends2019/ORB-v3/multi/total.png",
-        "multi_normal": "ZhaoTrends2019/ORB-v3/multi/normal.png"
+        "multi_normal": "ZhaoTrends2019/ORB-v3/multi/normal.png",
+        "multi_total_shifted": "ZhaoTrends2019/ORB-v3/multi/total_shifted.png",
+        "multi_normal_shifted": "ZhaoTrends2019/ORB-v3/multi/normal_shifted.png"
       },
       "adsorbate_breakdown": {
         "HO": {
@@ -940,9 +960,9 @@
           "num_unphysical_relaxation": 35,
           "num_adsorbate_migration": 0,
           "num_energy_anomaly": 0,
-          "shift_eV": -0.007506069033812679,
+          "shift_eV": 0.01527235162537011,
           "n_fit": 8,
-          "MAE_total_shifted": 0.2029826499919381,
+          "MAE_total_shifted": 0.1980405663858104,
           "MAE_normal_shifted": 0.2440251503466833,
           "num_normal_shifted": 8,
           "num_energy_anomaly_shifted": 0
@@ -960,10 +980,10 @@
           "num_unphysical_relaxation": 31,
           "num_adsorbate_migration": 3,
           "num_energy_anomaly": 0,
-          "shift_eV": 0.264519301921657,
+          "shift_eV": 0.1615930610650764,
           "n_fit": 7,
-          "MAE_total_shifted": 0.6573473334014234,
-          "MAE_normal_shifted": 0.2471088495615334,
+          "MAE_total_shifted": 0.5859102686541628,
+          "MAE_normal_shifted": 0.2324051008677361,
           "num_normal_shifted": 7,
           "num_energy_anomaly_shifted": 0
         },
@@ -980,10 +1000,10 @@
           "num_unphysical_relaxation": 33,
           "num_adsorbate_migration": 0,
           "num_energy_anomaly": 0,
-          "shift_eV": 0.01602553771226035,
+          "shift_eV": -0.000138316575942099,
           "n_fit": 9,
-          "MAE_total_shifted": 0.3486944804183846,
-          "MAE_normal_shifted": 0.2280562867525121,
+          "MAE_total_shifted": 0.3513258055350688,
+          "MAE_normal_shifted": 0.2262603029427118,
           "num_normal_shifted": 9,
           "num_energy_anomaly_shifted": 0
         }
@@ -997,9 +1017,9 @@
           "unphysical_relaxation": 76.74418604651163,
           "energy_anomaly": 0.0
         },
-        "MAE_total_eV": 0.4030081546039154,
-        "MAE_normal_eV": 0.238936238769867,
-        "MAE_single_eV": 0.24306662881311
+        "MAE_total_eV": 0.3784255468583474,
+        "MAE_normal_eV": 0.2339741514721677,
+        "MAE_single_eV": 0.2215449506318151
       }
     },
     "SevenNet-MF-OMPA": {
@@ -1023,7 +1043,9 @@
       "steps_total": 32709,
       "plots": {
         "multi_total": "ZhaoTrends2019/SevenNet-MF-OMPA/multi/total.png",
-        "multi_normal": "ZhaoTrends2019/SevenNet-MF-OMPA/multi/normal.png"
+        "multi_normal": "ZhaoTrends2019/SevenNet-MF-OMPA/multi/normal.png",
+        "multi_total_shifted": "ZhaoTrends2019/SevenNet-MF-OMPA/multi/total_shifted.png",
+        "multi_normal_shifted": "ZhaoTrends2019/SevenNet-MF-OMPA/multi/normal_shifted.png"
       },
       "adsorbate_breakdown": {
         "HO": {
@@ -1039,9 +1061,9 @@
           "num_unphysical_relaxation": 36,
           "num_adsorbate_migration": 1,
           "num_energy_anomaly": 0,
-          "shift_eV": -0.3109015127577782,
+          "shift_eV": -0.3193557243756118,
           "n_fit": 6,
-          "MAE_total_shifted": 0.2554718453357407,
+          "MAE_total_shifted": 0.2592074272133881,
           "MAE_normal_shifted": 0.2580370198730459,
           "num_normal_shifted": 6,
           "num_energy_anomaly_shifted": 0
@@ -1096,9 +1118,9 @@
           "unphysical_relaxation": 84.49612403100775,
           "energy_anomaly": 0.0
         },
-        "MAE_total_eV": 0.4096761980303567,
+        "MAE_total_eV": 0.4109213919895724,
         "MAE_normal_eV": 0.2768907641783285,
-        "MAE_single_eV": 0.2911681488370062
+        "MAE_single_eV": 0.2925444158445605
       }
     },
     "UMA-m-1p1_oc20": {
@@ -1122,7 +1144,9 @@
       "steps_total": 38191,
       "plots": {
         "multi_total": "ZhaoTrends2019/UMA-m-1p1_oc20/multi/total.png",
-        "multi_normal": "ZhaoTrends2019/UMA-m-1p1_oc20/multi/normal.png"
+        "multi_normal": "ZhaoTrends2019/UMA-m-1p1_oc20/multi/normal.png",
+        "multi_total_shifted": "ZhaoTrends2019/UMA-m-1p1_oc20/multi/total_shifted.png",
+        "multi_normal_shifted": "ZhaoTrends2019/UMA-m-1p1_oc20/multi/normal_shifted.png"
       },
       "adsorbate_breakdown": {
         "HO": {
@@ -1138,10 +1162,10 @@
           "num_unphysical_relaxation": 35,
           "num_adsorbate_migration": 1,
           "num_energy_anomaly": 0,
-          "shift_eV": -0.4025804568760946,
+          "shift_eV": -0.8047642610979722,
           "n_fit": 7,
-          "MAE_total_shifted": 0.6266590708685068,
-          "MAE_normal_shifted": 0.6273793087082586,
+          "MAE_total_shifted": 0.5506186647518801,
+          "MAE_normal_shifted": 0.5699244795337047,
           "num_normal_shifted": 7,
           "num_energy_anomaly_shifted": 0
         },
@@ -1158,10 +1182,10 @@
           "num_unphysical_relaxation": 36,
           "num_adsorbate_migration": 0,
           "num_energy_anomaly": 0,
-          "shift_eV": 0.03839443161191663,
+          "shift_eV": 0.2859965356075236,
           "n_fit": 7,
-          "MAE_total_shifted": 1.181007702715642,
-          "MAE_normal_shifted": 0.847311853318783,
+          "MAE_total_shifted": 1.319152460118268,
+          "MAE_normal_shifted": 0.8119401241765535,
           "num_normal_shifted": 7,
           "num_energy_anomaly_shifted": 0
         },
@@ -1178,10 +1202,10 @@
           "num_unphysical_relaxation": 35,
           "num_adsorbate_migration": 1,
           "num_energy_anomaly": 2,
-          "shift_eV": -1.464623612093163,
+          "shift_eV": -1.894155474969352,
           "n_fit": 5,
-          "MAE_total_shifted": 0.8951663319147173,
-          "MAE_normal_shifted": 0.6581558553898433,
+          "MAE_total_shifted": 0.9273381373422057,
+          "MAE_normal_shifted": 0.4433899239517487,
           "num_normal_shifted": 4,
           "num_energy_anomaly_shifted": 1
         }
@@ -1195,9 +1219,9 @@
           "unphysical_relaxation": 82.17054263565892,
           "energy_anomaly": 0.7751937984496124
         },
-        "MAE_total_eV": 0.9009443684996221,
-        "MAE_normal_eV": 0.7197478642082591,
-        "MAE_single_eV": 0.6709325636183032
+        "MAE_total_eV": 0.9323697540707847,
+        "MAE_normal_eV": 0.6359228845432668,
+        "MAE_single_eV": 0.7113110003234383
       }
     },
     "UMA-m-1p1_omat": {
@@ -1221,7 +1245,9 @@
       "steps_total": 30424,
       "plots": {
         "multi_total": "ZhaoTrends2019/UMA-m-1p1_omat/multi/total.png",
-        "multi_normal": "ZhaoTrends2019/UMA-m-1p1_omat/multi/normal.png"
+        "multi_normal": "ZhaoTrends2019/UMA-m-1p1_omat/multi/normal.png",
+        "multi_total_shifted": "ZhaoTrends2019/UMA-m-1p1_omat/multi/total_shifted.png",
+        "multi_normal_shifted": "ZhaoTrends2019/UMA-m-1p1_omat/multi/normal_shifted.png"
       },
       "adsorbate_breakdown": {
         "HO": {
@@ -1237,10 +1263,10 @@
           "num_unphysical_relaxation": 33,
           "num_adsorbate_migration": 0,
           "num_energy_anomaly": 0,
-          "shift_eV": -0.2453656339305791,
+          "shift_eV": -0.3036568660868042,
           "n_fit": 10,
-          "MAE_total_shifted": 0.2204809633128243,
-          "MAE_normal_shifted": 0.2541752771055424,
+          "MAE_total_shifted": 0.2005499424232045,
+          "MAE_normal_shifted": 0.2513227121762501,
           "num_normal_shifted": 10,
           "num_energy_anomaly_shifted": 0
         },
@@ -1257,10 +1283,10 @@
           "num_unphysical_relaxation": 34,
           "num_adsorbate_migration": 0,
           "num_energy_anomaly": 0,
-          "shift_eV": -0.1272178452830015,
+          "shift_eV": -0.2258924728876934,
           "n_fit": 9,
-          "MAE_total_shifted": 0.4696097253795317,
-          "MAE_normal_shifted": 0.2373842666880218,
+          "MAE_total_shifted": 0.4034786715710542,
+          "MAE_normal_shifted": 0.2052266502060804,
           "num_normal_shifted": 9,
           "num_energy_anomaly_shifted": 0
         },
@@ -1277,9 +1303,9 @@
           "num_unphysical_relaxation": 33,
           "num_adsorbate_migration": 0,
           "num_energy_anomaly": 0,
-          "shift_eV": -0.1068164233666424,
+          "shift_eV": -0.09550790178191448,
           "n_fit": 10,
-          "MAE_total_shifted": 0.389147808070101,
+          "MAE_total_shifted": 0.39313001864157,
           "MAE_normal_shifted": 0.3400651850732983,
           "num_normal_shifted": 10,
           "num_energy_anomaly_shifted": 0
@@ -1294,9 +1320,9 @@
           "unphysical_relaxation": 77.51937984496125,
           "energy_anomaly": 0.0
         },
-        "MAE_total_eV": 0.3597461655874856,
-        "MAE_normal_eV": 0.2785814835165725,
-        "MAE_single_eV": 0.2806560649208096
+        "MAE_total_eV": 0.3323862108786095,
+        "MAE_normal_eV": 0.2676178904948348,
+        "MAE_single_eV": 0.2441329920710161
       }
     },
     "UMA-s-1p1_oc20": {
@@ -1320,7 +1346,9 @@
       "steps_total": 38909,
       "plots": {
         "multi_total": "ZhaoTrends2019/UMA-s-1p1_oc20/multi/total.png",
-        "multi_normal": "ZhaoTrends2019/UMA-s-1p1_oc20/multi/normal.png"
+        "multi_normal": "ZhaoTrends2019/UMA-s-1p1_oc20/multi/normal.png",
+        "multi_total_shifted": "ZhaoTrends2019/UMA-s-1p1_oc20/multi/total_shifted.png",
+        "multi_normal_shifted": "ZhaoTrends2019/UMA-s-1p1_oc20/multi/normal_shifted.png"
       },
       "adsorbate_breakdown": {
         "HO": {
@@ -1336,10 +1364,10 @@
           "num_unphysical_relaxation": 33,
           "num_adsorbate_migration": 1,
           "num_energy_anomaly": 0,
-          "shift_eV": -0.232779971657087,
+          "shift_eV": -0.6895958449497357,
           "n_fit": 9,
-          "MAE_total_shifted": 0.6054024404024686,
-          "MAE_normal_shifted": 0.7540656873200703,
+          "MAE_total_shifted": 0.5135565310277277,
+          "MAE_normal_shifted": 0.7033083680653315,
           "num_normal_shifted": 9,
           "num_energy_anomaly_shifted": 0
         },
@@ -1356,10 +1384,10 @@
           "num_unphysical_relaxation": 33,
           "num_adsorbate_migration": 1,
           "num_energy_anomaly": 0,
-          "shift_eV": 0.1282149714834951,
+          "shift_eV": -0.04572335716653697,
           "n_fit": 8,
-          "MAE_total_shifted": 1.127787548235959,
-          "MAE_normal_shifted": 0.6843698272397872,
+          "MAE_total_shifted": 1.040178131496704,
+          "MAE_normal_shifted": 0.6700573249726255,
           "num_normal_shifted": 8,
           "num_energy_anomaly_shifted": 0
         },
@@ -1376,10 +1404,10 @@
           "num_unphysical_relaxation": 33,
           "num_adsorbate_migration": 0,
           "num_energy_anomaly": 3,
-          "shift_eV": -1.485050212914359,
+          "shift_eV": -1.804520461098122,
           "n_fit": 6,
-          "MAE_total_shifted": 0.8204871507524281,
-          "MAE_normal_shifted": 0.4673148604343169,
+          "MAE_total_shifted": 0.8232073377621425,
+          "MAE_normal_shifted": 0.3596740206156426,
           "num_normal_shifted": 5,
           "num_energy_anomaly_shifted": 1
         }
@@ -1393,9 +1421,9 @@
           "unphysical_relaxation": 76.74418604651163,
           "energy_anomaly": 0.7751937984496124
         },
-        "MAE_total_eV": 0.8512257131302853,
-        "MAE_normal_eV": 0.6635510957259325,
-        "MAE_single_eV": 0.7632533299853707
+        "MAE_total_eV": 0.7923140000955248,
+        "MAE_normal_eV": 0.6131183643385092,
+        "MAE_single_eV": 0.6731390212579922
       }
     },
     "UMA-s-1p1_omat": {
@@ -1419,7 +1447,9 @@
       "steps_total": 30545,
       "plots": {
         "multi_total": "ZhaoTrends2019/UMA-s-1p1_omat/multi/total.png",
-        "multi_normal": "ZhaoTrends2019/UMA-s-1p1_omat/multi/normal.png"
+        "multi_normal": "ZhaoTrends2019/UMA-s-1p1_omat/multi/normal.png",
+        "multi_total_shifted": "ZhaoTrends2019/UMA-s-1p1_omat/multi/total_shifted.png",
+        "multi_normal_shifted": "ZhaoTrends2019/UMA-s-1p1_omat/multi/normal_shifted.png"
       },
       "adsorbate_breakdown": {
         "HO": {
@@ -1435,9 +1465,9 @@
           "num_unphysical_relaxation": 33,
           "num_adsorbate_migration": 0,
           "num_energy_anomaly": 0,
-          "shift_eV": -0.1050346411140037,
+          "shift_eV": -0.0769300108635349,
           "n_fit": 10,
-          "MAE_total_shifted": 0.2198017569366305,
+          "MAE_total_shifted": 0.2243896202595671,
           "MAE_normal_shifted": 0.3025212138836768,
           "num_normal_shifted": 10,
           "num_energy_anomaly_shifted": 0
@@ -1455,10 +1485,10 @@
           "num_unphysical_relaxation": 34,
           "num_adsorbate_migration": 0,
           "num_energy_anomaly": 0,
-          "shift_eV": 0.1797096455886912,
+          "shift_eV": 0.01136074600154302,
           "n_fit": 9,
-          "MAE_total_shifted": 0.605475944604511,
-          "MAE_normal_shifted": 0.3329217843935517,
+          "MAE_total_shifted": 0.4788917113280811,
+          "MAE_normal_shifted": 0.2898230801618294,
           "num_normal_shifted": 9,
           "num_energy_anomaly_shifted": 0
         },
@@ -1475,10 +1505,10 @@
           "num_unphysical_relaxation": 33,
           "num_adsorbate_migration": 0,
           "num_energy_anomaly": 0,
-          "shift_eV": -0.1470072226634819,
+          "shift_eV": -0.1177571753901958,
           "n_fit": 9,
-          "MAE_total_shifted": 0.3465128776009282,
-          "MAE_normal_shifted": 0.2634717998006036,
+          "MAE_total_shifted": 0.3481641207950317,
+          "MAE_normal_shifted": 0.2602217945480163,
           "num_normal_shifted": 9,
           "num_energy_anomaly_shifted": 0
         }
@@ -1492,9 +1522,9 @@
           "unphysical_relaxation": 77.51937984496125,
           "energy_anomaly": 0.0
         },
-        "MAE_total_eV": 0.3905968597140232,
-        "MAE_normal_eV": 0.2997412284494345,
-        "MAE_single_eV": 0.2833659159778635
+        "MAE_total_eV": 0.3504818174608933,
+        "MAE_normal_eV": 0.284843428972335,
+        "MAE_single_eV": 0.242535782126248
       }
     }
   },
