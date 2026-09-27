@@ -4,32 +4,92 @@
   "source": "catalysis-hub",
   "featured": false,
   "has_d3": false,
-  "last_updated": "2026-09-17T01:03:47.233740Z",
-  "reaction_count": 26,
+  "last_updated": "2026-09-27T04:24:30.664970Z",
+  "reaction_count": 10,
   "adsorbates": [
-    "O2",
-    "Se"
+    "O2"
   ],
   "results": {
-    "AlphaNet-v1-OMA": {
-      "original_name": "AlphaNet-v1-OMA",
-      "normal_rate_pct": 84.61538461538461,
+    "Allegro-OAM-L": {
+      "original_name": "Allegro-OAM-L",
+      "normal_rate_pct": 100.0,
       "adsorbate_migration_rate_pct": 0.0,
       "anomaly_rates_pct": {
-        "total": 15.38461538461539,
+        "total": 0.0,
         "reproduction_failure": 0.0,
-        "unphysical_relaxation": 7.692307692307693,
-        "energy_anomaly": 7.692307692307693
+        "unphysical_relaxation": 0.0,
+        "energy_anomaly": 0.0
       },
-      "MAE_total_eV": 0.7856378496657612,
-      "MAE_normal_eV": 0.4764950891728755,
-      "MAE_single_eV": 0.6999534955665598,
-      "ADwT_pct": 88.38827838827831,
-      "AMDwT_pct": 86.76905868180933,
-      "num_total": 26,
-      "time_total_s": 122.8093059062958,
-      "time_per_step_s": 0.0361310108579864,
-      "steps_total": 3399,
+      "MAE_total_eV": 0.4634748959497461,
+      "MAE_normal_eV": 0.4634748959497461,
+      "MAE_single_eV": 0.8043350812046185,
+      "ADwT_pct": 91.66326530612245,
+      "AMDwT_pct": 89.90939597315436,
+      "num_total": 10,
+      "time_total_s": 26.26699137687683,
+      "time_per_step_s": 0.031382307499255475,
+      "steps_total": 837,
+      "plots": {
+        "multi_total": "BothraSodium2024/Allegro-OAM-L/multi/total.png",
+        "multi_normal": "BothraSodium2024/Allegro-OAM-L/multi/normal.png",
+        "multi_total_shifted": "BothraSodium2024/Allegro-OAM-L/multi/total_shifted.png",
+        "multi_normal_shifted": "BothraSodium2024/Allegro-OAM-L/multi/normal_shifted.png"
+      },
+      "adsorbate_breakdown": {
+        "O2": {
+          "MAE_total": 0.4634748959497461,
+          "MAE_normal": 0.4634748959497461,
+          "MAE_single": 0.8043350812046185,
+          "ADwT": 91.66326530612245,
+          "AMDwT": 89.90939597315436,
+          "num_total": 10,
+          "num_normal": 10,
+          "num_anomaly_total": 0,
+          "num_reproduction_failure": 0,
+          "num_unphysical_relaxation": 0,
+          "num_adsorbate_migration": 0,
+          "num_energy_anomaly": 0,
+          "shift_eV": -0.5531853213779847,
+          "n_fit": 10,
+          "MAE_total_shifted": 0.3026033139085971,
+          "MAE_normal_shifted": 0.3026033139085971,
+          "num_normal_shifted": 10,
+          "num_energy_anomaly_shifted": 0
+        }
+      },
+      "shifted": {
+        "normal_rate_pct": 100.0,
+        "adsorbate_migration_rate_pct": 0.0,
+        "anomaly_rates_pct": {
+          "total": 0.0,
+          "reproduction_failure": 0.0,
+          "unphysical_relaxation": 0.0,
+          "energy_anomaly": 0.0
+        },
+        "MAE_total_eV": 0.3026033139085971,
+        "MAE_normal_eV": 0.3026033139085971,
+        "MAE_single_eV": 0.276355935880212
+      }
+    },
+    "AlphaNet-v1-OMA": {
+      "original_name": "AlphaNet-v1-OMA",
+      "normal_rate_pct": 100.0,
+      "adsorbate_migration_rate_pct": 0.0,
+      "anomaly_rates_pct": {
+        "total": 0.0,
+        "reproduction_failure": 0.0,
+        "unphysical_relaxation": 0.0,
+        "energy_anomaly": 0.0
+      },
+      "MAE_total_eV": 0.2239848310800767,
+      "MAE_normal_eV": 0.2239848310800767,
+      "MAE_single_eV": 0.2675983017221711,
+      "ADwT_pct": 88.64965986394559,
+      "AMDwT_pct": 87.5648769574944,
+      "num_total": 10,
+      "time_total_s": 18.99459266662598,
+      "time_per_step_s": 0.021609320439847528,
+      "steps_total": 879,
       "plots": {
         "multi_total": "BothraSodium2024/AlphaNet-v1-OMA/multi/total.png",
         "multi_normal": "BothraSodium2024/AlphaNet-v1-OMA/multi/normal.png",
@@ -37,32 +97,12 @@
         "multi_normal_shifted": "BothraSodium2024/AlphaNet-v1-OMA/multi/normal_shifted.png"
       },
       "adsorbate_breakdown": {
-        "Se": {
-          "MAE_total": 1.14522259704475,
-          "MAE_normal": 0.6983224519341226,
-          "MAE_single": 0.9701144565630528,
-          "ADwT": 87.49574829931974,
-          "AMDwT": 85.68442393736014,
-          "num_total": 16,
-          "num_normal": 12,
-          "num_anomaly_total": 4,
-          "num_reproduction_failure": 0,
-          "num_unphysical_relaxation": 2,
-          "num_adsorbate_migration": 0,
-          "num_energy_anomaly": 2,
-          "shift_eV": -0.6399027876572632,
-          "n_fit": 14,
-          "MAE_total_shifted": 0.8655656502610967,
-          "MAE_normal_shifted": 0.5387474521083391,
-          "num_normal_shifted": 12,
-          "num_energy_anomaly_shifted": 2
-        },
         "O2": {
-          "MAE_total": 0.2103022538593791,
-          "MAE_normal": 0.2103022538593791,
-          "MAE_single": 0.2676959579721711,
-          "ADwT": 89.81632653061224,
-          "AMDwT": 88.50447427293064,
+          "MAE_total": 0.2239848310800767,
+          "MAE_normal": 0.2239848310800767,
+          "MAE_single": 0.2675983017221711,
+          "ADwT": 88.64965986394559,
+          "AMDwT": 87.5648769574944,
           "num_total": 10,
           "num_normal": 10,
           "num_anomaly_total": 0,
@@ -70,80 +110,60 @@
           "num_unphysical_relaxation": 0,
           "num_adsorbate_migration": 0,
           "num_energy_anomaly": 0,
-          "shift_eV": 0.01917055967777515,
+          "shift_eV": -0.08465024110347485,
           "n_fit": 10,
-          "MAE_total_shifted": 0.2103022538593791,
-          "MAE_normal_shifted": 0.2103022538593791,
+          "MAE_total_shifted": 0.2137072142031343,
+          "MAE_normal_shifted": 0.2137072142031343,
           "num_normal_shifted": 10,
           "num_energy_anomaly_shifted": 0
         }
       },
       "shifted": {
-        "normal_rate_pct": 84.61538461538461,
+        "normal_rate_pct": 100.0,
         "adsorbate_migration_rate_pct": 0.0,
         "anomaly_rates_pct": {
-          "total": 15.38461538461539,
+          "total": 0.0,
           "reproduction_failure": 0.0,
-          "unphysical_relaxation": 7.692307692307693,
-          "energy_anomaly": 7.692307692307693
+          "unphysical_relaxation": 0.0,
+          "energy_anomaly": 0.0
         },
-        "MAE_total_eV": 0.6135412670296668,
-        "MAE_normal_eV": 0.3894541801769936,
-        "MAE_single_eV": 0.6353236693637515
+        "MAE_total_eV": 0.2137072142031343,
+        "MAE_normal_eV": 0.2137072142031343,
+        "MAE_single_eV": 0.2168081570600862
       }
     },
-    "CHGNetv0.3.0": {
-      "original_name": "CHGNetv0.3.0",
-      "normal_rate_pct": 76.92307692307693,
+    "CHGNet-v0.3.0": {
+      "original_name": "CHGNet-v0.3.0",
+      "normal_rate_pct": 100.0,
       "adsorbate_migration_rate_pct": 0.0,
       "anomaly_rates_pct": {
-        "total": 23.07692307692308,
+        "total": 0.0,
         "reproduction_failure": 0.0,
-        "unphysical_relaxation": 7.692307692307693,
-        "energy_anomaly": 15.38461538461539
+        "unphysical_relaxation": 0.0,
+        "energy_anomaly": 0.0
       },
-      "MAE_total_eV": 0.9169283204600271,
-      "MAE_normal_eV": 0.603653688269884,
-      "MAE_single_eV": 1.02202067178811,
-      "ADwT_pct": 89.06593406593394,
-      "AMDwT_pct": 88.69643779039683,
-      "num_total": 26,
-      "time_total_s": 290.4816863536835,
-      "time_per_step_s": 0.09385514906419498,
-      "steps_total": 3095,
+      "MAE_total_eV": 0.3847409009350599,
+      "MAE_normal_eV": 0.3847409009350599,
+      "MAE_single_eV": 0.7266916525309967,
+      "ADwT_pct": 89.28571428571429,
+      "AMDwT_pct": 85.6510067114094,
+      "num_total": 10,
+      "time_total_s": 59.8307626247406,
+      "time_per_step_s": 0.05935591530232202,
+      "steps_total": 1008,
       "plots": {
-        "multi_total": "BothraSodium2024/CHGNetv0.3.0/multi/total.png",
-        "multi_normal": "BothraSodium2024/CHGNetv0.3.0/multi/normal.png",
-        "multi_total_shifted": "BothraSodium2024/CHGNetv0.3.0/multi/total_shifted.png",
-        "multi_normal_shifted": "BothraSodium2024/CHGNetv0.3.0/multi/normal_shifted.png"
+        "multi_total": "BothraSodium2024/CHGNet-v0.3.0/multi/total.png",
+        "multi_normal": "BothraSodium2024/CHGNet-v0.3.0/multi/normal.png",
+        "multi_total_shifted": "BothraSodium2024/CHGNet-v0.3.0/multi/total_shifted.png",
+        "multi_normal_shifted": "BothraSodium2024/CHGNet-v0.3.0/multi/normal_shifted.png"
       },
       "adsorbate_breakdown": {
-        "Se": {
-          "MAE_total": 1.266895118059708,
-          "MAE_normal": 0.8503259322392296,
-          "MAE_single": 1.206612752915603,
-          "ADwT": 88.54591836734694,
-          "AMDwT": 88.62765659955257,
-          "num_total": 16,
-          "num_normal": 10,
-          "num_anomaly_total": 6,
-          "num_reproduction_failure": 0,
-          "num_unphysical_relaxation": 2,
-          "num_adsorbate_migration": 0,
-          "num_energy_anomaly": 4,
-          "shift_eV": -0.7970815268235469,
-          "n_fit": 14,
-          "MAE_total_shifted": 0.9701644477476208,
-          "MAE_normal_shifted": 0.7731075965446147,
-          "num_normal_shifted": 12,
-          "num_energy_anomaly_shifted": 2
-        },
         "O2": {
-          "MAE_total": 0.3569814443005385,
-          "MAE_normal": 0.3569814443005385,
-          "MAE_single": 0.7266733419841216,
-          "ADwT": 89.89795918367346,
-          "AMDwT": 88.80648769574944,
+          "MAE_total": 0.3847409009350599,
+          "MAE_normal": 0.3847409009350599,
+          "MAE_single": 0.7266916525309967,
+          "ADwT": 89.28571428571429,
+          "AMDwT": 85.6510067114094,
           "num_total": 10,
           "num_normal": 10,
           "num_anomaly_total": 0,
@@ -151,47 +171,47 @@
           "num_unphysical_relaxation": 0,
           "num_adsorbate_migration": 0,
           "num_energy_anomaly": 0,
-          "shift_eV": -0.4989381982641135,
+          "shift_eV": -0.4867321206884299,
           "n_fit": 10,
-          "MAE_total_shifted": 0.2136953664357975,
-          "MAE_normal_shifted": 0.2136953664357975,
+          "MAE_total_shifted": 0.228205543365732,
+          "MAE_normal_shifted": 0.228205543365732,
           "num_normal_shifted": 10,
           "num_energy_anomaly_shifted": 0
         }
       },
       "shifted": {
-        "normal_rate_pct": 84.61538461538461,
+        "normal_rate_pct": 100.0,
         "adsorbate_migration_rate_pct": 0.0,
         "anomaly_rates_pct": {
-          "total": 15.38461538461539,
+          "total": 0.0,
           "reproduction_failure": 0.0,
-          "unphysical_relaxation": 7.692307692307693,
-          "energy_anomaly": 7.692307692307693
+          "unphysical_relaxation": 0.0,
+          "energy_anomaly": 0.0
         },
-        "MAE_total_eV": 0.6792148010892272,
-        "MAE_normal_eV": 0.518829310131516,
-        "MAE_single_eV": 0.7027339855820375
+        "MAE_total_eV": 0.228205543365732,
+        "MAE_normal_eV": 0.228205543365732,
+        "MAE_single_eV": 0.2498879230427633
       }
     },
     "DPA-3.1-3M-FT": {
       "original_name": "DPA-3.1-3M-FT",
-      "normal_rate_pct": 84.61538461538461,
+      "normal_rate_pct": 100.0,
       "adsorbate_migration_rate_pct": 0.0,
       "anomaly_rates_pct": {
-        "total": 15.38461538461539,
+        "total": 0.0,
         "reproduction_failure": 0.0,
-        "unphysical_relaxation": 7.692307692307693,
-        "energy_anomaly": 7.692307692307693
+        "unphysical_relaxation": 0.0,
+        "energy_anomaly": 0.0
       },
-      "MAE_total_eV": 0.6880727652819675,
-      "MAE_normal_eV": 0.4022231162104866,
-      "MAE_single_eV": 0.5995867003338993,
-      "ADwT_pct": 90.32182103610661,
-      "AMDwT_pct": 88.19437274135205,
-      "num_total": 26,
-      "time_total_s": 491.2760474681854,
-      "time_per_step_s": 0.1480639082182596,
-      "steps_total": 3318,
+      "MAE_total_eV": 0.3137149858030057,
+      "MAE_normal_eV": 0.3137149858030057,
+      "MAE_single_eV": 0.4275630709474967,
+      "ADwT_pct": 90.63265306122449,
+      "AMDwT_pct": 87.35346756152126,
+      "num_total": 10,
+      "time_total_s": 180.427844285965,
+      "time_per_step_s": 0.1877500981123465,
+      "steps_total": 961,
       "plots": {
         "multi_total": "BothraSodium2024/DPA-3.1-3M-FT/multi/total.png",
         "multi_normal": "BothraSodium2024/DPA-3.1-3M-FT/multi/normal.png",
@@ -199,32 +219,12 @@
         "multi_normal_shifted": "BothraSodium2024/DPA-3.1-3M-FT/multi/normal_shifted.png"
       },
       "adsorbate_breakdown": {
-        "Se": {
-          "MAE_total": 0.9464793974929862,
-          "MAE_normal": 0.508557251598944,
-          "MAE_single": 0.7071011716084996,
-          "ADwT": 89.43239795918367,
-          "AMDwT": 87.78034116331096,
-          "num_total": 16,
-          "num_normal": 12,
-          "num_anomaly_total": 4,
-          "num_reproduction_failure": 0,
-          "num_unphysical_relaxation": 2,
-          "num_adsorbate_migration": 0,
-          "num_energy_anomaly": 2,
-          "shift_eV": -0.3656477835478427,
-          "n_fit": 14,
-          "MAE_total_shifted": 0.6609037000729145,
-          "MAE_normal_shifted": 0.2496722495547961,
-          "num_normal_shifted": 12,
-          "num_energy_anomaly_shifted": 2
-        },
         "O2": {
-          "MAE_total": 0.2746221537443375,
-          "MAE_normal": 0.2746221537443375,
-          "MAE_single": 0.4275635462945388,
-          "ADwT": 91.74489795918367,
-          "AMDwT": 88.85682326621924,
+          "MAE_total": 0.3137149858030057,
+          "MAE_normal": 0.3137149858030057,
+          "MAE_single": 0.4275630709474967,
+          "ADwT": 90.63265306122449,
+          "AMDwT": 87.35346756152126,
           "num_total": 10,
           "num_normal": 10,
           "num_anomaly_total": 0,
@@ -232,47 +232,108 @@
           "num_unphysical_relaxation": 0,
           "num_adsorbate_migration": 0,
           "num_energy_anomaly": 0,
-          "shift_eV": -0.1084479489704222,
+          "shift_eV": -0.2136466400163499,
           "n_fit": 10,
-          "MAE_total_shifted": 0.2611045565273912,
-          "MAE_normal_shifted": 0.2611045565273912,
+          "MAE_total_shifted": 0.2966816801395566,
+          "MAE_normal_shifted": 0.2966816801395566,
           "num_normal_shifted": 10,
           "num_energy_anomaly_shifted": 0
         }
       },
       "shifted": {
-        "normal_rate_pct": 84.61538461538461,
+        "normal_rate_pct": 100.0,
         "adsorbate_migration_rate_pct": 0.0,
         "anomaly_rates_pct": {
-          "total": 15.38461538461539,
+          "total": 0.0,
           "reproduction_failure": 0.0,
-          "unphysical_relaxation": 7.692307692307693,
-          "energy_anomaly": 7.692307692307693
+          "unphysical_relaxation": 0.0,
+          "energy_anomaly": 0.0
         },
-        "MAE_total_eV": 0.5071347987092517,
-        "MAE_normal_eV": 0.2548687527241575,
-        "MAE_single_eV": 0.5566844349119895
+        "MAE_total_eV": 0.2966816801395566,
+        "MAE_normal_eV": 0.2966816801395566,
+        "MAE_single_eV": 0.2228294791481971
+      }
+    },
+    "DPA-4.0.1-pro-MPtrj": {
+      "original_name": "DPA-4.0.1-pro-MPtrj",
+      "normal_rate_pct": 100.0,
+      "adsorbate_migration_rate_pct": 0.0,
+      "anomaly_rates_pct": {
+        "total": 0.0,
+        "reproduction_failure": 0.0,
+        "unphysical_relaxation": 0.0,
+        "energy_anomaly": 0.0
+      },
+      "MAE_total_eV": 0.2000579250328524,
+      "MAE_normal_eV": 0.2000579250328524,
+      "MAE_single_eV": 0.2517661553567212,
+      "ADwT_pct": 91.843537414966,
+      "AMDwT_pct": 86.04362416107382,
+      "num_total": 10,
+      "time_total_s": 176.7369041442871,
+      "time_per_step_s": 0.18089754774236141,
+      "steps_total": 977,
+      "plots": {
+        "multi_total": "BothraSodium2024/DPA-4.0.1-pro-MPtrj/multi/total.png",
+        "multi_normal": "BothraSodium2024/DPA-4.0.1-pro-MPtrj/multi/normal.png",
+        "multi_total_shifted": "BothraSodium2024/DPA-4.0.1-pro-MPtrj/multi/total_shifted.png",
+        "multi_normal_shifted": "BothraSodium2024/DPA-4.0.1-pro-MPtrj/multi/normal_shifted.png"
+      },
+      "adsorbate_breakdown": {
+        "O2": {
+          "MAE_total": 0.2000579250328524,
+          "MAE_normal": 0.2000579250328524,
+          "MAE_single": 0.2517661553567212,
+          "ADwT": 91.843537414966,
+          "AMDwT": 86.04362416107382,
+          "num_total": 10,
+          "num_normal": 10,
+          "num_anomaly_total": 0,
+          "num_reproduction_failure": 0,
+          "num_unphysical_relaxation": 0,
+          "num_adsorbate_migration": 0,
+          "num_energy_anomaly": 0,
+          "shift_eV": -0.01144933191737252,
+          "n_fit": 10,
+          "MAE_total_shifted": 0.2000579250328524,
+          "MAE_normal_shifted": 0.2000579250328524,
+          "num_normal_shifted": 10,
+          "num_energy_anomaly_shifted": 0
+        }
+      },
+      "shifted": {
+        "normal_rate_pct": 100.0,
+        "adsorbate_migration_rate_pct": 0.0,
+        "anomaly_rates_pct": {
+          "total": 0.0,
+          "reproduction_failure": 0.0,
+          "unphysical_relaxation": 0.0,
+          "energy_anomaly": 0.0
+        },
+        "MAE_total_eV": 0.2000579250328524,
+        "MAE_normal_eV": 0.2000579250328524,
+        "MAE_single_eV": 0.2403168234393487
       }
     },
     "Eqnorm-MPtrj": {
       "original_name": "Eqnorm-MPtrj",
-      "normal_rate_pct": 84.61538461538461,
+      "normal_rate_pct": 100.0,
       "adsorbate_migration_rate_pct": 0.0,
       "anomaly_rates_pct": {
-        "total": 15.38461538461539,
+        "total": 0.0,
         "reproduction_failure": 0.0,
-        "unphysical_relaxation": 7.692307692307693,
-        "energy_anomaly": 7.692307692307693
+        "unphysical_relaxation": 0.0,
+        "energy_anomaly": 0.0
       },
-      "MAE_total_eV": 0.8042399842191842,
-      "MAE_normal_eV": 0.4927871734887193,
-      "MAE_single_eV": 0.6631414971547193,
-      "ADwT_pct": 90.61616954474096,
-      "AMDwT_pct": 88.851746687317,
-      "num_total": 26,
-      "time_total_s": 301.8803579807281,
-      "time_per_step_s": 0.09875052599958395,
-      "steps_total": 3057,
+      "MAE_total_eV": 0.2547899778750093,
+      "MAE_normal_eV": 0.2547899778750093,
+      "MAE_single_eV": 0.293053747410147,
+      "ADwT_pct": 90.63265306122449,
+      "AMDwT_pct": 87.85234899328859,
+      "num_total": 10,
+      "time_total_s": 53.64775228500366,
+      "time_per_step_s": 0.0565904559968393,
+      "steps_total": 948,
       "plots": {
         "multi_total": "BothraSodium2024/Eqnorm-MPtrj/multi/total.png",
         "multi_normal": "BothraSodium2024/Eqnorm-MPtrj/multi/normal.png",
@@ -280,32 +341,12 @@
         "multi_normal_shifted": "BothraSodium2024/Eqnorm-MPtrj/multi/normal_shifted.png"
       },
       "adsorbate_breakdown": {
-        "Se": {
-          "MAE_total": 1.170449507573949,
-          "MAE_normal": 0.7215225290196846,
-          "MAE_single": 0.89443489665328,
-          "ADwT": 89.66836734693878,
-          "AMDwT": 88.20959172259508,
-          "num_total": 16,
-          "num_normal": 12,
-          "num_anomaly_total": 4,
-          "num_reproduction_failure": 0,
-          "num_unphysical_relaxation": 2,
-          "num_adsorbate_migration": 0,
-          "num_energy_anomaly": 2,
-          "shift_eV": -0.7088218393050738,
-          "n_fit": 14,
-          "MAE_total_shifted": 0.6841873789080211,
-          "MAE_normal_shifted": 0.3094469705668056,
-          "num_normal_shifted": 12,
-          "num_energy_anomaly_shifted": 2
-        },
         "O2": {
-          "MAE_total": 0.218304746851561,
-          "MAE_normal": 0.218304746851561,
-          "MAE_single": 0.293072057957022,
-          "ADwT": 92.13265306122449,
-          "AMDwT": 89.87919463087249,
+          "MAE_total": 0.2547899778750093,
+          "MAE_normal": 0.2547899778750093,
+          "MAE_single": 0.293053747410147,
+          "ADwT": 90.63265306122449,
+          "AMDwT": 87.85234899328859,
           "num_total": 10,
           "num_normal": 10,
           "num_anomaly_total": 0,
@@ -313,47 +354,230 @@
           "num_unphysical_relaxation": 0,
           "num_adsorbate_migration": 0,
           "num_energy_anomaly": 0,
-          "shift_eV": -0.02397573230467742,
+          "shift_eV": -0.0515114023046408,
           "n_fit": 10,
-          "MAE_total_shifted": 0.2148439689999918,
-          "MAE_normal_shifted": 0.2148439689999918,
+          "MAE_total_shifted": 0.2547899778750093,
+          "MAE_normal_shifted": 0.2547899778750093,
           "num_normal_shifted": 10,
           "num_energy_anomaly_shifted": 0
         }
       },
       "shifted": {
-        "normal_rate_pct": 84.61538461538461,
+        "normal_rate_pct": 100.0,
         "adsorbate_migration_rate_pct": 0.0,
         "anomaly_rates_pct": {
-          "total": 15.38461538461539,
+          "total": 0.0,
           "reproduction_failure": 0.0,
-          "unphysical_relaxation": 7.692307692307693,
-          "energy_anomaly": 7.692307692307693
+          "unphysical_relaxation": 0.0,
+          "energy_anomaly": 0.0
         },
-        "MAE_total_eV": 0.5036706827895483,
-        "MAE_normal_eV": 0.2664456062182539,
-        "MAE_single_eV": 0.5078969889843236
+        "MAE_total_eV": 0.2547899778750093,
+        "MAE_normal_eV": 0.2547899778750093,
+        "MAE_single_eV": 0.2415423451055062
+      }
+    },
+    "EquFlash": {
+      "original_name": "EquFlash",
+      "normal_rate_pct": 100.0,
+      "adsorbate_migration_rate_pct": 0.0,
+      "anomaly_rates_pct": {
+        "total": 0.0,
+        "reproduction_failure": 0.0,
+        "unphysical_relaxation": 0.0,
+        "energy_anomaly": 0.0
+      },
+      "MAE_total_eV": 0.3075994079843781,
+      "MAE_normal_eV": 0.3075994079843781,
+      "MAE_single_eV": 0.4901677381938384,
+      "ADwT_pct": 91.56122448979592,
+      "AMDwT_pct": 89.58724832214764,
+      "num_total": 10,
+      "time_total_s": 51.93429255485535,
+      "time_per_step_s": 0.06557360171067594,
+      "steps_total": 792,
+      "plots": {
+        "multi_total": "BothraSodium2024/EquFlash/multi/total.png",
+        "multi_normal": "BothraSodium2024/EquFlash/multi/normal.png",
+        "multi_total_shifted": "BothraSodium2024/EquFlash/multi/total_shifted.png",
+        "multi_normal_shifted": "BothraSodium2024/EquFlash/multi/normal_shifted.png"
+      },
+      "adsorbate_breakdown": {
+        "O2": {
+          "MAE_total": 0.3075994079843781,
+          "MAE_normal": 0.3075994079843781,
+          "MAE_single": 0.4901677381938384,
+          "ADwT": 91.56122448979592,
+          "AMDwT": 89.58724832214764,
+          "num_total": 10,
+          "num_normal": 10,
+          "num_anomaly_total": 0,
+          "num_reproduction_failure": 0,
+          "num_unphysical_relaxation": 0,
+          "num_adsorbate_migration": 0,
+          "num_energy_anomaly": 0,
+          "shift_eV": -0.3190654539843649,
+          "n_fit": 10,
+          "MAE_total_shifted": 0.2420031126406343,
+          "MAE_normal_shifted": 0.2420031126406343,
+          "num_normal_shifted": 10,
+          "num_energy_anomaly_shifted": 0
+        }
+      },
+      "shifted": {
+        "normal_rate_pct": 100.0,
+        "adsorbate_migration_rate_pct": 0.0,
+        "anomaly_rates_pct": {
+          "total": 0.0,
+          "reproduction_failure": 0.0,
+          "unphysical_relaxation": 0.0,
+          "energy_anomaly": 0.0
+        },
+        "MAE_total_eV": 0.2420031126406343,
+        "MAE_normal_eV": 0.2420031126406343,
+        "MAE_single_eV": 0.1849706140131957
+      }
+    },
+    "EquFlashV2": {
+      "original_name": "EquFlashV2",
+      "normal_rate_pct": 100.0,
+      "adsorbate_migration_rate_pct": 0.0,
+      "anomaly_rates_pct": {
+        "total": 0.0,
+        "reproduction_failure": 0.0,
+        "unphysical_relaxation": 0.0,
+        "energy_anomaly": 0.0
+      },
+      "MAE_total_eV": 0.2316731994882844,
+      "MAE_normal_eV": 0.2316731994882844,
+      "MAE_single_eV": 0.339101339573233,
+      "ADwT_pct": 93.35714285714286,
+      "AMDwT_pct": 87.83892617449665,
+      "num_total": 10,
+      "time_total_s": 123.6111760139465,
+      "time_per_step_s": 0.15786867945587038,
+      "steps_total": 783,
+      "plots": {
+        "multi_total": "BothraSodium2024/EquFlashV2/multi/total.png",
+        "multi_normal": "BothraSodium2024/EquFlashV2/multi/normal.png",
+        "multi_total_shifted": "BothraSodium2024/EquFlashV2/multi/total_shifted.png",
+        "multi_normal_shifted": "BothraSodium2024/EquFlashV2/multi/normal_shifted.png"
+      },
+      "adsorbate_breakdown": {
+        "O2": {
+          "MAE_total": 0.2316731994882844,
+          "MAE_normal": 0.2316731994882844,
+          "MAE_single": 0.339101339573233,
+          "ADwT": 93.35714285714286,
+          "AMDwT": 87.83892617449665,
+          "num_total": 10,
+          "num_normal": 10,
+          "num_anomaly_total": 0,
+          "num_reproduction_failure": 0,
+          "num_unphysical_relaxation": 0,
+          "num_adsorbate_migration": 0,
+          "num_energy_anomaly": 0,
+          "shift_eV": -0.2147182249804587,
+          "n_fit": 10,
+          "MAE_total_shifted": 0.1938295647031168,
+          "MAE_normal_shifted": 0.1938295647031168,
+          "num_normal_shifted": 10,
+          "num_energy_anomaly_shifted": 0
+        }
+      },
+      "shifted": {
+        "normal_rate_pct": 100.0,
+        "adsorbate_migration_rate_pct": 0.0,
+        "anomaly_rates_pct": {
+          "total": 0.0,
+          "reproduction_failure": 0.0,
+          "unphysical_relaxation": 0.0,
+          "energy_anomaly": 0.0
+        },
+        "MAE_total_eV": 0.1938295647031168,
+        "MAE_normal_eV": 0.1938295647031168,
+        "MAE_single_eV": 0.1456893538056647
+      }
+    },
+    "EqV3-OMatMPtrjSalex": {
+      "original_name": "EqV3-OMatMPtrjSalex",
+      "normal_rate_pct": 100.0,
+      "adsorbate_migration_rate_pct": 0.0,
+      "anomaly_rates_pct": {
+        "total": 0.0,
+        "reproduction_failure": 0.0,
+        "unphysical_relaxation": 0.0,
+        "energy_anomaly": 0.0
+      },
+      "MAE_total_eV": 0.2382637547812578,
+      "MAE_normal_eV": 0.2382637547812578,
+      "MAE_single_eV": 0.5494879972880767,
+      "ADwT_pct": 92.74149659863946,
+      "AMDwT_pct": 87.04809843400447,
+      "num_total": 10,
+      "time_total_s": 175.2496452331543,
+      "time_per_step_s": 0.2093783097170302,
+      "steps_total": 837,
+      "plots": {
+        "multi_total": "BothraSodium2024/EqV3-OMatMPtrjSalex/multi/total.png",
+        "multi_normal": "BothraSodium2024/EqV3-OMatMPtrjSalex/multi/normal.png",
+        "multi_total_shifted": "BothraSodium2024/EqV3-OMatMPtrjSalex/multi/total_shifted.png",
+        "multi_normal_shifted": "BothraSodium2024/EqV3-OMatMPtrjSalex/multi/normal_shifted.png"
+      },
+      "adsorbate_breakdown": {
+        "O2": {
+          "MAE_total": 0.2382637547812578,
+          "MAE_normal": 0.2382637547812578,
+          "MAE_single": 0.5494879972880767,
+          "ADwT": 92.74149659863946,
+          "AMDwT": 87.04809843400447,
+          "num_total": 10,
+          "num_normal": 10,
+          "num_anomaly_total": 0,
+          "num_reproduction_failure": 0,
+          "num_unphysical_relaxation": 0,
+          "num_adsorbate_migration": 0,
+          "num_energy_anomaly": 0,
+          "shift_eV": -0.2397807860156149,
+          "n_fit": 10,
+          "MAE_total_shifted": 0.1949587150937418,
+          "MAE_normal_shifted": 0.1949587150937418,
+          "num_normal_shifted": 10,
+          "num_energy_anomaly_shifted": 0
+        }
+      },
+      "shifted": {
+        "normal_rate_pct": 100.0,
+        "adsorbate_migration_rate_pct": 0.0,
+        "anomaly_rates_pct": {
+          "total": 0.0,
+          "reproduction_failure": 0.0,
+          "unphysical_relaxation": 0.0,
+          "energy_anomaly": 0.0
+        },
+        "MAE_total_eV": 0.1949587150937418,
+        "MAE_normal_eV": 0.1949587150937418,
+        "MAE_single_eV": 0.3097072112724618
       }
     },
     "eSEN-30M-OAM": {
       "original_name": "eSEN-30M-OAM",
-      "normal_rate_pct": 84.61538461538461,
+      "normal_rate_pct": 100.0,
       "adsorbate_migration_rate_pct": 0.0,
       "anomaly_rates_pct": {
-        "total": 15.38461538461539,
+        "total": 0.0,
         "reproduction_failure": 0.0,
-        "unphysical_relaxation": 7.692307692307693,
-        "energy_anomaly": 7.692307692307693
+        "unphysical_relaxation": 0.0,
+        "energy_anomaly": 0.0
       },
-      "MAE_total_eV": 0.6672205720972608,
-      "MAE_normal_eV": 0.3608478919637925,
-      "MAE_single_eV": 0.6603499054418106,
-      "ADwT_pct": 93.23390894819444,
-      "AMDwT_pct": 91.66451557391032,
-      "num_total": 26,
-      "time_total_s": 960.96728348732,
-      "time_per_step_s": 0.4237069151178659,
-      "steps_total": 2268,
+      "MAE_total_eV": 0.2989794492138685,
+      "MAE_normal_eV": 0.2989794492138685,
+      "MAE_single_eV": 0.4569493544047759,
+      "ADwT_pct": 91.0578231292517,
+      "AMDwT_pct": 86.1744966442953,
+      "num_total": 10,
+      "time_total_s": 207.2667982578278,
+      "time_per_step_s": 0.2313245516270399,
+      "steps_total": 896,
       "plots": {
         "multi_total": "BothraSodium2024/eSEN-30M-OAM/multi/total.png",
         "multi_normal": "BothraSodium2024/eSEN-30M-OAM/multi/normal.png",
@@ -361,32 +585,12 @@
         "multi_normal_shifted": "BothraSodium2024/eSEN-30M-OAM/multi/normal_shifted.png"
       },
       "adsorbate_breakdown": {
-        "Se": {
-          "MAE_total": 0.9751408676081894,
-          "MAE_normal": 0.5160977192004736,
-          "MAE_single": 0.7875019527208167,
-          "ADwT": 91.8686224489796,
-          "AMDwT": 91.29823825503355,
-          "num_total": 16,
-          "num_normal": 12,
-          "num_anomaly_total": 4,
-          "num_reproduction_failure": 0,
-          "num_unphysical_relaxation": 2,
-          "num_adsorbate_migration": 0,
-          "num_energy_anomaly": 2,
-          "shift_eV": -0.4752154235670218,
-          "n_fit": 14,
-          "MAE_total_shifted": 0.6867932087592337,
-          "MAE_normal_shifted": 0.29003931525754,
-          "num_normal_shifted": 12,
-          "num_energy_anomaly_shifted": 2
-        },
         "O2": {
-          "MAE_total": 0.1745480992797752,
-          "MAE_normal": 0.1745480992797752,
-          "MAE_single": 0.4569066297954009,
-          "ADwT": 95.41836734693878,
-          "AMDwT": 92.25055928411632,
+          "MAE_total": 0.2989794492138685,
+          "MAE_normal": 0.2989794492138685,
+          "MAE_single": 0.4569493544047759,
+          "ADwT": 91.0578231292517,
+          "AMDwT": 86.1744966442953,
           "num_total": 10,
           "num_normal": 10,
           "num_anomaly_total": 0,
@@ -394,47 +598,47 @@
           "num_unphysical_relaxation": 0,
           "num_adsorbate_migration": 0,
           "num_energy_anomaly": 0,
-          "shift_eV": -0.09879441382076948,
+          "shift_eV": -0.2863172316332907,
           "n_fit": 10,
-          "MAE_total_shifted": 0.1708315178281168,
-          "MAE_normal_shifted": 0.1708315178281168,
+          "MAE_total_shifted": 0.2225712105161051,
+          "MAE_normal_shifted": 0.2225712105161051,
           "num_normal_shifted": 10,
           "num_energy_anomaly_shifted": 0
         }
       },
       "shifted": {
-        "normal_rate_pct": 84.61538461538461,
+        "normal_rate_pct": 100.0,
         "adsorbate_migration_rate_pct": 0.0,
         "anomaly_rates_pct": {
-          "total": 15.38461538461539,
+          "total": 0.0,
           "reproduction_failure": 0.0,
-          "unphysical_relaxation": 7.692307692307693,
-          "energy_anomaly": 7.692307692307693
+          "unphysical_relaxation": 0.0,
+          "energy_anomaly": 0.0
         },
-        "MAE_total_eV": 0.488346404554958,
-        "MAE_normal_eV": 0.2358539527896203,
-        "MAE_single_eV": 0.6072048653070877
+        "MAE_total_eV": 0.2225712105161051,
+        "MAE_normal_eV": 0.2225712105161051,
+        "MAE_single_eV": 0.1783210140859296
       }
     },
     "GRACE-2L-OAM": {
       "original_name": "GRACE-2L-OAM",
-      "normal_rate_pct": 84.61538461538461,
+      "normal_rate_pct": 80.0,
       "adsorbate_migration_rate_pct": 0.0,
       "anomaly_rates_pct": {
-        "total": 15.38461538461539,
+        "total": 20.0,
         "reproduction_failure": 0.0,
-        "unphysical_relaxation": 7.692307692307693,
-        "energy_anomaly": 7.692307692307693
+        "unphysical_relaxation": 20.0,
+        "energy_anomaly": 0.0
       },
-      "MAE_total_eV": 0.7746937726871918,
-      "MAE_normal_eV": 0.4789347524466677,
-      "MAE_single_eV": 0.6219700000192205,
-      "ADwT_pct": 89.89010989010974,
-      "AMDwT_pct": 87.25735673722193,
-      "num_total": 26,
-      "time_total_s": 84.22004580497742,
-      "time_per_step_s": 0.027989380460278303,
-      "steps_total": 3009,
+      "MAE_total_eV": 0.2730837556312711,
+      "MAE_normal_eV": 0.3212551094893259,
+      "MAE_single_eV": 0.3203966463601127,
+      "ADwT_pct": 88.3061224489796,
+      "AMDwT_pct": 79.86912751677852,
+      "num_total": 10,
+      "time_total_s": 13.76194906234741,
+      "time_per_step_s": 0.01267214462462929,
+      "steps_total": 1086,
       "plots": {
         "multi_total": "BothraSodium2024/GRACE-2L-OAM/multi/total.png",
         "multi_normal": "BothraSodium2024/GRACE-2L-OAM/multi/normal.png",
@@ -442,32 +646,73 @@
         "multi_normal_shifted": "BothraSodium2024/GRACE-2L-OAM/multi/normal_shifted.png"
       },
       "adsorbate_breakdown": {
-        "Se": {
-          "MAE_total": 1.060347253793153,
-          "MAE_normal": 0.613340210387513,
-          "MAE_single": 0.8104533460561685,
-          "ADwT": 89.01147959183673,
-          "AMDwT": 86.30872483221476,
-          "num_total": 16,
-          "num_normal": 12,
-          "num_anomaly_total": 4,
+        "O2": {
+          "MAE_total": 0.2730837556312711,
+          "MAE_normal": 0.3212551094893259,
+          "MAE_single": 0.3203966463601127,
+          "ADwT": 88.3061224489796,
+          "AMDwT": 79.86912751677852,
+          "num_total": 10,
+          "num_normal": 8,
+          "num_anomaly_total": 2,
           "num_reproduction_failure": 0,
           "num_unphysical_relaxation": 2,
           "num_adsorbate_migration": 0,
-          "num_energy_anomaly": 2,
-          "shift_eV": -0.5690075434979587,
-          "n_fit": 14,
-          "MAE_total_shifted": 0.7410876521547319,
-          "MAE_normal_shifted": 0.3773299227022711,
-          "num_normal_shifted": 12,
-          "num_energy_anomaly_shifted": 2
+          "num_energy_anomaly": 0,
+          "shift_eV": 0.08933551252535032,
+          "n_fit": 8,
+          "MAE_total_shifted": 0.2790337020401757,
+          "MAE_normal_shifted": 0.3212551094893259,
+          "num_normal_shifted": 8,
+          "num_energy_anomaly_shifted": 0
+        }
+      },
+      "shifted": {
+        "normal_rate_pct": 80.0,
+        "adsorbate_migration_rate_pct": 0.0,
+        "anomaly_rates_pct": {
+          "total": 20.0,
+          "reproduction_failure": 0.0,
+          "unphysical_relaxation": 20.0,
+          "energy_anomaly": 0.0
         },
+        "MAE_total_eV": 0.2790337020401757,
+        "MAE_normal_eV": 0.3212551094893259,
+        "MAE_single_eV": 0.409732158885463
+      }
+    },
+    "MACE-MH-1-OC20": {
+      "original_name": "MACE-MH-1-OC20",
+      "normal_rate_pct": 100.0,
+      "adsorbate_migration_rate_pct": 0.0,
+      "anomaly_rates_pct": {
+        "total": 0.0,
+        "reproduction_failure": 0.0,
+        "unphysical_relaxation": 0.0,
+        "energy_anomaly": 0.0
+      },
+      "MAE_total_eV": 0.3317300380029586,
+      "MAE_normal_eV": 0.3317300380029586,
+      "MAE_single_eV": 0.386693734088437,
+      "ADwT_pct": 88.11224489795919,
+      "AMDwT_pct": 85.3993288590604,
+      "num_total": 10,
+      "time_total_s": 66.32812094688416,
+      "time_per_step_s": 0.08010642626435284,
+      "steps_total": 828,
+      "plots": {
+        "multi_total": "BothraSodium2024/MACE-MH-1-OC20/multi/total.png",
+        "multi_normal": "BothraSodium2024/MACE-MH-1-OC20/multi/normal.png",
+        "multi_total_shifted": "BothraSodium2024/MACE-MH-1-OC20/multi/total_shifted.png",
+        "multi_normal_shifted": "BothraSodium2024/MACE-MH-1-OC20/multi/normal_shifted.png"
+      },
+      "adsorbate_breakdown": {
         "O2": {
-          "MAE_total": 0.3176482029176537,
-          "MAE_normal": 0.3176482029176537,
-          "MAE_single": 0.3203966463601038,
-          "ADwT": 91.29591836734694,
-          "AMDwT": 88.7751677852349,
+          "MAE_total": 0.3317300380029586,
+          "MAE_normal": 0.3317300380029586,
+          "MAE_single": 0.386693734088437,
+          "ADwT": 88.11224489795919,
+          "AMDwT": 85.3993288590604,
           "num_total": 10,
           "num_normal": 10,
           "num_anomaly_total": 0,
@@ -475,47 +720,108 @@
           "num_unphysical_relaxation": 0,
           "num_adsorbate_migration": 0,
           "num_energy_anomaly": 0,
-          "shift_eV": -0.0860574114682624,
+          "shift_eV": -0.3592785591815257,
           "n_fit": 10,
-          "MAE_total_shifted": 0.3176482029176537,
-          "MAE_normal_shifted": 0.3176482029176537,
+          "MAE_total_shifted": 0.2620712061739148,
+          "MAE_normal_shifted": 0.2620712061739148,
           "num_normal_shifted": 10,
           "num_energy_anomaly_shifted": 0
         }
       },
       "shifted": {
-        "normal_rate_pct": 84.61538461538461,
+        "normal_rate_pct": 100.0,
         "adsorbate_migration_rate_pct": 0.0,
         "anomaly_rates_pct": {
-          "total": 15.38461538461539,
+          "total": 0.0,
           "reproduction_failure": 0.0,
-          "unphysical_relaxation": 7.692307692307693,
-          "energy_anomaly": 7.692307692307693
+          "unphysical_relaxation": 0.0,
+          "energy_anomaly": 0.0
         },
-        "MAE_total_eV": 0.5782263255250865,
-        "MAE_normal_eV": 0.3502018682547177,
-        "MAE_single_eV": 0.5876819113665376
+        "MAE_total_eV": 0.2620712061739148,
+        "MAE_normal_eV": 0.2620712061739148,
+        "MAE_single_eV": 0.2258693785830111
+      }
+    },
+    "MACE-MH-1-OMAT": {
+      "original_name": "MACE-MH-1-OMAT",
+      "normal_rate_pct": 100.0,
+      "adsorbate_migration_rate_pct": 0.0,
+      "anomaly_rates_pct": {
+        "total": 0.0,
+        "reproduction_failure": 0.0,
+        "unphysical_relaxation": 0.0,
+        "energy_anomaly": 0.0
+      },
+      "MAE_total_eV": 0.3317300380029017,
+      "MAE_normal_eV": 0.3317300380029017,
+      "MAE_single_eV": 0.3866937340884256,
+      "ADwT_pct": 88.11224489795919,
+      "AMDwT_pct": 85.3993288590604,
+      "num_total": 10,
+      "time_total_s": 65.68118810653687,
+      "time_per_step_s": 0.07932510640886095,
+      "steps_total": 828,
+      "plots": {
+        "multi_total": "BothraSodium2024/MACE-MH-1-OMAT/multi/total.png",
+        "multi_normal": "BothraSodium2024/MACE-MH-1-OMAT/multi/normal.png",
+        "multi_total_shifted": "BothraSodium2024/MACE-MH-1-OMAT/multi/total_shifted.png",
+        "multi_normal_shifted": "BothraSodium2024/MACE-MH-1-OMAT/multi/normal_shifted.png"
+      },
+      "adsorbate_breakdown": {
+        "O2": {
+          "MAE_total": 0.3317300380029017,
+          "MAE_normal": 0.3317300380029017,
+          "MAE_single": 0.3866937340884256,
+          "ADwT": 88.11224489795919,
+          "AMDwT": 85.3993288590604,
+          "num_total": 10,
+          "num_normal": 10,
+          "num_anomaly_total": 0,
+          "num_reproduction_failure": 0,
+          "num_unphysical_relaxation": 0,
+          "num_adsorbate_migration": 0,
+          "num_energy_anomaly": 0,
+          "shift_eV": -0.3592785591815257,
+          "n_fit": 10,
+          "MAE_total_shifted": 0.2620712061738352,
+          "MAE_normal_shifted": 0.2620712061738352,
+          "num_normal_shifted": 10,
+          "num_energy_anomaly_shifted": 0
+        }
+      },
+      "shifted": {
+        "normal_rate_pct": 100.0,
+        "adsorbate_migration_rate_pct": 0.0,
+        "anomaly_rates_pct": {
+          "total": 0.0,
+          "reproduction_failure": 0.0,
+          "unphysical_relaxation": 0.0,
+          "energy_anomaly": 0.0
+        },
+        "MAE_total_eV": 0.2620712061738352,
+        "MAE_normal_eV": 0.2620712061738352,
+        "MAE_single_eV": 0.225869378582977
       }
     },
     "MACE-MPA-0": {
       "original_name": "MACE-MPA-0",
-      "normal_rate_pct": 76.92307692307693,
+      "normal_rate_pct": 60.0,
       "adsorbate_migration_rate_pct": 0.0,
       "anomaly_rates_pct": {
-        "total": 23.07692307692308,
+        "total": 40.0,
         "reproduction_failure": 0.0,
-        "unphysical_relaxation": 7.692307692307693,
-        "energy_anomaly": 15.38461538461539
+        "unphysical_relaxation": 40.0,
+        "energy_anomaly": 0.0
       },
-      "MAE_total_eV": 1.044992660979298,
-      "MAE_normal_eV": 0.5871998984763138,
-      "MAE_single_eV": 0.8936827050411404,
-      "ADwT_pct": 87.86499215070634,
-      "AMDwT_pct": 86.80304594734037,
-      "num_total": 26,
-      "time_total_s": 126.0792641639709,
-      "time_per_step_s": 0.038485733871786006,
-      "steps_total": 3276,
+      "MAE_total_eV": 0.6549519535373923,
+      "MAE_normal_eV": 0.6482301608005937,
+      "MAE_single_eV": 0.9942927211156821,
+      "ADwT_pct": 85.94897959183673,
+      "AMDwT_pct": 76.18120805369128,
+      "num_total": 10,
+      "time_total_s": 101.2496356964111,
+      "time_per_step_s": 0.07997601555798668,
+      "steps_total": 1266,
       "plots": {
         "multi_total": "BothraSodium2024/MACE-MPA-0/multi/total.png",
         "multi_normal": "BothraSodium2024/MACE-MPA-0/multi/normal.png",
@@ -523,194 +829,134 @@
         "multi_normal_shifted": "BothraSodium2024/MACE-MPA-0/multi/normal_shifted.png"
       },
       "adsorbate_breakdown": {
-        "Se": {
-          "MAE_total": 1.465988608603084,
-          "MAE_normal": 0.8030006521713858,
-          "MAE_single": 1.223323402214376,
-          "ADwT": 87.32142857142857,
-          "AMDwT": 86.55830536912751,
-          "num_total": 16,
-          "num_normal": 10,
-          "num_anomaly_total": 6,
-          "num_reproduction_failure": 0,
-          "num_unphysical_relaxation": 2,
-          "num_adsorbate_migration": 0,
-          "num_energy_anomaly": 4,
-          "shift_eV": -1.381255084528334,
-          "n_fit": 14,
-          "MAE_total_shifted": 0.969444395970541,
-          "MAE_normal_shifted": 0.8648050185450546,
-          "num_normal_shifted": 13,
-          "num_energy_anomaly_shifted": 1
-        },
         "O2": {
-          "MAE_total": 0.3713991447812418,
-          "MAE_normal": 0.3713991447812418,
-          "MAE_single": 0.3662575895639634,
-          "ADwT": 88.73469387755102,
-          "AMDwT": 87.19463087248322,
+          "MAE_total": 0.6549519535373923,
+          "MAE_normal": 0.6482301608005937,
+          "MAE_single": 0.9942927211156821,
+          "ADwT": 85.94897959183673,
+          "AMDwT": 76.18120805369128,
           "num_total": 10,
-          "num_normal": 10,
-          "num_anomaly_total": 0,
-          "num_reproduction_failure": 0,
-          "num_unphysical_relaxation": 0,
-          "num_adsorbate_migration": 0,
-          "num_energy_anomaly": 0,
-          "shift_eV": -0.04481285637695009,
-          "n_fit": 10,
-          "MAE_total_shifted": 0.3713991447812418,
-          "MAE_normal_shifted": 0.3713991447812418,
-          "num_normal_shifted": 10,
-          "num_energy_anomaly_shifted": 0
-        }
-      },
-      "shifted": {
-        "normal_rate_pct": 88.46153846153845,
-        "adsorbate_migration_rate_pct": 0.0,
-        "anomaly_rates_pct": {
-          "total": 11.53846153846154,
-          "reproduction_failure": 0.0,
-          "unphysical_relaxation": 7.692307692307693,
-          "energy_anomaly": 3.846153846153846
-        },
-        "MAE_total_eV": 0.7394269916669644,
-        "MAE_normal_eV": 0.6502807256042665,
-        "MAE_single_eV": 0.7805300626118966
-      }
-    },
-    "MATLANTISv8": {
-      "original_name": "MATLANTISv8",
-      "normal_rate_pct": 84.61538461538461,
-      "adsorbate_migration_rate_pct": 7.692307692307693,
-      "anomaly_rates_pct": {
-        "total": 7.692307692307693,
-        "reproduction_failure": 0.0,
-        "unphysical_relaxation": 7.692307692307693,
-        "energy_anomaly": 0.0
-      },
-      "MAE_total_eV": 0.638695866908092,
-      "MAE_normal_eV": 0.5212498075145341,
-      "MAE_single_eV": 0.4409069736799406,
-      "ADwT_pct": 90.75745682888525,
-      "AMDwT_pct": 89.37661331956632,
-      "num_total": 26,
-      "time_total_s": 308.0746269226074,
-      "time_per_step_s": 0.1104210132339095,
-      "steps_total": 2790,
-      "plots": {
-        "multi_total": "BothraSodium2024/MATLANTISv8/multi/total.png",
-        "multi_normal": "BothraSodium2024/MATLANTISv8/multi/normal.png",
-        "multi_total_shifted": "BothraSodium2024/MATLANTISv8/multi/total_shifted.png",
-        "multi_normal_shifted": "BothraSodium2024/MATLANTISv8/multi/normal_shifted.png"
-      },
-      "adsorbate_breakdown": {
-        "Se": {
-          "MAE_total": 0.8756337273856243,
-          "MAE_normal": 0.7392952386566124,
-          "MAE_single": 0.6163815998636099,
-          "ADwT": 89.3813775510204,
-          "AMDwT": 87.79991610738254,
-          "num_total": 16,
-          "num_normal": 12,
-          "num_anomaly_total": 2,
-          "num_reproduction_failure": 0,
-          "num_unphysical_relaxation": 2,
-          "num_adsorbate_migration": 2,
-          "num_energy_anomaly": 0,
-          "shift_eV": -0.8475574923913394,
-          "n_fit": 12,
-          "MAE_total_shifted": 0.5073472362931635,
-          "MAE_normal_shifted": 0.4425445565355078,
-          "num_normal_shifted": 12,
-          "num_energy_anomaly_shifted": 0
-        },
-        "O2": {
-          "MAE_total": 0.2595952901440402,
-          "MAE_normal": 0.2595952901440402,
-          "MAE_single": 0.1601475717860699,
-          "ADwT": 92.95918367346938,
-          "AMDwT": 91.8993288590604,
-          "num_total": 10,
-          "num_normal": 10,
-          "num_anomaly_total": 0,
-          "num_reproduction_failure": 0,
-          "num_unphysical_relaxation": 0,
-          "num_adsorbate_migration": 0,
-          "num_energy_anomaly": 0,
-          "shift_eV": 0.1982815267531035,
-          "n_fit": 10,
-          "MAE_total_shifted": 0.1563529451187911,
-          "MAE_normal_shifted": 0.1563529451187911,
-          "num_normal_shifted": 10,
-          "num_energy_anomaly_shifted": 0
-        }
-      },
-      "shifted": {
-        "normal_rate_pct": 84.61538461538461,
-        "adsorbate_migration_rate_pct": 7.692307692307693,
-        "anomaly_rates_pct": {
-          "total": 7.692307692307693,
-          "reproduction_failure": 0.0,
-          "unphysical_relaxation": 7.692307692307693,
-          "energy_anomaly": 0.0
-        },
-        "MAE_total_eV": 0.3723494319953279,
-        "MAE_normal_eV": 0.3124574604370002,
-        "MAE_single_eV": 0.415184035332169
-      }
-    },
-    "MatterSim_v1_5M": {
-      "original_name": "MatterSim_v1_5M",
-      "normal_rate_pct": 84.61538461538461,
-      "adsorbate_migration_rate_pct": 0.0,
-      "anomaly_rates_pct": {
-        "total": 15.38461538461539,
-        "reproduction_failure": 0.0,
-        "unphysical_relaxation": 7.692307692307693,
-        "energy_anomaly": 7.692307692307693
-      },
-      "MAE_total_eV": 0.9217535200795186,
-      "MAE_normal_eV": 0.5856828892731094,
-      "MAE_single_eV": 0.7471480263840468,
-      "ADwT_pct": 89.70957613814744,
-      "AMDwT_pct": 88.98683531233766,
-      "num_total": 26,
-      "time_total_s": 141.1085715293884,
-      "time_per_step_s": 0.05030608610673384,
-      "steps_total": 2805,
-      "plots": {
-        "multi_total": "BothraSodium2024/MatterSim_v1_5M/multi/total.png",
-        "multi_normal": "BothraSodium2024/MatterSim_v1_5M/multi/normal.png",
-        "multi_total_shifted": "BothraSodium2024/MatterSim_v1_5M/multi/total_shifted.png",
-        "multi_normal_shifted": "BothraSodium2024/MatterSim_v1_5M/multi/normal_shifted.png"
-      },
-      "adsorbate_breakdown": {
-        "Se": {
-          "MAE_total": 1.360882627931957,
-          "MAE_normal": 0.8911295074043531,
-          "MAE_single": 1.023188897579274,
-          "ADwT": 88.8329081632653,
-          "AMDwT": 88.19630872483222,
-          "num_total": 16,
-          "num_normal": 12,
+          "num_normal": 6,
           "num_anomaly_total": 4,
           "num_reproduction_failure": 0,
-          "num_unphysical_relaxation": 2,
+          "num_unphysical_relaxation": 4,
           "num_adsorbate_migration": 0,
-          "num_energy_anomaly": 2,
-          "shift_eV": -0.8134084231086263,
-          "n_fit": 14,
-          "MAE_total_shifted": 0.7223286889825573,
-          "MAE_normal_shifted": 0.3108603965080287,
-          "num_normal_shifted": 12,
-          "num_energy_anomaly_shifted": 2
+          "num_energy_anomaly": 0,
+          "shift_eV": -0.6481891252250351,
+          "n_fit": 6,
+          "MAE_total_shifted": 0.3307251930048,
+          "MAE_normal_shifted": 0.353012778937854,
+          "num_normal_shifted": 6,
+          "num_energy_anomaly_shifted": 0
+        }
+      },
+      "shifted": {
+        "normal_rate_pct": 60.0,
+        "adsorbate_migration_rate_pct": 0.0,
+        "anomaly_rates_pct": {
+          "total": 40.0,
+          "reproduction_failure": 0.0,
+          "unphysical_relaxation": 40.0,
+          "energy_anomaly": 0.0
         },
+        "MAE_total_eV": 0.3307251930048,
+        "MAE_normal_eV": 0.353012778937854,
+        "MAE_single_eV": 0.4002563611243278
+      }
+    },
+    "MatRIS-10M-OAM": {
+      "original_name": "MatRIS-10M-OAM",
+      "normal_rate_pct": 10.0,
+      "adsorbate_migration_rate_pct": 0.0,
+      "anomaly_rates_pct": {
+        "total": 90.0,
+        "reproduction_failure": 0.0,
+        "unphysical_relaxation": 10.0,
+        "energy_anomaly": 80.0
+      },
+      "MAE_total_eV": 2.334405397182138,
+      "MAE_normal_eV": 1.981340302983426,
+      "MAE_single_eV": 2.298249505763681,
+      "ADwT_pct": 91.34013605442178,
+      "AMDwT_pct": 84.93847874720359,
+      "num_total": 10,
+      "time_total_s": 555.7634167671204,
+      "time_per_step_s": 0.5795238965246302,
+      "steps_total": 959,
+      "plots": {
+        "multi_total": "BothraSodium2024/MatRIS-10M-OAM/multi/total.png",
+        "multi_normal": "BothraSodium2024/MatRIS-10M-OAM/multi/normal.png",
+        "multi_total_shifted": "BothraSodium2024/MatRIS-10M-OAM/multi/total_shifted.png",
+        "multi_normal_shifted": "BothraSodium2024/MatRIS-10M-OAM/multi/normal_shifted.png"
+      },
+      "adsorbate_breakdown": {
         "O2": {
-          "MAE_total": 0.2191469475156168,
-          "MAE_normal": 0.2191469475156168,
+          "MAE_total": 2.334405397182138,
+          "MAE_normal": 1.981340302983426,
+          "MAE_single": 2.298249505763681,
+          "ADwT": 91.34013605442178,
+          "AMDwT": 84.93847874720359,
+          "num_total": 10,
+          "num_normal": 1,
+          "num_anomaly_total": 9,
+          "num_reproduction_failure": 0,
+          "num_unphysical_relaxation": 1,
+          "num_adsorbate_migration": 0,
+          "num_energy_anomaly": 8,
+          "shift_eV": 2.294789845483365,
+          "n_fit": 9,
+          "MAE_total_shifted": 0.2189861830141694,
+          "MAE_normal_shifted": 0.2035184038888929,
+          "num_normal_shifted": 9,
+          "num_energy_anomaly_shifted": 0
+        }
+      },
+      "shifted": {
+        "normal_rate_pct": 90.0,
+        "adsorbate_migration_rate_pct": 0.0,
+        "anomaly_rates_pct": {
+          "total": 10.0,
+          "reproduction_failure": 0.0,
+          "unphysical_relaxation": 10.0,
+          "energy_anomaly": 0.0
+        },
+        "MAE_total_eV": 0.2189861830141694,
+        "MAE_normal_eV": 0.2035184038888929,
+        "MAE_single_eV": 0.123409192313477
+      }
+    },
+    "MatterSim-v1-5M": {
+      "original_name": "MatterSim-v1-5M",
+      "normal_rate_pct": 100.0,
+      "adsorbate_migration_rate_pct": 0.0,
+      "anomaly_rates_pct": {
+        "total": 0.0,
+        "reproduction_failure": 0.0,
+        "unphysical_relaxation": 0.0,
+        "energy_anomaly": 0.0
+      },
+      "MAE_total_eV": 0.2964701826425767,
+      "MAE_normal_eV": 0.2964701826425767,
+      "MAE_single_eV": 0.3054826324716828,
+      "ADwT_pct": 90.1938775510204,
+      "AMDwT_pct": 88.23489932885906,
+      "num_total": 10,
+      "time_total_s": 32.77528762817383,
+      "time_per_step_s": 0.03819963593027253,
+      "steps_total": 858,
+      "plots": {
+        "multi_total": "BothraSodium2024/MatterSim-v1-5M/multi/total.png",
+        "multi_normal": "BothraSodium2024/MatterSim-v1-5M/multi/normal.png",
+        "multi_total_shifted": "BothraSodium2024/MatterSim-v1-5M/multi/total_shifted.png",
+        "multi_normal_shifted": "BothraSodium2024/MatterSim-v1-5M/multi/normal_shifted.png"
+      },
+      "adsorbate_breakdown": {
+        "O2": {
+          "MAE_total": 0.2964701826425767,
+          "MAE_normal": 0.2964701826425767,
           "MAE_single": 0.3054826324716828,
-          "ADwT": 91.11224489795919,
-          "AMDwT": 90.25167785234899,
+          "ADwT": 90.1938775510204,
+          "AMDwT": 88.23489932885906,
           "num_total": 10,
           "num_normal": 10,
           "num_anomaly_total": 0,
@@ -718,47 +964,230 @@
           "num_unphysical_relaxation": 0,
           "num_adsorbate_migration": 0,
           "num_energy_anomaly": 0,
-          "shift_eV": 0.001365301630869453,
+          "shift_eV": -0.1892169737597555,
           "n_fit": 10,
-          "MAE_total_shifted": 0.2191469475156168,
-          "MAE_normal_shifted": 0.2191469475156168,
+          "MAE_total_shifted": 0.2605394895937593,
+          "MAE_normal_shifted": 0.2605394895937593,
           "num_normal_shifted": 10,
           "num_energy_anomaly_shifted": 0
         }
       },
       "shifted": {
-        "normal_rate_pct": 84.61538461538461,
+        "normal_rate_pct": 100.0,
         "adsorbate_migration_rate_pct": 0.0,
         "anomaly_rates_pct": {
-          "total": 15.38461538461539,
+          "total": 0.0,
           "reproduction_failure": 0.0,
-          "unphysical_relaxation": 7.692307692307693,
-          "energy_anomaly": 7.692307692307693
+          "unphysical_relaxation": 0.0,
+          "energy_anomaly": 0.0
         },
-        "MAE_total_eV": 0.528797249956811,
-        "MAE_normal_eV": 0.2691724651478415,
-        "MAE_single_eV": 0.5379132550927946
+        "MAE_total_eV": 0.2605394895937593,
+        "MAE_normal_eV": 0.2605394895937593,
+        "MAE_single_eV": 0.2039927647011723
+      }
+    },
+    "NequIP-OAM-L": {
+      "original_name": "NequIP-OAM-L",
+      "normal_rate_pct": 90.0,
+      "adsorbate_migration_rate_pct": 0.0,
+      "anomaly_rates_pct": {
+        "total": 10.0,
+        "reproduction_failure": 0.0,
+        "unphysical_relaxation": 10.0,
+        "energy_anomaly": 0.0
+      },
+      "MAE_total_eV": 0.2882501275355723,
+      "MAE_normal_eV": 0.3012423557555007,
+      "MAE_single_eV": 0.3569074964739016,
+      "ADwT_pct": 91.93877551020408,
+      "AMDwT_pct": 88.75503355704699,
+      "num_total": 10,
+      "time_total_s": 5.91421365737915,
+      "time_per_step_s": 0.007328641458958055,
+      "steps_total": 807,
+      "plots": {
+        "multi_total": "BothraSodium2024/NequIP-OAM-L/multi/total.png",
+        "multi_normal": "BothraSodium2024/NequIP-OAM-L/multi/normal.png",
+        "multi_total_shifted": "BothraSodium2024/NequIP-OAM-L/multi/total_shifted.png",
+        "multi_normal_shifted": "BothraSodium2024/NequIP-OAM-L/multi/normal_shifted.png"
+      },
+      "adsorbate_breakdown": {
+        "O2": {
+          "MAE_total": 0.2882501275355723,
+          "MAE_normal": 0.3012423557555007,
+          "MAE_single": 0.3569074964739016,
+          "ADwT": 91.93877551020408,
+          "AMDwT": 88.75503355704699,
+          "num_total": 10,
+          "num_normal": 9,
+          "num_anomaly_total": 1,
+          "num_reproduction_failure": 0,
+          "num_unphysical_relaxation": 1,
+          "num_adsorbate_migration": 0,
+          "num_energy_anomaly": 0,
+          "shift_eV": -0.2860074263543115,
+          "n_fit": 9,
+          "MAE_total_shifted": 0.1744406963174109,
+          "MAE_normal_shifted": 0.181079956708446,
+          "num_normal_shifted": 9,
+          "num_energy_anomaly_shifted": 0
+        }
+      },
+      "shifted": {
+        "normal_rate_pct": 90.0,
+        "adsorbate_migration_rate_pct": 0.0,
+        "anomaly_rates_pct": {
+          "total": 10.0,
+          "reproduction_failure": 0.0,
+          "unphysical_relaxation": 10.0,
+          "energy_anomaly": 0.0
+        },
+        "MAE_total_eV": 0.1744406963174109,
+        "MAE_normal_eV": 0.181079956708446,
+        "MAE_single_eV": 0.1771507012343058
+      }
+    },
+    "NequIP-OAM-XL": {
+      "original_name": "NequIP-OAM-XL",
+      "normal_rate_pct": 100.0,
+      "adsorbate_migration_rate_pct": 0.0,
+      "anomaly_rates_pct": {
+        "total": 0.0,
+        "reproduction_failure": 0.0,
+        "unphysical_relaxation": 0.0,
+        "energy_anomaly": 0.0
+      },
+      "MAE_total_eV": 0.1931421528506553,
+      "MAE_normal_eV": 0.1931421528506553,
+      "MAE_single_eV": 0.1393122964478508,
+      "ADwT_pct": 90.74489795918367,
+      "AMDwT_pct": 89.53020134228188,
+      "num_total": 10,
+      "time_total_s": 10.91386342048645,
+      "time_per_step_s": 0.01192771958523109,
+      "steps_total": 915,
+      "plots": {
+        "multi_total": "BothraSodium2024/NequIP-OAM-XL/multi/total.png",
+        "multi_normal": "BothraSodium2024/NequIP-OAM-XL/multi/normal.png",
+        "multi_total_shifted": "BothraSodium2024/NequIP-OAM-XL/multi/total_shifted.png",
+        "multi_normal_shifted": "BothraSodium2024/NequIP-OAM-XL/multi/normal_shifted.png"
+      },
+      "adsorbate_breakdown": {
+        "O2": {
+          "MAE_total": 0.1931421528506553,
+          "MAE_normal": 0.1931421528506553,
+          "MAE_single": 0.1393122964478508,
+          "ADwT": 90.74489795918367,
+          "AMDwT": 89.53020134228188,
+          "num_total": 10,
+          "num_normal": 10,
+          "num_anomaly_total": 0,
+          "num_reproduction_failure": 0,
+          "num_unphysical_relaxation": 0,
+          "num_adsorbate_migration": 0,
+          "num_energy_anomaly": 0,
+          "shift_eV": 0.06869175661326299,
+          "n_fit": 10,
+          "MAE_total_shifted": 0.1742402082944833,
+          "MAE_normal_shifted": 0.1742402082944833,
+          "num_normal_shifted": 10,
+          "num_energy_anomaly_shifted": 0
+        }
+      },
+      "shifted": {
+        "normal_rate_pct": 100.0,
+        "adsorbate_migration_rate_pct": 0.0,
+        "anomaly_rates_pct": {
+          "total": 0.0,
+          "reproduction_failure": 0.0,
+          "unphysical_relaxation": 0.0,
+          "energy_anomaly": 0.0
+        },
+        "MAE_total_eV": 0.1742402082944833,
+        "MAE_normal_eV": 0.1742402082944833,
+        "MAE_single_eV": 0.1662656180513057
+      }
+    },
+    "Nequix-MP-1": {
+      "original_name": "Nequix-MP-1",
+      "normal_rate_pct": 100.0,
+      "adsorbate_migration_rate_pct": 0.0,
+      "anomaly_rates_pct": {
+        "total": 0.0,
+        "reproduction_failure": 0.0,
+        "unphysical_relaxation": 0.0,
+        "energy_anomaly": 0.0
+      },
+      "MAE_total_eV": 0.2427660520937593,
+      "MAE_normal_eV": 0.2427660520937593,
+      "MAE_single_eV": 0.2335060643515703,
+      "ADwT_pct": 90.18367346938776,
+      "AMDwT_pct": 88.74832214765101,
+      "num_total": 10,
+      "time_total_s": 19.85478019714355,
+      "time_per_step_s": 0.02314076946054027,
+      "steps_total": 858,
+      "plots": {
+        "multi_total": "BothraSodium2024/Nequix-MP-1/multi/total.png",
+        "multi_normal": "BothraSodium2024/Nequix-MP-1/multi/normal.png",
+        "multi_total_shifted": "BothraSodium2024/Nequix-MP-1/multi/total_shifted.png",
+        "multi_normal_shifted": "BothraSodium2024/Nequix-MP-1/multi/normal_shifted.png"
+      },
+      "adsorbate_breakdown": {
+        "O2": {
+          "MAE_total": 0.2427660520937593,
+          "MAE_normal": 0.2427660520937593,
+          "MAE_single": 0.2335060643515703,
+          "ADwT": 90.18367346938776,
+          "AMDwT": 88.74832214765101,
+          "num_total": 10,
+          "num_normal": 10,
+          "num_anomaly_total": 0,
+          "num_reproduction_failure": 0,
+          "num_unphysical_relaxation": 0,
+          "num_adsorbate_migration": 0,
+          "num_energy_anomaly": 0,
+          "shift_eV": -0.02213704822264617,
+          "n_fit": 10,
+          "MAE_total_shifted": 0.2427660520937593,
+          "MAE_normal_shifted": 0.2427660520937593,
+          "num_normal_shifted": 10,
+          "num_energy_anomaly_shifted": 0
+        }
+      },
+      "shifted": {
+        "normal_rate_pct": 100.0,
+        "adsorbate_migration_rate_pct": 0.0,
+        "anomaly_rates_pct": {
+          "total": 0.0,
+          "reproduction_failure": 0.0,
+          "unphysical_relaxation": 0.0,
+          "energy_anomaly": 0.0
+        },
+        "MAE_total_eV": 0.2427660520937593,
+        "MAE_normal_eV": 0.2427660520937593,
+        "MAE_single_eV": 0.2246512450625119
       }
     },
     "ORB-v3": {
       "original_name": "ORB-v3",
-      "normal_rate_pct": 84.61538461538461,
+      "normal_rate_pct": 100.0,
       "adsorbate_migration_rate_pct": 0.0,
       "anomaly_rates_pct": {
-        "total": 15.38461538461539,
+        "total": 0.0,
         "reproduction_failure": 0.0,
-        "unphysical_relaxation": 7.692307692307693,
-        "energy_anomaly": 7.692307692307693
+        "unphysical_relaxation": 0.0,
+        "energy_anomaly": 0.0
       },
-      "MAE_total_eV": 0.8200124758360298,
-      "MAE_normal_eV": 0.4984724603535307,
-      "MAE_single_eV": 0.5697770590561023,
-      "ADwT_pct": 91.84196755625307,
-      "AMDwT_pct": 91.7479779728093,
-      "num_total": 26,
-      "time_total_s": 77.5432620048523,
-      "time_per_step_s": 0.030869132963715087,
-      "steps_total": 2512,
+      "MAE_total_eV": 0.2064124748647487,
+      "MAE_normal_eV": 0.2064124748647487,
+      "MAE_single_eV": 0.15772681887305,
+      "ADwT_pct": 92.31632653061224,
+      "AMDwT_pct": 91.46979865771812,
+      "num_total": 10,
+      "time_total_s": 10.37932276725769,
+      "time_per_step_s": 0.01445588129144525,
+      "steps_total": 718,
       "plots": {
         "multi_total": "BothraSodium2024/ORB-v3/multi/total.png",
         "multi_normal": "BothraSodium2024/ORB-v3/multi/normal.png",
@@ -766,32 +1195,12 @@
         "multi_normal_shifted": "BothraSodium2024/ORB-v3/multi/normal_shifted.png"
       },
       "adsorbate_breakdown": {
-        "Se": {
-          "MAE_total": 1.175427300385337,
-          "MAE_normal": 0.7044088801838578,
-          "MAE_single": 0.827832026370217,
-          "ADwT": 90.36352040816327,
-          "AMDwT": 90.86059843400449,
-          "num_total": 16,
-          "num_normal": 12,
-          "num_anomaly_total": 4,
-          "num_reproduction_failure": 0,
-          "num_unphysical_relaxation": 2,
-          "num_adsorbate_migration": 0,
-          "num_energy_anomaly": 2,
-          "shift_eV": -0.7307577591076893,
-          "n_fit": 14,
-          "MAE_total_shifted": 0.6806779376881238,
-          "MAE_normal_shifted": 0.2883289829568033,
-          "num_normal_shifted": 12,
-          "num_energy_anomaly_shifted": 2
-        },
         "O2": {
-          "MAE_total": 0.2513487565571381,
-          "MAE_normal": 0.2513487565571381,
-          "MAE_single": 0.1568891113535187,
-          "ADwT": 94.20748299319729,
-          "AMDwT": 93.16778523489933,
+          "MAE_total": 0.2064124748647487,
+          "MAE_normal": 0.2064124748647487,
+          "MAE_single": 0.15772681887305,
+          "ADwT": 92.31632653061224,
+          "AMDwT": 91.46979865771812,
           "num_total": 10,
           "num_normal": 10,
           "num_anomaly_total": 0,
@@ -799,47 +1208,108 @@
           "num_unphysical_relaxation": 0,
           "num_adsorbate_migration": 0,
           "num_energy_anomaly": 0,
-          "shift_eV": 0.2356491940320211,
+          "shift_eV": 0.04846822979249055,
           "n_fit": 10,
-          "MAE_total_shifted": 0.1464174553281168,
-          "MAE_normal_shifted": 0.1464174553281168,
+          "MAE_total_shifted": 0.1977343138125093,
+          "MAE_normal_shifted": 0.1977343138125093,
           "num_normal_shifted": 10,
           "num_energy_anomaly_shifted": 0
         }
       },
       "shifted": {
-        "normal_rate_pct": 84.61538461538461,
+        "normal_rate_pct": 100.0,
         "adsorbate_migration_rate_pct": 0.0,
         "anomaly_rates_pct": {
-          "total": 15.38461538461539,
+          "total": 0.0,
           "reproduction_failure": 0.0,
-          "unphysical_relaxation": 7.692307692307693,
-          "energy_anomaly": 7.692307692307693
+          "unphysical_relaxation": 0.0,
+          "energy_anomaly": 0.0
         },
-        "MAE_total_eV": 0.4751931367804288,
-        "MAE_normal_eV": 0.2238237431255822,
-        "MAE_single_eV": 0.5636584237962202
+        "MAE_total_eV": 0.1977343138125093,
+        "MAE_normal_eV": 0.1977343138125093,
+        "MAE_single_eV": 0.1868077567485443
+      }
+    },
+    "PET-OAM-XL": {
+      "original_name": "PET-OAM-XL",
+      "normal_rate_pct": 20.0,
+      "adsorbate_migration_rate_pct": 0.0,
+      "anomaly_rates_pct": {
+        "total": 80.0,
+        "reproduction_failure": 0.0,
+        "unphysical_relaxation": 0.0,
+        "energy_anomaly": 80.0
+      },
+      "MAE_total_eV": 2.240971685642569,
+      "MAE_normal_eV": 1.897656844658172,
+      "MAE_single_eV": 2.750938059086173,
+      "ADwT_pct": 93.86734693877551,
+      "AMDwT_pct": 88.74496644295301,
+      "num_total": 10,
+      "time_total_s": 121.482330083847,
+      "time_per_step_s": 0.1499781852887,
+      "steps_total": 810,
+      "plots": {
+        "multi_total": "BothraSodium2024/PET-OAM-XL/multi/total.png",
+        "multi_normal": "BothraSodium2024/PET-OAM-XL/multi/normal.png",
+        "multi_total_shifted": "BothraSodium2024/PET-OAM-XL/multi/total_shifted.png",
+        "multi_normal_shifted": "BothraSodium2024/PET-OAM-XL/multi/normal_shifted.png"
+      },
+      "adsorbate_breakdown": {
+        "O2": {
+          "MAE_total": 2.240971685642569,
+          "MAE_normal": 1.897656844658172,
+          "MAE_single": 2.750938059086173,
+          "ADwT": 93.86734693877551,
+          "AMDwT": 88.74496644295301,
+          "num_total": 10,
+          "num_normal": 2,
+          "num_anomaly_total": 8,
+          "num_reproduction_failure": 0,
+          "num_unphysical_relaxation": 0,
+          "num_adsorbate_migration": 0,
+          "num_energy_anomaly": 8,
+          "shift_eV": -2.292747857548818,
+          "n_fit": 10,
+          "MAE_total_shifted": 0.1993471428281168,
+          "MAE_normal_shifted": 0.1993471428281168,
+          "num_normal_shifted": 10,
+          "num_energy_anomaly_shifted": 0
+        }
+      },
+      "shifted": {
+        "normal_rate_pct": 100.0,
+        "adsorbate_migration_rate_pct": 0.0,
+        "anomaly_rates_pct": {
+          "total": 0.0,
+          "reproduction_failure": 0.0,
+          "unphysical_relaxation": 0.0,
+          "energy_anomaly": 0.0
+        },
+        "MAE_total_eV": 0.1993471428281168,
+        "MAE_normal_eV": 0.1993471428281168,
+        "MAE_single_eV": 0.4581902015373543
       }
     },
     "SevenNet-MF-OMPA": {
       "original_name": "SevenNet-MF-OMPA",
-      "normal_rate_pct": 84.61538461538461,
+      "normal_rate_pct": 100.0,
       "adsorbate_migration_rate_pct": 0.0,
       "anomaly_rates_pct": {
-        "total": 15.38461538461539,
+        "total": 0.0,
         "reproduction_failure": 0.0,
-        "unphysical_relaxation": 7.692307692307693,
-        "energy_anomaly": 7.692307692307693
+        "unphysical_relaxation": 0.0,
+        "energy_anomaly": 0.0
       },
-      "MAE_total_eV": 0.8511436234379937,
-      "MAE_normal_eV": 0.5133910470118714,
-      "MAE_single_eV": 0.7214514864318613,
-      "ADwT_pct": 90.22370486656189,
-      "AMDwT_pct": 88.34537945276145,
-      "num_total": 26,
-      "time_total_s": 227.7668886184692,
-      "time_per_step_s": 0.07739275861993518,
-      "steps_total": 2943,
+      "MAE_total_eV": 0.2295685942026353,
+      "MAE_normal_eV": 0.2295685942026353,
+      "MAE_single_eV": 0.2948175018564484,
+      "ADwT_pct": 90.81632653061224,
+      "AMDwT_pct": 88.86912751677852,
+      "num_total": 10,
+      "time_total_s": 22.39539337158203,
+      "time_per_step_s": 0.02647209618390311,
+      "steps_total": 846,
       "plots": {
         "multi_total": "BothraSodium2024/SevenNet-MF-OMPA/multi/total.png",
         "multi_normal": "BothraSodium2024/SevenNet-MF-OMPA/multi/normal.png",
@@ -847,32 +1317,12 @@
         "multi_normal_shifted": "BothraSodium2024/SevenNet-MF-OMPA/multi/normal_shifted.png"
       },
       "adsorbate_breakdown": {
-        "Se": {
-          "MAE_total": 1.227373235342604,
-          "MAE_normal": 0.7335700491962504,
-          "MAE_single": 0.988094627349966,
-          "ADwT": 89.31760204081633,
-          "AMDwT": 87.55453020134229,
-          "num_total": 16,
-          "num_normal": 12,
-          "num_anomaly_total": 4,
-          "num_reproduction_failure": 0,
-          "num_unphysical_relaxation": 2,
-          "num_adsorbate_migration": 0,
-          "num_energy_anomaly": 2,
-          "shift_eV": -0.6936399209927799,
-          "n_fit": 14,
-          "MAE_total_shifted": 0.703407748074099,
-          "MAE_normal_shifted": 0.2661627065025035,
-          "num_normal_shifted": 12,
-          "num_energy_anomaly_shifted": 2
-        },
         "O2": {
-          "MAE_total": 0.2491762443906168,
-          "MAE_normal": 0.2491762443906168,
-          "MAE_single": 0.2948224609628937,
-          "ADwT": 91.6734693877551,
-          "AMDwT": 89.61073825503355,
+          "MAE_total": 0.2295685942026353,
+          "MAE_normal": 0.2295685942026353,
+          "MAE_single": 0.2948175018564484,
+          "ADwT": 90.81632653061224,
+          "AMDwT": 88.86912751677852,
           "num_total": 10,
           "num_normal": 10,
           "num_anomaly_total": 0,
@@ -880,161 +1330,60 @@
           "num_unphysical_relaxation": 0,
           "num_adsorbate_migration": 0,
           "num_energy_anomaly": 0,
-          "shift_eV": 0.0215127213281221,
+          "shift_eV": -0.02029741046629852,
           "n_fit": 10,
-          "MAE_total_shifted": 0.2491762443906168,
-          "MAE_normal_shifted": 0.2491762443906168,
+          "MAE_total_shifted": 0.2283266350156168,
+          "MAE_normal_shifted": 0.2283266350156168,
           "num_normal_shifted": 10,
           "num_energy_anomaly_shifted": 0
         }
       },
       "shifted": {
-        "normal_rate_pct": 84.61538461538461,
+        "normal_rate_pct": 100.0,
         "adsorbate_migration_rate_pct": 0.0,
         "anomaly_rates_pct": {
-          "total": 15.38461538461539,
+          "total": 0.0,
           "reproduction_failure": 0.0,
-          "unphysical_relaxation": 7.692307692307693,
-          "energy_anomaly": 7.692307692307693
+          "unphysical_relaxation": 0.0,
+          "energy_anomaly": 0.0
         },
-        "MAE_total_eV": 0.528703323580452,
-        "MAE_normal_eV": 0.2584415873607368,
-        "MAE_single_eV": 0.5284662622426638
+        "MAE_total_eV": 0.2283266350156168,
+        "MAE_normal_eV": 0.2283266350156168,
+        "MAE_single_eV": 0.2826390555766693
       }
     },
-    "UMA-m-1p1_oc20": {
-      "original_name": "UMA-m-1p1_oc20",
-      "normal_rate_pct": 34.61538461538461,
+    "SevenNet-Omni": {
+      "original_name": "SevenNet-Omni",
+      "normal_rate_pct": 100.0,
       "adsorbate_migration_rate_pct": 0.0,
       "anomaly_rates_pct": {
-        "total": 65.38461538461539,
+        "total": 0.0,
         "reproduction_failure": 0.0,
-        "unphysical_relaxation": 46.15384615384615,
-        "energy_anomaly": 19.23076923076923
+        "unphysical_relaxation": 0.0,
+        "energy_anomaly": 0.0
       },
-      "MAE_total_eV": 1.807389843040145,
-      "MAE_normal_eV": 1.068694591535398,
-      "MAE_single_eV": 1.848715444149758,
-      "ADwT_pct": 68.59105180533709,
-      "AMDwT_pct": 70.36267423851241,
-      "num_total": 26,
-      "time_total_s": 4824.679204940796,
-      "time_per_step_s": 0.6111056624370862,
-      "steps_total": 7895,
+      "MAE_total_eV": 0.2385534357421989,
+      "MAE_normal_eV": 0.2385534357421989,
+      "MAE_single_eV": 0.1858395273496058,
+      "ADwT_pct": 91.64285714285714,
+      "AMDwT_pct": 89.21812080536913,
+      "num_total": 10,
+      "time_total_s": 20.60412931442261,
+      "time_per_step_s": 0.026415550403105913,
+      "steps_total": 780,
       "plots": {
-        "multi_total": "BothraSodium2024/UMA-m-1p1_oc20/multi/total.png",
-        "multi_normal": "BothraSodium2024/UMA-m-1p1_oc20/multi/normal.png",
-        "multi_total_shifted": "BothraSodium2024/UMA-m-1p1_oc20/multi/total_shifted.png",
-        "multi_normal_shifted": "BothraSodium2024/UMA-m-1p1_oc20/multi/normal_shifted.png"
+        "multi_total": "BothraSodium2024/SevenNet-Omni/multi/total.png",
+        "multi_normal": "BothraSodium2024/SevenNet-Omni/multi/normal.png",
+        "multi_total_shifted": "BothraSodium2024/SevenNet-Omni/multi/total_shifted.png",
+        "multi_normal_shifted": "BothraSodium2024/SevenNet-Omni/multi/normal_shifted.png"
       },
       "adsorbate_breakdown": {
-        "Se": {
-          "MAE_total": 1.837057420671237,
-          "MAE_normal": 1.005263047178459,
-          "MAE_single": 1.631632239952136,
-          "ADwT": 74.52806122448979,
-          "AMDwT": 76.90296420581656,
-          "num_total": 16,
-          "num_normal": 8,
-          "num_anomaly_total": 8,
-          "num_reproduction_failure": 0,
-          "num_unphysical_relaxation": 4,
-          "num_adsorbate_migration": 0,
-          "num_energy_anomaly": 4,
-          "shift_eV": 0.3139515726173063,
-          "n_fit": 12,
-          "MAE_total_shifted": 1.758569527516911,
-          "MAE_normal_shifted": 1.005263047178459,
-          "num_normal_shifted": 8,
-          "num_energy_anomaly_shifted": 4
-        },
         "O2": {
-          "MAE_total": 1.759921718830398,
-          "MAE_normal": 1.57614694639091,
-          "MAE_single": 2.196048570865954,
-          "ADwT": 59.09183673469388,
-          "AMDwT": 59.89821029082773,
-          "num_total": 10,
-          "num_normal": 1,
-          "num_anomaly_total": 9,
-          "num_reproduction_failure": 0,
-          "num_unphysical_relaxation": 8,
-          "num_adsorbate_migration": 0,
-          "num_energy_anomaly": 1,
-          "shift_eV": null,
-          "n_fit": 2,
-          "MAE_total_shifted": 1.759921718830398,
-          "MAE_normal_shifted": 1.57614694639091,
-          "num_normal_shifted": 1,
-          "num_energy_anomaly_shifted": 1
-        }
-      },
-      "shifted": {
-        "normal_rate_pct": 34.61538461538461,
-        "adsorbate_migration_rate_pct": 0.0,
-        "anomaly_rates_pct": {
-          "total": 65.38461538461539,
-          "reproduction_failure": 0.0,
-          "unphysical_relaxation": 46.15384615384615,
-          "energy_anomaly": 19.23076923076923
-        },
-        "MAE_total_eV": 1.759089601099021,
-        "MAE_normal_eV": 1.068694591535398,
-        "MAE_single_eV": 1.771204336240694
-      }
-    },
-    "UMA-m-1p1_omat": {
-      "original_name": "UMA-m-1p1_omat",
-      "normal_rate_pct": 84.61538461538461,
-      "adsorbate_migration_rate_pct": 0.0,
-      "anomaly_rates_pct": {
-        "total": 15.38461538461539,
-        "reproduction_failure": 0.0,
-        "unphysical_relaxation": 7.692307692307693,
-        "energy_anomaly": 7.692307692307693
-      },
-      "MAE_total_eV": 1.04160692074616,
-      "MAE_normal_eV": 0.8534351611827934,
-      "MAE_single_eV": 1.372932764118379,
-      "ADwT_pct": 94.78806907378309,
-      "AMDwT_pct": 93.98554465668464,
-      "num_total": 26,
-      "time_total_s": 1089.402896881104,
-      "time_per_step_s": 0.6002219817526742,
-      "steps_total": 1815,
-      "plots": {
-        "multi_total": "BothraSodium2024/UMA-m-1p1_omat/multi/total.png",
-        "multi_normal": "BothraSodium2024/UMA-m-1p1_omat/multi/normal.png",
-        "multi_total_shifted": "BothraSodium2024/UMA-m-1p1_omat/multi/total_shifted.png",
-        "multi_normal_shifted": "BothraSodium2024/UMA-m-1p1_omat/multi/normal_shifted.png"
-      },
-      "adsorbate_breakdown": {
-        "Se": {
-          "MAE_total": 0.9757930469088146,
-          "MAE_normal": 0.6088735297635286,
-          "MAE_single": 1.200688465555216,
-          "ADwT": 92.8188775510204,
-          "AMDwT": 93.09144295302013,
-          "num_total": 16,
-          "num_normal": 12,
-          "num_anomaly_total": 4,
-          "num_reproduction_failure": 0,
-          "num_unphysical_relaxation": 2,
-          "num_adsorbate_migration": 0,
-          "num_energy_anomaly": 2,
-          "shift_eV": -0.2815146590135669,
-          "n_fit": 14,
-          "MAE_total_shifted": 0.9563379878929076,
-          "MAE_normal_shifted": 0.629852560911247,
-          "num_normal_shifted": 12,
-          "num_energy_anomaly_shifted": 2
-        },
-        "O2": {
-          "MAE_total": 1.146909118885912,
-          "MAE_normal": 1.146909118885912,
-          "MAE_single": 1.64852364181944,
-          "ADwT": 97.93877551020408,
-          "AMDwT": 95.41610738255034,
+          "MAE_total": 0.2385534357421989,
+          "MAE_normal": 0.2385534357421989,
+          "MAE_single": 0.1858395273496058,
+          "ADwT": 91.64285714285714,
+          "AMDwT": 89.21812080536913,
           "num_total": 10,
           "num_normal": 10,
           "num_anomaly_total": 0,
@@ -1042,80 +1391,119 @@
           "num_unphysical_relaxation": 0,
           "num_adsorbate_migration": 0,
           "num_energy_anomaly": 0,
-          "shift_eV": -1.192361746520175,
+          "shift_eV": 0.1599880433300882,
           "n_fit": 10,
-          "MAE_total_shifted": 0.1081652447112299,
-          "MAE_normal_shifted": 0.1081652447112299,
+          "MAE_total_shifted": 0.1927309318906168,
+          "MAE_normal_shifted": 0.1927309318906168,
           "num_normal_shifted": 10,
           "num_energy_anomaly_shifted": 0
         }
       },
       "shifted": {
-        "normal_rate_pct": 84.61538461538461,
+        "normal_rate_pct": 100.0,
         "adsorbate_migration_rate_pct": 0.0,
         "anomaly_rates_pct": {
-          "total": 15.38461538461539,
+          "total": 0.0,
           "reproduction_failure": 0.0,
-          "unphysical_relaxation": 7.692307692307693,
-          "energy_anomaly": 7.692307692307693
+          "unphysical_relaxation": 0.0,
+          "energy_anomaly": 0.0
         },
-        "MAE_total_eV": 0.6301177020538008,
-        "MAE_normal_eV": 0.3927219626385118,
-        "MAE_single_eV": 0.9359870661501246
+        "MAE_total_eV": 0.1927309318906168,
+        "MAE_normal_eV": 0.1927309318906168,
+        "MAE_single_eV": 0.2789832404521576
       }
     },
-    "UMA-s-1p1_oc20": {
-      "original_name": "UMA-s-1p1_oc20",
-      "normal_rate_pct": 15.38461538461539,
+    "TACE-OAM-L": {
+      "original_name": "TACE-OAM-L",
+      "normal_rate_pct": 90.0,
       "adsorbate_migration_rate_pct": 0.0,
       "anomaly_rates_pct": {
-        "total": 84.61538461538461,
+        "total": 10.0,
         "reproduction_failure": 0.0,
-        "unphysical_relaxation": 76.92307692307693,
-        "energy_anomaly": 7.692307692307693
+        "unphysical_relaxation": 10.0,
+        "energy_anomaly": 0.0
       },
-      "MAE_total_eV": 1.352476009990712,
-      "MAE_normal_eV": 0.5427516016022869,
-      "MAE_single_eV": 1.075826733182434,
-      "ADwT_pct": 35.86865515436944,
-      "AMDwT_pct": 44.25184993976902,
-      "num_total": 26,
-      "time_total_s": 1623.392597198486,
-      "time_per_step_s": 0.1143153719596146,
-      "steps_total": 14201,
+      "MAE_total_eV": 0.3140525038095688,
+      "MAE_normal_eV": 0.3162926241357379,
+      "MAE_single_eV": 0.4030608427470611,
+      "ADwT_pct": 91.23469387755102,
+      "AMDwT_pct": 86.57046979865771,
+      "num_total": 10,
+      "time_total_s": 267.3591182231903,
+      "time_per_step_s": 0.2725373274446384,
+      "steps_total": 981,
       "plots": {
-        "multi_total": "BothraSodium2024/UMA-s-1p1_oc20/multi/total.png",
-        "multi_normal": "BothraSodium2024/UMA-s-1p1_oc20/multi/normal.png",
-        "multi_total_shifted": "BothraSodium2024/UMA-s-1p1_oc20/multi/total_shifted.png",
-        "multi_normal_shifted": "BothraSodium2024/UMA-s-1p1_oc20/multi/normal_shifted.png"
+        "multi_total": "BothraSodium2024/TACE-OAM-L/multi/total.png",
+        "multi_normal": "BothraSodium2024/TACE-OAM-L/multi/normal.png",
+        "multi_total_shifted": "BothraSodium2024/TACE-OAM-L/multi/total_shifted.png",
+        "multi_normal_shifted": "BothraSodium2024/TACE-OAM-L/multi/normal_shifted.png"
       },
       "adsorbate_breakdown": {
-        "Se": {
-          "MAE_total": 1.796593799501927,
-          "MAE_normal": 0.5427516016022869,
-          "MAE_single": 1.30436744656975,
-          "ADwT": 44.01785714285715,
-          "AMDwT": 49.94546979865772,
-          "num_total": 16,
-          "num_normal": 4,
-          "num_anomaly_total": 12,
-          "num_reproduction_failure": 0,
-          "num_unphysical_relaxation": 10,
-          "num_adsorbate_migration": 0,
-          "num_energy_anomaly": 2,
-          "shift_eV": -0.8547569131181945,
-          "n_fit": 6,
-          "MAE_total_shifted": 1.954408429234761,
-          "MAE_normal_shifted": 0.6178407623148049,
-          "num_normal_shifted": 5,
-          "num_energy_anomaly_shifted": 1
-        },
         "O2": {
-          "MAE_total": 0.6418875467727698,
+          "MAE_total": 0.3140525038095688,
+          "MAE_normal": 0.3162926241357379,
+          "MAE_single": 0.4030608427470611,
+          "ADwT": 91.23469387755102,
+          "AMDwT": 86.57046979865771,
+          "num_total": 10,
+          "num_normal": 9,
+          "num_anomaly_total": 1,
+          "num_reproduction_failure": 0,
+          "num_unphysical_relaxation": 1,
+          "num_adsorbate_migration": 0,
+          "num_energy_anomaly": 0,
+          "shift_eV": -0.2599281720947602,
+          "n_fit": 9,
+          "MAE_total_shifted": 0.2656969602968843,
+          "MAE_normal_shifted": 0.2336833344444484,
+          "num_normal_shifted": 9,
+          "num_energy_anomaly_shifted": 0
+        }
+      },
+      "shifted": {
+        "normal_rate_pct": 90.0,
+        "adsorbate_migration_rate_pct": 0.0,
+        "anomaly_rates_pct": {
+          "total": 10.0,
+          "reproduction_failure": 0.0,
+          "unphysical_relaxation": 10.0,
+          "energy_anomaly": 0.0
+        },
+        "MAE_total_eV": 0.2656969602968843,
+        "MAE_normal_eV": 0.2336833344444484,
+        "MAE_single_eV": 0.1804602410703069
+      }
+    },
+    "UMA-m-1p1-OC20": {
+      "original_name": "UMA-m-1p1-OC20",
+      "normal_rate_pct": 0.0,
+      "adsorbate_migration_rate_pct": 0.0,
+      "anomaly_rates_pct": {
+        "total": 100.0,
+        "reproduction_failure": 0.0,
+        "unphysical_relaxation": 100.0,
+        "energy_anomaly": 0.0
+      },
+      "MAE_total_eV": 1.617395378345927,
+      "MAE_normal_eV": 0.0,
+      "MAE_single_eV": 2.196061731571396,
+      "ADwT_pct": 51.50680272108844,
+      "AMDwT_pct": 56.6331096196868,
+      "num_total": 10,
+      "time_total_s": 991.4578969478607,
+      "time_per_step_s": 0.3015382898259917,
+      "steps_total": 3288,
+      "plots": {
+        "multi_total": "BothraSodium2024/UMA-m-1p1-OC20/multi/total.png",
+        "multi_total_shifted": "BothraSodium2024/UMA-m-1p1-OC20/multi/total_shifted.png"
+      },
+      "adsorbate_breakdown": {
+        "O2": {
+          "MAE_total": 1.617395378345927,
           "MAE_normal": 0.0,
-          "MAE_single": 0.7101615917627295,
-          "ADwT": 22.8299319727891,
-          "AMDwT": 35.1420581655481,
+          "MAE_single": 2.196061731571396,
+          "ADwT": 51.50680272108844,
+          "AMDwT": 56.6331096196868,
           "num_total": 10,
           "num_normal": 0,
           "num_anomaly_total": 10,
@@ -1125,78 +1513,58 @@
           "num_energy_anomaly": 0,
           "shift_eV": null,
           "n_fit": 0,
-          "MAE_total_shifted": 0.6418875467727698,
+          "MAE_total_shifted": 1.617395378345927,
           "MAE_normal_shifted": 0.0,
           "num_normal_shifted": 0,
           "num_energy_anomaly_shifted": 0
         }
       },
       "shifted": {
-        "normal_rate_pct": 19.23076923076923,
+        "normal_rate_pct": 0.0,
         "adsorbate_migration_rate_pct": 0.0,
         "anomaly_rates_pct": {
-          "total": 80.76923076923077,
+          "total": 100.0,
           "reproduction_failure": 0.0,
-          "unphysical_relaxation": 76.92307692307693,
-          "energy_anomaly": 3.846153846153846
+          "unphysical_relaxation": 100.0,
+          "energy_anomaly": 0.0
         },
-        "MAE_total_eV": 1.449592705210918,
-        "MAE_normal_eV": 0.6178407623148049,
-        "MAE_single_eV": 1.371019924155178
+        "MAE_total_eV": 1.617395378345927,
+        "MAE_normal_eV": 0.0,
+        "MAE_single_eV": 2.196061731571396
       }
     },
-    "UMA-s-1p1_omat": {
-      "original_name": "UMA-s-1p1_omat",
-      "normal_rate_pct": 84.61538461538461,
+    "UMA-m-1p1-OMAT": {
+      "original_name": "UMA-m-1p1-OMAT",
+      "normal_rate_pct": 100.0,
       "adsorbate_migration_rate_pct": 0.0,
       "anomaly_rates_pct": {
-        "total": 15.38461538461539,
+        "total": 0.0,
         "reproduction_failure": 0.0,
-        "unphysical_relaxation": 7.692307692307693,
-        "energy_anomaly": 7.692307692307693
+        "unphysical_relaxation": 0.0,
+        "energy_anomaly": 0.0
       },
-      "MAE_total_eV": 0.9696563060652564,
-      "MAE_normal_eV": 0.7735675612336063,
-      "MAE_single_eV": 1.255798125615565,
-      "ADwT_pct": 91.89167974882238,
-      "AMDwT_pct": 91.71011874031916,
-      "num_total": 26,
-      "time_total_s": 306.0381360054016,
-      "time_per_step_s": 0.1151818351544605,
-      "steps_total": 2657,
+      "MAE_total_eV": 1.289790226216097,
+      "MAE_normal_eV": 1.289790226216097,
+      "MAE_single_eV": 1.648526693577229,
+      "ADwT_pct": 93.92857142857143,
+      "AMDwT_pct": 88.51454138702461,
+      "num_total": 10,
+      "time_total_s": 217.3618783950806,
+      "time_per_step_s": 0.2981644422429089,
+      "steps_total": 729,
       "plots": {
-        "multi_total": "BothraSodium2024/UMA-s-1p1_omat/multi/total.png",
-        "multi_normal": "BothraSodium2024/UMA-s-1p1_omat/multi/normal.png",
-        "multi_total_shifted": "BothraSodium2024/UMA-s-1p1_omat/multi/total_shifted.png",
-        "multi_normal_shifted": "BothraSodium2024/UMA-s-1p1_omat/multi/normal_shifted.png"
+        "multi_total": "BothraSodium2024/UMA-m-1p1-OMAT/multi/total.png",
+        "multi_normal": "BothraSodium2024/UMA-m-1p1-OMAT/multi/normal.png",
+        "multi_total_shifted": "BothraSodium2024/UMA-m-1p1-OMAT/multi/total_shifted.png",
+        "multi_normal_shifted": "BothraSodium2024/UMA-m-1p1-OMAT/multi/normal_shifted.png"
       },
       "adsorbate_breakdown": {
-        "Se": {
-          "MAE_total": 0.9559620820320044,
-          "MAE_normal": 0.5919013084962287,
-          "MAE_single": 1.106043153826049,
-          "ADwT": 90.32525510204081,
-          "AMDwT": 91.19756711409396,
-          "num_total": 16,
-          "num_normal": 12,
-          "num_anomaly_total": 4,
-          "num_reproduction_failure": 0,
-          "num_unphysical_relaxation": 2,
-          "num_adsorbate_migration": 0,
-          "num_energy_anomaly": 2,
-          "shift_eV": -0.4601124523155544,
-          "n_fit": 14,
-          "MAE_total_shifted": 0.8678293111149663,
-          "MAE_normal_shifted": 0.5510763559927704,
-          "num_normal_shifted": 12,
-          "num_energy_anomaly_shifted": 2
-        },
         "O2": {
-          "MAE_total": 0.9915670645184596,
-          "MAE_normal": 0.9915670645184596,
-          "MAE_single": 1.495406080478789,
-          "ADwT": 94.39795918367346,
-          "AMDwT": 92.53020134228188,
+          "MAE_total": 1.289790226216097,
+          "MAE_normal": 1.289790226216097,
+          "MAE_single": 1.648526693577229,
+          "ADwT": 93.92857142857143,
+          "AMDwT": 88.51454138702461,
           "num_total": 10,
           "num_normal": 10,
           "num_anomaly_total": 0,
@@ -1204,26 +1572,327 @@
           "num_unphysical_relaxation": 0,
           "num_adsorbate_migration": 0,
           "num_energy_anomaly": 0,
-          "shift_eV": -1.053792128394986,
+          "shift_eV": -1.274154101103915,
           "n_fit": 10,
-          "MAE_total_shifted": 0.1602323814757563,
-          "MAE_normal_shifted": 0.1602323814757563,
+          "MAE_total_shifted": 0.1647929951077083,
+          "MAE_normal_shifted": 0.1647929951077083,
           "num_normal_shifted": 10,
           "num_energy_anomaly_shifted": 0
         }
       },
       "shifted": {
-        "normal_rate_pct": 84.61538461538461,
+        "normal_rate_pct": 100.0,
         "adsorbate_migration_rate_pct": 0.0,
         "anomaly_rates_pct": {
-          "total": 15.38461538461539,
+          "total": 0.0,
           "reproduction_failure": 0.0,
-          "unphysical_relaxation": 7.692307692307693,
-          "energy_anomaly": 7.692307692307693
+          "unphysical_relaxation": 0.0,
+          "energy_anomaly": 0.0
         },
-        "MAE_total_eV": 0.5956766458691163,
-        "MAE_normal_eV": 0.3734200039395821,
-        "MAE_single_eV": 0.8821492716945408
+        "MAE_total_eV": 0.1647929951077083,
+        "MAE_normal_eV": 0.1647929951077083,
+        "MAE_single_eV": 0.3743725924733144
+      }
+    },
+    "UMA-s-1p1-OC20": {
+      "original_name": "UMA-s-1p1-OC20",
+      "normal_rate_pct": 0.0,
+      "adsorbate_migration_rate_pct": 0.0,
+      "anomaly_rates_pct": {
+        "total": 100.0,
+        "reproduction_failure": 0.0,
+        "unphysical_relaxation": 100.0,
+        "energy_anomaly": 0.0
+      },
+      "MAE_total_eV": 0.9858973496921944,
+      "MAE_normal_eV": 0.0,
+      "MAE_single_eV": 0.7101749193612559,
+      "ADwT_pct": 4.251700680272104,
+      "AMDwT_pct": 25.55369127516779,
+      "num_total": 10,
+      "time_total_s": 265.4416289329529,
+      "time_per_step_s": 0.053173403231761396,
+      "steps_total": 4992,
+      "plots": {
+        "multi_total": "BothraSodium2024/UMA-s-1p1-OC20/multi/total.png",
+        "multi_total_shifted": "BothraSodium2024/UMA-s-1p1-OC20/multi/total_shifted.png"
+      },
+      "adsorbate_breakdown": {
+        "O2": {
+          "MAE_total": 0.9858973496921944,
+          "MAE_normal": 0.0,
+          "MAE_single": 0.7101749193612559,
+          "ADwT": 4.251700680272104,
+          "AMDwT": 25.55369127516779,
+          "num_total": 10,
+          "num_normal": 0,
+          "num_anomaly_total": 10,
+          "num_reproduction_failure": 0,
+          "num_unphysical_relaxation": 10,
+          "num_adsorbate_migration": 0,
+          "num_energy_anomaly": 0,
+          "shift_eV": null,
+          "n_fit": 0,
+          "MAE_total_shifted": 0.9858973496921944,
+          "MAE_normal_shifted": 0.0,
+          "num_normal_shifted": 0,
+          "num_energy_anomaly_shifted": 0
+        }
+      },
+      "shifted": {
+        "normal_rate_pct": 0.0,
+        "adsorbate_migration_rate_pct": 0.0,
+        "anomaly_rates_pct": {
+          "total": 100.0,
+          "reproduction_failure": 0.0,
+          "unphysical_relaxation": 100.0,
+          "energy_anomaly": 0.0
+        },
+        "MAE_total_eV": 0.9858973496921944,
+        "MAE_normal_eV": 0.0,
+        "MAE_single_eV": 0.7101749193612559
+      }
+    },
+    "UMA-s-1p1-OMAT": {
+      "original_name": "UMA-s-1p1-OMAT",
+      "normal_rate_pct": 100.0,
+      "adsorbate_migration_rate_pct": 0.0,
+      "anomaly_rates_pct": {
+        "total": 0.0,
+        "reproduction_failure": 0.0,
+        "unphysical_relaxation": 0.0,
+        "energy_anomaly": 0.0
+      },
+      "MAE_total_eV": 1.123549963230913,
+      "MAE_normal_eV": 1.123549963230913,
+      "MAE_single_eV": 1.495404936069621,
+      "ADwT_pct": 92.44897959183673,
+      "AMDwT_pct": 90.8758389261745,
+      "num_total": 10,
+      "time_total_s": 36.58452773094177,
+      "time_per_step_s": 0.050391911475126415,
+      "steps_total": 726,
+      "plots": {
+        "multi_total": "BothraSodium2024/UMA-s-1p1-OMAT/multi/total.png",
+        "multi_normal": "BothraSodium2024/UMA-s-1p1-OMAT/multi/normal.png",
+        "multi_total_shifted": "BothraSodium2024/UMA-s-1p1-OMAT/multi/total_shifted.png",
+        "multi_normal_shifted": "BothraSodium2024/UMA-s-1p1-OMAT/multi/normal_shifted.png"
+      },
+      "adsorbate_breakdown": {
+        "O2": {
+          "MAE_total": 1.123549963230913,
+          "MAE_normal": 1.123549963230913,
+          "MAE_single": 1.495404936069621,
+          "ADwT": 92.44897959183673,
+          "AMDwT": 90.8758389261745,
+          "num_total": 10,
+          "num_normal": 10,
+          "num_anomaly_total": 0,
+          "num_reproduction_failure": 0,
+          "num_unphysical_relaxation": 0,
+          "num_adsorbate_migration": 0,
+          "num_energy_anomaly": 0,
+          "shift_eV": -1.119561078527477,
+          "n_fit": 10,
+          "MAE_total_shifted": 0.2064465805414864,
+          "MAE_normal_shifted": 0.2064465805414864,
+          "num_normal_shifted": 10,
+          "num_energy_anomaly_shifted": 0
+        }
+      },
+      "shifted": {
+        "normal_rate_pct": 100.0,
+        "adsorbate_migration_rate_pct": 0.0,
+        "anomaly_rates_pct": {
+          "total": 0.0,
+          "reproduction_failure": 0.0,
+          "unphysical_relaxation": 0.0,
+          "energy_anomaly": 0.0
+        },
+        "MAE_total_eV": 0.2064465805414864,
+        "MAE_normal_eV": 0.2064465805414864,
+        "MAE_single_eV": 0.3758438575421438
+      }
+    },
+    "UMA-s-1p2-OC20": {
+      "original_name": "UMA-s-1p2-OC20",
+      "normal_rate_pct": 0.0,
+      "adsorbate_migration_rate_pct": 0.0,
+      "anomaly_rates_pct": {
+        "total": 100.0,
+        "reproduction_failure": 0.0,
+        "unphysical_relaxation": 100.0,
+        "energy_anomaly": 0.0
+      },
+      "MAE_total_eV": 0.9614907320955186,
+      "MAE_normal_eV": 0.0,
+      "MAE_single_eV": 0.39701972209652,
+      "ADwT_pct": 19.06122448979592,
+      "AMDwT_pct": 25.67785234899329,
+      "num_total": 10,
+      "time_total_s": 278.9448704719543,
+      "time_per_step_s": 0.05726644846478225,
+      "steps_total": 4871,
+      "plots": {
+        "multi_total": "BothraSodium2024/UMA-s-1p2-OC20/multi/total.png",
+        "multi_total_shifted": "BothraSodium2024/UMA-s-1p2-OC20/multi/total_shifted.png"
+      },
+      "adsorbate_breakdown": {
+        "O2": {
+          "MAE_total": 0.9614907320955186,
+          "MAE_normal": 0.0,
+          "MAE_single": 0.39701972209652,
+          "ADwT": 19.06122448979592,
+          "AMDwT": 25.67785234899329,
+          "num_total": 10,
+          "num_normal": 0,
+          "num_anomaly_total": 10,
+          "num_reproduction_failure": 0,
+          "num_unphysical_relaxation": 10,
+          "num_adsorbate_migration": 0,
+          "num_energy_anomaly": 0,
+          "shift_eV": null,
+          "n_fit": 0,
+          "MAE_total_shifted": 0.9614907320955186,
+          "MAE_normal_shifted": 0.0,
+          "num_normal_shifted": 0,
+          "num_energy_anomaly_shifted": 0
+        }
+      },
+      "shifted": {
+        "normal_rate_pct": 0.0,
+        "adsorbate_migration_rate_pct": 0.0,
+        "anomaly_rates_pct": {
+          "total": 100.0,
+          "reproduction_failure": 0.0,
+          "unphysical_relaxation": 100.0,
+          "energy_anomaly": 0.0
+        },
+        "MAE_total_eV": 0.9614907320955186,
+        "MAE_normal_eV": 0.0,
+        "MAE_single_eV": 0.39701972209652
+      }
+    },
+    "UMA-s-1p2-OC22": {
+      "original_name": "UMA-s-1p2-OC22",
+      "normal_rate_pct": 100.0,
+      "adsorbate_migration_rate_pct": 0.0,
+      "anomaly_rates_pct": {
+        "total": 0.0,
+        "reproduction_failure": 0.0,
+        "unphysical_relaxation": 0.0,
+        "energy_anomaly": 0.0
+      },
+      "MAE_total_eV": 0.19160330727426,
+      "MAE_normal_eV": 0.19160330727426,
+      "MAE_single_eV": 0.1804835016537645,
+      "ADwT_pct": 90.7517006802721,
+      "AMDwT_pct": 89.74384787472036,
+      "num_total": 10,
+      "time_total_s": 48.17437744140625,
+      "time_per_step_s": 0.05582199008274189,
+      "steps_total": 863,
+      "plots": {
+        "multi_total": "BothraSodium2024/UMA-s-1p2-OC22/multi/total.png",
+        "multi_normal": "BothraSodium2024/UMA-s-1p2-OC22/multi/normal.png",
+        "multi_total_shifted": "BothraSodium2024/UMA-s-1p2-OC22/multi/total_shifted.png",
+        "multi_normal_shifted": "BothraSodium2024/UMA-s-1p2-OC22/multi/normal_shifted.png"
+      },
+      "adsorbate_breakdown": {
+        "O2": {
+          "MAE_total": 0.19160330727426,
+          "MAE_normal": 0.19160330727426,
+          "MAE_single": 0.1804835016537645,
+          "ADwT": 90.7517006802721,
+          "AMDwT": 89.74384787472036,
+          "num_total": 10,
+          "num_normal": 10,
+          "num_anomaly_total": 0,
+          "num_reproduction_failure": 0,
+          "num_unphysical_relaxation": 0,
+          "num_adsorbate_migration": 0,
+          "num_energy_anomaly": 0,
+          "shift_eV": 0.09871729782117811,
+          "n_fit": 10,
+          "MAE_total_shifted": 0.165214280737198,
+          "MAE_normal_shifted": 0.165214280737198,
+          "num_normal_shifted": 10,
+          "num_energy_anomaly_shifted": 0
+        }
+      },
+      "shifted": {
+        "normal_rate_pct": 100.0,
+        "adsorbate_migration_rate_pct": 0.0,
+        "anomaly_rates_pct": {
+          "total": 0.0,
+          "reproduction_failure": 0.0,
+          "unphysical_relaxation": 0.0,
+          "energy_anomaly": 0.0
+        },
+        "MAE_total_eV": 0.165214280737198,
+        "MAE_normal_eV": 0.165214280737198,
+        "MAE_single_eV": 0.2199704207822357
+      }
+    },
+    "UMA-s-1p2-OMAT": {
+      "original_name": "UMA-s-1p2-OMAT",
+      "normal_rate_pct": 100.0,
+      "adsorbate_migration_rate_pct": 0.0,
+      "anomaly_rates_pct": {
+        "total": 0.0,
+        "reproduction_failure": 0.0,
+        "unphysical_relaxation": 0.0,
+        "energy_anomaly": 0.0
+      },
+      "MAE_total_eV": 0.2116415937872203,
+      "MAE_normal_eV": 0.2116415937872203,
+      "MAE_single_eV": 0.1592245752621819,
+      "ADwT_pct": 94.22448979591837,
+      "AMDwT_pct": 90.21476510067114,
+      "num_total": 10,
+      "time_total_s": 42.73116159439087,
+      "time_per_step_s": 0.05652270052168104,
+      "steps_total": 756,
+      "plots": {
+        "multi_total": "BothraSodium2024/UMA-s-1p2-OMAT/multi/total.png",
+        "multi_normal": "BothraSodium2024/UMA-s-1p2-OMAT/multi/normal.png",
+        "multi_total_shifted": "BothraSodium2024/UMA-s-1p2-OMAT/multi/total_shifted.png",
+        "multi_normal_shifted": "BothraSodium2024/UMA-s-1p2-OMAT/multi/normal_shifted.png"
+      },
+      "adsorbate_breakdown": {
+        "O2": {
+          "MAE_total": 0.2116415937872203,
+          "MAE_normal": 0.2116415937872203,
+          "MAE_single": 0.1592245752621819,
+          "ADwT": 94.22448979591837,
+          "AMDwT": 90.21476510067114,
+          "num_total": 10,
+          "num_normal": 10,
+          "num_anomaly_total": 0,
+          "num_reproduction_failure": 0,
+          "num_unphysical_relaxation": 0,
+          "num_adsorbate_migration": 0,
+          "num_energy_anomaly": 0,
+          "shift_eV": 0.1474333660892908,
+          "n_fit": 10,
+          "MAE_total_shifted": 0.1569794360512139,
+          "MAE_normal_shifted": 0.1569794360512139,
+          "num_normal_shifted": 10,
+          "num_energy_anomaly_shifted": 0
+        }
+      },
+      "shifted": {
+        "normal_rate_pct": 100.0,
+        "adsorbate_migration_rate_pct": 0.0,
+        "anomaly_rates_pct": {
+          "total": 0.0,
+          "reproduction_failure": 0.0,
+          "unphysical_relaxation": 0.0,
+          "energy_anomaly": 0.0
+        },
+        "MAE_total_eV": 0.1569794360512139,
+        "MAE_normal_eV": 0.1569794360512139,
+        "MAE_single_eV": 0.2183856109572435
       }
     }
   },
