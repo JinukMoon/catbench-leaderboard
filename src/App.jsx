@@ -10,6 +10,7 @@ import SurfaceEnergyPage from './components/SurfaceEnergyPage'
 import DocumentationPage from './components/DocumentationPage'
 import UsedByPage from './components/UsedByPage'
 import { Loader2, Headphones, Info } from 'lucide-react'
+import { track } from './analytics'
 
 // Main leaderboard page component
 function MainPage({ meta, mlipMetadata, isDark, currentDataset, setCurrentDataset, datasetData, loading, gasShift, setGasShift }) {
@@ -62,6 +63,7 @@ function MainPage({ meta, mlipMetadata, isDark, currentDataset, setCurrentDatase
                 controls
                 src="/audio/CatBench_summary.mp3"
                 className="h-8 w-full"
+                onPlay={() => track('play_overview_audio')}
               />
             </div>
             {/* Surface Energy */}

@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import { ArrowLeft, ArrowRight, ChevronLeft, Loader2, Github, BookOpen } from 'lucide-react'
+import { track } from '../analytics'
 
 // Documentation structure — content lives in public/docs/<id>.md
 // (split from the CatBench GitHub README; update those files when the README changes)
@@ -106,6 +107,7 @@ function DocumentationPage({ isDark }) {
 
   const goToSection = useCallback((id) => {
     if (!SECTION_IDS.has(id)) return
+    track('docs_section', { section: id })
     if (window.location.hash !== `#${id}`) {
       window.location.hash = id   // fires hashchange → setActiveId
     } else {

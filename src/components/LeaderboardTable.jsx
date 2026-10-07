@@ -2,6 +2,7 @@ import React, { useState, useMemo, useEffect } from 'react'
 import { createPortal } from 'react-dom'
 import { ArrowUp, ArrowDown, X, Info, ExternalLink, Github, FileText, Download } from 'lucide-react'
 import { DATASET_DESCRIPTIONS, EXTERNAL_LINKS } from '../constants/datasets'
+import { track } from '../analytics'
 
 // Alias for backward compatibility
 const DATASET_LINKS = EXTERNAL_LINKS
@@ -586,6 +587,7 @@ function LeaderboardTable({ data, isDark = true, mlipMetadata = null, gasShift =
   }, [rows])
 
   const handleSort = (key, defaultDir = 'asc') => {
+    track('sort_leaderboard', { column: key, dataset: data.id })
     if (sortKey === key) {
       setSortDirection(prev => prev === 'asc' ? 'desc' : 'asc')
     } else {
@@ -705,7 +707,10 @@ function LeaderboardTable({ data, isDark = true, mlipMetadata = null, gasShift =
               role="switch"
               aria-checked={shiftActive}
               disabled={!hasShifted}
-              onClick={() => onToggleGasShift(!gasShift)}
+              onClick={() => {
+                track('toggle_gas_shift', { enabled: !gasShift, dataset: data.id })
+                onToggleGasShift(!gasShift)
+              }}
               title={hasShifted ? '' : 'Not available for this dataset yet'}
               className={`relative w-14 h-7 rounded-full text-[11px] font-bold transition-colors ${
                 !hasShifted
@@ -812,7 +817,10 @@ function LeaderboardTable({ data, isDark = true, mlipMetadata = null, gasShift =
             {sortedRows.map((row) => (
               <tr
                 key={row.name}
-                onClick={() => setSelectedMLIP(row)}
+                onClick={() => {
+                  track('select_model', { model: row.name, dataset: data.id })
+                  setSelectedMLIP(row)
+                }}
                 className={`cursor-pointer transition-colors ${
                   isDark ? 'hover:bg-slate-800/40' : 'hover:bg-slate-50'
                 }`}
