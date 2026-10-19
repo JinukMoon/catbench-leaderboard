@@ -4,10 +4,50 @@
   "source": "catalysis-hub",
   "featured": false,
   "has_d3": false,
-  "last_updated": "2026-10-17T14:41:40.484219Z",
+  "last_updated": "2026-10-19T04:45:28.440724Z",
   "reaction_count": 104,
   "adsorbates": [],
   "results": {
+    "Allegro-OAM-L": {
+      "original_name": "Allegro-OAM-L",
+      "normal_rate_pct": 100.0,
+      "adsorbate_migration_rate_pct": 0.0,
+      "anomaly_rates_pct": {
+        "total": 0.0,
+        "reproduction_failure": 0.0,
+        "unphysical_relaxation": 0.0,
+        "energy_anomaly": 0.0
+      },
+      "MAE_total_eV": 0.507388473764984,
+      "MAE_normal_eV": 0.507388473764984,
+      "MAE_single_eV": 0.5055625663110329,
+      "ADwT_pct": 91.00536368393512,
+      "AMDwT_pct": 93.7751677852349,
+      "num_total": 104,
+      "time_total_s": 29.86853837966919,
+      "time_per_step_s": 0.007469001845378642,
+      "steps_total": 3999,
+      "plots": {
+        "multi_total": "RolingConfigurational2017/Allegro-OAM-L/multi/total.png",
+        "multi_normal": "RolingConfigurational2017/Allegro-OAM-L/multi/normal.png",
+        "multi_total_shifted": "RolingConfigurational2017/Allegro-OAM-L/multi/total_shifted.png",
+        "multi_normal_shifted": "RolingConfigurational2017/Allegro-OAM-L/multi/normal_shifted.png"
+      },
+      "adsorbate_breakdown": {},
+      "shifted": {
+        "normal_rate_pct": 100.0,
+        "adsorbate_migration_rate_pct": 0.0,
+        "anomaly_rates_pct": {
+          "total": 0.0,
+          "reproduction_failure": 0.0,
+          "unphysical_relaxation": 0.0,
+          "energy_anomaly": 0.0
+        },
+        "MAE_total_eV": 0.09727370120366564,
+        "MAE_normal_eV": 0.09727370120366564,
+        "MAE_single_eV": 0.1016269506308224
+      }
+    },
     "AlphaNet-v1-OMA": {
       "original_name": "AlphaNet-v1-OMA",
       "normal_rate_pct": 100.0,
@@ -18,15 +58,15 @@
         "unphysical_relaxation": 0.0,
         "energy_anomaly": 0.0
       },
-      "MAE_total_eV": 0.4895208264221995,
-      "MAE_normal_eV": 0.4895208264221995,
-      "MAE_single_eV": 0.4881485673340282,
-      "ADwT_pct": 86.07993197278911,
-      "AMDwT_pct": 90.96551798313544,
+      "MAE_total_eV": 0.4903489825266542,
+      "MAE_normal_eV": 0.4903489825266542,
+      "MAE_single_eV": 0.4881502546039727,
+      "ADwT_pct": 89.07018576661433,
+      "AMDwT_pct": 92.81707107210461,
       "num_total": 104,
-      "time_total_s": 200.9520864486694,
-      "time_per_step_s": 0.030849261045236328,
-      "steps_total": 6514,
+      "time_total_s": 91.564697265625,
+      "time_per_step_s": 0.0196998057800398,
+      "steps_total": 4648,
       "plots": {
         "multi_total": "RolingConfigurational2017/AlphaNet-v1-OMA/multi/total.png",
         "multi_normal": "RolingConfigurational2017/AlphaNet-v1-OMA/multi/normal.png",
@@ -43,13 +83,13 @@
           "unphysical_relaxation": 0.0,
           "energy_anomaly": 0.0
         },
-        "MAE_total_eV": 0.1005989086363357,
-        "MAE_normal_eV": 0.1005989086363357,
-        "MAE_single_eV": 0.1049615737171289
+        "MAE_total_eV": 0.1003780963523062,
+        "MAE_normal_eV": 0.1003780963523062,
+        "MAE_single_eV": 0.1050284372495357
       }
     },
-    "CHGNetv0.3.0": {
-      "original_name": "CHGNetv0.3.0",
+    "CHGNet-v0.3.0": {
+      "original_name": "CHGNet-v0.3.0",
       "normal_rate_pct": 100.0,
       "adsorbate_migration_rate_pct": 0.0,
       "anomaly_rates_pct": {
@@ -58,20 +98,20 @@
         "unphysical_relaxation": 0.0,
         "energy_anomaly": 0.0
       },
-      "MAE_total_eV": 0.2922057904781124,
-      "MAE_normal_eV": 0.2922057904781124,
-      "MAE_single_eV": 0.2941959380774859,
-      "ADwT_pct": 80.64887493458922,
-      "AMDwT_pct": 86.32184649802096,
+      "MAE_total_eV": 0.2925306999817557,
+      "MAE_normal_eV": 0.2925306999817557,
+      "MAE_single_eV": 0.2941966716731139,
+      "ADwT_pct": 82.32240973312398,
+      "AMDwT_pct": 88.34720788160386,
       "num_total": 104,
-      "time_total_s": 405.7869956493378,
-      "time_per_step_s": 0.04430472711533331,
-      "steps_total": 9159,
+      "time_total_s": 196.2734065055847,
+      "time_per_step_s": 0.02793529839248288,
+      "steps_total": 7026,
       "plots": {
-        "multi_total": "RolingConfigurational2017/CHGNetv0.3.0/multi/total.png",
-        "multi_normal": "RolingConfigurational2017/CHGNetv0.3.0/multi/normal.png",
-        "multi_total_shifted": "RolingConfigurational2017/CHGNetv0.3.0/multi/total_shifted.png",
-        "multi_normal_shifted": "RolingConfigurational2017/CHGNetv0.3.0/multi/normal_shifted.png"
+        "multi_total": "RolingConfigurational2017/CHGNet-v0.3.0/multi/total.png",
+        "multi_normal": "RolingConfigurational2017/CHGNet-v0.3.0/multi/normal.png",
+        "multi_total_shifted": "RolingConfigurational2017/CHGNet-v0.3.0/multi/total_shifted.png",
+        "multi_normal_shifted": "RolingConfigurational2017/CHGNet-v0.3.0/multi/normal_shifted.png"
       },
       "adsorbate_breakdown": {},
       "shifted": {
@@ -83,9 +123,9 @@
           "unphysical_relaxation": 0.0,
           "energy_anomaly": 0.0
         },
-        "MAE_total_eV": 0.1112572368332909,
-        "MAE_normal_eV": 0.1112572368332909,
-        "MAE_single_eV": 0.1156466066650382
+        "MAE_total_eV": 0.1106547916596583,
+        "MAE_normal_eV": 0.1106547916596583,
+        "MAE_single_eV": 0.1156797739051471
       }
     },
     "DPA-3.1-3M-FT": {
@@ -98,15 +138,15 @@
         "unphysical_relaxation": 0.0,
         "energy_anomaly": 0.0
       },
-      "MAE_total_eV": 0.5191341806633484,
-      "MAE_normal_eV": 0.5191341806633484,
-      "MAE_single_eV": 0.5145763945837949,
-      "ADwT_pct": 85.13343799058082,
-      "AMDwT_pct": 90.6692049561177,
+      "MAE_total_eV": 0.5194893265573394,
+      "MAE_normal_eV": 0.5194893265573394,
+      "MAE_single_eV": 0.5145761680574886,
+      "ADwT_pct": 88.01020408163265,
+      "AMDwT_pct": 92.60325245224574,
       "num_total": 104,
-      "time_total_s": 1016.029210090637,
-      "time_per_step_s": 0.1600550110413732,
-      "steps_total": 6348,
+      "time_total_s": 388.1361019611359,
+      "time_per_step_s": 0.08545488814644119,
+      "steps_total": 4542,
       "plots": {
         "multi_total": "RolingConfigurational2017/DPA-3.1-3M-FT/multi/total.png",
         "multi_normal": "RolingConfigurational2017/DPA-3.1-3M-FT/multi/normal.png",
@@ -123,9 +163,49 @@
           "unphysical_relaxation": 0.0,
           "energy_anomaly": 0.0
         },
-        "MAE_total_eV": 0.05774538022553489,
-        "MAE_normal_eV": 0.05774538022553489,
-        "MAE_single_eV": 0.06130283441841488
+        "MAE_total_eV": 0.05777400249058035,
+        "MAE_normal_eV": 0.05777400249058035,
+        "MAE_single_eV": 0.06128974611243262
+      }
+    },
+    "DPA-4.0.1-pro-MPtrj": {
+      "original_name": "DPA-4.0.1-pro-MPtrj",
+      "normal_rate_pct": 100.0,
+      "adsorbate_migration_rate_pct": 0.0,
+      "anomaly_rates_pct": {
+        "total": 0.0,
+        "reproduction_failure": 0.0,
+        "unphysical_relaxation": 0.0,
+        "energy_anomaly": 0.0
+      },
+      "MAE_total_eV": 0.5299612308462167,
+      "MAE_normal_eV": 0.5299612308462167,
+      "MAE_single_eV": 0.5255289735052465,
+      "ADwT_pct": 87.58993982208267,
+      "AMDwT_pct": 91.31410256410255,
+      "num_total": 104,
+      "time_total_s": 410.5507462024689,
+      "time_per_step_s": 0.07928751375095962,
+      "steps_total": 5178,
+      "plots": {
+        "multi_total": "RolingConfigurational2017/DPA-4.0.1-pro-MPtrj/multi/total.png",
+        "multi_normal": "RolingConfigurational2017/DPA-4.0.1-pro-MPtrj/multi/normal.png",
+        "multi_total_shifted": "RolingConfigurational2017/DPA-4.0.1-pro-MPtrj/multi/total_shifted.png",
+        "multi_normal_shifted": "RolingConfigurational2017/DPA-4.0.1-pro-MPtrj/multi/normal_shifted.png"
+      },
+      "adsorbate_breakdown": {},
+      "shifted": {
+        "normal_rate_pct": 100.0,
+        "adsorbate_migration_rate_pct": 0.0,
+        "anomaly_rates_pct": {
+          "total": 0.0,
+          "reproduction_failure": 0.0,
+          "unphysical_relaxation": 0.0,
+          "energy_anomaly": 0.0
+        },
+        "MAE_total_eV": 0.08196134572686345,
+        "MAE_normal_eV": 0.08196134572686345,
+        "MAE_single_eV": 0.08428702652603456
       }
     },
     "Eqnorm-MPtrj": {
@@ -138,15 +218,15 @@
         "unphysical_relaxation": 0.0,
         "energy_anomaly": 0.0
       },
-      "MAE_total_eV": 0.3750562585122688,
-      "MAE_normal_eV": 0.3750562585122688,
-      "MAE_single_eV": 0.3520749955995359,
-      "ADwT_pct": 84.63108320251176,
-      "AMDwT_pct": 89.35209086215797,
+      "MAE_total_eV": 0.3727272757922605,
+      "MAE_normal_eV": 0.3727272757922605,
+      "MAE_single_eV": 0.3520755091164756,
+      "ADwT_pct": 86.43543956043956,
+      "AMDwT_pct": 91.06124161073825,
       "num_total": 104,
-      "time_total_s": 633.7478663921356,
-      "time_per_step_s": 0.08473697906032031,
-      "steps_total": 7479,
+      "time_total_s": 295.4002401828766,
+      "time_per_step_s": 0.051724783782678446,
+      "steps_total": 5711,
       "plots": {
         "multi_total": "RolingConfigurational2017/Eqnorm-MPtrj/multi/total.png",
         "multi_normal": "RolingConfigurational2017/Eqnorm-MPtrj/multi/normal.png",
@@ -163,9 +243,89 @@
           "unphysical_relaxation": 0.0,
           "energy_anomaly": 0.0
         },
-        "MAE_total_eV": 0.1357814276975879,
-        "MAE_normal_eV": 0.1357814276975879,
-        "MAE_single_eV": 0.1162895868535269
+        "MAE_total_eV": 0.1348645739616587,
+        "MAE_normal_eV": 0.1348645739616587,
+        "MAE_single_eV": 0.115032674864236
+      }
+    },
+    "EquFlash": {
+      "original_name": "EquFlash",
+      "normal_rate_pct": 100.0,
+      "adsorbate_migration_rate_pct": 0.0,
+      "anomaly_rates_pct": {
+        "total": 0.0,
+        "reproduction_failure": 0.0,
+        "unphysical_relaxation": 0.0,
+        "energy_anomaly": 0.0
+      },
+      "MAE_total_eV": 0.4774830937099513,
+      "MAE_normal_eV": 0.4774830937099513,
+      "MAE_single_eV": 0.4765842189869571,
+      "ADwT_pct": 90.61813186813185,
+      "AMDwT_pct": 93.7013853037343,
+      "num_total": 104,
+      "time_total_s": 255.6512842178345,
+      "time_per_step_s": 0.06152858825940661,
+      "steps_total": 4155,
+      "plots": {
+        "multi_total": "RolingConfigurational2017/EquFlash/multi/total.png",
+        "multi_normal": "RolingConfigurational2017/EquFlash/multi/normal.png",
+        "multi_total_shifted": "RolingConfigurational2017/EquFlash/multi/total_shifted.png",
+        "multi_normal_shifted": "RolingConfigurational2017/EquFlash/multi/normal_shifted.png"
+      },
+      "adsorbate_breakdown": {},
+      "shifted": {
+        "normal_rate_pct": 100.0,
+        "adsorbate_migration_rate_pct": 0.0,
+        "anomaly_rates_pct": {
+          "total": 0.0,
+          "reproduction_failure": 0.0,
+          "unphysical_relaxation": 0.0,
+          "energy_anomaly": 0.0
+        },
+        "MAE_total_eV": 0.06699404906723558,
+        "MAE_normal_eV": 0.06699404906723558,
+        "MAE_single_eV": 0.0691030607243735
+      }
+    },
+    "EquFlashV2": {
+      "original_name": "EquFlashV2",
+      "normal_rate_pct": 100.0,
+      "adsorbate_migration_rate_pct": 0.0,
+      "anomaly_rates_pct": {
+        "total": 0.0,
+        "reproduction_failure": 0.0,
+        "unphysical_relaxation": 0.0,
+        "energy_anomaly": 0.0
+      },
+      "MAE_total_eV": 0.6475186725935627,
+      "MAE_normal_eV": 0.6475186725935627,
+      "MAE_single_eV": 0.6442896047177739,
+      "ADwT_pct": 89.943746729461,
+      "AMDwT_pct": 93.6923507141628,
+      "num_total": 104,
+      "time_total_s": 567.4680647850037,
+      "time_per_step_s": 0.1471267992701591,
+      "steps_total": 3857,
+      "plots": {
+        "multi_total": "RolingConfigurational2017/EquFlashV2/multi/total.png",
+        "multi_normal": "RolingConfigurational2017/EquFlashV2/multi/normal.png",
+        "multi_total_shifted": "RolingConfigurational2017/EquFlashV2/multi/total_shifted.png",
+        "multi_normal_shifted": "RolingConfigurational2017/EquFlashV2/multi/normal_shifted.png"
+      },
+      "adsorbate_breakdown": {},
+      "shifted": {
+        "normal_rate_pct": 100.0,
+        "adsorbate_migration_rate_pct": 0.0,
+        "anomaly_rates_pct": {
+          "total": 0.0,
+          "reproduction_failure": 0.0,
+          "unphysical_relaxation": 0.0,
+          "energy_anomaly": 0.0
+        },
+        "MAE_total_eV": 0.04019789757801383,
+        "MAE_normal_eV": 0.04019789757801383,
+        "MAE_single_eV": 0.04062815028179535
       }
     },
     "eSEN-30M-OAM": {
@@ -178,15 +338,15 @@
         "unphysical_relaxation": 0.0,
         "energy_anomaly": 64.42307692307693
       },
-      "MAE_total_eV": 2.819678386845216,
-      "MAE_normal_eV": 1.480429705142253,
-      "MAE_single_eV": 2.822534274625039,
-      "ADwT_pct": 88.9046964939822,
-      "AMDwT_pct": 92.65767509895028,
+      "MAE_total_eV": 2.819698870210642,
+      "MAE_normal_eV": 1.48069264217253,
+      "MAE_single_eV": 2.822534510751131,
+      "ADwT_pct": 90.76497906855049,
+      "AMDwT_pct": 93.99059972466013,
       "num_total": 104,
-      "time_total_s": 796.9503824710846,
-      "time_per_step_s": 0.15614231631486772,
-      "steps_total": 5104,
+      "time_total_s": 313.6112062931061,
+      "time_per_step_s": 0.08596798418122426,
+      "steps_total": 3648,
       "plots": {
         "multi_total": "RolingConfigurational2017/eSEN-30M-OAM/multi/total.png",
         "multi_normal": "RolingConfigurational2017/eSEN-30M-OAM/multi/normal.png",
@@ -203,9 +363,9 @@
           "unphysical_relaxation": 0.0,
           "energy_anomaly": 0.0
         },
-        "MAE_total_eV": 0.04687695756587142,
-        "MAE_normal_eV": 0.04687695756587142,
-        "MAE_single_eV": 0.04856542516489483
+        "MAE_total_eV": 0.04684908093200724,
+        "MAE_normal_eV": 0.04684908093200724,
+        "MAE_single_eV": 0.04859917056378306
       }
     },
     "GRACE-2L-OAM": {
@@ -218,15 +378,15 @@
         "unphysical_relaxation": 0.0,
         "energy_anomaly": 25.0
       },
-      "MAE_total_eV": 1.399493235316091,
-      "MAE_normal_eV": 1.156295698267128,
-      "MAE_single_eV": 1.39655183745886,
-      "ADwT_pct": 86.36087127158555,
-      "AMDwT_pct": 91.02123128549302,
+      "MAE_total_eV": 1.399676815241166,
+      "MAE_normal_eV": 1.156448170432014,
+      "MAE_single_eV": 1.396551837458862,
+      "ADwT_pct": 88.82751177394034,
+      "AMDwT_pct": 92.73102736189985,
       "num_total": 104,
-      "time_total_s": 75.6194908618927,
-      "time_per_step_s": 0.01241087983947033,
-      "steps_total": 6093,
+      "time_total_s": 28.27283668518066,
+      "time_per_step_s": 0.006618173381362515,
+      "steps_total": 4272,
       "plots": {
         "multi_total": "RolingConfigurational2017/GRACE-2L-OAM/multi/total.png",
         "multi_normal": "RolingConfigurational2017/GRACE-2L-OAM/multi/normal.png",
@@ -243,93 +403,13 @@
           "unphysical_relaxation": 0.0,
           "energy_anomaly": 0.0
         },
-        "MAE_total_eV": 0.09690767885427592,
-        "MAE_normal_eV": 0.09690767885427592,
-        "MAE_single_eV": 0.1023403012096705
+        "MAE_total_eV": 0.0969903997739147,
+        "MAE_normal_eV": 0.0969903997739147,
+        "MAE_single_eV": 0.102252093312594
       }
     },
-    "MACE-MPA-0": {
-      "original_name": "MACE-MPA-0",
-      "normal_rate_pct": 98.07692307692307,
-      "adsorbate_migration_rate_pct": 0.0,
-      "anomaly_rates_pct": {
-        "total": 1.923076923076923,
-        "reproduction_failure": 0.0,
-        "unphysical_relaxation": 1.923076923076923,
-        "energy_anomaly": 0.0
-      },
-      "MAE_total_eV": 0.3625311883592286,
-      "MAE_normal_eV": 0.3664552748070886,
-      "MAE_single_eV": 0.359130904405522,
-      "ADwT_pct": 86.20290423861852,
-      "AMDwT_pct": 89.95622526243322,
-      "num_total": 104,
-      "time_total_s": 217.7392194271088,
-      "time_per_step_s": 0.028574700712218997,
-      "steps_total": 7620,
-      "plots": {
-        "multi_total": "RolingConfigurational2017/MACE-MPA-0/multi/total.png",
-        "multi_normal": "RolingConfigurational2017/MACE-MPA-0/multi/normal.png",
-        "multi_total_shifted": "RolingConfigurational2017/MACE-MPA-0/multi/total_shifted.png",
-        "multi_normal_shifted": "RolingConfigurational2017/MACE-MPA-0/multi/normal_shifted.png"
-      },
-      "adsorbate_breakdown": {},
-      "shifted": {
-        "normal_rate_pct": 98.07692307692307,
-        "adsorbate_migration_rate_pct": 0.0,
-        "anomaly_rates_pct": {
-          "total": 1.923076923076923,
-          "reproduction_failure": 0.0,
-          "unphysical_relaxation": 1.923076923076923,
-          "energy_anomaly": 0.0
-        },
-        "MAE_total_eV": 0.1070501417518825,
-        "MAE_normal_eV": 0.1052336260459115,
-        "MAE_single_eV": 0.1009769846691031
-      }
-    },
-    "MATLANTISv8": {
-      "original_name": "MATLANTISv8",
-      "normal_rate_pct": 96.15384615384616,
-      "adsorbate_migration_rate_pct": 0.0,
-      "anomaly_rates_pct": {
-        "total": 3.846153846153846,
-        "reproduction_failure": 0.0,
-        "unphysical_relaxation": 0.0,
-        "energy_anomaly": 3.846153846153846
-      },
-      "MAE_total_eV": 0.6471977043606103,
-      "MAE_normal_eV": 0.5854266032842842,
-      "MAE_single_eV": 0.6440337911499274,
-      "ADwT_pct": 84.19250392464679,
-      "AMDwT_pct": 89.80801497160557,
-      "num_total": 104,
-      "time_total_s": 585.1411719322205,
-      "time_per_step_s": 0.0880971351900362,
-      "steps_total": 6642,
-      "plots": {
-        "multi_total": "RolingConfigurational2017/MATLANTISv8/multi/total.png",
-        "multi_normal": "RolingConfigurational2017/MATLANTISv8/multi/normal.png",
-        "multi_total_shifted": "RolingConfigurational2017/MATLANTISv8/multi/total_shifted.png",
-        "multi_normal_shifted": "RolingConfigurational2017/MATLANTISv8/multi/normal_shifted.png"
-      },
-      "adsorbate_breakdown": {},
-      "shifted": {
-        "normal_rate_pct": 100.0,
-        "adsorbate_migration_rate_pct": 0.0,
-        "anomaly_rates_pct": {
-          "total": 0.0,
-          "reproduction_failure": 0.0,
-          "unphysical_relaxation": 0.0,
-          "energy_anomaly": 0.0
-        },
-        "MAE_total_eV": 0.07922659438918471,
-        "MAE_normal_eV": 0.07922659438918471,
-        "MAE_single_eV": 0.07682239533936074
-      }
-    },
-    "MatterSim_v1_5M": {
-      "original_name": "MatterSim_v1_5M",
+    "MACE-MH-1-OMAT": {
+      "original_name": "MACE-MH-1-OMAT",
       "normal_rate_pct": 100.0,
       "adsorbate_migration_rate_pct": 0.0,
       "anomaly_rates_pct": {
@@ -338,20 +418,20 @@
         "unphysical_relaxation": 0.0,
         "energy_anomaly": 0.0
       },
-      "MAE_total_eV": 0.9176693558978978,
-      "MAE_normal_eV": 0.9176693558978978,
-      "MAE_single_eV": 0.918936275547462,
-      "ADwT_pct": 86.07110151753011,
-      "AMDwT_pct": 90.10185424195491,
+      "MAE_total_eV": 0.2043416563215985,
+      "MAE_normal_eV": 0.2043416563215985,
+      "MAE_single_eV": 0.2032706687010144,
+      "ADwT_pct": 84.11793563579278,
+      "AMDwT_pct": 90.75019359834796,
       "num_total": 104,
-      "time_total_s": 263.6161639690399,
-      "time_per_step_s": 0.03845043231753791,
-      "steps_total": 6856,
+      "time_total_s": 143.9460480213165,
+      "time_per_step_s": 0.02976551861482972,
+      "steps_total": 4836,
       "plots": {
-        "multi_total": "RolingConfigurational2017/MatterSim_v1_5M/multi/total.png",
-        "multi_normal": "RolingConfigurational2017/MatterSim_v1_5M/multi/normal.png",
-        "multi_total_shifted": "RolingConfigurational2017/MatterSim_v1_5M/multi/total_shifted.png",
-        "multi_normal_shifted": "RolingConfigurational2017/MatterSim_v1_5M/multi/normal_shifted.png"
+        "multi_total": "RolingConfigurational2017/MACE-MH-1-OMAT/multi/total.png",
+        "multi_normal": "RolingConfigurational2017/MACE-MH-1-OMAT/multi/normal.png",
+        "multi_total_shifted": "RolingConfigurational2017/MACE-MH-1-OMAT/multi/total_shifted.png",
+        "multi_normal_shifted": "RolingConfigurational2017/MACE-MH-1-OMAT/multi/normal_shifted.png"
       },
       "adsorbate_breakdown": {},
       "shifted": {
@@ -363,9 +443,209 @@
           "unphysical_relaxation": 0.0,
           "energy_anomaly": 0.0
         },
-        "MAE_total_eV": 0.1287227703516346,
-        "MAE_normal_eV": 0.1287227703516346,
-        "MAE_single_eV": 0.1356971553415685
+        "MAE_total_eV": 0.07318217147504859,
+        "MAE_normal_eV": 0.07318217147504859,
+        "MAE_single_eV": 0.07532920609382729
+      }
+    },
+    "MACE-MPA-0": {
+      "original_name": "MACE-MPA-0",
+      "normal_rate_pct": 100.0,
+      "adsorbate_migration_rate_pct": 0.0,
+      "anomaly_rates_pct": {
+        "total": 0.0,
+        "reproduction_failure": 0.0,
+        "unphysical_relaxation": 0.0,
+        "energy_anomaly": 0.0
+      },
+      "MAE_total_eV": 0.519273576186738,
+      "MAE_normal_eV": 0.519273576186738,
+      "MAE_single_eV": 0.5185478999969719,
+      "ADwT_pct": 91.65423861852433,
+      "AMDwT_pct": 93.57931078988125,
+      "num_total": 104,
+      "time_total_s": 121.5924944877625,
+      "time_per_step_s": 0.02693078504712347,
+      "steps_total": 4515,
+      "plots": {
+        "multi_total": "RolingConfigurational2017/MACE-MPA-0/multi/total.png",
+        "multi_normal": "RolingConfigurational2017/MACE-MPA-0/multi/normal.png",
+        "multi_total_shifted": "RolingConfigurational2017/MACE-MPA-0/multi/total_shifted.png",
+        "multi_normal_shifted": "RolingConfigurational2017/MACE-MPA-0/multi/normal_shifted.png"
+      },
+      "adsorbate_breakdown": {},
+      "shifted": {
+        "normal_rate_pct": 100.0,
+        "adsorbate_migration_rate_pct": 0.0,
+        "anomaly_rates_pct": {
+          "total": 0.0,
+          "reproduction_failure": 0.0,
+          "unphysical_relaxation": 0.0,
+          "energy_anomaly": 0.0
+        },
+        "MAE_total_eV": 0.1214049771264056,
+        "MAE_normal_eV": 0.1214049771264056,
+        "MAE_single_eV": 0.13152812783065
+      }
+    },
+    "MatterSim-v1-5M": {
+      "original_name": "MatterSim-v1-5M",
+      "normal_rate_pct": 100.0,
+      "adsorbate_migration_rate_pct": 0.0,
+      "anomaly_rates_pct": {
+        "total": 0.0,
+        "reproduction_failure": 0.0,
+        "unphysical_relaxation": 0.0,
+        "energy_anomaly": 0.0
+      },
+      "MAE_total_eV": 0.9173489224738284,
+      "MAE_normal_eV": 0.9173489224738284,
+      "MAE_single_eV": 0.9189364967723936,
+      "ADwT_pct": 88.00791470434328,
+      "AMDwT_pct": 91.62267681982443,
+      "num_total": 104,
+      "time_total_s": 115.7306454181671,
+      "time_per_step_s": 0.02206915435129045,
+      "steps_total": 5244,
+      "plots": {
+        "multi_total": "RolingConfigurational2017/MatterSim-v1-5M/multi/total.png",
+        "multi_normal": "RolingConfigurational2017/MatterSim-v1-5M/multi/normal.png",
+        "multi_total_shifted": "RolingConfigurational2017/MatterSim-v1-5M/multi/total_shifted.png",
+        "multi_normal_shifted": "RolingConfigurational2017/MatterSim-v1-5M/multi/normal_shifted.png"
+      },
+      "adsorbate_breakdown": {},
+      "shifted": {
+        "normal_rate_pct": 100.0,
+        "adsorbate_migration_rate_pct": 0.0,
+        "anomaly_rates_pct": {
+          "total": 0.0,
+          "reproduction_failure": 0.0,
+          "unphysical_relaxation": 0.0,
+          "energy_anomaly": 0.0
+        },
+        "MAE_total_eV": 0.1285474409965414,
+        "MAE_normal_eV": 0.1285474409965414,
+        "MAE_single_eV": 0.1356969352628801
+      }
+    },
+    "NequIP-OAM-L": {
+      "original_name": "NequIP-OAM-L",
+      "normal_rate_pct": 100.0,
+      "adsorbate_migration_rate_pct": 0.0,
+      "anomaly_rates_pct": {
+        "total": 0.0,
+        "reproduction_failure": 0.0,
+        "unphysical_relaxation": 0.0,
+        "energy_anomaly": 0.0
+      },
+      "MAE_total_eV": 0.5035449697274971,
+      "MAE_normal_eV": 0.5035449697274971,
+      "MAE_single_eV": 0.5003795078822189,
+      "ADwT_pct": 89.75176609105179,
+      "AMDwT_pct": 93.63943383238686,
+      "num_total": 104,
+      "time_total_s": 16.254965543746952,
+      "time_per_step_s": 0.004107901325182448,
+      "steps_total": 3957,
+      "plots": {
+        "multi_total": "RolingConfigurational2017/NequIP-OAM-L/multi/total.png",
+        "multi_normal": "RolingConfigurational2017/NequIP-OAM-L/multi/normal.png",
+        "multi_total_shifted": "RolingConfigurational2017/NequIP-OAM-L/multi/total_shifted.png",
+        "multi_normal_shifted": "RolingConfigurational2017/NequIP-OAM-L/multi/normal_shifted.png"
+      },
+      "adsorbate_breakdown": {},
+      "shifted": {
+        "normal_rate_pct": 100.0,
+        "adsorbate_migration_rate_pct": 0.0,
+        "anomaly_rates_pct": {
+          "total": 0.0,
+          "reproduction_failure": 0.0,
+          "unphysical_relaxation": 0.0,
+          "energy_anomaly": 0.0
+        },
+        "MAE_total_eV": 0.06833560226908675,
+        "MAE_normal_eV": 0.06833560226908675,
+        "MAE_single_eV": 0.06991820334485467
+      }
+    },
+    "NequIP-OAM-XL": {
+      "original_name": "NequIP-OAM-XL",
+      "normal_rate_pct": 100.0,
+      "adsorbate_migration_rate_pct": 0.0,
+      "anomaly_rates_pct": {
+        "total": 0.0,
+        "reproduction_failure": 0.0,
+        "unphysical_relaxation": 0.0,
+        "energy_anomaly": 0.0
+      },
+      "MAE_total_eV": 0.5070908271694919,
+      "MAE_normal_eV": 0.5070908271694919,
+      "MAE_single_eV": 0.5044726137899816,
+      "ADwT_pct": 90.14782836211408,
+      "AMDwT_pct": 93.75677594217863,
+      "num_total": 104,
+      "time_total_s": 22.96425485610962,
+      "time_per_step_s": 0.006027363479293864,
+      "steps_total": 3810,
+      "plots": {
+        "multi_total": "RolingConfigurational2017/NequIP-OAM-XL/multi/total.png",
+        "multi_normal": "RolingConfigurational2017/NequIP-OAM-XL/multi/normal.png",
+        "multi_total_shifted": "RolingConfigurational2017/NequIP-OAM-XL/multi/total_shifted.png",
+        "multi_normal_shifted": "RolingConfigurational2017/NequIP-OAM-XL/multi/normal_shifted.png"
+      },
+      "adsorbate_breakdown": {},
+      "shifted": {
+        "normal_rate_pct": 100.0,
+        "adsorbate_migration_rate_pct": 0.0,
+        "anomaly_rates_pct": {
+          "total": 0.0,
+          "reproduction_failure": 0.0,
+          "unphysical_relaxation": 0.0,
+          "energy_anomaly": 0.0
+        },
+        "MAE_total_eV": 0.05584574983429139,
+        "MAE_normal_eV": 0.05584574983429139,
+        "MAE_single_eV": 0.0579961604398157
+      }
+    },
+    "Nequix-MP-1": {
+      "original_name": "Nequix-MP-1",
+      "normal_rate_pct": 100.0,
+      "adsorbate_migration_rate_pct": 0.0,
+      "anomaly_rates_pct": {
+        "total": 0.0,
+        "reproduction_failure": 0.0,
+        "unphysical_relaxation": 0.0,
+        "energy_anomaly": 0.0
+      },
+      "MAE_total_eV": 0.3272499347165126,
+      "MAE_normal_eV": 0.3272499347165126,
+      "MAE_single_eV": 0.311410400735226,
+      "ADwT_pct": 87.56377551020405,
+      "AMDwT_pct": 91.12512906556525,
+      "num_total": 104,
+      "time_total_s": 128.68769383430478,
+      "time_per_step_s": 0.02071264990090211,
+      "steps_total": 6213,
+      "plots": {
+        "multi_total": "RolingConfigurational2017/Nequix-MP-1/multi/total.png",
+        "multi_normal": "RolingConfigurational2017/Nequix-MP-1/multi/normal.png",
+        "multi_total_shifted": "RolingConfigurational2017/Nequix-MP-1/multi/total_shifted.png",
+        "multi_normal_shifted": "RolingConfigurational2017/Nequix-MP-1/multi/normal_shifted.png"
+      },
+      "adsorbate_breakdown": {},
+      "shifted": {
+        "normal_rate_pct": 100.0,
+        "adsorbate_migration_rate_pct": 0.0,
+        "anomaly_rates_pct": {
+          "total": 0.0,
+          "reproduction_failure": 0.0,
+          "unphysical_relaxation": 0.0,
+          "energy_anomaly": 0.0
+        },
+        "MAE_total_eV": 0.1727321391747836,
+        "MAE_normal_eV": 0.1727321391747836,
+        "MAE_single_eV": 0.1612614233979064
       }
     },
     "ORB-v3": {
@@ -378,15 +658,15 @@
         "unphysical_relaxation": 0.0,
         "energy_anomaly": 0.0
       },
-      "MAE_total_eV": 0.3916222588216177,
-      "MAE_normal_eV": 0.3916222588216177,
-      "MAE_single_eV": 0.3946323239401593,
-      "ADwT_pct": 81.09399529042385,
-      "AMDwT_pct": 87.67983135432802,
+      "MAE_total_eV": 0.391714872977167,
+      "MAE_normal_eV": 0.391714872977167,
+      "MAE_single_eV": 0.3946868278028337,
+      "ADwT_pct": 84.60295656724229,
+      "AMDwT_pct": 90.18843572534847,
       "num_total": 104,
-      "time_total_s": 131.9437901973724,
-      "time_per_step_s": 0.01760424152066343,
-      "steps_total": 7495,
+      "time_total_s": 54.5620813369751,
+      "time_per_step_s": 0.01004086885111798,
+      "steps_total": 5434,
       "plots": {
         "multi_total": "RolingConfigurational2017/ORB-v3/multi/total.png",
         "multi_normal": "RolingConfigurational2017/ORB-v3/multi/normal.png",
@@ -403,9 +683,49 @@
           "unphysical_relaxation": 0.0,
           "energy_anomaly": 0.0
         },
-        "MAE_total_eV": 0.08542840203686528,
-        "MAE_normal_eV": 0.08542840203686528,
-        "MAE_single_eV": 0.0842464974244021
+        "MAE_total_eV": 0.08520476389602843,
+        "MAE_normal_eV": 0.08520476389602843,
+        "MAE_single_eV": 0.0843314157901255
+      }
+    },
+    "PET-OAM-XL": {
+      "original_name": "PET-OAM-XL",
+      "normal_rate_pct": 25.0,
+      "adsorbate_migration_rate_pct": 0.0,
+      "anomaly_rates_pct": {
+        "total": 75.0,
+        "reproduction_failure": 0.0,
+        "unphysical_relaxation": 0.0,
+        "energy_anomaly": 75.0
+      },
+      "MAE_total_eV": 3.446118776643454,
+      "MAE_normal_eV": 1.531679212913941,
+      "MAE_single_eV": 3.450093984632486,
+      "ADwT_pct": 87.66287284144425,
+      "AMDwT_pct": 92.14969454482878,
+      "num_total": 104,
+      "time_total_s": 233.4715230464935,
+      "time_per_step_s": 0.05519421348616868,
+      "steps_total": 4230,
+      "plots": {
+        "multi_total": "RolingConfigurational2017/PET-OAM-XL/multi/total.png",
+        "multi_normal": "RolingConfigurational2017/PET-OAM-XL/multi/normal.png",
+        "multi_total_shifted": "RolingConfigurational2017/PET-OAM-XL/multi/total_shifted.png",
+        "multi_normal_shifted": "RolingConfigurational2017/PET-OAM-XL/multi/normal_shifted.png"
+      },
+      "adsorbate_breakdown": {},
+      "shifted": {
+        "normal_rate_pct": 100.0,
+        "adsorbate_migration_rate_pct": 0.0,
+        "anomaly_rates_pct": {
+          "total": 0.0,
+          "reproduction_failure": 0.0,
+          "unphysical_relaxation": 0.0,
+          "energy_anomaly": 0.0
+        },
+        "MAE_total_eV": 0.06502861451846004,
+        "MAE_normal_eV": 0.06502861451846004,
+        "MAE_single_eV": 0.06650457063864933
       }
     },
     "SevenNet-MF-OMPA": {
@@ -418,15 +738,15 @@
         "unphysical_relaxation": 0.0,
         "energy_anomaly": 0.0
       },
-      "MAE_total_eV": 0.5372718526480805,
-      "MAE_normal_eV": 0.5372718526480805,
-      "MAE_single_eV": 0.5339133785035117,
-      "ADwT_pct": 87.70408163265306,
-      "AMDwT_pct": 91.93200395801065,
+      "MAE_total_eV": 0.5371911023958886,
+      "MAE_normal_eV": 0.5371911023958886,
+      "MAE_single_eV": 0.5339120032982699,
+      "ADwT_pct": 89.7723704866562,
+      "AMDwT_pct": 93.48025296850801,
       "num_total": 104,
-      "time_total_s": 409.22894310951233,
-      "time_per_step_s": 0.0724042716046554,
-      "steps_total": 5652,
+      "time_total_s": 99.61695075035095,
+      "time_per_step_s": 0.02528990879673799,
+      "steps_total": 3939,
       "plots": {
         "multi_total": "RolingConfigurational2017/SevenNet-MF-OMPA/multi/total.png",
         "multi_normal": "RolingConfigurational2017/SevenNet-MF-OMPA/multi/normal.png",
@@ -443,9 +763,89 @@
           "unphysical_relaxation": 0.0,
           "energy_anomaly": 0.0
         },
-        "MAE_total_eV": 0.06349033074889873,
-        "MAE_normal_eV": 0.06349033074889873,
-        "MAE_single_eV": 0.06519168237916163
+        "MAE_total_eV": 0.0633730137888747,
+        "MAE_normal_eV": 0.0633730137888747,
+        "MAE_single_eV": 0.06514112262128603
+      }
+    },
+    "SevenNet-Omni": {
+      "original_name": "SevenNet-Omni",
+      "normal_rate_pct": 100.0,
+      "adsorbate_migration_rate_pct": 0.0,
+      "anomaly_rates_pct": {
+        "total": 0.0,
+        "reproduction_failure": 0.0,
+        "unphysical_relaxation": 0.0,
+        "energy_anomaly": 0.0
+      },
+      "MAE_total_eV": 0.5205318818585746,
+      "MAE_normal_eV": 0.5205318818585746,
+      "MAE_single_eV": 0.5175491553946698,
+      "ADwT_pct": 89.22782574568288,
+      "AMDwT_pct": 93.19469540526588,
+      "num_total": 104,
+      "time_total_s": 101.5897951126099,
+      "time_per_step_s": 0.02500979692580253,
+      "steps_total": 4062,
+      "plots": {
+        "multi_total": "RolingConfigurational2017/SevenNet-Omni/multi/total.png",
+        "multi_normal": "RolingConfigurational2017/SevenNet-Omni/multi/normal.png",
+        "multi_total_shifted": "RolingConfigurational2017/SevenNet-Omni/multi/total_shifted.png",
+        "multi_normal_shifted": "RolingConfigurational2017/SevenNet-Omni/multi/normal_shifted.png"
+      },
+      "adsorbate_breakdown": {},
+      "shifted": {
+        "normal_rate_pct": 100.0,
+        "adsorbate_migration_rate_pct": 0.0,
+        "anomaly_rates_pct": {
+          "total": 0.0,
+          "reproduction_failure": 0.0,
+          "unphysical_relaxation": 0.0,
+          "energy_anomaly": 0.0
+        },
+        "MAE_total_eV": 0.06515784033802582,
+        "MAE_normal_eV": 0.06515784033802582,
+        "MAE_single_eV": 0.06674250916375148
+      }
+    },
+    "TACE-OAM-L": {
+      "original_name": "TACE-OAM-L",
+      "normal_rate_pct": 100.0,
+      "adsorbate_migration_rate_pct": 0.0,
+      "anomaly_rates_pct": {
+        "total": 0.0,
+        "reproduction_failure": 0.0,
+        "unphysical_relaxation": 0.0,
+        "energy_anomaly": 0.0
+      },
+      "MAE_total_eV": 0.5104261905815108,
+      "MAE_normal_eV": 0.5104261905815108,
+      "MAE_single_eV": 0.5072674045876712,
+      "ADwT_pct": 89.70434327577185,
+      "AMDwT_pct": 93.4589571502323,
+      "num_total": 104,
+      "time_total_s": 571.8491594791412,
+      "time_per_step_s": 0.1432846804006869,
+      "steps_total": 3991,
+      "plots": {
+        "multi_total": "RolingConfigurational2017/TACE-OAM-L/multi/total.png",
+        "multi_normal": "RolingConfigurational2017/TACE-OAM-L/multi/normal.png",
+        "multi_total_shifted": "RolingConfigurational2017/TACE-OAM-L/multi/total_shifted.png",
+        "multi_normal_shifted": "RolingConfigurational2017/TACE-OAM-L/multi/normal_shifted.png"
+      },
+      "adsorbate_breakdown": {},
+      "shifted": {
+        "normal_rate_pct": 100.0,
+        "adsorbate_migration_rate_pct": 0.0,
+        "anomaly_rates_pct": {
+          "total": 0.0,
+          "reproduction_failure": 0.0,
+          "unphysical_relaxation": 0.0,
+          "energy_anomaly": 0.0
+        },
+        "MAE_total_eV": 0.05521944141495191,
+        "MAE_normal_eV": 0.05521944141495191,
+        "MAE_single_eV": 0.05777308623470101
       }
     }
   },

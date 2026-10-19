@@ -1,12 +1,852 @@
 {
   "id": "GrugerAb2026",
-  "source": "catalysis-hub",
   "display_name": "GrugerAb2026",
-  "reaction_count": 139,
+  "source": "catalysis-hub",
   "featured": false,
-  "has_benchmark": true,
-  "has_xlsx": false,
-  "results": {},
+  "has_d3": false,
+  "last_updated": "2026-10-19T04:44:29.340240Z",
+  "reaction_count": 139,
   "adsorbates": [],
-  "last_updated": "2026-06-16T06:02:22.864995Z"
+  "results": {
+    "Allegro-OAM-L": {
+      "original_name": "Allegro-OAM-L",
+      "normal_rate_pct": 100.0,
+      "adsorbate_migration_rate_pct": 0.0,
+      "anomaly_rates_pct": {
+        "total": 0.0,
+        "reproduction_failure": 0.0,
+        "unphysical_relaxation": 0.0,
+        "energy_anomaly": 0.0
+      },
+      "MAE_total_eV": 0.3210802758788019,
+      "MAE_normal_eV": 0.3210802758788019,
+      "MAE_single_eV": 0.3227829084762903,
+      "ADwT_pct": 92.11936573190428,
+      "AMDwT_pct": 93.29317753850611,
+      "num_total": 139,
+      "time_total_s": 68.46393394470215,
+      "time_per_step_s": 0.01298879414621555,
+      "steps_total": 5271,
+      "plots": {
+        "multi_total": "GrugerAb2026/Allegro-OAM-L/multi/total.png",
+        "multi_normal": "GrugerAb2026/Allegro-OAM-L/multi/normal.png",
+        "multi_total_shifted": "GrugerAb2026/Allegro-OAM-L/multi/total_shifted.png",
+        "multi_normal_shifted": "GrugerAb2026/Allegro-OAM-L/multi/normal_shifted.png"
+      },
+      "adsorbate_breakdown": {},
+      "shifted": {
+        "normal_rate_pct": 100.0,
+        "adsorbate_migration_rate_pct": 0.0,
+        "anomaly_rates_pct": {
+          "total": 0.0,
+          "reproduction_failure": 0.0,
+          "unphysical_relaxation": 0.0,
+          "energy_anomaly": 0.0
+        },
+        "MAE_total_eV": 0.08564443424716166,
+        "MAE_normal_eV": 0.08564443424716166,
+        "MAE_single_eV": 0.09197681441583418
+      }
+    },
+    "AlphaNet-v1-OMA": {
+      "original_name": "AlphaNet-v1-OMA",
+      "normal_rate_pct": 99.28057553956835,
+      "adsorbate_migration_rate_pct": 0.0,
+      "anomaly_rates_pct": {
+        "total": 0.7194244604316548,
+        "reproduction_failure": 0.7194244604316548,
+        "unphysical_relaxation": 0.0,
+        "energy_anomaly": 0.0
+      },
+      "MAE_total_eV": 0.4898592957346525,
+      "MAE_normal_eV": 0.4811055722041475,
+      "MAE_single_eV": 0.4824757016204086,
+      "ADwT_pct": 91.87539764107075,
+      "AMDwT_pct": 93.20658909114285,
+      "num_total": 139,
+      "time_total_s": 113.72111082077029,
+      "time_per_step_s": 0.01972954733184772,
+      "steps_total": 5764,
+      "plots": {
+        "multi_total": "GrugerAb2026/AlphaNet-v1-OMA/multi/total.png",
+        "multi_normal": "GrugerAb2026/AlphaNet-v1-OMA/multi/normal.png",
+        "multi_total_shifted": "GrugerAb2026/AlphaNet-v1-OMA/multi/total_shifted.png",
+        "multi_normal_shifted": "GrugerAb2026/AlphaNet-v1-OMA/multi/normal_shifted.png"
+      },
+      "adsorbate_breakdown": {},
+      "shifted": {
+        "normal_rate_pct": 99.28057553956835,
+        "adsorbate_migration_rate_pct": 0.0,
+        "anomaly_rates_pct": {
+          "total": 0.7194244604316548,
+          "reproduction_failure": 0.7194244604316548,
+          "unphysical_relaxation": 0.0,
+          "energy_anomaly": 0.0
+        },
+        "MAE_total_eV": 0.09865838575089797,
+        "MAE_normal_eV": 0.09298542687556477,
+        "MAE_single_eV": 0.1014399790703676
+      }
+    },
+    "CHGNet-v0.3.0": {
+      "original_name": "CHGNet-v0.3.0",
+      "normal_rate_pct": 97.12230215827337,
+      "adsorbate_migration_rate_pct": 1.43884892086331,
+      "anomaly_rates_pct": {
+        "total": 1.43884892086331,
+        "reproduction_failure": 0.7194244604316548,
+        "unphysical_relaxation": 0.7194244604316548,
+        "energy_anomaly": 0.0
+      },
+      "MAE_total_eV": 0.3027835324682538,
+      "MAE_normal_eV": 0.2863431289860257,
+      "MAE_single_eV": 0.2934140931835593,
+      "ADwT_pct": 86.8178926246758,
+      "AMDwT_pct": 87.91487615276786,
+      "num_total": 139,
+      "time_total_s": 375.6306397914886,
+      "time_per_step_s": 0.03847097908556827,
+      "steps_total": 9764,
+      "plots": {
+        "multi_total": "GrugerAb2026/CHGNet-v0.3.0/multi/total.png",
+        "multi_normal": "GrugerAb2026/CHGNet-v0.3.0/multi/normal.png",
+        "multi_total_shifted": "GrugerAb2026/CHGNet-v0.3.0/multi/total_shifted.png",
+        "multi_normal_shifted": "GrugerAb2026/CHGNet-v0.3.0/multi/normal_shifted.png"
+      },
+      "adsorbate_breakdown": {},
+      "shifted": {
+        "normal_rate_pct": 97.12230215827337,
+        "adsorbate_migration_rate_pct": 1.43884892086331,
+        "anomaly_rates_pct": {
+          "total": 1.43884892086331,
+          "reproduction_failure": 0.7194244604316548,
+          "unphysical_relaxation": 0.7194244604316548,
+          "energy_anomaly": 0.0
+        },
+        "MAE_total_eV": 0.1621434985541437,
+        "MAE_normal_eV": 0.1447876174862335,
+        "MAE_single_eV": 0.1723713694549872
+      }
+    },
+    "DPA-3.1-3M-FT": {
+      "original_name": "DPA-3.1-3M-FT",
+      "normal_rate_pct": 100.0,
+      "adsorbate_migration_rate_pct": 0.0,
+      "anomaly_rates_pct": {
+        "total": 0.0,
+        "reproduction_failure": 0.0,
+        "unphysical_relaxation": 0.0,
+        "energy_anomaly": 0.0
+      },
+      "MAE_total_eV": 0.3180735597630427,
+      "MAE_normal_eV": 0.3180735597630427,
+      "MAE_single_eV": 0.3180487250972286,
+      "ADwT_pct": 87.21039494934665,
+      "AMDwT_pct": 91.3698034860702,
+      "num_total": 139,
+      "time_total_s": 521.6430494785309,
+      "time_per_step_s": 0.08424467853335448,
+      "steps_total": 6192,
+      "plots": {
+        "multi_total": "GrugerAb2026/DPA-3.1-3M-FT/multi/total.png",
+        "multi_normal": "GrugerAb2026/DPA-3.1-3M-FT/multi/normal.png",
+        "multi_total_shifted": "GrugerAb2026/DPA-3.1-3M-FT/multi/total_shifted.png",
+        "multi_normal_shifted": "GrugerAb2026/DPA-3.1-3M-FT/multi/normal_shifted.png"
+      },
+      "adsorbate_breakdown": {},
+      "shifted": {
+        "normal_rate_pct": 100.0,
+        "adsorbate_migration_rate_pct": 0.0,
+        "anomaly_rates_pct": {
+          "total": 0.0,
+          "reproduction_failure": 0.0,
+          "unphysical_relaxation": 0.0,
+          "energy_anomaly": 0.0
+        },
+        "MAE_total_eV": 0.05891333570391775,
+        "MAE_normal_eV": 0.05891333570391775,
+        "MAE_single_eV": 0.06854255316794106
+      }
+    },
+    "DPA-4.0.1-pro-MPtrj": {
+      "original_name": "DPA-4.0.1-pro-MPtrj",
+      "normal_rate_pct": 100.0,
+      "adsorbate_migration_rate_pct": 0.0,
+      "anomaly_rates_pct": {
+        "total": 0.0,
+        "reproduction_failure": 0.0,
+        "unphysical_relaxation": 0.0,
+        "energy_anomaly": 0.0
+      },
+      "MAE_total_eV": 0.5071263769011196,
+      "MAE_normal_eV": 0.5071263769011196,
+      "MAE_single_eV": 0.5015164164651563,
+      "ADwT_pct": 88.00053834483434,
+      "AMDwT_pct": 90.65078138831203,
+      "num_total": 139,
+      "time_total_s": 645.1333191394806,
+      "time_per_step_s": 0.09341635087452659,
+      "steps_total": 6906,
+      "plots": {
+        "multi_total": "GrugerAb2026/DPA-4.0.1-pro-MPtrj/multi/total.png",
+        "multi_normal": "GrugerAb2026/DPA-4.0.1-pro-MPtrj/multi/normal.png",
+        "multi_total_shifted": "GrugerAb2026/DPA-4.0.1-pro-MPtrj/multi/total_shifted.png",
+        "multi_normal_shifted": "GrugerAb2026/DPA-4.0.1-pro-MPtrj/multi/normal_shifted.png"
+      },
+      "adsorbate_breakdown": {},
+      "shifted": {
+        "normal_rate_pct": 100.0,
+        "adsorbate_migration_rate_pct": 0.0,
+        "anomaly_rates_pct": {
+          "total": 0.0,
+          "reproduction_failure": 0.0,
+          "unphysical_relaxation": 0.0,
+          "energy_anomaly": 0.0
+        },
+        "MAE_total_eV": 0.08972733301607666,
+        "MAE_normal_eV": 0.08972733301607666,
+        "MAE_single_eV": 0.1004907780277089
+      }
+    },
+    "Eqnorm-MPtrj": {
+      "original_name": "Eqnorm-MPtrj",
+      "normal_rate_pct": 100.0,
+      "adsorbate_migration_rate_pct": 0.0,
+      "anomaly_rates_pct": {
+        "total": 0.0,
+        "reproduction_failure": 0.0,
+        "unphysical_relaxation": 0.0,
+        "energy_anomaly": 0.0
+      },
+      "MAE_total_eV": 0.4130633268980523,
+      "MAE_normal_eV": 0.4130633268980523,
+      "MAE_single_eV": 0.4117550229552691,
+      "ADwT_pct": 90.38051191699701,
+      "AMDwT_pct": 91.48568393607259,
+      "num_total": 139,
+      "time_total_s": 367.18830037117,
+      "time_per_step_s": 0.05197286629457467,
+      "steps_total": 7065,
+      "plots": {
+        "multi_total": "GrugerAb2026/Eqnorm-MPtrj/multi/total.png",
+        "multi_normal": "GrugerAb2026/Eqnorm-MPtrj/multi/normal.png",
+        "multi_total_shifted": "GrugerAb2026/Eqnorm-MPtrj/multi/total_shifted.png",
+        "multi_normal_shifted": "GrugerAb2026/Eqnorm-MPtrj/multi/normal_shifted.png"
+      },
+      "adsorbate_breakdown": {},
+      "shifted": {
+        "normal_rate_pct": 100.0,
+        "adsorbate_migration_rate_pct": 0.0,
+        "anomaly_rates_pct": {
+          "total": 0.0,
+          "reproduction_failure": 0.0,
+          "unphysical_relaxation": 0.0,
+          "energy_anomaly": 0.0
+        },
+        "MAE_total_eV": 0.1035121636398385,
+        "MAE_normal_eV": 0.1035121636398385,
+        "MAE_single_eV": 0.09379136142648262
+      }
+    },
+    "EquFlash": {
+      "original_name": "EquFlash",
+      "normal_rate_pct": 99.28057553956835,
+      "adsorbate_migration_rate_pct": 0.0,
+      "anomaly_rates_pct": {
+        "total": 0.7194244604316548,
+        "reproduction_failure": 0.7194244604316548,
+        "unphysical_relaxation": 0.0,
+        "energy_anomaly": 0.0
+      },
+      "MAE_total_eV": 0.3429695912180618,
+      "MAE_normal_eV": 0.3443872693704907,
+      "MAE_single_eV": 0.3441926653838209,
+      "ADwT_pct": 91.40361180443398,
+      "AMDwT_pct": 92.98464584037455,
+      "num_total": 139,
+      "time_total_s": 367.8397941589355,
+      "time_per_step_s": 0.06219813901909631,
+      "steps_total": 5914,
+      "plots": {
+        "multi_total": "GrugerAb2026/EquFlash/multi/total.png",
+        "multi_normal": "GrugerAb2026/EquFlash/multi/normal.png",
+        "multi_total_shifted": "GrugerAb2026/EquFlash/multi/total_shifted.png",
+        "multi_normal_shifted": "GrugerAb2026/EquFlash/multi/normal_shifted.png"
+      },
+      "adsorbate_breakdown": {},
+      "shifted": {
+        "normal_rate_pct": 99.28057553956835,
+        "adsorbate_migration_rate_pct": 0.0,
+        "anomaly_rates_pct": {
+          "total": 0.7194244604316548,
+          "reproduction_failure": 0.7194244604316548,
+          "unphysical_relaxation": 0.0,
+          "energy_anomaly": 0.0
+        },
+        "MAE_total_eV": 0.08746796935645164,
+        "MAE_normal_eV": 0.08707522718466852,
+        "MAE_single_eV": 0.09296041244660419
+      }
+    },
+    "EquFlashV2": {
+      "original_name": "EquFlashV2",
+      "normal_rate_pct": 100.0,
+      "adsorbate_migration_rate_pct": 0.0,
+      "anomaly_rates_pct": {
+        "total": 0.0,
+        "reproduction_failure": 0.0,
+        "unphysical_relaxation": 0.0,
+        "energy_anomaly": 0.0
+      },
+      "MAE_total_eV": 0.6164502080376342,
+      "MAE_normal_eV": 0.6164502080376342,
+      "MAE_single_eV": 0.6140241703521575,
+      "ADwT_pct": 90.2674595017863,
+      "AMDwT_pct": 93.01570823877812,
+      "num_total": 139,
+      "time_total_s": 774.191593170166,
+      "time_per_step_s": 0.1483125657414111,
+      "steps_total": 5220,
+      "plots": {
+        "multi_total": "GrugerAb2026/EquFlashV2/multi/total.png",
+        "multi_normal": "GrugerAb2026/EquFlashV2/multi/normal.png",
+        "multi_total_shifted": "GrugerAb2026/EquFlashV2/multi/total_shifted.png",
+        "multi_normal_shifted": "GrugerAb2026/EquFlashV2/multi/normal_shifted.png"
+      },
+      "adsorbate_breakdown": {},
+      "shifted": {
+        "normal_rate_pct": 100.0,
+        "adsorbate_migration_rate_pct": 0.0,
+        "anomaly_rates_pct": {
+          "total": 0.0,
+          "reproduction_failure": 0.0,
+          "unphysical_relaxation": 0.0,
+          "energy_anomaly": 0.0
+        },
+        "MAE_total_eV": 0.05952416881351021,
+        "MAE_normal_eV": 0.05952416881351021,
+        "MAE_single_eV": 0.06189759927439129
+      }
+    },
+    "eSEN-30M-OAM": {
+      "original_name": "eSEN-30M-OAM",
+      "normal_rate_pct": 50.35971223021583,
+      "adsorbate_migration_rate_pct": 0.0,
+      "anomaly_rates_pct": {
+        "total": 49.64028776978417,
+        "reproduction_failure": 0.0,
+        "unphysical_relaxation": 0.0,
+        "energy_anomaly": 49.64028776978417
+      },
+      "MAE_total_eV": 2.976237021420742,
+      "MAE_normal_eV": 1.569234285131097,
+      "MAE_single_eV": 2.977816031650059,
+      "ADwT_pct": 90.70400822199383,
+      "AMDwT_pct": 92.96259636586035,
+      "num_total": 139,
+      "time_total_s": 571.2396142482758,
+      "time_per_step_s": 0.1087454053394776,
+      "steps_total": 5253,
+      "plots": {
+        "multi_total": "GrugerAb2026/eSEN-30M-OAM/multi/total.png",
+        "multi_normal": "GrugerAb2026/eSEN-30M-OAM/multi/normal.png",
+        "multi_total_shifted": "GrugerAb2026/eSEN-30M-OAM/multi/total_shifted.png",
+        "multi_normal_shifted": "GrugerAb2026/eSEN-30M-OAM/multi/normal_shifted.png"
+      },
+      "adsorbate_breakdown": {},
+      "shifted": {
+        "normal_rate_pct": 100.0,
+        "adsorbate_migration_rate_pct": 0.0,
+        "anomaly_rates_pct": {
+          "total": 0.0,
+          "reproduction_failure": 0.0,
+          "unphysical_relaxation": 0.0,
+          "energy_anomaly": 0.0
+        },
+        "MAE_total_eV": 0.06910588032598809,
+        "MAE_normal_eV": 0.06910588032598809,
+        "MAE_single_eV": 0.0734982115591266
+      }
+    },
+    "GRACE-2L-OAM": {
+      "original_name": "GRACE-2L-OAM",
+      "normal_rate_pct": 79.85611510791367,
+      "adsorbate_migration_rate_pct": 0.7194244604316548,
+      "anomaly_rates_pct": {
+        "total": 19.42446043165468,
+        "reproduction_failure": 0.0,
+        "unphysical_relaxation": 0.0,
+        "energy_anomaly": 19.42446043165468
+      },
+      "MAE_total_eV": 1.336300908539374,
+      "MAE_normal_eV": 1.14783625568461,
+      "MAE_single_eV": 1.328576309486311,
+      "ADwT_pct": 90.78622816032873,
+      "AMDwT_pct": 92.7439524890151,
+      "num_total": 139,
+      "time_total_s": 42.53736925125122,
+      "time_per_step_s": 0.007939038680711314,
+      "steps_total": 5358,
+      "plots": {
+        "multi_total": "GrugerAb2026/GRACE-2L-OAM/multi/total.png",
+        "multi_normal": "GrugerAb2026/GRACE-2L-OAM/multi/normal.png",
+        "multi_total_shifted": "GrugerAb2026/GRACE-2L-OAM/multi/total_shifted.png",
+        "multi_normal_shifted": "GrugerAb2026/GRACE-2L-OAM/multi/normal_shifted.png"
+      },
+      "adsorbate_breakdown": {},
+      "shifted": {
+        "normal_rate_pct": 99.28057553956835,
+        "adsorbate_migration_rate_pct": 0.7194244604316548,
+        "anomaly_rates_pct": {
+          "total": 0.0,
+          "reproduction_failure": 0.0,
+          "unphysical_relaxation": 0.0,
+          "energy_anomaly": 0.0
+        },
+        "MAE_total_eV": 0.08501928560655896,
+        "MAE_normal_eV": 0.07904020639461916,
+        "MAE_single_eV": 0.08479176082178226
+      }
+    },
+    "MACE-MH-1-OMAT": {
+      "original_name": "MACE-MH-1-OMAT",
+      "normal_rate_pct": 100.0,
+      "adsorbate_migration_rate_pct": 0.0,
+      "anomaly_rates_pct": {
+        "total": 0.0,
+        "reproduction_failure": 0.0,
+        "unphysical_relaxation": 0.0,
+        "energy_anomaly": 0.0
+      },
+      "MAE_total_eV": 0.3554032686079638,
+      "MAE_normal_eV": 0.3554032686079638,
+      "MAE_single_eV": 0.3528009660329357,
+      "ADwT_pct": 81.18558214652766,
+      "AMDwT_pct": 88.12273670996085,
+      "num_total": 139,
+      "time_total_s": 311.0949683189392,
+      "time_per_step_s": 0.043680843628045384,
+      "steps_total": 7122,
+      "plots": {
+        "multi_total": "GrugerAb2026/MACE-MH-1-OMAT/multi/total.png",
+        "multi_normal": "GrugerAb2026/MACE-MH-1-OMAT/multi/normal.png",
+        "multi_total_shifted": "GrugerAb2026/MACE-MH-1-OMAT/multi/total_shifted.png",
+        "multi_normal_shifted": "GrugerAb2026/MACE-MH-1-OMAT/multi/normal_shifted.png"
+      },
+      "adsorbate_breakdown": {},
+      "shifted": {
+        "normal_rate_pct": 100.0,
+        "adsorbate_migration_rate_pct": 0.0,
+        "anomaly_rates_pct": {
+          "total": 0.0,
+          "reproduction_failure": 0.0,
+          "unphysical_relaxation": 0.0,
+          "energy_anomaly": 0.0
+        },
+        "MAE_total_eV": 0.0719081456526959,
+        "MAE_normal_eV": 0.0719081456526959,
+        "MAE_single_eV": 0.07945233221737037
+      }
+    },
+    "MACE-MPA-0": {
+      "original_name": "MACE-MPA-0",
+      "normal_rate_pct": 99.28057553956835,
+      "adsorbate_migration_rate_pct": 0.7194244604316548,
+      "anomaly_rates_pct": {
+        "total": 0.0,
+        "reproduction_failure": 0.0,
+        "unphysical_relaxation": 0.0,
+        "energy_anomaly": 0.0
+      },
+      "MAE_total_eV": 0.3534758560318692,
+      "MAE_normal_eV": 0.3422211247500942,
+      "MAE_single_eV": 0.3471267279011794,
+      "ADwT_pct": 94.69534576420487,
+      "AMDwT_pct": 93.84240258799619,
+      "num_total": 139,
+      "time_total_s": 246.2222843170166,
+      "time_per_step_s": 0.044898301297778366,
+      "steps_total": 5484,
+      "plots": {
+        "multi_total": "GrugerAb2026/MACE-MPA-0/multi/total.png",
+        "multi_normal": "GrugerAb2026/MACE-MPA-0/multi/normal.png",
+        "multi_total_shifted": "GrugerAb2026/MACE-MPA-0/multi/total_shifted.png",
+        "multi_normal_shifted": "GrugerAb2026/MACE-MPA-0/multi/normal_shifted.png"
+      },
+      "adsorbate_breakdown": {},
+      "shifted": {
+        "normal_rate_pct": 99.28057553956835,
+        "adsorbate_migration_rate_pct": 0.7194244604316548,
+        "anomaly_rates_pct": {
+          "total": 0.0,
+          "reproduction_failure": 0.0,
+          "unphysical_relaxation": 0.0,
+          "energy_anomaly": 0.0
+        },
+        "MAE_total_eV": 0.1044280193581878,
+        "MAE_normal_eV": 0.09502875265032981,
+        "MAE_single_eV": 0.103027256257349
+      }
+    },
+    "MatterSim-v1-5M": {
+      "original_name": "MatterSim-v1-5M",
+      "normal_rate_pct": 84.17266187050359,
+      "adsorbate_migration_rate_pct": 0.0,
+      "anomaly_rates_pct": {
+        "total": 15.8273381294964,
+        "reproduction_failure": 0.0,
+        "unphysical_relaxation": 0.0,
+        "energy_anomaly": 15.8273381294964
+      },
+      "MAE_total_eV": 1.234670193591807,
+      "MAE_normal_eV": 1.071819133663089,
+      "MAE_single_eV": 1.238867787664986,
+      "ADwT_pct": 89.45871873929427,
+      "AMDwT_pct": 91.42315677659212,
+      "num_total": 139,
+      "time_total_s": 152.9427108764648,
+      "time_per_step_s": 0.02365703184477415,
+      "steps_total": 6465,
+      "plots": {
+        "multi_total": "GrugerAb2026/MatterSim-v1-5M/multi/total.png",
+        "multi_normal": "GrugerAb2026/MatterSim-v1-5M/multi/normal.png",
+        "multi_total_shifted": "GrugerAb2026/MatterSim-v1-5M/multi/total_shifted.png",
+        "multi_normal_shifted": "GrugerAb2026/MatterSim-v1-5M/multi/normal_shifted.png"
+      },
+      "adsorbate_breakdown": {},
+      "shifted": {
+        "normal_rate_pct": 100.0,
+        "adsorbate_migration_rate_pct": 0.0,
+        "anomaly_rates_pct": {
+          "total": 0.0,
+          "reproduction_failure": 0.0,
+          "unphysical_relaxation": 0.0,
+          "energy_anomaly": 0.0
+        },
+        "MAE_total_eV": 0.1050414029929169,
+        "MAE_normal_eV": 0.1050414029929169,
+        "MAE_single_eV": 0.1048979644727955
+      }
+    },
+    "NequIP-OAM-L": {
+      "original_name": "NequIP-OAM-L",
+      "normal_rate_pct": 100.0,
+      "adsorbate_migration_rate_pct": 0.0,
+      "anomaly_rates_pct": {
+        "total": 0.0,
+        "reproduction_failure": 0.0,
+        "unphysical_relaxation": 0.0,
+        "energy_anomaly": 0.0
+      },
+      "MAE_total_eV": 0.3090310978708884,
+      "MAE_normal_eV": 0.3090310978708884,
+      "MAE_single_eV": 0.3070377017710996,
+      "ADwT_pct": 88.4395340870161,
+      "AMDwT_pct": 91.91041797434535,
+      "num_total": 139,
+      "time_total_s": 27.76431560516357,
+      "time_per_step_s": 0.004949075865448052,
+      "steps_total": 5610,
+      "plots": {
+        "multi_total": "GrugerAb2026/NequIP-OAM-L/multi/total.png",
+        "multi_normal": "GrugerAb2026/NequIP-OAM-L/multi/normal.png",
+        "multi_total_shifted": "GrugerAb2026/NequIP-OAM-L/multi/total_shifted.png",
+        "multi_normal_shifted": "GrugerAb2026/NequIP-OAM-L/multi/normal_shifted.png"
+      },
+      "adsorbate_breakdown": {},
+      "shifted": {
+        "normal_rate_pct": 100.0,
+        "adsorbate_migration_rate_pct": 0.0,
+        "anomaly_rates_pct": {
+          "total": 0.0,
+          "reproduction_failure": 0.0,
+          "unphysical_relaxation": 0.0,
+          "energy_anomaly": 0.0
+        },
+        "MAE_total_eV": 0.06150264877491188,
+        "MAE_normal_eV": 0.06150264877491188,
+        "MAE_single_eV": 0.0675195108240534
+      }
+    },
+    "NequIP-OAM-XL": {
+      "original_name": "NequIP-OAM-XL",
+      "normal_rate_pct": 100.0,
+      "adsorbate_migration_rate_pct": 0.0,
+      "anomaly_rates_pct": {
+        "total": 0.0,
+        "reproduction_failure": 0.0,
+        "unphysical_relaxation": 0.0,
+        "energy_anomaly": 0.0
+      },
+      "MAE_total_eV": 0.298885567990876,
+      "MAE_normal_eV": 0.298885567990876,
+      "MAE_single_eV": 0.298035201691896,
+      "ADwT_pct": 90.7854940537366,
+      "AMDwT_pct": 93.16232919704504,
+      "num_total": 139,
+      "time_total_s": 38.05880975723267,
+      "time_per_step_s": 0.0072937542654719556,
+      "steps_total": 5218,
+      "plots": {
+        "multi_total": "GrugerAb2026/NequIP-OAM-XL/multi/total.png",
+        "multi_normal": "GrugerAb2026/NequIP-OAM-XL/multi/normal.png",
+        "multi_total_shifted": "GrugerAb2026/NequIP-OAM-XL/multi/total_shifted.png",
+        "multi_normal_shifted": "GrugerAb2026/NequIP-OAM-XL/multi/normal_shifted.png"
+      },
+      "adsorbate_breakdown": {},
+      "shifted": {
+        "normal_rate_pct": 100.0,
+        "adsorbate_migration_rate_pct": 0.0,
+        "anomaly_rates_pct": {
+          "total": 0.0,
+          "reproduction_failure": 0.0,
+          "unphysical_relaxation": 0.0,
+          "energy_anomaly": 0.0
+        },
+        "MAE_total_eV": 0.059775165815043,
+        "MAE_normal_eV": 0.059775165815043,
+        "MAE_single_eV": 0.06345791728891179
+      }
+    },
+    "Nequix-MP-1": {
+      "original_name": "Nequix-MP-1",
+      "normal_rate_pct": 99.28057553956835,
+      "adsorbate_migration_rate_pct": 0.0,
+      "anomaly_rates_pct": {
+        "total": 0.7194244604316548,
+        "reproduction_failure": 0.0,
+        "unphysical_relaxation": 0.7194244604316548,
+        "energy_anomaly": 0.0
+      },
+      "MAE_total_eV": 0.3885372250284274,
+      "MAE_normal_eV": 0.3818893416159632,
+      "MAE_single_eV": 0.3773701398869314,
+      "ADwT_pct": 89.00871139822817,
+      "AMDwT_pct": 89.19366520206624,
+      "num_total": 139,
+      "time_total_s": 211.3182194232941,
+      "time_per_step_s": 0.02127221858499034,
+      "steps_total": 9934,
+      "plots": {
+        "multi_total": "GrugerAb2026/Nequix-MP-1/multi/total.png",
+        "multi_normal": "GrugerAb2026/Nequix-MP-1/multi/normal.png",
+        "multi_total_shifted": "GrugerAb2026/Nequix-MP-1/multi/total_shifted.png",
+        "multi_normal_shifted": "GrugerAb2026/Nequix-MP-1/multi/normal_shifted.png"
+      },
+      "adsorbate_breakdown": {},
+      "shifted": {
+        "normal_rate_pct": 99.28057553956835,
+        "adsorbate_migration_rate_pct": 0.0,
+        "anomaly_rates_pct": {
+          "total": 0.7194244604316548,
+          "reproduction_failure": 0.0,
+          "unphysical_relaxation": 0.7194244604316548,
+          "energy_anomaly": 0.0
+        },
+        "MAE_total_eV": 0.1793239462241453,
+        "MAE_normal_eV": 0.1696155850809554,
+        "MAE_single_eV": 0.1740912784554854
+      }
+    },
+    "ORB-v3": {
+      "original_name": "ORB-v3",
+      "normal_rate_pct": 100.0,
+      "adsorbate_migration_rate_pct": 0.0,
+      "anomaly_rates_pct": {
+        "total": 0.0,
+        "reproduction_failure": 0.0,
+        "unphysical_relaxation": 0.0,
+        "energy_anomaly": 0.0
+      },
+      "MAE_total_eV": 0.703874826051942,
+      "MAE_normal_eV": 0.703874826051942,
+      "MAE_single_eV": 0.707547034769343,
+      "ADwT_pct": 83.48627220672442,
+      "AMDwT_pct": 88.74784735969612,
+      "num_total": 139,
+      "time_total_s": 78.62456321716309,
+      "time_per_step_s": 0.010999519196581289,
+      "steps_total": 7148,
+      "plots": {
+        "multi_total": "GrugerAb2026/ORB-v3/multi/total.png",
+        "multi_normal": "GrugerAb2026/ORB-v3/multi/normal.png",
+        "multi_total_shifted": "GrugerAb2026/ORB-v3/multi/total_shifted.png",
+        "multi_normal_shifted": "GrugerAb2026/ORB-v3/multi/normal_shifted.png"
+      },
+      "adsorbate_breakdown": {},
+      "shifted": {
+        "normal_rate_pct": 100.0,
+        "adsorbate_migration_rate_pct": 0.0,
+        "anomaly_rates_pct": {
+          "total": 0.0,
+          "reproduction_failure": 0.0,
+          "unphysical_relaxation": 0.0,
+          "energy_anomaly": 0.0
+        },
+        "MAE_total_eV": 0.1310346219002922,
+        "MAE_normal_eV": 0.1310346219002922,
+        "MAE_single_eV": 0.1289838888607236
+      }
+    },
+    "PET-OAM-XL": {
+      "original_name": "PET-OAM-XL",
+      "normal_rate_pct": 0.0,
+      "adsorbate_migration_rate_pct": 1.43884892086331,
+      "anomaly_rates_pct": {
+        "total": 98.56115107913669,
+        "reproduction_failure": 0.0,
+        "unphysical_relaxation": 0.7194244604316548,
+        "energy_anomaly": 97.84172661870504
+      },
+      "MAE_total_eV": 4.266544032098821,
+      "MAE_normal_eV": 0.0,
+      "MAE_single_eV": 4.305205851666604,
+      "ADwT_pct": 88.95487691479455,
+      "AMDwT_pct": 90.93050391901166,
+      "num_total": 139,
+      "time_total_s": 793.650230884552,
+      "time_per_step_s": 0.07152579586198198,
+      "steps_total": 11096,
+      "plots": {
+        "multi_total": "GrugerAb2026/PET-OAM-XL/multi/total.png",
+        "multi_total_shifted": "GrugerAb2026/PET-OAM-XL/multi/total_shifted.png",
+        "multi_normal_shifted": "GrugerAb2026/PET-OAM-XL/multi/normal_shifted.png"
+      },
+      "adsorbate_breakdown": {},
+      "shifted": {
+        "normal_rate_pct": 97.84172661870504,
+        "adsorbate_migration_rate_pct": 1.43884892086331,
+        "anomaly_rates_pct": {
+          "total": 0.7194244604316548,
+          "reproduction_failure": 0.0,
+          "unphysical_relaxation": 0.7194244604316548,
+          "energy_anomaly": 0.0
+        },
+        "MAE_total_eV": 0.1259268774530676,
+        "MAE_normal_eV": 0.0934990298512169,
+        "MAE_single_eV": 0.1022164147861388
+      }
+    },
+    "SevenNet-MF-OMPA": {
+      "original_name": "SevenNet-MF-OMPA",
+      "normal_rate_pct": 99.28057553956835,
+      "adsorbate_migration_rate_pct": 0.0,
+      "anomaly_rates_pct": {
+        "total": 0.7194244604316548,
+        "reproduction_failure": 0.0,
+        "unphysical_relaxation": 0.7194244604316548,
+        "energy_anomaly": 0.0
+      },
+      "MAE_total_eV": 0.4758071941417897,
+      "MAE_normal_eV": 0.4639482179121887,
+      "MAE_single_eV": 0.4599652778310883,
+      "ADwT_pct": 89.68898350707175,
+      "AMDwT_pct": 92.3868958524452,
+      "num_total": 139,
+      "time_total_s": 149.4774742126465,
+      "time_per_step_s": 0.02649370333439321,
+      "steps_total": 5642,
+      "plots": {
+        "multi_total": "GrugerAb2026/SevenNet-MF-OMPA/multi/total.png",
+        "multi_normal": "GrugerAb2026/SevenNet-MF-OMPA/multi/normal.png",
+        "multi_total_shifted": "GrugerAb2026/SevenNet-MF-OMPA/multi/total_shifted.png",
+        "multi_normal_shifted": "GrugerAb2026/SevenNet-MF-OMPA/multi/normal_shifted.png"
+      },
+      "adsorbate_breakdown": {},
+      "shifted": {
+        "normal_rate_pct": 99.28057553956835,
+        "adsorbate_migration_rate_pct": 0.0,
+        "anomaly_rates_pct": {
+          "total": 0.7194244604316548,
+          "reproduction_failure": 0.0,
+          "unphysical_relaxation": 0.7194244604316548,
+          "energy_anomaly": 0.0
+        },
+        "MAE_total_eV": 0.07428397319665876,
+        "MAE_normal_eV": 0.06198487027909615,
+        "MAE_single_eV": 0.06771828682188334
+      }
+    },
+    "SevenNet-Omni": {
+      "original_name": "SevenNet-Omni",
+      "normal_rate_pct": 100.0,
+      "adsorbate_migration_rate_pct": 0.0,
+      "anomaly_rates_pct": {
+        "total": 0.0,
+        "reproduction_failure": 0.0,
+        "unphysical_relaxation": 0.0,
+        "energy_anomaly": 0.0
+      },
+      "MAE_total_eV": 0.2384833922844321,
+      "MAE_normal_eV": 0.2384833922844321,
+      "MAE_single_eV": 0.2375708865867298,
+      "ADwT_pct": 88.29320217295552,
+      "AMDwT_pct": 91.67109265607647,
+      "num_total": 139,
+      "time_total_s": 144.6347508430481,
+      "time_per_step_s": 0.026004090406876682,
+      "steps_total": 5562,
+      "plots": {
+        "multi_total": "GrugerAb2026/SevenNet-Omni/multi/total.png",
+        "multi_normal": "GrugerAb2026/SevenNet-Omni/multi/normal.png",
+        "multi_total_shifted": "GrugerAb2026/SevenNet-Omni/multi/total_shifted.png",
+        "multi_normal_shifted": "GrugerAb2026/SevenNet-Omni/multi/normal_shifted.png"
+      },
+      "adsorbate_breakdown": {},
+      "shifted": {
+        "normal_rate_pct": 100.0,
+        "adsorbate_migration_rate_pct": 0.0,
+        "anomaly_rates_pct": {
+          "total": 0.0,
+          "reproduction_failure": 0.0,
+          "unphysical_relaxation": 0.0,
+          "energy_anomaly": 0.0
+        },
+        "MAE_total_eV": 0.06204254939523183,
+        "MAE_normal_eV": 0.06204254939523183,
+        "MAE_single_eV": 0.06762494001123906
+      }
+    },
+    "TACE-OAM-L": {
+      "original_name": "TACE-OAM-L",
+      "normal_rate_pct": 100.0,
+      "adsorbate_migration_rate_pct": 0.0,
+      "anomaly_rates_pct": {
+        "total": 0.0,
+        "reproduction_failure": 0.0,
+        "unphysical_relaxation": 0.0,
+        "energy_anomaly": 0.0
+      },
+      "MAE_total_eV": 0.3046392465703144,
+      "MAE_normal_eV": 0.3046392465703144,
+      "MAE_single_eV": 0.302730031754667,
+      "ADwT_pct": 89.57348406988696,
+      "AMDwT_pct": 92.6796549337711,
+      "num_total": 139,
+      "time_total_s": 715.7806811332703,
+      "time_per_step_s": 0.1426142022580734,
+      "steps_total": 5019,
+      "plots": {
+        "multi_total": "GrugerAb2026/TACE-OAM-L/multi/total.png",
+        "multi_normal": "GrugerAb2026/TACE-OAM-L/multi/normal.png",
+        "multi_total_shifted": "GrugerAb2026/TACE-OAM-L/multi/total_shifted.png",
+        "multi_normal_shifted": "GrugerAb2026/TACE-OAM-L/multi/normal_shifted.png"
+      },
+      "adsorbate_breakdown": {},
+      "shifted": {
+        "normal_rate_pct": 100.0,
+        "adsorbate_migration_rate_pct": 0.0,
+        "anomaly_rates_pct": {
+          "total": 0.0,
+          "reproduction_failure": 0.0,
+          "unphysical_relaxation": 0.0,
+          "energy_anomaly": 0.0
+        },
+        "MAE_total_eV": 0.06301474258599223,
+        "MAE_normal_eV": 0.06301474258599223,
+        "MAE_single_eV": 0.06705205821773723
+      }
+    }
+  },
+  "has_xlsx": true
 }
