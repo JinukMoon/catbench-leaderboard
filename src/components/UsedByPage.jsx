@@ -123,6 +123,13 @@ function UsedByPage({ isDark }) {
                     {pub.used}
                   </p>
                 )}
+
+                {/* Attribution for a reused figure */}
+                {pub.image_credit && (
+                  <p className={`mt-2 text-xs ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>
+                    {pub.image_credit}
+                  </p>
+                )}
               </div>
             </a>
           ))}
