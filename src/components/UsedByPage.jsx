@@ -72,13 +72,14 @@ function UsedByPage({ isDark }) {
             >
               {/* Preview image — large, with slight breathing room */}
               {pub.image && (
-                <div className={`sm:w-80 shrink-0 p-3 flex ${
+                <div className={`sm:w-80 shrink-0 p-3 flex items-center ${
                   isDark ? 'bg-slate-800/40' : 'bg-slate-50'
                 }`}>
+                  {/* Same box for every card; the whole figure is shown, padded top/bottom */}
                   <img
                     src={pub.image}
                     alt={pub.title}
-                    className="w-full h-48 sm:h-full object-cover rounded-lg"
+                    className="w-full h-48 object-contain bg-white rounded-lg"
                     loading="lazy"
                   />
                 </div>
